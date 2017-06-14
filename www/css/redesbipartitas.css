@@ -1,0 +1,178 @@
+/* fuentes de la tabla de ficheros cargados */
+#selectedDataFileContent, #uploadedFilesTable, #availableFilesTable {
+    font-size:  x-small;
+}
+
+
+/* panel del ziggurat */
+#ziggurat {
+    position:   relative;
+    vertical-align: top;
+    /* height:     400px; */
+    height: 80%;
+    width: 90%;
+    cursor:     move;
+    margin-top: 0px;
+}
+
+/* paneles de informacion del ziggurat */
+#zigguratNodesDetail, #zigguratWikiDetail {
+    padding:    0px 0px 5px 10px;
+}
+
+#zigguratNodesDetail {
+    margin-top: 0px;
+    position:   relative;
+    /* height:     180px; */
+    height: 40%
+}
+
+#zigguratWikiDetail ul.nav-pills a {
+    font-size:  x-small;
+    padding:    5px 5px 5px 5px;
+    display:    none;
+}
+
+.wikiDetail {
+    margin-top: 10px;
+    position:   relative;
+    /* height:     180px; */
+    height: 20%;
+    display:    none;
+}
+
+/* panel de botones del zoom */
+#zoomPanel {
+    float: right;
+}
+
+/* imagenes de zoom */
+#zoomin, #zoomout, #zoomfit, #zoomreset {
+    cursor: pointer;
+    width:  16px;
+    height: 16px;
+}
+
+/* cabeceras de grupo */
+.groupHeader {
+    padding:        2px;
+    margin:         2px;
+    border-bottom:  1px dotted lightgray;
+}
+
+.groupHeaderIcon {
+  vertical-align:   middle;
+  display:          table-cell;
+}
+
+.groupHeaderText {
+  vertical-align:   middle;
+  display:          table-cell;
+  padding-left:     16px;
+}
+
+/* etiqueta de los controles */
+.controlLabel {
+    display:        inline-block;
+    vertical-align: middle;
+    font-weight:    normal;
+    font-size:      90%;
+}
+
+/* etiqueta de los enlaces */
+.linkLabel {
+    display:        inline-block;
+    vertical-align: middle;
+    font-weight:    normal;
+    font-size:      90%;
+}
+
+.linkLabel img {
+    width:          24px;
+    height:         24px;
+    margin-right:   8px;
+}
+
+/* contenido de los paneles */
+.panelContent {
+    font-size:  small;
+    padding:    3px;
+    border:     0px;
+}
+
+/* panel de informacion */
+.aboutInfo {
+    padding:    8px;
+    font-size:  small;
+    color:      gray;
+}
+
+.aboutAuthor {
+    padding:    8px;
+    font-size:  small;
+    color:      gray;
+}
+
+.aboutVersion {
+    padding:    8px;
+    font-size:  small;
+    color:      gray;
+}
+
+/* pie de pagina */
+.footerPanel {
+    padding:    10px;
+    margin:     0px;
+    font-size:  x-small;
+}
+
+.footerPanelContent {
+    padding:    0px;
+    clear:      both;
+}
+
+.footerPanelContentLeft {
+    float:      left;
+}
+
+.footerPanelContentRight {
+    float:      right;
+}
+
+/* tooltips */
+.rbtooltiphelp {
+    font-size:  x-small;
+}
+
+.rbtooltipinfo {
+    font-size:  x-small;
+    background-color: rgba(192, 192, 192, 0.25);
+}
+
+.rbtooltiptableinfo1 {
+    width: 100%;
+}
+
+.rbtooltiptableinfo1 th {
+    font-weigth:bold;
+    width:      50px;
+    padding:    0px;
+}
+
+.rbtooltiptableinfo1 td {
+    padding:    0px;
+}
+
+.rbtooltiptableinfo2 {
+    width: 100%;
+}
+
+.rbtooltiptableinfo2 th {
+    font-weigth:    bold;
+    border-bottom:  1px solid lightgray;
+    padding:        0px;
+}
+
+.rbtooltiptableinfo2 td {
+    padding: 0px;
+}

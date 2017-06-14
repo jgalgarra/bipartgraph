@@ -1,0 +1,50 @@
+"Name";"Species";"kradius";"kdegree";"kshell";"krisk";"degree"
+"Echium wildpretii";"Plant1";1.36363636363636;8.34357864357864;4;18.04;18
+"Pimpinella cumbrae";"Plant2";1.72727272727273;6.33376623376623;4;14.04;14
+"Pterocephalus lasiospermus";"Plant3";1.72727272727273;6.61760461760462;4;11.04;14
+"Mentha longifolia";"Plant4";2.45454545454545;4.97012987012987;3;8.03;12
+"Erysimum scoparium";"Plant5";1.90909090909091;5.02539682539683;4;6.04;10
+"Spartocytisus supranubius";"Plant6";1.72727272727273;4.71601731601732;4;4.04;9
+"Tolpis webbii";"Plant7";1.90909090909091;4.10952380952381;4;3.04;8
+"Argyranthemum teneriffae";"Plant8";2.63636363636364;2.88441558441558;3;4.03;7
+"Scrophularia glabrata";"Plant9";2.27272727272727;3.30649350649351;4;6.04;7
+"Nepeta teydea";"Plant10";2.27272727272727;2.67316017316017;4;3.04;5
+"Adenocarpus viscosus";"Plant11";2.81818181818182;0.9;2;0.02;2
+"Anastoechus latifrons";"Pollinator1";1.5;3.37884711779449;4;0.04;6
+"Anthophora alluaudi";"Pollinator2";1.75;3.12349763297132;4;1.04;6
+"Apis mellifera";"Pollinator3";1.75;3.3732953072336;4;1.04;6
+"Euodynerus reflexus";"Pollinator4";1.75;2.96911166805904;4;1.04;6
+"Geron hesperidon";"Pollinator5";2;2.93966283896616;4;3.04;6
+"Eristalis tenax";"Pollinator6";2;2.82244500139237;4;1.04;5
+"Megachile canariensis";"Pollinator7";1.75;2.93884711779449;4;0.04;5
+"Anthrax anthrax";"Pollinator8";2;2.33122807017544;4;0.04;4
+"Eucera gracilipes";"Pollinator9";2;2.27609022556391;4;0.04;4
+"Hyleaus canariensis";"Pollinator10";2;2.41503759398496;4;0.04;4
+"Lasioglossum viride";"Pollinator11";2;2.33122807017544;4;0.04;4
+"Linnaemyia soror";"Pollinator12";2.5;2.09899845398938;3;0.03;4
+"Cephalodromia sp1 M_PL_008";"Pollinator13";2.5;1.48206723705816;3;0.03;3
+"Cyclyrius webbianus";"Pollinator14";2.5;1.51016429963798;3;0.03;3
+"Estheria simonyi";"Pollinator15";2.5;1.71968810916179;3;0.03;3
+"Lasioglossum actifrons";"Pollinator16";2.5;1.42635477582846;3;0.03;3
+"Melecta curvispina";"Pollinator17";2.25;1.83609022556391;3;0.03;3
+"Osmia canariensis";"Pollinator18";2.5;1.457595601908;2;0.02;3
+"Andrena wollestoni";"Pollinator19";2.5;1.10275689223058;2;0.02;2
+"Colletes dimidiatus";"Pollinator20";2.75;0.98635477582846;2;0.02;2
+"Gasteruption sp1 M_PL_008";"Pollinator21";2.5;1.15789473684211;2;0.02;2
+"Lucilia sericata ";"Pollinator22";2.75;0.958257713248639;2;0.02;2
+"Macroglossum stellatarum";"Pollinator23";2.5;1.25714285714286;2;0.02;2
+"Scaeva albomaculata";"Pollinator24";2.5;1.01894736842105;2;0.02;2
+"Stomorhina lunata";"Pollinator25";2.75;1.14074074074074;2;0.02;2
+"Unidentified sp1 M_PL_008";"Pollinator26";2.75;1.11264367816092;2;0.02;2
+"Anthidium manicatum";"Pollinator27";2.75;0.44;1;0.01;1
+"Bibio elmoi";"Pollinator28";3;0.407407407407407;1;0.01;1
+"Dermasothes gracile";"Pollinator29";2.75;0.578947368421053;1;0.01;1
+"Drosophila sp1 M_PL_008";"Pollinator30";3.5;0.379310344827586;1;0.01;1
+"Lasioglossum chalcodes";"Pollinator31";2.75;0.733333333333333;1;0.01;1
+"Leptochilus eatoni";"Pollinator32";2.75;0.578947368421053;1;0.01;1
+"Nyctia lugubris";"Pollinator33";2.75;0.578947368421053;1;0.01;1
+"Peleteria ruficornis";"Pollinator34";3;0.407407407407407;1;0.01;1
+"Phylloscopus collybita";"Pollinator35";2.75;0.733333333333333;1;0.01;1
+"Serinus canarius";"Pollinator36";2.75;0.733333333333333;1;0.01;1
+"Tachina canariensis";"Pollinator37";3;0.407407407407407;1;0.01;1
+"Tachysphex unicolor";"Pollinator38";2.75;0.44;1;0.01;1
