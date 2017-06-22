@@ -317,10 +317,10 @@ shinyServer(function(input, output, session) {
       shinyjs::show("networkAnalysis")
 
       output$NodesGuildA <- renderText({
-        paste(nrow(content),strings$value("LABEL_SPECIES"))
+        paste(ncol(content)-1,strings$value("LABEL_SPECIES"))
       })
       output$NodesGuildB <- renderText({
-        paste(ncol(content)-1,strings$value("LABEL_SPECIES"))
+        paste(nrow(content),strings$value("LABEL_SPECIES"))
       })
       dflabcols <- searchlabcols(fred = file)
       if (ncol(dflabcols)>0){
