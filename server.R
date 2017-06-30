@@ -43,6 +43,8 @@ showWiki <- function(types, nodesData) {
   } else {
     tab<-""
     tab<-paste0(tab, "tabsetPanel(")
+
+
     for (i in 1:nrow(nodesData)) {
       if (i>1) {
         tab<-paste0(tab, ", ")
@@ -509,13 +511,21 @@ shinyServer(function(input, output, session) {
                                                         input$zigguratYDisplaceSA6,input$zigguratYDisplaceSA7,
                                                         input$zigguratYDisplaceSA8,input$zigguratYDisplaceSA9,
                                                         input$zigguratYDisplaceSA10,input$zigguratYDisplaceSA11,
-                                                        input$zigguratYDisplaceSA12),
+                                                        input$zigguratYDisplaceSA12,input$zigguratYDisplaceSA13,
+                                                        input$zigguratYDisplaceSA14,input$zigguratYDisplaceSA15,
+                                                        input$zigguratYDisplaceSA16,input$zigguratYDisplaceSA17,
+                                                        input$zigguratYDisplaceSA18,input$zigguratYDisplaceSA19,
+                                                        input$zigguratYDisplaceSA20),
       displace_y_b                                  = c(0, input$zigguratYDisplaceSB2, input$zigguratYDisplaceSB3,
                                                         input$zigguratYDisplaceSB4,input$zigguratYDisplaceSB5,
                                                         input$zigguratYDisplaceSB6,input$zigguratYDisplaceSB7,
                                                         input$zigguratYDisplaceSB8,input$zigguratYDisplaceSB9,
                                                         input$zigguratYDisplaceSB10,input$zigguratYDisplaceSB11,
-                                                        input$zigguratYDisplaceSB12),
+                                                        input$zigguratYDisplaceSB12,input$zigguratYDisplaceSB13,
+                                                        input$zigguratYDisplaceSB14,input$zigguratYDisplaceSB15,
+                                                        input$zigguratYDisplaceSB16,input$zigguratYDisplaceSB17,
+                                                        input$zigguratYDisplaceSB18,input$zigguratYDisplaceSB19,
+                                                        input$zigguratYDisplaceSB20),
       lsize_kcoremax                                = input$zigguratLabelsSizekCoreMax,
       lsize_zig                                     = input$zigguratLabelsSizeZiggurat,
       lsize_kcore1                                  = input$zigguratLabelsSizekCore1,

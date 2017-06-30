@@ -1,9 +1,9 @@
 ###############################################################################
 # BipartGraph
-#  
+#
 # Module         : uiZigguratpanels.R
 # Description    : interactive Ziggurat panel
-#                  
+#
 ###############################################################################
 
 library(shiny)
@@ -119,7 +119,16 @@ zigguratConfigPanel <- function() {
         column(1, zigguratYDisplaceControlS("A", "9")),
         column(1, zigguratYDisplaceControlS("A", "10")),
         column(1, zigguratYDisplaceControlS("A", "11")),
-        column(1, zigguratYDisplaceControlS("A", "12"))
+        column(1, zigguratYDisplaceControlS("A", "12")),
+        column(1, zigguratYDisplaceControlS("A", "13")),
+        column(1, zigguratYDisplaceControlS("A", "14")),
+        column(1, zigguratYDisplaceControlS("A", "15")),
+        column(1, zigguratYDisplaceControlS("A", "16")),
+        column(1, zigguratYDisplaceControlS("A", "17")),
+        column(1, zigguratYDisplaceControlS("A", "18")),
+        column(1, zigguratYDisplaceControlS("A", "19")),
+        column(1, zigguratYDisplaceControlS("A", "20"))
+
       ),
 
       fluidRow(
@@ -133,7 +142,15 @@ zigguratConfigPanel <- function() {
         column(1, zigguratYDisplaceControlS("B", "9")),
         column(1, zigguratYDisplaceControlS("B", "10")),
         column(1, zigguratYDisplaceControlS("B", "11")),
-        column(1, zigguratYDisplaceControlS("B", "12"))
+        column(1, zigguratYDisplaceControlS("B", "12")),
+        column(1, zigguratYDisplaceControlS("B", "13")),
+        column(1, zigguratYDisplaceControlS("B", "14")),
+        column(1, zigguratYDisplaceControlS("B", "15")),
+        column(1, zigguratYDisplaceControlS("B", "16")),
+        column(1, zigguratYDisplaceControlS("B", "17")),
+        column(1, zigguratYDisplaceControlS("B", "18")),
+        column(1, zigguratYDisplaceControlS("B", "19")),
+        column(1, zigguratYDisplaceControlS("B", "20"))
       ),
       fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_OUTSIDERS_HEADER"), image="outsiders.png"))
