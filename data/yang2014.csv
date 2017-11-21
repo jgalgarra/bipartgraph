@@ -1,0 +1,21 @@
+,"BACE1-AS","SNHG3","C15orf2","Ube3a-as","HOTAIRM1","HIS-1","WT1-AS","XIST","CDKN2B-AS1","BC200","MEG3","H19","MALAT-1","ZFAT-AS1","GAS5","PINC","PANDA","HOTAIR","DSCAM-AS1"
+"Alzheimer disease",1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
+"Angelman syndrome",0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Acute myeloid leukemia",0,0,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0
+"Adrenoleukodystrophy",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Adrenal hypoplasia congenital",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Bazex syndrome",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Albinism-deafness syndrome",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Angiona serpiginosum",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Large cell lymphoma",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Breast cancer",0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,1,1,1,1
+"Androgen insensitivity syndrome",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+"Basal cell carcinoma",0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+"Acute lymphobalstic leukemia",0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+"Abdominal aortic aneurysm",0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+"Aortic aneurysm",0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+"Atherosclerosis",0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+"Bladder cancer",0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0
+"Adrenocortical carcinomas",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+"Autoinmune disease",0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
+"B-cell lymphoma",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
