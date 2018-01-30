@@ -9,5 +9,6 @@ Garcia-Algarra J, Pastor JM, Iriondo JM, Galeano J. (2017) Ranking of critical s
 
 
 A full description of BipartGraph is due for publication (June 2018) in the "Complexity" Journal special issue on Mathematical Modeling and Dynamic Analysis of Complex Biological Systems. 
+
 Garcia-Algarra J, Pastor JM, Mouronte ML, Galeano J. A structural approach to disentangle the visualization of bipartite biological networks
 Preprint available at: https://www.biorxiv.org/content/early/2017/11/21/192013
