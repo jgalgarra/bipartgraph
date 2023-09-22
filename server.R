@@ -137,7 +137,7 @@ calculateDiagramOptions<-function(paperSize, ppi) {
   return(options)
 }
 
-# Check if resolutoin and paper size are velids
+# Check if resolution and paper size are valid
 validateDiagramOptions<-function(options) {
   return(validate(
     need(
@@ -464,7 +464,7 @@ shinyServer(function(input, output, session) {
 
   })
 
-  # Restar session, set all values to default
+  # Restart session, set all values to default
   observeEvent(input$ResetAll, {
     session = getDefaultReactiveDomain()
     session$reload()
@@ -918,7 +918,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"labels_color")
       comando <- addCallParam(comando,llamada,"height_box_y_expand")
       comando <- addCallParam(comando,llamada,"kcore2tail_vertical_separation")
-      #comando <- paste(comando,"\n")
       comando <- paste0(comando,",kcore1tail_disttocore = ",paste("c(",paste(llamada$kcore1tail_disttocore,collapse=",")),")")
       comando <- addCallParam(comando,llamada,"innertail_vertical_separation")
       comando <- addCallParam(comando,llamada,"factor_hop_x")
@@ -934,7 +933,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"weirdskcore2_horizontal_dist_rootleaf_expand")
       comando <- addCallParam(comando,llamada,"weirdskcore2_vertical_dist_rootleaf_expand")
       comando <- addCallParam(comando,llamada,"weirds_boxes_separation_count")
-      #comando <- paste(comando,"\n")
       comando <- paste0(comando,",root_weird_expand = ",paste("c(",paste(llamada$root_weird_expand,collapse=",")),")")
       comando <- addCallParam(comando,llamada,"hide_plot_border")
       comando <- paste0(comando,",rescale_plot_area = ",paste("c(",paste(llamada$rescale_plot_area,collapse=",")),")")
@@ -942,7 +940,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"corebox_border_size")
       comando <- addCallParam(comando,llamada,"label_strguilda", quote = TRUE)
       comando <- addCallParam(comando,llamada,"label_strguildb", quote = TRUE)
-      #comando <- paste(comando,"\n")
       if (is.null(llamada$landscape_plot))
         llamada$landscape_plot <- TRUE
       comando <- addCallParam(comando,llamada,"landscape_plot")
@@ -962,6 +959,22 @@ shinyServer(function(input, output, session) {
       file.copy("tmpcode/codeziggurat.txt", file)
     },
     contentType="text/plain"
+  )
+  
+  #Downloads the ziggurat plot configuration parameters
+  output$zigguratsaveZigConfig <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat-plot-config.RData")
+      print(file)
+      return(file)
+    },
+    content <- function(file) {
+      print(file)
+      dir.create("tmpcode/", showWarnings = FALSE)
+      save(zgg,file="tmpcode/zgg.RData")
+      file.copy("tmpcode/zgg.RData",file)
+    },
+    contentType="application/octet-stream"
   )
 
 })

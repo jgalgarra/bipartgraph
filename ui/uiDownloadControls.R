@@ -29,6 +29,13 @@ zigguratcodeDownloadControl <- function() {
   control<-downloadButton("zigguratcodeDownload",label = strings$value("LABEL_ZIGGURAT_CODE_DOWNLOAD"))
   return(control)
 }
+
+# Save ziggurat plot config parameters
+zigguratsaveZigConfigControl <- function() {
+  control<-downloadButton("zigguratsaveZigConfig",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_DOWNLOAD"))
+  return(control)
+}
+
 # control generico para seleccion de color
 zigguratBckgdColorControl <- function() {
   control <- colourInput(

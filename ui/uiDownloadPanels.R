@@ -29,7 +29,8 @@ downloadPanel <- function() {
     useShinyjs(),
     fluidRow(
       column(3, zigguratDownloadControl()),
-      column(3, zigguratcodeDownloadControl())
+      column(3, zigguratcodeDownloadControl()),
+      column(3, zigguratsaveZigConfigControl())
     )
   )
   return(panel)
