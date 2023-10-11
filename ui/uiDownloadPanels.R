@@ -12,13 +12,15 @@ library(shinyjs)
 source("ui/uiDownloadControls.R", encoding="UTF-8")
 
 downloadPanel <- function() {
-  panel<-tags$div(
+  panel<- 
+    tags$div(
     class="panelContent",
     fluidRow(
       column(3, paperLandscape()),
       column(3, paperSizeControl()),
       column(3, ppiControl())
     ),
+
     fluidRow(
      column(3, zigguratBckgdColorControl()),
      column(3, zigguratAspectRatio())

@@ -34,7 +34,7 @@ zigguratDiagramPanel <- function() {
               tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
             )
           ),
-          fluidRow(
+          fluidRow(align="center",
             uiOutput("ziggurat")
           )
         ),
@@ -69,6 +69,9 @@ zigguratDiagramPanel <- function() {
 # Configuration
 zigguratConfigPanel <- function() {
   panel<-tabsetPanel(
+    fluidRow(
+      uiOutput("networkname")
+    ),
       tabPanel(
         strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
         fluidRow(
