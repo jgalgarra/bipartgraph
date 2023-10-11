@@ -2,7 +2,7 @@
 # BipartGraph
 #  
 # Module         : bipartgraph.R
-# Description    : Application launcer
+# Description    : Application launcher
 #
 ###############################################################################
 

@@ -8,6 +8,7 @@
 
 library(shiny)
 library(shinythemes)
+library(shinyjs)
 source("ui/uiZigguratControls.R", encoding="UTF-8")
 
 zigguratPanel<-function() {
@@ -228,6 +229,19 @@ zigguratConfigPanel <- function() {
       fluidRow(
         column(4, zigguratSVGup()),
         column(4, zigguratSvgScaleFactorControl())
+      )
+    ),
+    
+    tabPanel(
+      strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
+      fluidRow(
+        column(4, zigguratloadZigConfigControlFile()),
+        column(2, zigguratshowZigConfigControlFile()),
+        column(4, tags$h2(" "),zigguratsaveZigConfigControlFile())
+       ),
+      # Show ziggurat configuration file raw JSON contents
+      fluidRow(
+       column(10, verbatimTextOutput("contentsfileconfigzigplot"))
       )
     )
 

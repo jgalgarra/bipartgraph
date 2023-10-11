@@ -79,7 +79,7 @@ selectLanguage <- function() {
     inputId   = "selectLanguage",
     label     = "",
     choices   = values,
-    selected  = "en",
+    selected  = "es",
     multiple  = FALSE
   )
   return(control)

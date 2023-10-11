@@ -962,20 +962,44 @@ shinyServer(function(input, output, session) {
   )
   
   #Downloads the ziggurat plot configuration parameters
-  output$zigguratsaveZigConfig <- downloadHandler(
+  output$zigguratsaveZigConfigFile <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat-plot-config.RData")
-      print(file)
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat-plot-config.json")
       return(file)
     },
     content <- function(file) {
-      print(file)
       dir.create("tmpcode/", showWarnings = FALSE)
-      save(zgg,file="tmpcode/zgg.RData")
-      file.copy("tmpcode/zgg.RData",file)
+      jsonzgg <- jsonlite::toJSON(x = zgg$ziggurat_argg[1:length(zgg$ziggurat_argg)-1], pretty = TRUE, force = TRUE)
+      cat(jsonzgg, file = "tmpcode/zgg.json")
+      file.copy("tmpcode/zgg.json",file)
     },
-    contentType="application/octet-stream"
+    contentType="text/plain"
   )
+  
+#Reads the ziggurat configuration data file
+ # output$zigguratloadZigConfigFile <- reactive({
+ #     req(input$zigguratloadZigConfigFile)
+ #     texto <- readLines(input$zigguratloadZigConfigFile$datapath)
+ #     paste(texto, collapse = "\n")
+ #      })
+ #     # output$fileContent <- renderText({
+ #     #   input$zigguratloadZigConfigFile()
+ #     # })
+ #     output$FileNameConfig <- renderText({
+ #       if (!is.null(input$zigguratloadZigConfigFile) && nchar(input$file)>0)
+ #         paste("PEPE","POTAMO")
+ #     })
+  
 
+    output$contentsfileconfigzigplot <- reactive({
+      if (!is.null(input$zigguratloadZigConfigFile)){
+        filePath <- input$zigguratloadZigConfigFile$datapath
+        contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
+        contentsfileconfigzigplot <- paste("JSON FILE CONTENTS","\n",contentsfileconfigzigplot)
+        if (input$zigguratshowZigConfigControlFile)
+          contentsfileconfigzigplot
+      }
+  })
+  
 })
 

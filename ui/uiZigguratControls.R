@@ -542,6 +542,32 @@ zigguratLabelsSizeControl <- function(name, description, default) {
   return(control)
 }
 
+# Save ziggurat plot config parameters
+zigguratsaveZigConfigControlFile <- function() {
+  control<-downloadButton("zigguratsaveZigConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
+  return(control)
+}
+
+#Load ziggurat plot config parameters
+zigguratloadZigConfigControlFile <- function() {
+  control<-fileInput(
+    inputId   = "zigguratloadZigConfigFile",
+    accept    = c(".json"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCONFIG_CONTROL")),
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+zigguratshowZigConfigControlFile <- function() {
+  control<-checkboxInput(
+    inputId = "zigguratshowZigConfigControlFile",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
+    value   = FALSE
+  )
+  return(control)
+}
+
 
 zigguratSvgScaleFactorControl <- function() {
   control<-sliderInput(
@@ -567,7 +593,6 @@ zigguratSVGup <- function() {
   )
   return(control)
 }
-
 
 # Downlad diagram size
 paperSizeControl <- function() {
