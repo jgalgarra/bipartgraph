@@ -986,17 +986,25 @@ shinyServer(function(input, output, session) {
     contentType="text/plain"
   )
 
+  updckbx <- function(idchkbx,jsonvalue){
+    updateCheckboxInput(
+      session =  session,
+      inputId =  idchkbx, 
+      value = jsonvalue
+    )
+  }
   
   output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
       filePath <- input$zigguratloadZigConfigFile$datapath
       contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
       contentsfileconfigzigplot <- paste("JSON CONTENTS","\n",contentsfileconfigzigplot)
+      json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+      fields_json_data <- names(json_data)
+      updckbx("zigguratUseSpline", json_data$use_spline)
+      updckbx("zigguratPaintLinks", json_data$paintlinks)
+      updckbx("zigguratPaintOutsiders", json_data$paint_outsiders)
       if (input$zigguratshowZigConfigControlFile){
-        
-        json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-        fields_json_data <- names(json_data)
-        
         contentsfileconfigzigplot
       }
     }
