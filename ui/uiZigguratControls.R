@@ -177,9 +177,7 @@ zigguratLinkSizeControl <- function() {
 zigguratweighted_links <- function() {
   control <- selectInput(inputId = "zigguratweighted_links", label = controlLabel(strings$value('LABEL_ZIGGURAT_LINKS_WEIGHT_CONTROL')),
                          selected = "none",
-                         c("no" = "none",
-                           "ln" = "ln",
-                           "log10" = "log10"))
+                         weightchoices)
   return(control)
 }
 

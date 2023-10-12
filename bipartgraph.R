@@ -49,6 +49,7 @@ if (file.exists(f)){
   labelB <<- strings$value("LABEL_ZIGGURAT_LABEL_GUILDB_DEFAULT")
   shinyport <<- 8080
 }
+weightchoices <<-  c("none" = "none","ln" = "ln","log10" = "log10","sqrt" = "sqrt")
 
 # Launch Application
 runApp(

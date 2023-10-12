@@ -985,7 +985,7 @@ shinyServer(function(input, output, session) {
     },
     contentType="text/plain"
   )
-
+  
   updckbx <- function(idchkbx,jsonvalue){
     updateCheckboxInput(
       session =  session,
@@ -1006,9 +1006,19 @@ shinyServer(function(input, output, session) {
           updateSliderInput(session, controls_jsonfields$ControlName[i],
                             value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])/as.numeric(controls_jsonfields$Divideby[i]))
         else if (controls_jsonfields$ControlType[i] == "checkbox")
-             updckbx(controls_jsonfields$ControlName[i],
+          updckbx(controls_jsonfields$ControlName[i],
                  json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
-
+        else if (controls_jsonfields$ControlType[i] == "textinput"){
+          etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]]
+          updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
+          }
+        else if (controls_jsonfields$ControlType[i] == "colourinput")
+          updateColourInput(session,controls_jsonfields$ControlName[i],
+                            value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+        else if (controls_jsonfields$ControlType[i] == "selectinput")
+          updateSelectInput(session, controls_jsonfields$ControlName[i],
+                            choices = weightchoices,
+                            selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
       }
       # updckbx("zigguratUseSpline", json_data$use_spline)
       # updckbx(controls_jsonfields$ControlName[1], json_data[controls_jsonfields$JSONfield[1]][[1]])
