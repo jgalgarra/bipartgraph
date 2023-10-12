@@ -28,10 +28,11 @@ if (!file.exists(f)){
 # Remove global ziggurat colors data frame
 if (exists("labelcolors"))
   rm("labelcolors")
-f <- "CONFIG.txt"
-if (file.exists(f)){
-  config_params <- read.table(f, stringsAsFactors=FALSE, header = TRUE, sep = ";")
+fconf <- "conf/CONFIG.txt"
+if (file.exists(fconf)){
+  config_params <- read.table(fconf, stringsAsFactors=FALSE, header = TRUE, sep = ";")
   strings<<-LocalizedStrings(config_params$LANGUAGE[1])
+  static_strings <<- read.csv("resources/strings.csv")
   czA1 <<- config_params$ColorGuildA1[1]
   czA2 <<- config_params$ColorGuildA2[1]
   czB1 <<- config_params$ColorGuildB1[1]

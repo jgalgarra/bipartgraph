@@ -189,3 +189,5 @@ MESSAGE_POLAR_PROGRESS_ANALYZING_NETWORK, "Analizando red...", "Analyzing networ
 MESSAGE_POLAR_PROGRESS_PROCESING_SPECIE, "Procesando especie", "Processing specie"
 MESSAGE_POLAR_PROGRESS_DONE, "Hecho!", "Done!"
 MESSAGE_ANALYSIS_POGRESS, "Analizando la red", "Performing analysis"
+MESSAGE_ERROR_JSON_NNAME, "Este fichero de configuración no corresponde a la red escogida", "This configuration file doesn't match the chosen network"
+MESSAGE_ERROR_JSON_WRONG_EXTENSION, "Extensión de fichero errónea", "Wrong file extension"

@@ -994,38 +994,62 @@ shinyServer(function(input, output, session) {
     )
   }
   
+  static_error_msg <- function(mykey){
+    return(return(static_strings[static_strings$key==mykey,][config_params$LANGUAGE]))
+  }
+  # Check that configuration file contents are correct
+  validateconfigfile <- function(filedata){
+    if (gsub(".csv","",filedata$filename)!=zgg$network_name){
+      return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
+    }
+    return("OK")
+  }
+  
+  output$language <- reactive({
+    updateSelectInput(session, selectLanguage,
+                      choices = c("en", "es"),
+                      selected = input$selectLanguage)
+
+    })
+
   output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
       filePath <- input$zigguratloadZigConfigFile$datapath
       contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
       contentsfileconfigzigplot <- paste("JSON CONTENTS","\n",contentsfileconfigzigplot)
-      json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-      fields_json_data <- names(json_data)
-      for (i in 1:nrow(controls_jsonfields)){
-        if (controls_jsonfields$ControlType[i] == "slider")
-          updateSliderInput(session, controls_jsonfields$ControlName[i],
-                            value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])/as.numeric(controls_jsonfields$Divideby[i]))
-        else if (controls_jsonfields$ControlType[i] == "checkbox")
-          updckbx(controls_jsonfields$ControlName[i],
-                 json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
-        else if (controls_jsonfields$ControlType[i] == "textinput"){
-          etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]]
-          updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
-          }
-        else if (controls_jsonfields$ControlType[i] == "colourinput")
-          updateColourInput(session,controls_jsonfields$ControlName[i],
-                            value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
-        else if (controls_jsonfields$ControlType[i] == "selectinput")
-          updateSelectInput(session, controls_jsonfields$ControlName[i],
-                            choices = weightchoices,
-                            selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+      if (!grepl(".json",filePath))
+        result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+      else {
+        json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+        fields_json_data <- names(json_data)
+        result_validation <- validateconfigfile(json_data)
       }
-      # updckbx("zigguratUseSpline", json_data$use_spline)
-      # updckbx(controls_jsonfields$ControlName[1], json_data[controls_jsonfields$JSONfield[1]][[1]])
-      #updateSliderInput(session, "zigguratSplinePoints", value = 34)
-      if (input$zigguratshowZigConfigControlFile){
-        contentsfileconfigzigplot
+      if (result_validation=="OK"){
+        for (i in 1:nrow(controls_jsonfields)){
+          if (controls_jsonfields$ControlType[i] == "slider")
+            updateSliderInput(session, controls_jsonfields$ControlName[i],
+                              value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])/as.numeric(controls_jsonfields$Divideby[i]))
+          else if (controls_jsonfields$ControlType[i] == "checkbox")
+            updckbx(controls_jsonfields$ControlName[i],
+                   json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+          else if (controls_jsonfields$ControlType[i] == "textinput"){
+            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]]
+            updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
+            }
+          else if (controls_jsonfields$ControlType[i] == "colourinput")
+            updateColourInput(session,controls_jsonfields$ControlName[i],
+                              value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+          else if (controls_jsonfields$ControlType[i] == "selectinput")
+            updateSelectInput(session, controls_jsonfields$ControlName[i],
+                              choices = weightchoices,
+                              selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+        }
+        if (input$zigguratshowZigConfigControlFile){
+          contentsfileconfigzigplot
+        }
       }
+      else
+        contentsfileconfigzigplot <- paste(result_validation,"\n\n",contentsfileconfigzigplot)
     }
   })
   
