@@ -7,7 +7,7 @@
 ###############################################################################
 
 
-# Showe the deatiled information of the selected node
+# Showe the detailed information of the selected node
 showNodeDetails <- function(type, kcore, nodeDf) {
   rows    <- eval(parse(text="fluidRow()"))
   columns <- ""
@@ -1001,9 +1001,18 @@ shinyServer(function(input, output, session) {
       contentsfileconfigzigplot <- paste("JSON CONTENTS","\n",contentsfileconfigzigplot)
       json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
       fields_json_data <- names(json_data)
-      updckbx("zigguratUseSpline", json_data$use_spline)
-      updckbx("zigguratPaintLinks", json_data$paintlinks)
-      updckbx("zigguratPaintOutsiders", json_data$paint_outsiders)
+      for (i in 1:nrow(controls_jsonfields)){
+        if (controls_jsonfields$ControlType[i] == "slider")
+          updateSliderInput(session, controls_jsonfields$ControlName[i],
+                            value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])/as.numeric(controls_jsonfields$Divideby[i]))
+        else if (controls_jsonfields$ControlType[i] == "checkbox")
+             updckbx(controls_jsonfields$ControlName[i],
+                 json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+
+      }
+      # updckbx("zigguratUseSpline", json_data$use_spline)
+      # updckbx(controls_jsonfields$ControlName[1], json_data[controls_jsonfields$JSONfield[1]][[1]])
+      #updateSliderInput(session, "zigguratSplinePoints", value = 34)
       if (input$zigguratshowZigConfigControlFile){
         contentsfileconfigzigplot
       }

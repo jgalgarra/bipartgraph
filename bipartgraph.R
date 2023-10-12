@@ -19,7 +19,12 @@ library(shinythemes)
 
 
 get.edges<-igraph::get.edges
-
+f <- "resources/controls_jsonfields.csv"
+if (!file.exists(f)){
+  print("FATAL ERROR, resources folder corrupted, reinstall bipartgraph package")
+} else {
+  controls_jsonfields <- read.csv(f, sep=";")
+}
 # Remove global ziggurat colors data frame
 if (exists("labelcolors"))
   rm("labelcolors")
