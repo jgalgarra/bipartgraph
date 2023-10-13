@@ -21,22 +21,22 @@ zigguratPanel<-function() {
 
 # Ziggurat graph panel
 zigguratDiagramPanel <- function() {
-  control<- fluidRow(
+  control<- fluidRow(align="left",
       fluidRow(
         column(8,
-          fluidRow(
-            tags$span(
-              id="zoomPanel",
-
-              tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png"),
-              tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/zoom_out.png"),
-              tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png"),
-              tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
-            )
-          ),
-          fluidRow(align="center",
-            uiOutput("ziggurat")
-          )
+               fixedRow(align="left",
+                        tags$span(
+                          id="zoomPanel",
+                          tags$img(id="zoomfit",    onclick="svgZoomFit()",   onload="svgZoomFit()", src="images/fit_to_width.png"),
+  
+                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png"),
+                          tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/zoom_out.png")
+                          #tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
+                        )
+               ),
+               fluidRow(align="center",valign="top",
+                        uiOutput("ziggurat")
+               )
         ),
         column(4,
           fluidRow(

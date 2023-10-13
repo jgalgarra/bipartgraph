@@ -537,7 +537,6 @@ shinyServer(function(input, output, session) {
       kcore2tail_vertical_separation                = input$zigguratKcore2TailVerticalSeparation,
       kcore1tail_disttocore                         = c(input$zigguratKcore1TailDistToCore1, input$zigguratKcore1TailDistToCore2),
       innertail_vertical_separation                 = input$zigguratInnerTailVerticalSeparation,
-      #horiz_kcoremax_tails_expand                   = input$ziggurathoriz_kcoremax_tails_expand,    # Deprecated
       factor_hop_x                                  = input$zigguratHopx,
       displace_legend                               = c(input$zigguratdisplace_legend_horiz,input$zigguratdisplace_legend_vert),
       fattailjumphoriz                              = c(input$zigguratfattailjumphorizA,input$zigguratfattailjumphorizB),

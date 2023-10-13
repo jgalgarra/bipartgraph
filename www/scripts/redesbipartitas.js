@@ -475,8 +475,9 @@ function showWiki(type, id, name) {
     }
 }
 
-// amplia el SVG del ziggurat
+
 function svgZoomIn() {
+    var ziggurat    = $("#ziggurat");
     var svg         = $("#ziggurat svg");
     var _width      = parseFloat(svg[0].getAttribute("width"));
     var _height     = parseFloat(svg[0].getAttribute("height"));
@@ -486,6 +487,7 @@ function svgZoomIn() {
 
 // reduce el SVG del ziggurat
 function svgZoomOut() {
+    var ziggurat    = $("#ziggurat");
     var svg         = $("#ziggurat svg");
     var _width      = parseFloat(svg[0].getAttribute("width"));
     var _height     = parseFloat(svg[0].getAttribute("height"));
@@ -501,7 +503,6 @@ function svgZoomFit() {
     var _height     = ziggurat.height();
     svg[0].setAttribute("width", _width);
     svg[0].setAttribute("height", _height);
-
     // restablece el scroll
     ziggurat.scrollTop(0);
     ziggurat.scrollLeft(0);
