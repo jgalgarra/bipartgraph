@@ -23,7 +23,8 @@ downloadPanel <- function() {
 
     fluidRow(
      column(3, zigguratBckgdColorControl()),
-     column(3, zigguratAspectRatio())
+     column(3, zigguratAspectRatio()),
+     column(3, zigguratPlotFormat())
     ),
     fluidRow(div(
       tags$br()

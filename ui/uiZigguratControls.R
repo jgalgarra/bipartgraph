@@ -620,6 +620,21 @@ ppiControl <- function() {
   return(control)
 }
 
+
+# Plot file format
+zigguratPlotFormat <- function() {
+  values<-c("png","jpg","eps","tiff")
+  names(values)<-values
+  control<-selectInput(
+    inputId   = "fileextension",
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
+    choices   = values,
+    selected  = "png",
+    multiple  = FALSE
+  )
+  return(control)
+}
+
 #Paper orientation
 paperLandscape <- function() {
   control<-checkboxInput(
