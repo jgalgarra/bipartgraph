@@ -493,6 +493,10 @@ function svgZoomOut() {
     var _height     = parseFloat(svg[0].getAttribute("height"));
     svg[0].setAttribute("width", Math.floor(_width/1.1));
     svg[0].setAttribute("height", Math.floor(_height/1.1));
+        // restablece el scroll
+    ziggurat.scrollTop(0);
+    ziggurat.scrollLeft(0);
+    ziggurat.perfectScrollbar("update");
 }
 
 // ajusta el SVG del ziggurat al marco que lo contiene

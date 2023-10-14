@@ -21,8 +21,8 @@ zigguratPanel<-function() {
 
 # Ziggurat graph panel
 zigguratDiagramPanel <- function() {
-  control<- fluidRow(align="left",
-      fluidRow(
+  control<- fixedRow(align="left",
+      fixedRow(
         column(8,
                fixedRow(align="left",
                         tags$span(
@@ -34,7 +34,7 @@ zigguratDiagramPanel <- function() {
                           #tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
                         )
                ),
-               fluidRow(align="center",valign="top",
+               fixedRow(align="center",valign="top",
                         uiOutput("ziggurat")
                )
         ),
@@ -169,14 +169,14 @@ zigguratConfigPanel <- function() {
     ),
     tabPanel(
       strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_PANEL"),
-      fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_GENERAL_HEADER"), image="settings.png"))
-      ),
-      fluidRow(
-        #column(2, zigguratAspectRatioControl()),                        Only works for non interactive ziggurats
-        column(3, zigguratdisplace_legend_horiz()),
-        column(3, zigguratdisplace_legend_vert())
-      ),
+      # fluidRow(
+      #   column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_GENERAL_HEADER"), image="settings.png"))
+      # ),
+      # fluidRow(
+      #   #column(2, zigguratAspectRatioControl()),                        Only works for non interactive ziggurats
+      #   column(3, zigguratdisplace_legend_horiz()),
+      #   column(3, zigguratdisplace_legend_vert())
+      # ),
       fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="generic_text.png"))
       ),

@@ -112,8 +112,8 @@ availableFilesDetails<-function(filesList) {
 # Get the configurable options to print a plot
 #   paperSize: 0-DINA0, 1-DINA1, ...
 #   ppi: pixels per inch
-calculateDiagramOptions<-function(paperSize, ppi) {
-  options<-list(paperSize=1, width=480, height=480, ppi=300, cairo=FALSE, ext="")
+calculateDiagramOptions<-function(paperSize, ppi, extension) {
+  options<-list(paperSize=1, width=480, height=480, ppi=300, cairo=FALSE, ext=extension)
   
   # Dimensions in DIN and inches
   widths    <- c(t(sapply(c(841, 841), function(x) {x*(1/2)^(0:3)})))
@@ -124,7 +124,7 @@ calculateDiagramOptions<-function(paperSize, ppi) {
   
   # Type
   type      <- capabilities(c("cairo"))
-  ext       <- capabilities(c("jpeg", "png", "tiff"))
+  ext       <- capabilities(c("jpeg", "png", "eps", "tiff"))
   
   # Update values
   options$paperSize <- paperSize
@@ -166,7 +166,10 @@ plotDiagram<-function(file, plot, options) {
     jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="tiff") {
     tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+  } else if (options$ext=="eps"){
+    cairo_ps(filename=file, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   }
+  
   plot(plot)
   dev.off()
 }
@@ -236,7 +239,6 @@ shinyServer(function(input, output, session) {
       if (nrow(labelcolors[toupper(labelcolors$file) == toupper(fred),])>0){
         datoslabcol <- labelcolors[toupper(labelcolors$file) == toupper(fred),][1,]
       }
-      
     }
     return(datoslabcol)
   }
@@ -247,11 +249,7 @@ shinyServer(function(input, output, session) {
     
     datoslabcol <- data.frame("file" = input$selectedDataFile,
                               "LabelGuildA" = input$DataLabelGuildAControl,
-                              "LabelGuildB" = input$DataLabelGuildBControl,
-                              "ColorZigGuildA1" = input$zigguratColorGuildA1,
-                              "ColorZigGuildA2" = input$zigguratColorGuildA2,
-                              "ColorZigGuildB1" = input$zigguratColorGuildB1,
-                              "ColorZigGuildB2" = input$zigguratColorGuildB2)
+                              "LabelGuildB" = input$DataLabelGuildBControl)
     if (exists("labelcolors")){
       labelcolors <<- labelcolors[toupper(labelcolors$file) != toupper(input$selectedDataFile),]
       labelcolors <<- rbind(tail(labelcolors, 199),datoslabcol)
@@ -538,7 +536,7 @@ shinyServer(function(input, output, session) {
       kcore1tail_disttocore                         = c(input$zigguratKcore1TailDistToCore1, input$zigguratKcore1TailDistToCore2),
       innertail_vertical_separation                 = input$zigguratInnerTailVerticalSeparation,
       factor_hop_x                                  = input$zigguratHopx,
-      displace_legend                               = c(input$zigguratdisplace_legend_horiz,input$zigguratdisplace_legend_vert),
+     # displace_legend                               = c(input$zigguratdisplace_legend_horiz,input$zigguratdisplace_legend_vert),
       fattailjumphoriz                              = c(input$zigguratfattailjumphorizA,input$zigguratfattailjumphorizB),
       fattailjumpvert                               = c(input$zigguratfattailjumpvertA,input$zigguratfattailjumpvertB),
       coremax_triangle_height_factor                = input$zigguratCoreMaxHExp,
@@ -797,23 +795,24 @@ shinyServer(function(input, output, session) {
   
   
   diagramOptions<-reactive({
-    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$ppi)))
+    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$ppi), input$fileextension))
   })
   
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , diagramOptions()$ext)
+      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$ppi), input$fileextension)
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , input$fileextension)
       return(file)
     },
     content=function(file) {
-      options<-diagramOptions()
-      validateDiagramOptions(options)
+      myoptions<-diagramOptions()
+      validateDiagramOptions(myoptions)
       
       # Gets the diagram
       z<-ziggurat()
       plot<-z$plot
-      plotDiagram(file, plot, options)
+      plotDiagram(file, plot, myoptions)
     },
     contentType=paste0("image/", diagramOptions()$ext)
   )
@@ -821,7 +820,7 @@ shinyServer(function(input, output, session) {
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-polar." , diagramOptions()$ext)
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-polar." , input$fileextension)
       return(file)
     },
     content <- function(file) {
@@ -1027,21 +1026,22 @@ shinyServer(function(input, output, session) {
         for (i in 1:nrow(controls_jsonfields)){
           if (controls_jsonfields$ControlType[i] == "slider")
             updateSliderInput(session, controls_jsonfields$ControlName[i],
-                              value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])/as.numeric(controls_jsonfields$Divideby[i]))
+                              value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
           else if (controls_jsonfields$ControlType[i] == "checkbox")
             updckbx(controls_jsonfields$ControlName[i],
-                   json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+                   json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
           else if (controls_jsonfields$ControlType[i] == "textinput"){
-            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]]
+            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
             updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
             }
-          else if (controls_jsonfields$ControlType[i] == "colourinput")
+          else if (controls_jsonfields$ControlType[i] == "colourinput"){
             updateColourInput(session,controls_jsonfields$ControlName[i],
-                              value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+                              value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+          }
           else if (controls_jsonfields$ControlType[i] == "selectinput")
             updateSelectInput(session, controls_jsonfields$ControlName[i],
                               choices = weightchoices,
-                              selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[1]])
+                              selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
         }
         if (input$zigguratshowZigConfigControlFile){
           contentsfileconfigzigplot

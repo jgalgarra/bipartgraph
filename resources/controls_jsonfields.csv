@@ -1,8 +1,6 @@
 ControlName;JSONfield;ControlType;ListElement;Divideby
 zigguratSplinePoints;spline_points;slider;1;1
 zigguratAspectRatio;aspect_ratio;slider;1;1
-zigguratdisplace_legend_horiz;displace_legend;slider;1;1
-zigguratdisplace_legend_vert;displace_legend;slider;2;1
 zigguratHopx;factor_hop_x;slider;1;1
 zigguratAlphaLevel;alpha_level;slider;1;1
 zigguratAlphaLevelLink;alpha_link;slider;1;1

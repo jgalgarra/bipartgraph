@@ -154,6 +154,7 @@ LABEL_ZIGGURAT_SAVECONFIG_CONTROL, "Guardar configuración zigurat", "Save ziggur
 LABEL_ZIGGURAT_LOADCONFIG_CONTROL, "Cargar configuración zigurat", "Load ziggurat plot config"
 LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL, "Mostrar contenidos", "Show contents"
 LABEL_ZIGGURAT_DOWNLOAD_CONTROL, "Descargar diagrama zigurat", "Download ziggurat diagram"
+LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT, "Formato del fichero", "File format"
 LABEL_POLAR_DOWNLOAD_CONTROL, "Descargar diagrama polar", "Download polar diagram"
 LABEL_HISTOGRAM_DOWNLOAD_CONTROL, "Descargar histogramas", "Download histograms"
 LABEL_PDF_DOWNLOAD_CONTROL, "Descargar todos los diagramas", "Download all diagrams"

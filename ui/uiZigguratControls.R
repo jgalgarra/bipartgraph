@@ -85,32 +85,33 @@ zigguratAspectRatioControl <- function() {
   return(control)
 }
 
-# horizontal legend expand
-zigguratdisplace_legend_horiz <- function() {
-  control<-sliderInput(
-    inputId = "zigguratdisplace_legend_horiz",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_HORIZ")),
-    min     = -2,
-    max     = 3.0,
-    value   = 0,
-    step    = 0.1
-  )
-  return(control)
-}
+# # horizontal legend expand
+# zigguratdisplace_legend_horiz <- function() {
+#   control<-sliderInput(
+#     inputId = "zigguratdisplace_legend_horiz",
+#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_HORIZ")),
+#     min     = -2,
+#     max     = 3.0,
+#     value   = 0,
+#     step    = 0.1
+#   )
+#   return(control)
+# }
+# 
+# 
+# # Legend expansion vert
+# zigguratdisplace_legend_vert<- function() {
+#   control<-sliderInput(
+#     inputId = "zigguratdisplace_legend_vert",
+#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_VERT")),
+#     min     = -2,
+#     max     = 3.0,
+#     value   = 0,
+#     step    = 0.1
+#   )
+#   return(control)
+# }
 
-
-# Legend expansion vert
-zigguratdisplace_legend_vert<- function() {
-  control<-sliderInput(
-    inputId = "zigguratdisplace_legend_vert",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_VERT")),
-    min     = -2,
-    max     = 3.0,
-    value   = 0,
-    step    = 0.1
-  )
-  return(control)
-}
 # Expand horizontal separation among inner ziggurats
 zigguratHopx <- function() {
   control<-sliderInput(
