@@ -580,6 +580,8 @@ zigguratSvgScaleFactorControl <- function() {
   return(control)
 }
 
+
+
 # Crop top SVG
 zigguratSVGup <- function() {
   control<-sliderInput(

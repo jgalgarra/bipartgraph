@@ -1,4 +1,5 @@
 ControlName;JSONfield;ControlType;ListElement;Divideby
+zigguratAspectRatio;aspect_ratio;slider;1;1
 zigguratSplinePoints;spline_points;slider;1;1
 zigguratAspectRatio;aspect_ratio;slider;1;1
 zigguratHopx;factor_hop_x;slider;1;1

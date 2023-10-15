@@ -14,6 +14,12 @@ zigguratDownloadControl <- function() {
     return(control)
 }
 
+zigguratsaveSVGControl <- function() {
+  control<-downloadButton("zigguratsaveSVG",label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
+  return(control)
+}
+
+
 polarDownloadControl <- function() {
   control<-downloadButton("polarDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
   #shinyjs::hidden(p(id = "polarDownload", "Processing..."))

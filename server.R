@@ -4,188 +4,10 @@
 # Module         : server.R
 # Descriction    : Server module of the Shiny application, with the "shinyServer"
 #                  function and the reactive environment
+#                  Nonreactive functions are sourced from nonreactive.R
 ###############################################################################
 
-
-# Showe the detailed information of the selected node
-showNodeDetails <- function(type, kcore, nodeDf) {
-  rows    <- eval(parse(text="fluidRow()"))
-  columns <- ""
-  sizes   <- c(1, 2, 4, 1, 1, 1)
-  
-  # Create rows
-  name    <- nodeDf[1, c("name_species")]
-  label   <- nodeDf[1, c("label")]
-  label   <- paste0("tags$a(\"", label, "\", href=\"", paste0("javascript:showWiki('", type, "',", label, ", '", name , "')"), "\")")
-  kcore   <- paste0("\"", kcore, "\"")
-  type    <- paste0("\"", type, "\"")
-  name    <- paste0("\"", name, "\"")
-  kradius <- paste0("\"", round(nodeDf[1, c("kradius")], 2), "\"")
-  kdegree <- paste0("\"", round(nodeDf[1, c("kdegree")], 2), "\"")
-  columns <- ""
-  values  <- c(label, type, name, kcore, kradius, kdegree)
-  for (i in 1:length(values)) {
-    if (nchar(columns)>0) {
-      columns<-paste0(columns, ", ")
-    }
-    columns <- paste0(columns, "column(", sizes[i], ", tags$small(", values[i], "))")
-  }
-  rows<-paste(rows, eval(parse(text=paste0("fluidRow(", columns, ")"))))
-  
-  return(rows)
-}
-
-# Shows the species information in Wikipedia
-showWiki <- function(types, nodesData) {
-  content<-""
-  if (is.null(nodesData)) {
-    content<-paste(content,eval(parse(text="fluidRow()")))
-  } else {
-    tab<-""
-    tab<-paste0(tab, "tabsetPanel(")
-    
-    
-    for (i in 1:nrow(nodesData)) {
-      if (i>1) {
-        tab<-paste0(tab, ", ")
-      }
-      type<-types[i]
-      nodeData<-nodesData[i,]
-      tab<-paste0(tab, "tabPanel(")
-      tab<-paste0(tab, "\"", type, " [#", nodeData$nodeId, "]\"")
-      tab<-paste0(tab, ", fluidRow(")
-      tab<-paste0(tab, "column(12, ")
-      tab<-paste0(tab, "tags$div(id=\"wikiDetail-", type, "-", nodeData$nodeId)
-      tab<-paste0(tab, "\"")
-      tab<-paste0(tab, ", class=\"wikiDetail\"")
-      tab<-paste0(tab, ", \"", strings$value("MESSAGE_WIKI_LOADING"), "\"")
-      #tab<-paste0(tab, "tags$h6(\"(información descargada de Wikipedia para el elemento ")
-      #tab<-paste0(tab, nodeData$name)
-      #tab<-paste0(tab, "...)\"")
-      tab<-paste0(tab, "))))")
-    }
-    tab<-paste0(tab, ", id=\"wikiTabsetPanel\", type=\"pills\")")
-    content<-paste(content, eval(parse(text=tab)))
-  }
-  return(content)
-}
-
-# Get the list of available files
-availableFilesList<-function() {
-  # Get the list of files
-  filesList<-list.files(path=dataDir, pattern=dataFilePattern)
-  names(filesList)<-filesList
-  
-  # Add first entry
-  empty<-c("")
-  names(empty)<-c(strings$value("MESSAGE_SELECT_DATA_FILE_INPUT"))
-  return(c(empty, filesList))
-}
-
-# Get details of files
-availableFilesDetails<-function(filesList) {
-  # Columns with the deatils
-  filesDetailsColumns<-c(strings$value("LABEL_AVAILABLE_FILES_DETAILS_NAME"), strings$value("LABEL_AVAILABLE_FILES_DETAILS_SIZE"), "", "", strings$value("LABEL_AVAILABLE_FILES_DETAILS_MODIFICATION_DATE"), "", strings$value("LABEL_AVAILABLE_FILES_DETAILS_ACCESS_DATE"))
-  
-  # drop empty entries
-  filesList<-filesList[filesList!=""]
-  
-  # Get details
-  if (length(filesList)>0) {
-    # Get file sizes and adds a column with the file name
-    filesDetails  <- file.info(paste0(dataDir, "/", filesList), extra_cols=FALSE)
-    filesDetails  <- cbind(gsub(paste0(dataDir, "/"), "", rownames(filesDetails)), filesDetails)
-  } else {
-    # Creates a void data frame
-    filesDetails<-data.frame(name=character(), size=integer(), isdir=logical(), mode=integer(), mtime=character(), ctime=character(), atime=character())
-  }
-  
-  # Rename columns
-  colnames(filesDetails)<-filesDetailsColumns
-  
-  # Drop unnamed columns
-  filesDetails<-filesDetails[!(colnames(filesDetails) %in% c(""))]
-  
-  return(filesDetails)
-}
-
-# Get the configurable options to print a plot
-#   paperSize: 0-DINA0, 1-DINA1, ...
-#   ppi: pixels per inch
-calculateDiagramOptions<-function(paperSize, ppi, extension) {
-  options<-list(paperSize=1, width=480, height=480, ppi=300, cairo=FALSE, ext=extension)
-  
-  # Dimensions in DIN and inches
-  widths    <- c(t(sapply(c(841, 841), function(x) {x*(1/2)^(0:3)})))
-  heights   <- c(t(sapply(c(1189, 1189), function(x) {x*(1/2)^(0:3)})))
-  pdfSizes  <- data.frame(width=widths[2:7], height=heights[3:8])
-  inchesmm  <- (1/25.4)
-  inches    <- inchesmm*pdfSizes[paperSize,]
-  
-  # Type
-  type      <- capabilities(c("cairo"))
-  ext       <- capabilities(c("jpeg", "png", "eps", "tiff"))
-  
-  # Update values
-  options$paperSize <- paperSize
-  options$ppi       <- ppi
-  options$width     <- inches$width*ppi
-  options$height    <- inches$height*ppi
-  options$cairo     <- type[c("cairo")]
-  options$ext       <- ifelse(ext[c("png")], "png", ifelse(ext[c("jpeg")], "jpeg", ifelse(ext[c("tiff")], "tiff", "")))
-  
-  return(options)
-}
-
-# Check if resolution and paper size are valid
-validateDiagramOptions<-function(options) {
-  return(validate(
-    need(
-      options$ppi==600 && options$paperSize>3 || options$ppi==300 && options$paperSize>1 || options$ppi<300,
-      paste0(strings$value("MESSAGE_PAPERSIZE_ERROR_1"), options$ppi, strings$value("MESSAGE_PAPERSIZE_ERROR_2"), options$paperSize, collapse="")
-    )
-  ))
-}
-
-# Print plot to file
-plotDiagram<-function(file, plot, options) {
-  type<-ifelse(options$cairo, "cairo", "windows")
-  pointsize<-12
-  if(is.null(zgg$landscape_plot))
-    zgg$landscape_plot <- TRUE
-  if (zgg$landscape_plot){
-    w <- options$height
-    h <- options$width
-  } else {
-    h <- options$height
-    w <- options$width
-  }
-  if (options$ext=="png") {
-    png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="jpeg") {
-    jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="tiff") {
-    tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="eps"){
-    cairo_ps(filename=file, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  }
-  
-  plot(plot)
-  dev.off()
-}
-
-# Print PDF
-plotPDF<-function(file, ziggurat, polar, options) {
-  type<-ifelse(options$cairo, "cairo", "windows")
-  pointsize<-12
-  
-  # imprime el PDF
-  pdf(file=file, width=options$width/options$ppi, height=options$height/options$ppi, pointsize=pointsize, onefile=TRUE)
-  plot(ziggurat$plot)
-  plot(polar["polar_plot"][[1]])
-  plot(arrangeGrob(polar["histo_dist"][[1]], polar["histo_core"][[1]], polar["histo_degree"][[1]], nrow=1, ncol=3))
-  dev.off()
-}
+source("nonreactive.R")
 
 #
 # Server process
@@ -215,33 +37,6 @@ shinyServer(function(input, output, session) {
     names(messages)<-messagesNames
     session$sendCustomMessage(type="messagesHandler", as.list(messages))
   })
-  
-  # If the file has been analyzed and core max > 1 is stored in conf/safefiles.csv
-  searchsafefile <- function(fred="")
-  {
-    datossafefiles <- data.frame("file" = c())
-    if (file.exists("conf/datossafefiles.csv")){
-      sfiles <<- read.table("conf/datossafefiles.csv",sep=";",header = TRUE)
-      if (length(sfiles[toupper(sfiles$file) == toupper(fred),])>0)
-        return(TRUE)
-    }
-    return(FALSE)
-  }
-  
-  # Search labels and colors
-  searchlabcols <- function(fred="")
-  {
-    datoslabcol <- data.frame("file" = c(), "LabelGuildA" = c(), "LabelGuildB" = c(),
-                              "ColorZigGuildA1" = c(), "ColorZigGuildA2" = c(),
-                              "ColorZigGuildB1" = c(), "ColorZigGuildB2" = c())
-    if (file.exists("conf/labelcolors.csv")){
-      labelcolors <<- read.table("conf/labelcolors.csv",sep=";",header = TRUE)
-      if (nrow(labelcolors[toupper(labelcolors$file) == toupper(fred),])>0){
-        datoslabcol <- labelcolors[toupper(labelcolors$file) == toupper(fred),][1,]
-      }
-    }
-    return(datoslabcol)
-  }
   
   # Write labels and colors
   writelabcols <- function()
@@ -567,7 +362,7 @@ shinyServer(function(input, output, session) {
       weighted_links                                = input$zigguratweighted_links,
       svg_scale_factor                              = 25*input$zigguratSvgScaleFactor,
       move_all_SVG_up                               = 0.01*input$zigguratSVGup,
-      aspect_ratio                                  = input$zigguratAspectRatio,     #input$zigguratAspectRatio only works for non interactive ziggurats
+      aspect_ratio                                  = input$zigguratAspectRatio,
       progress                                      = progress
     )
     
@@ -665,8 +460,9 @@ shinyServer(function(input, output, session) {
   # Network information
   output$networkinfoDetail<-renderUI({
     z <- ziggurat()
-    details <- paste("&nbsp;&nbsp;&nbsp; <B>",strings$value("LABEL_NETWORK"),"&nbsp;",zgg$network_name,"</B>&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,
-                     zgg$result_analysis$num_guild_b, zgg$name_guild_b,"<hr>")
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),"&nbsp;",zgg$network_name,"<br><h5>", 
+                     "<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
+                     "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span ></h5><hr>")
     return(HTML(details))
   })
   
@@ -817,6 +613,22 @@ shinyServer(function(input, output, session) {
     contentType=paste0("image/", diagramOptions()$ext)
   )
   
+  output$zigguratsaveSVG<-downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat.svg")
+      return(file)
+    },
+    content=function(file){
+      # Gets the diagram
+      z<-ziggurat()
+      htmlsvg <- z$svg$html()
+      dir.create("tmpcode/", showWarnings = FALSE)
+      cat(htmlsvg, file = "tmpcode/tmp.svg")
+      file.copy("tmpcode/tmp.svg",file)
+    },
+    contentType=paste0("text/svg+xml")
+  )
+  
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
@@ -957,6 +769,7 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"spline_points")
       comando <- addCallParam(comando,llamada,"file_name_append", quote =TRUE)
       comando <- addCallParam(comando,llamada,"svg_scale_factor")
+      comando <- addCallParam(comando,llamada,"aspect_ratio")
       comando <- addCallParam(comando,llamada,"weighted_links", quote =TRUE)
       comando <- addCallParam(comando,llamada,"square_nodes_size_scale")
       comando <- addCallParam(comando,llamada,"move_all_SVG_up")
@@ -990,17 +803,6 @@ shinyServer(function(input, output, session) {
       inputId =  idchkbx, 
       value = jsonvalue
     )
-  }
-  
-  static_error_msg <- function(mykey){
-    return(return(static_strings[static_strings$key==mykey,][config_params$LANGUAGE]))
-  }
-  # Check that configuration file contents are correct
-  validateconfigfile <- function(filedata){
-    if (gsub(".csv","",filedata$filename)!=zgg$network_name){
-      return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
-    }
-    return("OK")
   }
   
   output$language <- reactive({
