@@ -227,3 +227,36 @@ validateconfigfile <- function(filedata){
     return("OK")
 }
   
+
+create_report <- function(input_file, output_file) {
+  
+  htmlsvg <- zgg$svg$html()
+  cat(htmlsvg, file = paste0("www/reports/",gsub(" ","",zgg$network_name),".svg"))
+  # Read the contents of the input file
+  text <- readLines(input_file, warn = FALSE)
+  
+  modified_text <- gsub("STR_NETWORK_NAME", zgg$network_name, text)
+  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_a[2],"'>",zgg$name_guild_a,"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_b[2],"'>",zgg$name_guild_b,"</span >"), modified_text)
+  names_A <- ""
+  labelsA <- names(zgg$result_analysis$matrix[1,])
+  for (i in 1:length(labelsA))
+    names_A <- paste(names_A,sprintf("%2d",i)," ",labelsA[i],"\n")
+  names_B <- ""
+  labelsB <- names(zgg$result_analysis$matrix[,1])
+  for (i in 1:length(labelsB))
+    names_B <- paste(names_B,sprintf("%2d",i)," ",labelsB[i],"\n")
+  modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_a[1],"'>",names_A,"</span>"), modified_text)
+  modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_b[1],"'>",names_B,"</span>"), modified_text)
+  if (exists("network_references")){
+     if (sum(network_references$ID==zgg$network_name)!=0)
+        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"<BR>",
+                              network_references[network_references$ID==zgg$network_name,]$Locality_of_Studi), modified_text)
+     else
+        modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+  }
+  else
+    modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+  # Write the modified text to the output file
+  writeLines(modified_text, con = output_file)
+}

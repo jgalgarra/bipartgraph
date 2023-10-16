@@ -10,6 +10,12 @@
 dataDir         <- "data"
 fileExtension   <- ".csv"
 dataFilePattern <- paste0("*.*", fileExtension)
+weightchoices <-  c("none" = "none","ln" = "ln","log10" = "log10","sqrt" = "sqrt")
+if (file.exists("data/references.csv")){
+  network_references <- read.csv("data/references.csv")
+  names(network_references) <- gsub("\\.","_",names(network_references))
+}
+
 
 # New group header
 groupHeader<-function(text, image) {

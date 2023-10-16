@@ -41,6 +41,7 @@ zigguratDiagramPanel <- function() {
         column(4,
           fluidRow(
             uiOutput("networkinfoDetail")
+            
           ),
           fluidRow(
             column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
@@ -75,19 +76,23 @@ zigguratConfigPanel <- function() {
       tabPanel(
         strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
         fluidRow(
+          column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="settings.png"))
+        ),
+        fluidRow(
+          column(2, zigguratSVGup()),
+          column(2, zigguratSvgScaleFactorControl())
+        ),
+        fluidRow(
           column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="link.png"))
         ),
-      fluidRow(
-        column(2, zigguratPaintLinksControl()),
-        column(2, zigguratUseSplineControl()),
-        column(2, zigguratSplinePointsControl()),
-        column(2, zigguratLinkSizeControl()),
-        column(2, zigguratweighted_links())
-
-      ),
-      fluidRow(
-        column(2, zigguratAlphaLevelLinkControl()),
-        column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888"))
+        fluidRow(
+          column(1, zigguratPaintLinksControl()),
+          column(1, zigguratUseSplineControl()),
+          column(2, zigguratSplinePointsControl()),
+          column(2, zigguratLinkSizeControl()),
+          column(2, zigguratweighted_links()),
+          column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
+          column(2, zigguratAlphaLevelLinkControl())
       ),
       fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="tree_structure.png"))
@@ -169,14 +174,6 @@ zigguratConfigPanel <- function() {
     ),
     tabPanel(
       strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_PANEL"),
-      # fluidRow(
-      #   column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_GENERAL_HEADER"), image="settings.png"))
-      # ),
-      # fluidRow(
-      #   #column(2, zigguratAspectRatioControl()),                        Only works for non interactive ziggurats
-      #   column(3, zigguratdisplace_legend_horiz()),
-      #   column(3, zigguratdisplace_legend_vert())
-      # ),
       fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="generic_text.png"))
       ),
@@ -211,29 +208,29 @@ zigguratConfigPanel <- function() {
         column(3, zigguratfattailjumpvertB())
       ),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_WEIRD"), image="weird.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_SPECIALIST"), image="specialist.png"))
       ),
       fluidRow(
-        column(3, zigguratroot_weird_expand_horiz()),
-        column(3, zigguratroot_weird_expand_vert()),
-        column(3, zigguratroot_weirdskcore2_horiz()),
-        column(3, zigguratroot_weirdskcore2_vert())
+        column(3, zigguratroot_specialist_expand_horiz()),
+        column(3, zigguratroot_specialist_expand_vert()),
+        column(3, zigguratroot_specialistskcore2_horiz()),
+        column(3, zigguratroot_specialistskcore2_vert())
       ),
       fluidRow(
-        column(3, zigguratroot_weird_boxesseparation()),
-        column(3, zigguratkcore1weirds_leafs_vertical_separation())
+        column(3, zigguratroot_specialist_boxesseparation()),
+        column(3, zigguratkcore1specialists_leafs_vertical_separation())
       )
     ),
-    tabPanel(
-      strings$value("LABEL_ZIGGURAT_CONFIG_SVG_HEADER"),
-      fluidRow(
-        column(12, groupHeader(text="Plot", image="settings.png"))
-      ),
-      fluidRow(
-        column(4, zigguratSVGup()),
-        column(4, zigguratSvgScaleFactorControl())
-      )
-    ),
+    # tabPanel(
+    #   strings$value("LABEL_ZIGGURAT_CONFIG_SVG_HEADER"),
+    #   fluidRow(
+    #     column(12, groupHeader(text="Plot", image="settings.png"))
+    #   ),
+    #   fluidRow(
+    #     column(4, zigguratSVGup()),
+    #     column(4, zigguratSvgScaleFactorControl())
+    #   )
+    # ),
     
     tabPanel(
       strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),

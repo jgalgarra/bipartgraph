@@ -64,9 +64,9 @@ zigguratSplinePointsControl <- function() {
   control<-sliderInput(
     inputId = "zigguratSplinePoints",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPLINE_POINTS_CONTROL")),
-    min     = 20,
-    max     = 150,
-    value   = 50,
+    min     = 10,
+    max     = 50,
+    value   = 20,
     step    = 10
   )
   return(control)
@@ -367,9 +367,9 @@ zigguratKcore1TailDistToCoreControl <- function(name, description) {
 # }
 
 # Chain of specialists to 1-shell
-zigguratkcore1weirds_leafs_vertical_separation <- function() {
+zigguratkcore1specialists_leafs_vertical_separation <- function() {
   control<-sliderInput(
-    inputId = "zigguratkcore1weirds_leafs_vertical_separation",
+    inputId = "zigguratkcore1specialists_leafs_vertical_separation",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_K1_LEAFS_VERT_SEP")),
     min     = 0.1,
     max     = 5.0,
@@ -445,11 +445,11 @@ zigguratfattailjumpvertB <- function() {
   return(control)
 }
 
-# weird chain root distance horizontal expansion
-zigguratroot_weird_expand_horiz <- function() {
+# specialist chain root distance horizontal expansion
+zigguratroot_specialist_expand_horiz <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weird_expand_horiz",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_ROOT_EXPAND_HORIZ")),
+    inputId = "zigguratroot_specialist_expand_horiz",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_ROOT_EXPAND_HORIZ")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -458,11 +458,11 @@ zigguratroot_weird_expand_horiz <- function() {
   return(control)
 }
 
-# weird chain root distance to 2-shell horizontal expansion
-zigguratroot_weirdskcore2_horiz <- function() {
+# specialist chain root distance to 2-shell horizontal expansion
+zigguratroot_specialistskcore2_horiz <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weirdskcore2_horiz",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_2SHELL_EXPAND_HORIZ")),
+    inputId = "zigguratroot_specialistskcore2_horiz",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_2SHELL_EXPAND_HORIZ")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -471,11 +471,11 @@ zigguratroot_weirdskcore2_horiz <- function() {
   return(control)
 }
 
-# weird chain root distance to 2-shell vertical expansion
-zigguratroot_weirdskcore2_vert <- function() {
+# specialist chain root distance to 2-shell vertical expansion
+zigguratroot_specialistskcore2_vert <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weirdskcore2_vert",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_2SHELL_EXPAND_VERT")),
+    inputId = "zigguratroot_specialistskcore2_vert",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_2SHELL_EXPAND_VERT")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -484,11 +484,11 @@ zigguratroot_weirdskcore2_vert <- function() {
   return(control)
 }
 
-# weird chain boxes separation expand
-zigguratroot_weird_boxesseparation <- function() {
+# specialist chain boxes separation expand
+zigguratroot_specialist_boxesseparation <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weird_boxesseparation",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_BOXES_SEPARATION")),
+    inputId = "zigguratroot_specialist_boxesseparation",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_BOXES_SEPARATION")),
     min     = 0.25,
     max     = 8,
     value   = 1,
@@ -497,11 +497,11 @@ zigguratroot_weird_boxesseparation <- function() {
   return(control)
 }
 
-# weird chain root distance vertical expansion
-zigguratroot_weird_expand_vert <- function() {
+# specialist chain root distance vertical expansion
+zigguratroot_specialist_expand_vert <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weird_expand_vert",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_ROOT_EXPAND_VERT")),
+    inputId = "zigguratroot_specialist_expand_vert",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_ROOT_EXPAND_VERT")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,

@@ -340,13 +340,13 @@ shinyServer(function(input, output, session) {
       displace_outside_component                    = c(input$zigguratoutsiders_expand_horiz,input$zigguratoutsiders_expand_vert),
       outsiders_separation_expand                   = input$zigguratoutsiders_separation_expand,
       outsiders_legend_expand                       = input$zigguratoutsiders_legend_expand,
-      weirdskcore2_horizontal_dist_rootleaf_expand  = input$zigguratroot_weirdskcore2_horiz,
-      weirdskcore2_vertical_dist_rootleaf_expand    = input$zigguratroot_weirdskcore2_vert,
-      weirds_boxes_separation_count                 = input$zigguratroot_weird_boxesseparation,
-      root_weird_expand                             = c(input$zigguratroot_weird_expand_horiz,input$zigguratroot_weird_expand_vert),
+      specialistskcore2_horizontal_dist_rootleaf_expand  = input$zigguratroot_specialistskcore2_horiz,
+      specialistskcore2_vertical_dist_rootleaf_expand    = input$zigguratroot_specialistskcore2_vert,
+      specialists_boxes_separation_count                 = input$zigguratroot_specialist_boxesseparation,
+      root_specialist_expand                             = c(input$zigguratroot_specialist_expand_horiz,input$zigguratroot_specialist_expand_vert),
       hide_plot_border                              = TRUE,
       rescale_plot_area                             = c(1,1),
-      kcore1weirds_leafs_vertical_separation        = input$zigguratkcore1weirds_leafs_vertical_separation,
+      kcore1specialists_leafs_vertical_separation        = input$zigguratkcore1specialists_leafs_vertical_separation,
       corebox_border_size                           = input$zigguratCoreBoxSize,
       kcore_species_name_display                    = c(),
       kcore_species_name_break                      = c(),
@@ -460,9 +460,12 @@ shinyServer(function(input, output, session) {
   # Network information
   output$networkinfoDetail<-renderUI({
     z <- ziggurat()
+    create_report("www/reports/templates/index.html",paste0("www/reports/",zgg$network_name,"_report.html"))
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),"&nbsp;",zgg$network_name,"<br><h5>", 
                      "<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
-                     "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span ></h5><hr>")
+                     "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span >")
+                     details <- paste0(details,"&nbsp;&nbsp;<a href='reports/",zgg$network_name,"_report.html' target='report' >See details</a></h5><hr>")
+    
     return(HTML(details))
   })
   
@@ -750,13 +753,13 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"coremax_triangle_width_factor")
       comando <- addCallParam(comando,llamada,"outsiders_separation_expand")
       comando <- addCallParam(comando,llamada,"outsiders_legend_expand")
-      comando <- addCallParam(comando,llamada,"weirdskcore2_horizontal_dist_rootleaf_expand")
-      comando <- addCallParam(comando,llamada,"weirdskcore2_vertical_dist_rootleaf_expand")
-      comando <- addCallParam(comando,llamada,"weirds_boxes_separation_count")
-      comando <- paste0(comando,",root_weird_expand = ",paste("c(",paste(llamada$root_weird_expand,collapse=",")),")")
+      comando <- addCallParam(comando,llamada,"specialistskcore2_horizontal_dist_rootleaf_expand")
+      comando <- addCallParam(comando,llamada,"specialistskcore2_vertical_dist_rootleaf_expand")
+      comando <- addCallParam(comando,llamada,"specialists_boxes_separation_count")
+      comando <- paste0(comando,",root_specialist_expand = ",paste("c(",paste(llamada$root_specialist_expand,collapse=",")),")")
       comando <- addCallParam(comando,llamada,"hide_plot_border")
       comando <- paste0(comando,",rescale_plot_area = ",paste("c(",paste(llamada$rescale_plot_area,collapse=",")),")")
-      comando <- addCallParam(comando,llamada,"kcore1weirds_leafs_vertical_separation")
+      comando <- addCallParam(comando,llamada,"kcore1specialists_leafs_vertical_separation")
       comando <- addCallParam(comando,llamada,"corebox_border_size")
       comando <- addCallParam(comando,llamada,"label_strguilda", quote = TRUE)
       comando <- addCallParam(comando,llamada,"label_strguildb", quote = TRUE)
@@ -811,6 +814,10 @@ shinyServer(function(input, output, session) {
                       selected = input$selectLanguage)
 
     })
+  
+  observeEvent(input$zigguratReport, { 
+    create_report("www/reports/templates/index.html",paste0("www/reports/",zgg$network_name,"_report.html"))
+  })
 
   output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
