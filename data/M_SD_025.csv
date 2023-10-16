@@ -1,7 +1,11 @@
-"","Sambucus niger","Crataegus monogyna","Hedera helix","Prunus spinosa","Euonymus europaeus","Rubus fruticosus","Rosa canina"
-"Turdus merula",1,1,1,1,1,1,1
-"Turdus philomelos",1,1,1,0,0,1,0
-"Erithacus rubecula",1,0,1,0,1,0,0
-"Sylvia atricapilla",1,0,1,1,0,0,0
-"Turdus iliacus",1,1,0,1,0,0,0
-"Turdus pilaris",0,1,0,1,0,0,0
+"","Columba palumbus","Cyanistes caeruleus","Erithacus rubecula","Fringilla coelebs","Parus major","Poecile sp1 M_SD_025","Pyrrhula pyrrhula","Sitta europaea","Sylvia atricapilla","Turdus iliacus","Turdus merula","Turdus philomelos","Turdus pilaris"
+"Bryonia dioica",0,1,0,2,2,36,0,0,0,0,0,0,0
+"Crataegus monogyna",20,0,0,0,0,0,2,0,0,3242,764,15,1482
+"Euonymus europaeus",0,0,0,0,0,0,0,0,0,0,6,0,0
+"Hedera helix",0,0,2,0,0,0,24,0,1,0,163,15,0
+"Lonicera periclymenum",0,3,0,0,0,17,2,0,0,0,0,0,0
+"Prunus spinosa",0,0,0,0,0,0,0,0,0,209,138,0,303
+"Rosa canina",0,0,0,0,0,0,9,0,0,0,52,0,0
+"Rubus fruticosus",0,17,0,0,0,16,0,0,0,0,20,1,0
+"Sambucus nigra",35,175,4,10,95,147,1,2,4,28,301,19,0
+"Solanum dulcamara",0,0,0,0,0,1,0,1,1,0,0,0,0

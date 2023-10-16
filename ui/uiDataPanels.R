@@ -13,8 +13,8 @@ dataPanel <- function() {
   panel<-tabsetPanel(
     id="dataPanel",
     tabPanel(strings$value("LABEL_SELECT_DATA_PANEL"),   tags$div(class="panelContent", selectDataPanel())),
-    tabPanel(strings$value("LABEL_MANAGE_FILES_PANEL"),  tags$div(class="panelContent", manageFilesPanel())),
-    tabPanel(strings$value("LABEL_SELECT_LANGUAGE"),  tags$div(class="panelContent", manageLanguages()))
+    tabPanel(strings$value("LABEL_MANAGE_FILES_PANEL"),  tags$div(class="panelContent", manageFilesPanel()))
+    #tabPanel(strings$value("LABEL_SELECT_LANGUAGE"),  tags$div(class="panelContent", manageLanguages()))
   )
   return(panel)
 }
@@ -81,11 +81,11 @@ manageFilesPanel<-function() {
   return(panel)
 }
 
-manageLanguages<-function() {
-  panel<-fluidRow(
-    fluidRow(
-      column(3, selectLanguage())
-    )
-  )
-  return(panel)
-}
+# manageLanguages<-function() {
+#   panel<-fluidRow(
+#     fluidRow(
+#       column(3, selectLanguage())
+#     )
+#   )
+#   return(panel)
+# }

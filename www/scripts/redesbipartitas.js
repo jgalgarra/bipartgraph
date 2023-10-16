@@ -190,12 +190,12 @@ function markLink(linkId) {
     $("g[id*=" + linkId + "]").each(function() {
         // incrementa el ancho del enlace
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth+2);
+        $(this).css("stroke-width", strokeWidth+1);
 
         // indica que el enlace esta marcado
         $(this).data("marked", true);
 
-        $(this).css("stroke-dasharray","5,5");
+        $(this).css("stroke-dasharray","4,1,2");
     });
 }
 
@@ -398,7 +398,6 @@ function showWiki(type, id, name) {
     var wikiPanelName   = type + " [#" + id + "]";
     var wikiPanel       = $("#" + wikiPanelId);
     var wikiLoaded      = wikiPanel.data("loaded");
-
     // selecciona el tab concreto
     Shiny.onInputChange("wikiPanelName", wikiPanelName);
 
@@ -427,6 +426,7 @@ function showWiki(type, id, name) {
              titles:        name
         }
         var wikiUrl         = wikiBase + wikiApi + "?" + $.param(wikiParameters) + "&callback=?";
+
         //alert("Consultando wikipedia: " + wikiUrl);
         var jqXHR=$.getJSON(wikiUrl);
         jqXHR.done(function(data) {
@@ -456,6 +456,7 @@ function showWiki(type, id, name) {
                                 $(this).attr("href", wikiBase + _href);
                             }
                         }
+                        
                     });
 
                     // inicializa el scroll

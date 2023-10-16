@@ -489,7 +489,7 @@ shinyServer(function(input, output, session) {
       types   <- ifelse(nodesData$guild=="a", z$name_guild_a, z$name_guild_b)
       details <- paste(details, showWiki(types, nodesData), collapse="")
     }
-    
+  
     return(HTML(details))
   })
   

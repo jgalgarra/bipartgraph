@@ -1,37 +1,17 @@
-"","Centaurea nigra","Leucanthemum vulgare","Cirsium palustre","Ranunculus acris","Cirsium arvense","Filipendula ulmaria","Galium verum","Hypochoeris radicata","Primula veris","Lotus corniculatus","Lathyrus pratensis","Orchis morio","Taraxacum officinale","Trifolium repens","Cerastium fontanum","Trifolium dubium"
-"Bombus lapidarius",469,36,8,2,2,2,0,4,1,3,0,0,0,0,0,1
-"Maniola jurtina",110,31,0,1,6,0,0,0,0,0,0,0,0,0,0,0
-"Bombus pascuorum",35,0,3,1,0,0,0,0,0,2,4,1,0,2,0,0
-"Calocoris bipunctatus",36,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-"Empis livida",11,20,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-"Psithyrus vest",12,3,8,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Episyrphus balteatus",8,0,0,0,0,4,6,2,0,0,0,1,0,0,0,0
-"Bombus pratorum",8,5,4,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Apis mellifera",14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Bombus terrestris/lucorum",8,5,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-"Eristalis tenax",3,9,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Helophilus sp1 M_PL_007",2,10,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Syrphus sp1 M_PL_007",7,2,0,0,0,2,0,1,0,0,0,0,0,0,0,0
-"Scathophaga stercoraria",0,5,0,2,0,0,0,0,0,0,0,0,1,0,0,0
-"Sphaerophoria sp1 M_PL_007",0,2,0,0,0,1,2,0,0,0,0,1,1,0,0,0
-"Anthophora plumipes",0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0
-"Cheilosia bergenstammi",0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0
-"Lucillia sp1 M_PL_007",0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Melanostoma sp1 M_PL_007",0,2,0,1,0,1,0,0,0,0,0,0,0,0,0,0
-"Platycheirus sp1 M_PL_007",2,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Eriothrix rufomaculatus",0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0
-"Eristalis nemorum",0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Meliscaeva sp1 M_PL_007",0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0
-"Andrena chrysosceles",0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Pollenia sp1 M_PL_007",0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Andrena pubescens",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Bombus hortorum",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Cephus pygmaeus",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Eristalis intricarius",0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-"Lasioglossum calceatum",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Lasioglossum villosulum",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-"Lycaena phlaeas ",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-"Panameria tenebrata",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-"Sarcophagus sp1 M_PL_007",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Tropidia scitta",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Volucella bombylans",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"","Andrena chrysosceles","Andrena pubescens","Anthophora plumipes","Apis mellifera","Bombus hortorum","Bombus lapidarius","Bombus pascuorum","Bombus pratorum","Bombus terrestris/lucorum","Calocoris bipunctatus","Cephus pygmaeus","Cheilosia bergenstammi","Empis livida","Episyrphus balteatus","Eriothrix rufomaculatus","Eristalis intricarius","Eristalis nemorum","Eristalis tenax","Helophilus sp1 M_PL_007","Lasioglossum calceatum","Lasioglossum villosulum","Lucillia sp1 M_PL_007","Lycaena phlaeas ","Maniola jurtina","Melanostoma sp1 M_PL_007","Meliscaeva sp1 M_PL_007","Panameria tenebrata","Platycheirus sp1 M_PL_007","Pollenia sp1 M_PL_007","Psithyrus vest","Sarcophagus sp1 M_PL_007","Scathophaga stercoraria","Sphaerophoria sp1 M_PL_007","Syrphus sp1 M_PL_007","Tropidia scitta","Volucella bombylans"
+"Centaurea nigra",0,0,0,14,1,469,35,8,8,36,0,0,11,8,0,0,0,3,2,0,0,0,0,110,0,0,0,2,0,12,0,0,0,7,0,0
+"Cerastium fontanum",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Cirsium arvense",0,0,0,0,0,2,0,0,0,1,0,0,1,0,3,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0
+"Cirsium palustre",0,0,0,0,0,8,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0
+"Filipendula ulmaria",0,0,0,0,0,2,0,0,0,0,0,0,0,4,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,2,0,0
+"Galium verum",0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0
+"Hypochoeris radicata",0,0,0,0,0,4,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+"Lathyrus pratensis",0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Leucanthemum vulgare",2,0,0,0,0,36,0,5,5,0,0,0,20,0,0,0,3,9,10,0,0,4,0,31,2,1,0,1,2,3,1,5,2,2,1,1
+"Lotus corniculatus",0,0,0,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Orchis morio",0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+"Primula veris",0,0,5,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Ranunculus acris",0,1,0,0,0,2,1,0,0,0,1,4,0,0,0,0,0,0,1,1,0,0,0,1,1,2,0,0,0,0,0,2,0,0,0,0
+"Taraxacum officinale",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0
+"Trifolium dubium",0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Trifolium repens",0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

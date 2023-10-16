@@ -1,52 +1,18 @@
-"","Euphorbia obtusifolia","Argyranthemum frutescens","Convolvulus floridus","Euphorbia canariensis","Lavandula buchii","Galactites tomentosa","Plocama pendula","Bituminaria bituminosa","Echium plantagineum","Echium aculeatum","Lotus glaucus","Oxalis pes-caprae","Scandix pecten-veneris","Sideritis argosphacelus","Ceballosia fruticosa","Sideritis nervosa","Fagonia albiflora"
-"Eucera gracilipes",1,1,1,0,1,1,1,1,1,1,1,0,0,1,0,1,1
-"Lasioglossum evylaeus",1,1,1,1,1,1,1,1,1,0,0,1,0,1,1,1,0
-"Amegilla sp1 M_PL_058",0,1,1,0,1,1,0,1,1,1,1,0,0,0,0,0,0
-"Anthophora alluardii",0,0,0,0,1,0,0,1,1,1,1,1,0,0,0,0,0
-"Apis mellifera",1,0,0,0,1,1,1,0,0,1,0,0,0,1,0,0,0
-"Amegilla canifrons",0,0,0,0,1,1,0,0,1,1,1,0,0,0,0,0,0
-"Anthophora orotavae",0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,1
-"Unidentified sp1 M_PL_058",1,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp2 M_PL_058",1,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0
-"Unidentified sp3 M_PL_058",0,1,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0
-"Amegilla quadrifasciata",0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0
-"Lucilia sp1 M_PL_058",1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp4 M_PL_058",0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0
-"Unidentified sp5 M_PL_058",1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp6 M_PL_058",0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0
-"Hylaeus sp1 M_PL_058",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp10 M_PL_058",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp11 M_PL_058",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp12 M_PL_058",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp13 M_PL_058",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp14 M_PL_058",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp7 M_PL_058",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp8 M_PL_058",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp9 M_PL_058",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Andrena vucana",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Camponotus rufoglaucus",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Cyclyrius webbianus",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Macroglossum stellatarum",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-"Sphecodes marginatus ",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
-"Tachina canariensis",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Thysanoptera sp1 M_PL_058",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp15 M_PL_058",0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp16 M_PL_058",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp17 M_PL_058",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp18 M_PL_058",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp19 M_PL_058",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp20 M_PL_058",0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp21 M_PL_058",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-"Unidentified sp22 M_PL_058",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp23 M_PL_058",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp24 M_PL_058",0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp25 M_PL_058",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-"Unidentified sp26 M_PL_058",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-"Unidentified sp27 M_PL_058",0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-"Unidentified sp28 M_PL_058",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp29 M_PL_058",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp30 M_PL_058",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp31 M_PL_058",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp32 M_PL_058",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp33 M_PL_058",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp34 M_PL_058",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"","Amegilla canifrons","Amegilla quadrifasciata","Amegilla sp1 M_PL_058","Andrena vucana","Anthophora alluardii","Anthophora orotavae","Apis mellifera","Camponotus rufoglaucus","Coleoptera sp14 M_PL_058","Coleoptera sp15 M_PL_058","Coleoptera sp16 M_PL_058","Coleoptera sp2 M_PL_058","Coleoptera sp29 M_PL_058","Coleoptera sp32 M_PL_058","Coleoptera sp33 M_PL_058","Coleoptera sp7 M_PL_058","Cyclyrius webbianus","Diptera sp10 M_PL_058","Diptera sp12 M_PL_058","Diptera sp19 M_PL_058","Diptera sp20 M_PL_058","Diptera sp25 M_PL_058","Diptera sp26 M_PL_058","Diptera sp27 M_PL_058","Diptera sp28 M_PL_058","Eucera gracilipes","Hylaeus sp1 M_PL_058","Hymenoptera sp24 M_PL_058","Lasioglossum evylaeus","Lucilia sp1 M_PL_058","Macroglossum stellatarum","Sphecodes marginatus ","Tachina canariensis","Thysanoptera sp1 M_PL_058","Unidentified sp1 M_PL_058","Unidentified sp11 M_PL_058","Unidentified sp13 M_PL_058","Unidentified sp17 M_PL_058","Unidentified sp18 M_PL_058","Unidentified sp21 M_PL_058","Unidentified sp22 M_PL_058","Unidentified sp23 M_PL_058","Unidentified sp3 M_PL_058","Unidentified sp30 M_PL_058","Unidentified sp31 M_PL_058","Unidentified sp34 M_PL_058","Unidentified sp4 M_PL_058","Unidentified sp5 M_PL_058","Unidentified sp6 M_PL_058","Unidentified sp8 M_PL_058","Unidentified sp9 M_PL_058"
+"Argyranthemum frutescens",0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,1,0,0,0,1,1,1,1,0,0,0,1,1,1,0,0,0,0,1,0,0,0
+"Bituminaria bituminosa",0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+"Ceballosia fruticosa",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+"Convolvulus floridus",0,0,1,0,0,0,0,0,1,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1
+"Echium aculeatum",1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Echium plantagineum",1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Euphorbia canariensis",0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,1,0,1,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0
+"Euphorbia obtusifolia",0,0,0,0,0,0,1,0,1,0,0,1,0,0,0,1,0,1,1,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1
+"Fagonia albiflora",0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Galactites tomentosa",1,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0
+"Lavandula buchii",1,1,1,0,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+"Lotus glaucus",1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Oxalis pes-caprae",0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0
+"Plocama pendula",0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0
+"Scandix pecten-veneris",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Sideritis argosphacelus",0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+"Sideritis nervosa",0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
