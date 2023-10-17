@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
-// Universidad Politécnica de Madrid - EUITT
+// Universidad Politecnica de Madrid - EUITT
 //  PFC
-//  Representación gráfica de redes bipartitas basadas en descomposición k-core
+//  Representación gráfica de redes bipartitas basadas en descomposicion k-core
 //
-// Autor         : Juan Manuel García Santi
-// Módulo        : redesbipartitas.js
-// Descricpción  : Funciones javascript que permiten la interacción del usuario
+// Autor         : Juan Manuel Garcia Santi
+// Modulo        : redesbipartitas.js
+// Descricpcion  : Funciones javascript que permiten la interacción del usuario
 //                 con el diagrama ziggurat y la presentación de la información
 //                 relativa a nodos y elementos
 //-----------------------------------------------------------------------------
@@ -426,7 +426,7 @@ function showWiki(type, id, name) {
              titles:        name
         }
         var wikiUrl         = wikiBase + wikiApi + "?" + $.param(wikiParameters) + "&callback=?";
-
+        wikiUrl.attr("target", "_wikipedia");
         //alert("Consultando wikipedia: " + wikiUrl);
         var jqXHR=$.getJSON(wikiUrl);
         jqXHR.done(function(data) {
@@ -449,7 +449,7 @@ function showWiki(type, id, name) {
                         var _href=$(this).attr("href");
                         // nueva ventana
                         if (_href.substring(0,1)!="#") {
-                            $(this).attr("target", "_blank");
+                            $(this).attr("target", "_wikipedia");
 
                             // completa los enlaces relativos
                             if (_href.substring(0,1)=="/") {
@@ -475,7 +475,6 @@ function showWiki(type, id, name) {
         });
     }
 }
-
 
 function svgZoomIn() {
     var ziggurat    = $("#ziggurat");

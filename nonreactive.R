@@ -216,7 +216,7 @@ addCallParam <- function(com,lpar,param,quoteparam = FALSE)
   
 
 static_error_msg <- function(mykey){
-  return(return(static_strings[static_strings$key==mykey,][config_params$LANGUAGE]))
+  return(static_strings[static_strings$key==mykey,][config_params$LANGUAGE])
 }
 
 # Check that configuration file contents are correct
@@ -238,20 +238,21 @@ create_report <- function(input_file, output_file) {
   modified_text <- gsub("STR_NETWORK_NAME", zgg$network_name, text)
   modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_a[2],"'>",zgg$name_guild_a,"</span >"), modified_text)
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_b[2],"'>",zgg$name_guild_b,"</span >"), modified_text)
+  pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
   labelsA <- names(zgg$result_analysis$matrix[1,])
   for (i in 1:length(labelsA))
-    names_A <- paste(names_A,sprintf("%2d",i)," ",labelsA[i],"\n")
+    names_A <- paste(names_A,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_a[1],"'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
   names_B <- ""
   labelsB <- names(zgg$result_analysis$matrix[,1])
   for (i in 1:length(labelsB))
-    names_B <- paste(names_B,sprintf("%2d",i)," ",labelsB[i],"\n")
+    names_B <- paste(names_B,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_b[1],"'>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_a[1],"'>",names_A,"</span>"), modified_text)
   modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_b[1],"'>",names_B,"</span>"), modified_text)
   if (exists("network_references")){
      if (sum(network_references$ID==zgg$network_name)!=0)
-        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"<BR>",
-                              network_references[network_references$ID==zgg$network_name,]$Locality_of_Studi), modified_text)
+        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"<br>",
+                                                     network_references[network_references$ID==zgg$network_name,]$Locality_of_Study), modified_text)
      else
         modified_text <- gsub("STR_REFERENCE"," ",modified_text)
   }

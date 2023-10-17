@@ -28,6 +28,10 @@ if (!file.exists(f)){
 # Remove global ziggurat colors data frame
 if (exists("labelcolors"))
   rm("labelcolors")
+# Remove temporary report files
+dirreports <- 'www/reports'
+delfiles <- c(dir(path=dirreports ,pattern="*.html"),dir(path=dirreports ,pattern="*.svg"))
+file.remove(file.path(dirreports, delfiles))
 fconf <- "conf/CONFIG.txt"
 if (file.exists(fconf)){
   config_params <- read.table(fconf, stringsAsFactors=FALSE, header = TRUE, sep = ";")

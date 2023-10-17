@@ -16,7 +16,6 @@ if (file.exists("data/references.csv")){
   names(network_references) <- gsub("\\.","_",names(network_references))
 }
 
-
 # New group header
 groupHeader<-function(text, image) {
   header<-tags$div(

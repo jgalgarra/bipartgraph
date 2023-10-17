@@ -64,10 +64,10 @@ zigguratSplinePointsControl <- function() {
   control<-sliderInput(
     inputId = "zigguratSplinePoints",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPLINE_POINTS_CONTROL")),
-    min     = 10,
+    min     = 5,
     max     = 50,
-    value   = 20,
-    step    = 10
+    value   = 10,
+    step    = 5
   )
   return(control)
 }
