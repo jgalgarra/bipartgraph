@@ -28,8 +28,9 @@ shinyUI(
         tags$script("$(window).load(function() {windowLoad()})")#,
       ),
       FullPage <- navbarPage(
-        title = "BipartGraph",
-        theme   = shinytheme("flatly"),
+        title = div("", img(src = "images/rect-BipartGraph-tr.png", id = "bipartgraph", height = "25px",style = "position: relative; margin:-15px 0px; display:right-align;")),
+        #theme   = shinytheme("flatly"),
+        theme = "css/bipartgraph_shiny.css",
         header  = headerPanel(),
         tabPanel(
           strings$value("LABEL_MENU_DATA_PANEL"),

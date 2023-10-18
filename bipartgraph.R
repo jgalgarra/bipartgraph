@@ -18,20 +18,6 @@ library(kcorebip)
 library(shinythemes)
 
 
-get.edges<-igraph::get.edges
-f <- "resources/controls_jsonfields.csv"
-if (!file.exists(f)){
-  print("FATAL ERROR, resources folder corrupted, reinstall bipartgraph package")
-} else {
-  controls_jsonfields <- read.csv(f, sep=";")
-}
-# Remove global ziggurat colors data frame
-if (exists("labelcolors"))
-  rm("labelcolors")
-# Remove temporary report files
-dirreports <- 'www/reports'
-delfiles <- c(dir(path=dirreports ,pattern="*.html"),dir(path=dirreports ,pattern="*.svg"))
-file.remove(file.path(dirreports, delfiles))
 fconf <- "conf/CONFIG.txt"
 if (file.exists(fconf)){
   config_params <- read.table(fconf, stringsAsFactors=FALSE, header = TRUE, sep = ";")
