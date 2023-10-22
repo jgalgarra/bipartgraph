@@ -14,7 +14,8 @@ source("ui/uiPolarControls.R", encoding="UTF-8")
 polarPanel<-function() {
   panel<-tabsetPanel(
     tabPanel(strings$value("LABEL_POLAR_DIAGRAM_PANEL"),        tags$div(class="panelContent", polarDiagramPanel())),
-    tabPanel(strings$value("LABEL_POLAR_CONFIGURATION_PANEL"),  tags$div(class="panelContent", polarConfigPanel()))
+    tabPanel(strings$value("LABEL_POLAR_CONFIGURATION_PANEL"),  tags$div(class="panelContent", polarConfigPanel())),
+    tabPanel(strings$value("LABEL_MENU_DOWNLOAD_PANEL"),  tags$div(class="panelContent", polardownloadPanel()))
   )
   return(panel)
 }
@@ -30,9 +31,9 @@ polarDiagramPanel <- function() {
       fluidRow(div(
         tags$br()
       )),
-      fluidRow(column(4,polarDownloadControl()),
-               column(4,polarcodeDownloadControl())
-      ),
+      # fluidRow(column(4,polarDownloadControl()),
+      #          column(4,polarcodeDownloadControl())
+      # ),
       fluidRow(div(
         tags$br()
       )),
@@ -60,7 +61,7 @@ polarConfigPanel <- function() {
       column(12, groupHeader(text=strings$value("LABEL_POLAR_LABELS_CONFIG_HEADER"), image="generic_text.png"))
     ),
     fluidRow(
-      column(2, polarLabelsSizeControl("Title", strings$value("LABEL_POLAR_TITLE_LABEL_SIZE_CONTROL"), 12)),
+      column(2, polarLabelsSizeControl("Title", strings$value("LABEL_POLAR_TITLE_LABEL_SIZE_CONTROL"), 16)),
       column(2, polarLabelsSizeControl("Axis", strings$value("LABEL_POLAR_AXIS_LABEL_SIZE_CONTROL"), 10)),
       column(2, polarLabelsSizeControl("Legend", strings$value("LABEL_POLAR_LEGEND_LABEL_SIZE_CONTROL"), 10)),
       column(2, polarLabelsSizeControl("AxisTitle", strings$value("LABEL_POLAR_AXIS_TITLE_LABEL_SIZE_CONTROL"), 10)),
@@ -68,4 +69,16 @@ polarConfigPanel <- function() {
     )
   )
   return(panel)
+}
+
+polardownloadPanel <- function() {
+  panel<-fluidRow(
+    fluidRow(
+      column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="settings.png"))
+    ),
+    fluidRow(
+      column(3,polarcodeDownloadControl()),
+      column(3,polarDownloadControl())
+    )
+  )
 }

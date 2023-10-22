@@ -32,6 +32,10 @@ dirreports <- 'www/reports'
 delfiles <- c(dir(path=dirreports ,pattern="*.html"),dir(path=dirreports ,pattern="*.svg"))
 file.remove(file.path(dirreports, delfiles))
 
+unlink("analysis_indiv", recursive = TRUE)
+unlink("tmpcode", recursive = TRUE)
+unlink("tmppolar", recursive = TRUE)
+
 # New group header
 groupHeader<-function(text, image) {
   header<-tags$div(

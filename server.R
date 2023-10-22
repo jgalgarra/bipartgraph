@@ -26,8 +26,8 @@ source("nonreactive.R")
 
 shinyServer(function(input, output, session) {
   
-  shinyjs::hide("polarDownload")
-  shinyjs::hide("polarcodeDownload")
+  # shinyjs::hide("polarDownload")
+  # shinyjs::hide("polarcodeDownload")
   shinyjs::hide("networkAnalysis")
   
   observeEvent(input$windowLoad, {
@@ -561,7 +561,7 @@ shinyServer(function(input, output, session) {
       printable_labels    = input$polarDisplayText,
       show_histograms     = input$polarDisplayHistograms,
       glabels             = c(input$DataLabelGuildAControl, input$DataLabelGuildBControl),
-      gshortened          = c("pl","pol"),
+      gshortened          = c(substr(input$DataLabelGuildAControl, 1, 4),substr(input$DataLabelGuildBControl, 1, 4)),
       lsize_title         = input$polarLabelsSizeTitle,
       lsize_axis          = input$polarLabelsSizeAxis,
       lsize_legend        = input$polarLabelsSizeLegend,
@@ -582,8 +582,8 @@ shinyServer(function(input, output, session) {
   # Plot the polar graph
   output$polar <- renderImage({
     p <- polar()
-    shinyjs::show("polarDownload")
-    shinyjs::show("polarcodeDownload")
+    # shinyjs::show("polarDownload")
+    # shinyjs::show("polarcodeDownload")
     # Return a list containing the filename
     list(src = normalizePath(p["polar_file"][[1]]),
          contentType = 'image/png',
@@ -635,7 +635,7 @@ shinyServer(function(input, output, session) {
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-polar." , input$fileextension)
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-polar." , diagramOptions()$ext)
       return(file)
     },
     content <- function(file) {
@@ -647,12 +647,12 @@ shinyServer(function(input, output, session) {
     },
     contentType=paste0("image/", diagramOptions()$ext)
   )
-  
+
   session$onSessionEnded(function() { unlink("analysis_indiv", recursive = TRUE)
     unlink("tmpcode", recursive = TRUE)
     unlink("tmppolar", recursive = TRUE)})
   
-  # Downlod the network analysis
+  # Download the network analysis
   output$networkAnalysis <- downloadHandler(
     filename=function() {
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-analyisis.csv")

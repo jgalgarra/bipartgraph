@@ -23,7 +23,6 @@ downloadPanel <- function() {
     ),
     fluidRow(
       column(4, zigguratsaveSVGControl())
-      #column(4, actionButton("zigguratReport", label = strings$value("LABEL_PLOT_REPORT"))),
     ),
     fluidRow(
       column(9,renderText("<br> <br><br> <br>"))

@@ -42,10 +42,10 @@ shinyUI(
           zigguratPanel()
         ),
         # Printable ziggurat
-        tabPanel(
-          strings$value("LABEL_MENU_DOWNLOAD_PANEL"),
-          downloadPanel()
-        ),
+        # tabPanel(
+        #   strings$value("LABEL_MENU_DOWNLOAD_PANEL"),
+        #   downloadPanel()
+        # ),
         # Polar plot panel
         tabPanel(
           strings$value("LABEL_MENU_POLAR_PANEL"),

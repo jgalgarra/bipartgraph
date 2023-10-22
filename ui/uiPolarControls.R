@@ -15,7 +15,7 @@ polarDisplayTextControl <- function() {
     label   = controlLabel(strings$value("LABEL_POLAR_SHOW_LABELS_CONTROL")),
     min     = 0,
     max     = 100,
-    value   = 0,
+    value   = 100,
     step    = 1
   )
   return(control)
@@ -98,5 +98,16 @@ polarscreenwidthControl <- function() {
     selected  = 800,
     multiple  = FALSE
   )
+  return(control)
+}
+
+polarDownloadControl <- function() {
+  control<-downloadButton("polarDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  #shinyjs::hidden(p(id = "polarDownload", "Processing..."))
+  return(control)
+}
+
+polarcodeDownloadControl <- function() {
+  control<-downloadButton("polarcodeDownload",label = strings$value("LABEL_POLAR_CODE_DOWNLOAD"))
   return(control)
 }

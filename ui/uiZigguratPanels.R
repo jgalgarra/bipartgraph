@@ -10,11 +10,14 @@ library(shiny)
 library(shinythemes)
 library(shinyjs)
 source("ui/uiZigguratControls.R", encoding="UTF-8")
+source("ui/uiDownloadControls.R", encoding="UTF-8")
 
 zigguratPanel<-function() {
   panel<-tabsetPanel(
     tabPanel(strings$value("LABEL_ZIGGURAT_DIAGRAM_PANEL"), tags$div(class="panelContent", zigguratDiagramPanel())),
-    tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", zigguratConfigPanel()))
+    tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", zigguratConfigPanel())),
+    tabPanel(strings$value("LABEL_MENU_DOWNLOAD_PANEL"),  tags$div(class="panelContent", downloadPanel()))
+    
   )
   return(panel)
 }
@@ -41,7 +44,6 @@ zigguratDiagramPanel <- function() {
         column(4,
           fluidRow(
             uiOutput("networkinfoDetail")
-            
           ),
           fluidRow(
             column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
