@@ -11,7 +11,7 @@ source("ui/uiCommonPanels.R", encoding="UTF-8")
 source("ui/uiDataPanels.R", encoding="UTF-8")
 source("ui/uiZigguratPanels.R", encoding="UTF-8")
 source("ui/uiPolarPanels.R", encoding="UTF-8")
-source("ui/uiDownloadPanels.R", encoding="UTF-8")
+#source("ui/uiZigguratDownloadPanels.R", encoding="UTF-8")
 
 shinyUI(
     tagList(
@@ -29,8 +29,8 @@ shinyUI(
       ),
       FullPage <- navbarPage(
         title = div("", img(src = "images/rect-BipartGraph-tr.png", id = "bipartgraph", height = "25px",style = "position: relative; margin:-15px 0px; display:right-align;")),
-        #theme   = shinytheme("flatly"),
         theme = "css/bipartgraph_shiny.css",
+      
         header  = headerPanel(),
         tabPanel(
           strings$value("LABEL_MENU_DATA_PANEL"),
@@ -41,12 +41,6 @@ shinyUI(
           strings$value("LABEL_MENU_ZIGGURAT_PANEL"),
           zigguratPanel()
         ),
-        # Printable ziggurat
-        # tabPanel(
-        #   strings$value("LABEL_MENU_DOWNLOAD_PANEL"),
-        #   downloadPanel()
-        # ),
-        # Polar plot panel
         tabPanel(
           strings$value("LABEL_MENU_POLAR_PANEL"),
           polarPanel()

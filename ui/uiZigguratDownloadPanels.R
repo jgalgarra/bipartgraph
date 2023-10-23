@@ -9,7 +9,6 @@
 library(shiny)
 library(shinythemes)
 library(shinyjs)
-source("ui/uiDownloadControls.R", encoding="UTF-8")
 
 downloadPanel <- function() {
   panel<- 
@@ -40,7 +39,7 @@ downloadPanel <- function() {
     fluidRow(
      column(3, zigguratBckgdColorControl()),
      column(3, zigguratAspectRatio()),
-     column(3, zigguratPlotFormat())
+     column(3, FileFormat())
     ),
     fluidRow(div(
       tags$br()

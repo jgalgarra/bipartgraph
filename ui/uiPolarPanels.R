@@ -54,7 +54,7 @@ polarConfigPanel <- function() {
       column(2, polarDisplayTextControl()),
       column(2, polarAlphaLevelControl()),
       column(2, polarFillNodesControl()),
-      column(2, polarDisplayHistograms()),
+      #column(2, polarDisplayHistograms()),
       column(2, polarscreenwidthControl())
     ),
     fluidRow(
@@ -75,6 +75,10 @@ polardownloadPanel <- function() {
   panel<-fluidRow(
     fluidRow(
       column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="settings.png"))
+    ),
+    fluidRow(
+      column(3, polarppiControl()),
+      column(3, polarFileFormat())
     ),
     fluidRow(
       column(3,polarcodeDownloadControl()),

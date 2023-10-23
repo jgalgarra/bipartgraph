@@ -556,10 +556,10 @@ shinyServer(function(input, output, session) {
       directorystr        = paste0(dataDir, "/"),
       fill_nodes          = input$polarFillNodesControl,
       alpha_nodes         = input$polarAlphaLevel,
-      plotsdir            = normalizePath("tmppolar/"),
+      plotsdir            = "tmppolar/",
       print_to_file       = TRUE,
       printable_labels    = input$polarDisplayText,
-      show_histograms     = input$polarDisplayHistograms,
+      show_histograms     = FALSE,
       glabels             = c(input$DataLabelGuildAControl, input$DataLabelGuildBControl),
       gshortened          = c(substr(input$DataLabelGuildAControl, 1, 4),substr(input$DataLabelGuildBControl, 1, 4)),
       lsize_title         = input$polarLabelsSizeTitle,
@@ -596,7 +596,23 @@ shinyServer(function(input, output, session) {
   diagramOptions<-reactive({
     return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$ppi), input$fileextension))
   })
-  
+ 
+  output$zigguratsaveSVG<-downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat.svg")
+      return(file)
+    },
+    content=function(file){
+      # Gets the diagram
+      z<-ziggurat()
+      htmlsvg <- z$svg$html()
+      dir.create("tmpcode/", showWarnings = FALSE)
+      cat(htmlsvg, file = "tmpcode/tmp.svg")
+      file.copy("tmpcode/tmp.svg",file)
+    },
+    contentType=paste0("text/svg+xml")
+  )
+   
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
@@ -616,36 +632,24 @@ shinyServer(function(input, output, session) {
     contentType=paste0("image/", diagramOptions()$ext)
   )
   
-  output$zigguratsaveSVG<-downloadHandler(
-    filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat.svg")
-      return(file)
-    },
-    content=function(file){
-      # Gets the diagram
-      z<-ziggurat()
-      htmlsvg <- z$svg$html()
-      dir.create("tmpcode/", showWarnings = FALSE)
-      cat(htmlsvg, file = "tmpcode/tmp.svg")
-      file.copy("tmpcode/tmp.svg",file)
-    },
-    contentType=paste0("text/svg+xml")
-  )
-  
+ 
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-polar." , diagramOptions()$ext)
+      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$polarppi), input$polarfileextension)
+      file<-paste0(gsub(".csv", "", input$selectedDataFile), "-polar." , input$polarfileextension)
       return(file)
     },
     content <- function(file) {
-      options<-diagramOptions()
-      validateDiagramOptions(options)
-      dir.create("tmppolar/", showWarnings = FALSE)
+      myoptions<-diagramOptions()
+      validateDiagramOptions(myoptions)
+      myoptions$ppi <- input$polarppi
+      myoptions$ext <- input$polarfileextension
       p <- polar()
-      file.copy(normalizePath(p["polar_file"][[1]]), file)
+      plot <- p$full_plot
+      plotpolarDiagram(file, plot, myoptions)
     },
-    contentType=paste0("image/", diagramOptions()$ext)
+    contentType=paste0("image/", input$polarfileextension)
   )
 
   session$onSessionEnded(function() { unlink("analysis_indiv", recursive = TRUE)

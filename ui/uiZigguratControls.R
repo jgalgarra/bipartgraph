@@ -609,9 +609,10 @@ paperSizeControl <- function() {
   return(control)
 }
 
-# Diagram plot resolution
+# Ziggurat plot resolution
 ppiControl <- function() {
   values<-c(72, 96, 150, 300, 600)
+
   names(values)<-values
   control<-selectInput(
     inputId   = "ppi",
@@ -625,7 +626,7 @@ ppiControl <- function() {
 
 
 # Plot file format
-zigguratPlotFormat <- function() {
+FileFormat <- function() {
   values<-c("png","jpg","eps","tiff")
   names(values)<-values
   control<-selectInput(

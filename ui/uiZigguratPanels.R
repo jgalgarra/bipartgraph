@@ -10,14 +10,13 @@ library(shiny)
 library(shinythemes)
 library(shinyjs)
 source("ui/uiZigguratControls.R", encoding="UTF-8")
-source("ui/uiDownloadControls.R", encoding="UTF-8")
+source("ui/uiZigguratDownloadControls.R", encoding="UTF-8")
 
 zigguratPanel<-function() {
   panel<-tabsetPanel(
     tabPanel(strings$value("LABEL_ZIGGURAT_DIAGRAM_PANEL"), tags$div(class="panelContent", zigguratDiagramPanel())),
     tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", zigguratConfigPanel())),
     tabPanel(strings$value("LABEL_MENU_DOWNLOAD_PANEL"),  tags$div(class="panelContent", downloadPanel()))
-    
   )
   return(panel)
 }
@@ -27,7 +26,7 @@ zigguratDiagramPanel <- function() {
   control<- fixedRow(align="left",
       fixedRow(
         column(8,
-               fixedRow(align="left",
+               fixedRow(align="right",
                         tags$span(
                           id="zoomPanel",
                           tags$img(id="zoomfit",    onclick="svgZoomFit()",   onload="svgZoomFit()", src="images/fit_to_width.png"),
@@ -223,16 +222,6 @@ zigguratConfigPanel <- function() {
         column(3, zigguratkcore1specialists_leafs_vertical_separation())
       )
     ),
-    # tabPanel(
-    #   strings$value("LABEL_ZIGGURAT_CONFIG_SVG_HEADER"),
-    #   fluidRow(
-    #     column(12, groupHeader(text="Plot", image="settings.png"))
-    #   ),
-    #   fluidRow(
-    #     column(4, zigguratSVGup()),
-    #     column(4, zigguratSvgScaleFactorControl())
-    #   )
-    # ),
     
     tabPanel(
       strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
@@ -248,5 +237,48 @@ zigguratConfigPanel <- function() {
     )
 
   )
+  return(panel)
+}
+
+downloadPanel <- function() {
+  panel<- 
+    tags$div(
+      class="panelContent",
+      fluidRow(
+        column(9, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="network.png")),
+      ),
+      fluidRow(
+        column(9,renderText("<br> <br>"))
+      ),
+      fluidRow(
+        column(4, zigguratsaveSVGControl())
+      ),
+      fluidRow(
+        column(9,renderText("<br> <br><br> <br>"))
+      ),
+      fluidRow(
+        column(9, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_STATIC_HEADER"), image="tiff.png"))
+      ),
+      
+      fluidRow(
+        column(3, paperLandscape()),
+        column(3, paperSizeControl()),
+        column(3, ppiControl())
+      ),
+      
+      fluidRow(
+        column(3, zigguratBckgdColorControl()),
+        column(3, zigguratAspectRatio()),
+        column(3, FileFormat())
+      ),
+      fluidRow(div(
+        tags$br()
+      )),
+      useShinyjs(),
+      fluidRow(
+        column(3, zigguratcodeDownloadControl()),
+        column(3, zigguratDownloadControl())
+      )
+    )
   return(panel)
 }

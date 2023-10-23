@@ -101,6 +101,35 @@ polarscreenwidthControl <- function() {
   return(control)
 }
 
+# Ziggurat plot resolution
+polarppiControl <- function(typeplot) {
+  values<-c(72, 96, 150, 300, 600)
+  
+  names(values)<-values
+  control<-selectInput(
+    inputId   = "polarppi",
+    label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
+    choices   = values,
+    selected  = 300,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+# Plot file format
+polarFileFormat <- function() {
+  values<-c("png","jpg","eps","tiff","svg")
+  names(values)<-values
+  control<-selectInput(
+    inputId   = "polarfileextension",
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
+    choices   = values,
+    selected  = "png",
+    multiple  = FALSE
+  )
+  return(control)
+}
+
 polarDownloadControl <- function() {
   control<-downloadButton("polarDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
   #shinyjs::hidden(p(id = "polarDownload", "Processing..."))

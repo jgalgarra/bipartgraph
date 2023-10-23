@@ -192,7 +192,7 @@
 "MESSAGE_ZIGGURAT_PROGRESS_DRAWING_LINKS","Dibujando enlaces...","Drawing links..."
 "MESSAGE_ZIGGURAT_PROGRESS_DONE","Hecho!","Done!"
 "MESSAGE_POLAR_PROGRESS_ANALYZING_NETWORK","Analizando red...","Analyzing network..."
-"MESSAGE_POLAR_PROGRESS_PROCESING_SPECIE","Procesando especie","Processing specie"
+"MESSAGE_POLAR_PROGRESS_PROCESING_SPECIE","Procesando especie","Processing species"
 "MESSAGE_POLAR_PROGRESS_DONE","Hecho!","Done!"
 "MESSAGE_ANALYSIS_POGRESS","Analizando la red","Performing analysis"
 "MESSAGE_ERROR_JSON_NNAME","ERROR: ¡Este fichero de configuración no corresponde a la red escogida!","ERROR: This configuration file doesn't match the chosen network!!!"

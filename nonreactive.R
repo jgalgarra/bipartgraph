@@ -138,7 +138,7 @@ validateDiagramOptions<-function(options) {
   ))
 }
 
-# Print static plot to file
+# Print static ziggurat plot to file
 plotDiagram<-function(file, plot, options) {
   type<-ifelse(options$cairo, "cairo", "windows")
   pointsize<-12
@@ -158,17 +158,43 @@ plotDiagram<-function(file, plot, options) {
   } else if (options$ext=="tiff") {
     tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="eps"){
-    cairo_ps(filename=file, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+    cairo_ps(filename=file, width=w, height=h, fallback_resolution=options$ppi, pointsize=pointsize)
   }
   plot(plot)
   dev.off()
 }
 
+# Print polar plot to file
+plotpolarDiagram<-function(file, plot, options) {
+  type<-ifelse(options$cairo, "cairo", "windows")
+  pointsize<-12
+  #h <- options$height
+  w <- options$width
+  h <- w # To avoid blank space over the plot
+    if (options$ext=="png") {
+    png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+  } else if (options$ext=="jpg") {
+    jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+  } else if (options$ext=="tiff") {
+    tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+  } else if (options$ext=="eps"){
+    #cairo_ps(filename=file, width=w, height=h, fallback_resolution=options$ppi, pointsize=pointsize)
+    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
+           plot = print(plot),
+           device = cairo_ps)
+   }else if (options$ext=="svg"){
+     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
+  }
+  plot(plot)
+  dev.off()
+}
+
+
+
 # Print PDF
 plotPDF<-function(file, ziggurat, polar, options) {
   type<-ifelse(options$cairo, "cairo", "windows")
   pointsize<-12
-  
   # imprime el PDF
   pdf(file=file, width=options$width/options$ppi, height=options$height/options$ppi, pointsize=pointsize, onefile=TRUE)
   plot(ziggurat$plot)
@@ -251,7 +277,7 @@ create_report <- function(input_file, output_file) {
   modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_b[1],"'>",names_B,"</span>"), modified_text)
   if (exists("network_references")){
      if (sum(network_references$ID==zgg$network_name)!=0)
-        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"<br>",
+        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"&nbsp;&nbsp;",
                                                      network_references[network_references$ID==zgg$network_name,]$Locality_of_Study), modified_text)
      else
         modified_text <- gsub("STR_REFERENCE"," ",modified_text)
