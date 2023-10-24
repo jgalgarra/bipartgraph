@@ -5,11 +5,36 @@
 # Description    : Global function and panels
 #
 ###############################################################################
-
 # Search data files
 dataDir         <- "data"
 fileExtension   <- ".csv"
 dataFilePattern <- paste0("*.*", fileExtension)
+
+weightchoices <-  c("none" = "none","ln" = "ln","log10" = "log10","sqrt" = "sqrt")
+
+if (file.exists("data/references.csv")){
+  network_references <- read.csv("data/references.csv")
+  names(network_references) <- gsub("\\.","_",names(network_references))
+}
+
+get.edges<-igraph::get.edges
+f <- "resources/controls_jsonfields.csv"
+if (!file.exists(f)){
+  print("FATAL ERROR, resources folder corrupted, reinstall bipartgraph package")
+} else {
+  controls_jsonfields <- read.csv(f, sep=";")
+}
+# Remove global ziggurat colors data frame
+if (exists("labelcolors"))
+  rm("labelcolors")
+# Remove temporary report files
+dirreports <- 'www/reports'
+delfiles <- c(dir(path=dirreports ,pattern="*.html"),dir(path=dirreports ,pattern="*.svg"))
+file.remove(file.path(dirreports, delfiles))
+
+unlink("analysis_indiv", recursive = TRUE)
+unlink("tmpcode", recursive = TRUE)
+unlink("tmppolar", recursive = TRUE)
 
 # New group header
 groupHeader<-function(text, image) {

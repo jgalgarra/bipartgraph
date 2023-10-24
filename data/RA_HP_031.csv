@@ -1,0 +1,26 @@
+"X","Amalaraeus.penicilliger","Amphipsylla.kuznetzovi","Amphipsylla.prima","Amphipsylla.sibirica","Amphipsylla.vinogradovi","Catallagia.dacenkoi","Ceratophyllus.indages","Citellophilus.tesquorum","Corrodopsylla.birulai","Ctenophthalmus.arvalis","Ctenophthalmus.assimilis","Ctenophthalmus.dilatatus","Ctenophthalmus.pisticus","Ctenophthalmus.uncinatus","Frontopsylla.elata","Hystrichopsylla.talpae","Leptopsylla.sicistae","Megabothris.calcarifer","Megabothris.rectangulatus","Megabothris.turbidus","Megabothris.walkeri","Neopsylla.acanthina","Neopsylla.mana","Neopsylla.pleskei","Oropsylla.ilovaiskii","Palaeopsylla.soricis","Pectinoctenus.pavlovskii","Peromyscopsylla.bidentata","Peromyscopsylla.silvatica","Rhadinopsylla.integella","Tarsopsylla.octodecimdentata"
+"Apodemus agrarius",12,0,0,5,0,0,0,0,13,0,83,0,0,0,6,12,0,0,9,11,12,0,2,0,0,0,0,11,0,0,0
+"Arvicola terrestris",136,3,2,97,0,0,0,0,22,11,395,0,0,0,0,3,0,0,4,93,756,2,3,4,0,3,10,4,0,0,0
+"Clethrionomys glareolus",9,0,0,0,0,0,0,0,4,0,14,0,0,3,0,0,0,0,2,3,7,0,0,0,0,0,0,0,0,0,0
+"Clethrionomys rufocanus",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,12,0,2,0,0,0,0,0,0,0,0,0,0
+"Clethrionomys rutilus",96,5,0,4,0,2,3,5,15,2,107,0,0,0,11,34,0,2,73,9,12,0,0,0,0,58,0,0,42,0,0
+"Cricetulus barabensis",0,0,0,0,2,0,0,0,2,0,0,0,0,0,2,7,0,0,0,0,0,0,0,0,0,2,4,0,0,0,0
+"Cricetus cricetus",11,0,0,4,0,0,0,0,0,0,5,0,0,0,0,2,0,0,0,0,2,0,3,7,0,4,0,0,0,0,0
+"Lagurus lagurus",0,0,0,0,0,0,0,34,0,105,8,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,38,0,2,0,0
+"Micromys minutus",0,0,0,0,0,0,0,0,0,0,3,0,0,0,2,0,0,0,0,2,0,0,0,0,0,3,0,2,0,0,0
+"Microtus agrestis",7,0,0,0,0,0,0,0,8,0,31,0,0,0,0,12,0,18,15,0,15,0,0,2,0,0,0,0,0,0,0
+"Microtus arvalis",0,0,0,0,4,0,0,0,0,0,19,0,0,0,3,4,3,0,0,0,0,0,0,5,0,0,0,0,0,0,0
+"Microtus gregalis",16,11,0,0,0,0,0,0,5,0,205,0,0,0,22,19,0,10,21,12,28,0,0,12,0,8,0,0,3,0,0
+"Microtus oeconomus",3,0,0,0,0,0,0,0,4,0,14,0,0,0,2,5,0,6,3,0,15,0,0,0,0,0,0,0,5,0,0
+"Myopus schisticolor",6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,15,0,0,0,0,0,0,0,0,0,0,0,0
+"Myospalax aspalax",0,0,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+"Neomys fodiens",0,0,0,0,0,0,0,0,58,0,19,0,0,0,0,6,0,0,0,0,4,0,3,0,0,47,0,0,0,0,0
+"Phodopus campbelli",0,0,0,0,0,0,0,6,0,0,4,0,0,0,4,0,0,0,0,0,0,0,0,13,0,0,26,0,0,0,0
+"Pteromys volans",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7
+"Sciurus vulgaris",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+"Sicista betulina",7,0,0,0,0,0,0,0,2,0,11,0,0,0,7,25,50,0,4,13,0,0,3,0,0,6,0,0,0,0,0
+"Sicista subtilis",0,0,0,0,0,0,0,0,0,0,2,0,0,0,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"Sorex araneus",25,0,0,4,0,0,0,2,105,4,60,0,0,0,7,11,0,2,11,11,7,0,0,0,0,371,0,2,0,0,0
+"Spermophilus erythrogenys",0,0,0,0,0,0,69,9,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0
+"Talpa europaea",7,0,0,0,0,0,0,0,0,0,74,0,0,0,3,0,0,0,4,0,0,0,0,0,0,18,0,0,0,0,0
+"Tamias sibiricus",0,0,0,0,0,0,24,0,0,0,4,0,11,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0

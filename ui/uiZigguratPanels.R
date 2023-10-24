@@ -8,34 +8,80 @@
 
 library(shiny)
 library(shinythemes)
+library(shinyjs)
 source("ui/uiZigguratControls.R", encoding="UTF-8")
+
+downloadPanel <- function() {
+  panel<- 
+    tags$div(
+      class="panelContent",
+      # fluidRow(
+      #   column(9, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="network.png")),
+      # ),
+      # fluidRow(
+      #   column(9,renderText("<br> <br>"))
+      # ),
+      # fluidRow(
+      #   column(4, zigguratsaveSVGControl())
+      # ),
+      # fluidRow(
+      #   column(9,renderText("<br> <br><br> <br>"))
+      # ),
+      # fluidRow(
+      #   column(9, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_STATIC_HEADER"), image="tiff.png"))
+      # ),
+      
+      fluidRow(
+        column(3, paperLandscape()),
+        column(3, paperSizeControl()),
+        column(3, zigguratppiControl())
+      ),
+      
+      fluidRow(
+        column(3, zigguratBckgdColorControl()),
+        column(3, zigguratAspectRatio()),
+        column(3, zigguratFileFormat())
+      ),
+      fluidRow(div(
+        tags$br()
+      )),
+      useShinyjs(),
+      fluidRow(
+        column(3, zigguratcodeDownloadControl()),
+        column(3, zigguratDownloadControl())
+      )
+    )
+  return(panel)
+}
+
 
 zigguratPanel<-function() {
   panel<-tabsetPanel(
     tabPanel(strings$value("LABEL_ZIGGURAT_DIAGRAM_PANEL"), tags$div(class="panelContent", zigguratDiagramPanel())),
-    tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", zigguratConfigPanel()))
+    tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", zigguratConfigPanel())),
+    tabPanel(strings$value("LABEL_MENU_DOWNLOAD_PANEL"),  tags$div(class="panelContent", downloadPanel()))
   )
   return(panel)
 }
 
 # Ziggurat graph panel
 zigguratDiagramPanel <- function() {
-  control<- fluidRow(
-      fluidRow(
+  control<- fixedRow(align="left",
+      fixedRow(
         column(8,
-          fluidRow(
-            tags$span(
-              id="zoomPanel",
-
-              tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png"),
-              tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/zoom_out.png"),
-              tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png"),
-              tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
-            )
-          ),
-          fluidRow(
-            uiOutput("ziggurat")
-          )
+               fixedRow(align="right",
+                        tags$span(
+                          id="zoomPanel",
+                          tags$img(id="zoomfit",    onclick="svgZoomFit()",   onload="svgZoomFit()", src="images/fit_to_width.png"),
+  
+                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png"),
+                          tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/zoom_out.png")
+                          #tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
+                        )
+               ),
+               fixedRow(align="center",valign="top",
+                        uiOutput("ziggurat")
+               )
         ),
         column(4,
           fluidRow(
@@ -68,22 +114,29 @@ zigguratDiagramPanel <- function() {
 # Configuration
 zigguratConfigPanel <- function() {
   panel<-tabsetPanel(
+    fluidRow(
+      uiOutput("networkname")
+    ),
       tabPanel(
         strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
         fluidRow(
+          column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="settings.png"))
+        ),
+        fluidRow(
+          column(2, zigguratSVGup()),
+          column(2, zigguratSvgScaleFactorControl())
+        ),
+        fluidRow(
           column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="link.png"))
         ),
-      fluidRow(
-        column(2, zigguratPaintLinksControl()),
-        column(2, zigguratUseSplineControl()),
-        column(2, zigguratSplinePointsControl()),
-        column(2, zigguratLinkSizeControl()),
-        column(2, zigguratweighted_links())
-
-      ),
-      fluidRow(
-        column(2, zigguratAlphaLevelLinkControl()),
-        column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888"))
+        fluidRow(
+          column(1, zigguratPaintLinksControl()),
+          column(1, zigguratUseSplineControl()),
+          column(2, zigguratSplinePointsControl()),
+          column(2, zigguratLinkSizeControl()),
+          column(2, zigguratweighted_links()),
+          column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
+          column(2, zigguratAlphaLevelLinkControl())
       ),
       fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="tree_structure.png"))
@@ -166,14 +219,6 @@ zigguratConfigPanel <- function() {
     tabPanel(
       strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_PANEL"),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_GENERAL_HEADER"), image="settings.png"))
-      ),
-      fluidRow(
-        #column(2, zigguratAspectRatioControl()),                        Only works for non interactive ziggurats
-        column(3, zigguratdisplace_legend_horiz()),
-        column(3, zigguratdisplace_legend_vert())
-      ),
-      fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="generic_text.png"))
       ),
       fluidRow(
@@ -207,27 +252,30 @@ zigguratConfigPanel <- function() {
         column(3, zigguratfattailjumpvertB())
       ),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_WEIRD"), image="weird.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_SPECIALIST"), image="specialist.png"))
       ),
       fluidRow(
-        column(3, zigguratroot_weird_expand_horiz()),
-        column(3, zigguratroot_weird_expand_vert()),
-        column(3, zigguratroot_weirdskcore2_horiz()),
-        column(3, zigguratroot_weirdskcore2_vert())
+        column(3, zigguratroot_specialist_expand_horiz()),
+        column(3, zigguratroot_specialist_expand_vert()),
+        column(3, zigguratroot_specialistskcore2_horiz()),
+        column(3, zigguratroot_specialistskcore2_vert())
       ),
       fluidRow(
-        column(3, zigguratroot_weird_boxesseparation()),
-        column(3, zigguratkcore1weirds_leafs_vertical_separation())
+        column(3, zigguratroot_specialist_boxesseparation()),
+        column(3, zigguratkcore1specialists_leafs_vertical_separation())
       )
     ),
+    
     tabPanel(
-      strings$value("LABEL_ZIGGURAT_CONFIG_SVG_HEADER"),
+      strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
       fluidRow(
-        column(12, groupHeader(text="Plot", image="settings.png"))
-      ),
+        column(4, zigguratloadZigConfigControlFile()),
+        column(2, zigguratshowZigConfigControlFile()),
+        column(4, tags$h2(" "),zigguratsaveZigConfigControlFile())
+       ),
+      # Show ziggurat configuration file raw JSON contents
       fluidRow(
-        column(4, zigguratSVGup()),
-        column(4, zigguratSvgScaleFactorControl())
+       column(10, verbatimTextOutput("contentsfileconfigzigplot"))
       )
     )
 

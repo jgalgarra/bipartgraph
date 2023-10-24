@@ -1,9 +1,16 @@
-"","Symplocos prunifolia","Cleyera japonica","Eurya japonica","Schefflera octophylla","Myrsine sguinii","Daphniphyllum teijsmannii","Myrica rubra","Ardisia sieboldii","Litsea acuminata","Vaccinium bracteatum","Neolitsea aciculata","Persea thunbergii","Diospyros morrisiana","Prunus jamasakura","Taxillus yadoriki"
-"Hypsipetes amaurotis",2,1,2,2,2,2,1,1,3,0,2,2,0,1,1
-"Turdus pallidus",1,2,1,2,2,0,0,2,0,3,0,0,0,0,0
-"Sphenurus formosae",2,1,2,0,0,0,2,0,0,0,0,0,1,0,0
-"Zosterops japonica",1,1,2,1,2,0,0,0,0,0,0,0,0,0,0
-"Columba janthina",0,1,0,2,0,1,1,0,0,0,0,0,0,0,0
-"Turdus chrysolaus",1,0,0,0,0,2,0,0,0,0,0,0,0,0,0
-"Ficedula narcissina",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Turdus dauma",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"","Columba janthina","Ficedula narcissina","Hypsipetes amaurotis","Sphenurus formosae","Turdus chrysolaus","Turdus dauma","Turdus pallidus","Zosterops japonica"
+"Ardisia sieboldii",0,0,1,0,0,0,2,0
+"Cleyera japonica",1,0,1,1,0,1,2,1
+"Daphniphyllum teijsmannii",1,0,2,0,2,0,0,0
+"Diospyros morrisiana",0,0,0,1,0,0,0,0
+"Eurya japonica",0,0,2,2,0,0,1,2
+"Litsea acuminata",0,0,3,0,0,0,0,0
+"Myrica rubra",1,0,1,2,0,0,0,0
+"Myrsine sguinii",0,0,2,0,0,0,2,2
+"Neolitsea aciculata",0,0,2,0,0,0,0,0
+"Persea thunbergii",0,0,2,0,0,0,0,0
+"Prunus jamasakura",0,0,1,0,0,0,0,0
+"Schefflera octophylla",2,0,2,0,0,0,2,1
+"Symplocos prunifolia",0,1,2,2,1,0,1,1
+"Taxillus yadoriki",0,0,1,0,0,0,0,0
+"Vaccinium bracteatum",0,0,0,0,0,0,3,0

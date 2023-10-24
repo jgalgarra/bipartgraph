@@ -1,14 +1,15 @@
-"","Gastonia mauritiana","Pemphis acidula","Stachytapheta jamaicensis","Turnera angustifolia","Scaevola sericea","Thespesia populnea","Tourneortia argentea","Leucaena leucocephala","Morinda citrifolia","Dracaena concinna","Hibiscus tiliaceus","Passiflora suberosa","Suriana maritima","Ipomoea macrantha"
-"Apis mellifera",1,1,1,1,1,1,1,1,1,0,1,1,0,1
-"Phelsuma ornata",1,1,0,0,1,1,1,1,1,1,1,1,0,0
-"Unidentified sp1 M_PL_011",1,1,1,1,0,1,0,1,0,0,0,0,0,0
-"Leptotes pirithous",1,1,1,0,0,0,0,0,1,0,0,0,1,0
-"Syrphid sp1 M_PL_011",0,0,1,0,0,0,1,0,0,1,0,0,0,0
-"Unidentified sp2 M_PL_011",0,0,0,1,1,0,0,0,0,0,0,0,1,0
-"Unidentified sp3 M_PL_011",0,0,1,1,0,1,0,0,0,0,0,0,0,0
-"Xylocopa fenestrata",0,1,0,1,1,0,0,0,0,0,0,0,0,0
-"Phalantha phalantha",0,1,1,0,0,0,0,0,0,0,0,0,0,0
-"Unidentified sp4 M_PL_011",1,0,0,0,0,0,1,0,0,0,0,0,0,0
-"Lucilia sp1 M_PL_011",1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Ornidia obesa",1,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Protaetia aurichalcea",1,0,0,0,0,0,0,0,0,0,0,0,0,0
+"","Apis mellifera","Leptotes pirithous","Lucilia sp1 M_PL_011","Ornidia obesa","Phalantha phalantha","Phelsuma ornata","Protaetia aurichalcea","Syrphid sp1 M_PL_011","Unidentified sp1 M_PL_011","Unidentified sp2 M_PL_011","Unidentified sp3 M_PL_011","Unidentified sp4 M_PL_011","Xylocopa fenestrata"
+"Dracaena concinna",0,0,0,0,0,1,0,1,0,0,0,0,0
+"Gastonia mauritiana",1,1,1,1,0,1,1,0,1,0,0,1,0
+"Hibiscus tiliaceus",1,0,0,0,0,1,0,0,0,0,0,0,0
+"Ipomoea macrantha",1,0,0,0,0,0,0,0,0,0,0,0,0
+"Leucaena leucocephala",1,0,0,0,0,1,0,0,1,0,0,0,0
+"Morinda citrifolia",1,1,0,0,0,1,0,0,0,0,0,0,0
+"Passiflora suberosa",1,0,0,0,0,1,0,0,0,0,0,0,0
+"Pemphis acidula",1,1,0,0,1,1,0,0,1,0,0,0,1
+"Scaevola sericea",1,0,0,0,0,1,0,0,0,1,0,0,1
+"Stachytapheta jamaicensis",1,1,0,0,1,0,0,1,1,0,1,0,0
+"Suriana maritima",0,1,0,0,0,0,0,0,0,1,0,0,0
+"Thespesia populnea",1,0,0,0,0,1,0,0,1,0,1,0,0
+"Tourneortia argentea",1,0,0,0,0,1,0,1,0,0,0,1,0
+"Turnera angustifolia",1,0,0,0,0,0,0,0,1,1,1,0,1

@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
-// Universidad Politécnica de Madrid - EUITT
+// Universidad Politecnica de Madrid - EUITT
 //  PFC
-//  Representación gráfica de redes bipartitas basadas en descomposición k-core
+//  Representación gráfica de redes bipartitas basadas en descomposicion k-core
 //
-// Autor         : Juan Manuel García Santi
-// Módulo        : redesbipartitas.js
-// Descricpción  : Funciones javascript que permiten la interacción del usuario
+// Autor         : Juan Manuel Garcia Santi
+// Modulo        : redesbipartitas.js
+// Descricpcion  : Funciones javascript que permiten la interacción del usuario
 //                 con el diagrama ziggurat y la presentación de la información
 //                 relativa a nodos y elementos
 //-----------------------------------------------------------------------------
@@ -190,12 +190,12 @@ function markLink(linkId) {
     $("g[id*=" + linkId + "]").each(function() {
         // incrementa el ancho del enlace
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth+2);
+        $(this).css("stroke-width", strokeWidth+1);
 
         // indica que el enlace esta marcado
         $(this).data("marked", true);
 
-        $(this).css("stroke-dasharray","5,5");
+        $(this).css("stroke-dasharray","4,1,2");
     });
 }
 
@@ -398,7 +398,6 @@ function showWiki(type, id, name) {
     var wikiPanelName   = type + " [#" + id + "]";
     var wikiPanel       = $("#" + wikiPanelId);
     var wikiLoaded      = wikiPanel.data("loaded");
-
     // selecciona el tab concreto
     Shiny.onInputChange("wikiPanelName", wikiPanelName);
 
@@ -427,6 +426,7 @@ function showWiki(type, id, name) {
              titles:        name
         }
         var wikiUrl         = wikiBase + wikiApi + "?" + $.param(wikiParameters) + "&callback=?";
+        wikiUrl.attr("target", "_wikipedia");
         //alert("Consultando wikipedia: " + wikiUrl);
         var jqXHR=$.getJSON(wikiUrl);
         jqXHR.done(function(data) {
@@ -449,13 +449,14 @@ function showWiki(type, id, name) {
                         var _href=$(this).attr("href");
                         // nueva ventana
                         if (_href.substring(0,1)!="#") {
-                            $(this).attr("target", "_blank");
+                            $(this).attr("target", "_wikipedia");
 
                             // completa los enlaces relativos
                             if (_href.substring(0,1)=="/") {
                                 $(this).attr("href", wikiBase + _href);
                             }
                         }
+                        
                     });
 
                     // inicializa el scroll
@@ -475,8 +476,8 @@ function showWiki(type, id, name) {
     }
 }
 
-// amplia el SVG del ziggurat
 function svgZoomIn() {
+    var ziggurat    = $("#ziggurat");
     var svg         = $("#ziggurat svg");
     var _width      = parseFloat(svg[0].getAttribute("width"));
     var _height     = parseFloat(svg[0].getAttribute("height"));
@@ -486,11 +487,16 @@ function svgZoomIn() {
 
 // reduce el SVG del ziggurat
 function svgZoomOut() {
+    var ziggurat    = $("#ziggurat");
     var svg         = $("#ziggurat svg");
     var _width      = parseFloat(svg[0].getAttribute("width"));
     var _height     = parseFloat(svg[0].getAttribute("height"));
     svg[0].setAttribute("width", Math.floor(_width/1.1));
     svg[0].setAttribute("height", Math.floor(_height/1.1));
+        // restablece el scroll
+    ziggurat.scrollTop(0);
+    ziggurat.scrollLeft(0);
+    ziggurat.perfectScrollbar("update");
 }
 
 // ajusta el SVG del ziggurat al marco que lo contiene
@@ -501,7 +507,6 @@ function svgZoomFit() {
     var _height     = ziggurat.height();
     svg[0].setAttribute("width", _width);
     svg[0].setAttribute("height", _height);
-
     // restablece el scroll
     ziggurat.scrollTop(0);
     ziggurat.scrollLeft(0);

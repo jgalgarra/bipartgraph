@@ -1,14 +1,26 @@
-"","Guarea guidonia ","Clusia rosea ","Ocotea coriacea ","Roystonea borinquena ","Cupania americana ","Cecropia schreberiana ","Clusia gundlachi ","Hyeronima clusioides ","Ficus sp1 M_SD_005","Margravia rectiflora ","Persea americana ","Phoradendron sp1 M_SD_005","Alchornea latifolia ","Anthurium scandens ","Ardisia obovata ","Bursera simaruba ","Chrysophyllum argenteum ","Comocladia glabra ","Dendropemon bicolor ","Guapira fragrans ","Petitia dominguensis ","Syzigium malaccensis ","Unidentified sp1 M_SD_005","Unidentified sp2 M_SD_005","Zanthoxylum martinicensis"
-"Loxigilla portoricensis ",13,3,0,0,6,1,1,0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,1,0,0
-"Margarops fuscatus ",11,3,6,0,0,0,2,0,1,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,1
-"Columba squamosa ",0,0,3,11,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-"Turdus plumbeus ",4,0,4,2,4,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
-"Vireo altiloquous ",1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Spindalis portoricensis ",0,0,0,0,0,0,0,3,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-"Euphonia musica ",0,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,0,1,0,0,0,0,0,0
-"Tyrannus caudifasciatus ",4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Tyrannus dominicensis ",0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Molothrus bonariensis ",0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Myarchus antillarum ",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Coereba flaveola ",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-"Vireo latimeri ",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+"","Coereba flaveola ","Columba squamosa ","Euphonia musica ","Loxigilla portoricensis ","Margarops fuscatus ","Molothrus bonariensis ","Myarchus antillarum ","Spindalis portoricensis ","Turdus plumbeus ","Tyrannus caudifasciatus ","Tyrannus dominicensis ","Vireo altiloquous ","Vireo latimeri "
+"Alchornea latifolia ",0,0,0,1,0,0,0,0,0,0,0,0,0
+"Anthurium scandens ",0,0,1,0,0,0,0,0,0,0,0,0,0
+"Ardisia obovata ",0,0,0,0,0,0,0,1,0,0,0,0,0
+"Bursera simaruba ",0,0,0,1,0,0,0,0,0,0,0,0,0
+"Cecropia schreberiana ",0,2,0,1,0,0,0,0,1,0,0,0,0
+"Chrysophyllum argenteum ",0,0,0,0,1,0,0,0,0,0,0,0,0
+"Clusia gundlachi ",0,1,0,1,2,0,0,0,0,0,0,0,0
+"Clusia rosea ",1,0,0,3,3,2,1,0,0,0,0,5,1
+"Comocladia glabra ",0,0,0,1,0,0,0,0,0,0,0,0,0
+"Cupania americana ",0,0,0,6,0,0,0,0,4,0,2,0,0
+"Dendropemon bicolor ",0,0,1,0,0,0,0,0,0,0,0,0,0
+"Ficus sp1 M_SD_005",0,0,0,1,1,0,0,0,0,0,0,0,0
+"Guapira fragrans ",0,0,0,0,1,0,0,0,0,0,0,0,0
+"Guarea guidonia ",0,0,0,13,11,0,1,0,4,4,0,1,0
+"Hyeronima clusioides ",0,0,0,0,0,0,0,3,0,0,0,0,0
+"Margravia rectiflora ",0,0,0,0,1,0,0,0,1,0,0,0,0
+"Ocotea coriacea ",0,3,0,0,6,0,0,0,4,0,2,0,0
+"Persea americana ",0,0,0,0,1,0,0,1,0,0,0,0,0
+"Petitia dominguensis ",0,1,0,0,0,0,0,0,0,0,0,0,0
+"Phoradendron sp1 M_SD_005",0,0,2,0,0,0,0,0,0,0,0,0,0
+"Roystonea borinquena ",0,11,0,0,0,0,0,0,2,0,0,0,0
+"Syzigium malaccensis ",0,0,0,0,1,0,0,0,0,0,0,0,0
+"Unidentified sp1 M_SD_005",0,0,0,1,0,0,0,0,0,0,0,0,0
+"Unidentified sp2 M_SD_005",0,0,0,0,0,0,0,0,1,0,0,0,0
+"Zanthoxylum martinicensis",0,0,0,0,1,0,0,0,0,0,0,0,0

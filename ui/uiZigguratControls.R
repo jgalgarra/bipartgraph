@@ -64,10 +64,10 @@ zigguratSplinePointsControl <- function() {
   control<-sliderInput(
     inputId = "zigguratSplinePoints",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPLINE_POINTS_CONTROL")),
-    min     = 20,
-    max     = 150,
-    value   = 50,
-    step    = 10
+    min     = 5,
+    max     = 50,
+    value   = 10,
+    step    = 5
   )
   return(control)
 }
@@ -85,32 +85,33 @@ zigguratAspectRatioControl <- function() {
   return(control)
 }
 
-# horizontal legend expand
-zigguratdisplace_legend_horiz <- function() {
-  control<-sliderInput(
-    inputId = "zigguratdisplace_legend_horiz",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_HORIZ")),
-    min     = -2,
-    max     = 3.0,
-    value   = 0,
-    step    = 0.1
-  )
-  return(control)
-}
+# # horizontal legend expand
+# zigguratdisplace_legend_horiz <- function() {
+#   control<-sliderInput(
+#     inputId = "zigguratdisplace_legend_horiz",
+#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_HORIZ")),
+#     min     = -2,
+#     max     = 3.0,
+#     value   = 0,
+#     step    = 0.1
+#   )
+#   return(control)
+# }
+# 
+# 
+# # Legend expansion vert
+# zigguratdisplace_legend_vert<- function() {
+#   control<-sliderInput(
+#     inputId = "zigguratdisplace_legend_vert",
+#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_VERT")),
+#     min     = -2,
+#     max     = 3.0,
+#     value   = 0,
+#     step    = 0.1
+#   )
+#   return(control)
+# }
 
-
-# Legend expansion vert
-zigguratdisplace_legend_vert<- function() {
-  control<-sliderInput(
-    inputId = "zigguratdisplace_legend_vert",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_VERT")),
-    min     = -2,
-    max     = 3.0,
-    value   = 0,
-    step    = 0.1
-  )
-  return(control)
-}
 # Expand horizontal separation among inner ziggurats
 zigguratHopx <- function() {
   control<-sliderInput(
@@ -177,9 +178,7 @@ zigguratLinkSizeControl <- function() {
 zigguratweighted_links <- function() {
   control <- selectInput(inputId = "zigguratweighted_links", label = controlLabel(strings$value('LABEL_ZIGGURAT_LINKS_WEIGHT_CONTROL')),
                          selected = "none",
-                         c("no" = "none",
-                           "ln" = "ln",
-                           "log10" = "log10"))
+                         weightchoices)
   return(control)
 }
 
@@ -368,9 +367,9 @@ zigguratKcore1TailDistToCoreControl <- function(name, description) {
 # }
 
 # Chain of specialists to 1-shell
-zigguratkcore1weirds_leafs_vertical_separation <- function() {
+zigguratkcore1specialists_leafs_vertical_separation <- function() {
   control<-sliderInput(
-    inputId = "zigguratkcore1weirds_leafs_vertical_separation",
+    inputId = "zigguratkcore1specialists_leafs_vertical_separation",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_K1_LEAFS_VERT_SEP")),
     min     = 0.1,
     max     = 5.0,
@@ -446,11 +445,11 @@ zigguratfattailjumpvertB <- function() {
   return(control)
 }
 
-# weird chain root distance horizontal expansion
-zigguratroot_weird_expand_horiz <- function() {
+# specialist chain root distance horizontal expansion
+zigguratroot_specialist_expand_horiz <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weird_expand_horiz",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_ROOT_EXPAND_HORIZ")),
+    inputId = "zigguratroot_specialist_expand_horiz",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_ROOT_EXPAND_HORIZ")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -459,11 +458,11 @@ zigguratroot_weird_expand_horiz <- function() {
   return(control)
 }
 
-# weird chain root distance to 2-shell horizontal expansion
-zigguratroot_weirdskcore2_horiz <- function() {
+# specialist chain root distance to 2-shell horizontal expansion
+zigguratroot_specialistskcore2_horiz <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weirdskcore2_horiz",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_2SHELL_EXPAND_HORIZ")),
+    inputId = "zigguratroot_specialistskcore2_horiz",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_2SHELL_EXPAND_HORIZ")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -472,11 +471,11 @@ zigguratroot_weirdskcore2_horiz <- function() {
   return(control)
 }
 
-# weird chain root distance to 2-shell vertical expansion
-zigguratroot_weirdskcore2_vert <- function() {
+# specialist chain root distance to 2-shell vertical expansion
+zigguratroot_specialistskcore2_vert <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weirdskcore2_vert",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_2SHELL_EXPAND_VERT")),
+    inputId = "zigguratroot_specialistskcore2_vert",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_2SHELL_EXPAND_VERT")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -485,11 +484,11 @@ zigguratroot_weirdskcore2_vert <- function() {
   return(control)
 }
 
-# weird chain boxes separation expand
-zigguratroot_weird_boxesseparation <- function() {
+# specialist chain boxes separation expand
+zigguratroot_specialist_boxesseparation <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weird_boxesseparation",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_BOXES_SEPARATION")),
+    inputId = "zigguratroot_specialist_boxesseparation",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_BOXES_SEPARATION")),
     min     = 0.25,
     max     = 8,
     value   = 1,
@@ -498,11 +497,11 @@ zigguratroot_weird_boxesseparation <- function() {
   return(control)
 }
 
-# weird chain root distance vertical expansion
-zigguratroot_weird_expand_vert <- function() {
+# specialist chain root distance vertical expansion
+zigguratroot_specialist_expand_vert <- function() {
   control<-sliderInput(
-    inputId = "zigguratroot_weird_expand_vert",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_WEIRD_ROOT_EXPAND_VERT")),
+    inputId = "zigguratroot_specialist_expand_vert",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPECIALIST_ROOT_EXPAND_VERT")),
     min     = 0.1,
     max     = 3.0,
     value   = 1.0,
@@ -542,6 +541,32 @@ zigguratLabelsSizeControl <- function(name, description, default) {
   return(control)
 }
 
+# Save ziggurat plot config parameters
+zigguratsaveZigConfigControlFile <- function() {
+  control<-downloadButton("zigguratsaveZigConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
+  return(control)
+}
+
+#Load ziggurat plot config parameters
+zigguratloadZigConfigControlFile <- function() {
+  control<-fileInput(
+    inputId   = "zigguratloadZigConfigFile",
+    accept    = c(".json"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCONFIG_CONTROL")),
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+zigguratshowZigConfigControlFile <- function() {
+  control<-checkboxInput(
+    inputId = "zigguratshowZigConfigControlFile",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
+    value   = FALSE
+  )
+  return(control)
+}
+
 
 zigguratSvgScaleFactorControl <- function() {
   control<-sliderInput(
@@ -555,6 +580,8 @@ zigguratSvgScaleFactorControl <- function() {
   return(control)
 }
 
+
+
 # Crop top SVG
 zigguratSVGup <- function() {
   control<-sliderInput(
@@ -567,7 +594,6 @@ zigguratSVGup <- function() {
   )
   return(control)
 }
-
 
 # Downlad diagram size
 paperSizeControl <- function() {
@@ -583,15 +609,31 @@ paperSizeControl <- function() {
   return(control)
 }
 
-# Diagram plot resolution
-ppiControl <- function() {
+# Ziggurat plot resolution
+zigguratppiControl <- function() {
   values<-c(72, 96, 150, 300, 600)
+
   names(values)<-values
   control<-selectInput(
-    inputId   = "ppi",
+    inputId   = "zigguratppi",
     label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
     choices   = values,
     selected  = 300,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+
+# Ziggurat Plot file format
+zigguratFileFormat <- function() {
+  values<-c("png","jpg","eps","tiff","svg")
+  names(values)<-values
+  control<-selectInput(
+    inputId   = "zigguratfileextension",
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
+    choices   = values,
+    selected  = "svg",
     multiple  = FALSE
   )
   return(control)
@@ -603,6 +645,47 @@ paperLandscape <- function() {
     inputId = "paperLandscape",
     label   = controlLabel(strings$value("LABEL_PAPER_ORIENTATION")),
     value   = TRUE
+  )
+  return(control)
+}
+
+
+
+zigguratDownloadControl <- function() {
+  control<-downloadButton("zigguratDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  return(control)
+}
+
+zigguratsaveSVGControl <- function() {
+  control<-downloadButton("zigguratsaveSVG",label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
+  return(control)
+}
+
+
+zigguratcodeDownloadControl <- function() {
+  control<-downloadButton("zigguratcodeDownload",label = strings$value("LABEL_ZIGGURAT_CODE_DOWNLOAD"))
+  return(control)
+}
+
+# control generico para seleccion de color
+zigguratBckgdColorControl <- function() {
+  control <- colourInput(
+    "zigguratBckgdColorControl",
+    controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_BACKGROUND_COLOR")),
+    value = "#FFFFFF"
+  )
+  return(control)
+}
+
+# Aspect ratio of  the printable plot
+zigguratAspectRatio <- function() {
+  control<-sliderInput(
+    inputId = "zigguratAspectRatio",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_ASPECT_RATIO")),
+    min     = 0.2,
+    max     = 2,
+    value   = 1,
+    step    = 0.1
   )
   return(control)
 }
