@@ -41,12 +41,18 @@ summaryPanel <- function() {
                 tags$p(
                 tags$a(href="https://github.com/jgalgarra/bipartgraph/blob/master/user_guide/BipartGraph%20Guide.pdf", target="_BLANK", "USER GUIDE")),
                 tags$p(tags$a(href="http://github.com/jgalgarra/bipartgraph", target="_BLANK", "Repository at github")),
-                tags$p("Garcia-Algarra et al. (2017), Ranking of critical species to preserve the functionality of mutualistic networks using
-the k-core decomposition. PeerJ 5:e3321;DOI 10.7717/peerj.3321"),
-                  tags$a(href="https://peerj.com/articles/3321/", target="_BLANK", "https://peerj.com/articles/3321/")   
+                tags$p("Garcia-Algarra, J., Pastor, J. M., Mouronte, M. L., & Galeano, J. (2018). A structural approach to disentangle the visualization of bipartite biological networks. Complexity, 2018, 1-11."),
+                tags$a(href="https://www.hindawi.com/journals/complexity/2018/6204947/", target="_BLANK", "https://www.hindawi.com/journals/complexity/2018/6204947/"),
+                tags$p("  "),
+                tags$p("Garcia-Algarra, J., Pastor, J. M., Iriondo, J. M., & Galeano, J. (2017). Ranking of critical species to preserve the functionality of mutualistic networks using the k-core decomposition. PeerJ, 5, e3321."),
+                tags$a(href="https://peerj.com/articles/3321/", target="_BLANK", "https://peerj.com/articles/3321/"),
+                tags$p("  "),
+                tags$p("Example networks downloaded from"),
+                tags$a(href="https://www.web-of-life.es/", target='_BLANK',"Web of Life database")
+                
   )
-  author  <- "Juan Manuel Garcia-Santi & Javier Garcia-Algarra"
-  version <- "v1.0 - June 2017"
+  author  <- "Javier Garcia-Algarra & Juan Manuel Garcia-Santi"
+  version <- "v2.0 - November 2023"
   panel<-tags$div(class="panelContent", fluidRow(
       column(12,
         fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_INFO_HEADER"), image="info.png")),

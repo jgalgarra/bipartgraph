@@ -1,8 +1,13 @@
-"","Hedera helix","Ilex aquifolium","Unidentified sp1 M_SD_024","Solanum nigrum","Sorbus aucuparia","Unidentified sp2 M_SD_024","Fragaria vespa","Rosa sp1 M_SD_024","Vaccinium myrtillus","Prunus spinosa","Taxus bacatta","Unidentified sp3 M_SD_024"
-"Turdus merula",1,1,1,1,1,1,1,1,1,1,0,0
-"Turdus iliacus",1,1,1,1,1,0,0,1,0,0,0,1
-"Erithacus rubecula",1,1,1,1,0,1,1,0,0,0,0,0
-"Garrulus glandarius",0,1,1,0,0,1,0,1,0,1,1,0
-"Sylvia atricapilla",0,0,1,1,0,0,1,0,1,0,0,0
-"Turdus viscivorus",1,1,0,0,1,1,0,0,0,0,0,0
-"Turdus philomelos",1,0,0,0,1,0,0,0,1,0,0,0
+"","Erithacus rubecula","Garrulus glandarius","Sylvia atricapilla","Turdus iliacus","Turdus merula","Turdus philomelos","Turdus viscivorus"
+"Fragaria vespa",1,0,1,0,1,0,0
+"Hedera helix",1,0,0,1,1,1,1
+"Ilex aquifolium",1,1,0,1,1,0,1
+"Prunus spinosa",0,1,0,0,1,0,0
+"Rosa sp1 M_SD_024",0,1,0,1,1,0,0
+"Solanum nigrum",1,0,1,1,1,0,0
+"Sorbus aucuparia",0,0,0,1,1,1,1
+"Taxus bacatta",0,1,0,0,0,0,0
+"Unidentified sp1 M_SD_024",1,1,1,1,1,0,0
+"Unidentified sp2 M_SD_024",1,1,0,0,1,0,1
+"Unidentified sp3 M_SD_024",0,0,0,1,0,0,0
+"Vaccinium myrtillus",0,0,1,0,1,1,0

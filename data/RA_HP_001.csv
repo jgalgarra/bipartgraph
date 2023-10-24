@@ -1,11 +1,11 @@
-"X","Ctenophthalmus.proximus","Ctenophthalmus.hypanis","Ctenophthalmus.inornatus","Megabothris.turbidus","Ctenophthalmus.shovi","Amphipsylla.rossica","Myoxopsylla.jordani","Nosopsyllus.fasciatus","Leptopsylla.segnis","Leptopsylla.taschenbergi","Hystrichopsylla.talpae","Amphipsylla.georgica","Hystrichopsylla.satunini","Rhadinopsylla.integella","Ceratophyllus.sciurorum","Amalaraeus.penicilliger","Ctenophthalmus.euxinicus","Palaeopsylla.caucasica"
-"Microtus arvalis",2,262,9,118,36,105,0,0,0,0,13,0,0,0,0,3,0,0
-"Apodemus sylvaticus",321,8,3,40,45,4,4,30,19,28,3,2,5,3,4,0,0,3
-"Prometheomys schaposchnikowi",0,6,249,2,0,5,0,0,0,0,0,0,0,0,0,0,0,0
-"Apodemus mystacinus",74,3,0,3,13,0,2,15,11,0,0,0,4,0,0,0,3,0
-"Microtus majori",27,4,0,27,34,3,0,0,4,0,2,0,3,0,0,0,0,0
-"Dryomys nitedula",0,0,0,2,0,0,84,0,0,0,0,0,0,0,0,0,0,0
-"Cricetulus migratorius",0,4,4,16,0,10,0,0,0,0,0,13,0,0,0,0,0,0
-"Sorex araneus",11,0,0,0,3,0,0,0,2,0,0,0,0,0,0,0,0,0
-"Chionomys nivalis",0,2,3,2,0,2,0,0,0,0,0,0,0,2,0,0,0,0
-"Myoxus glis",0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0
+"X","Amalaraeus.penicilliger","Amphipsylla.georgica","Amphipsylla.rossica","Ceratophyllus.sciurorum","Ctenophthalmus.euxinicus","Ctenophthalmus.hypanis","Ctenophthalmus.inornatus","Ctenophthalmus.proximus","Ctenophthalmus.shovi","Hystrichopsylla.satunini","Hystrichopsylla.talpae","Leptopsylla.segnis","Leptopsylla.taschenbergi","Megabothris.turbidus","Myoxopsylla.jordani","Nosopsyllus.fasciatus","Palaeopsylla.caucasica","Rhadinopsylla.integella"
+"Apodemus mystacinus",0,0,0,0,3,3,0,74,13,4,0,11,0,3,2,15,0,0
+"Apodemus sylvaticus",0,2,4,4,0,8,3,321,45,5,3,19,28,40,4,30,3,3
+"Chionomys nivalis",0,0,2,0,0,2,3,0,0,0,0,0,0,2,0,0,0,2
+"Cricetulus migratorius",0,13,10,0,0,4,4,0,0,0,0,0,0,16,0,0,0,0
+"Dryomys nitedula",0,0,0,0,0,0,0,0,0,0,0,0,0,2,84,0,0,0
+"Microtus arvalis",3,0,105,0,0,262,9,2,36,0,13,0,0,118,0,0,0,0
+"Microtus majori",0,0,3,0,0,4,0,27,34,3,2,4,0,27,0,0,0,0
+"Myoxus glis",0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0
+"Prometheomys schaposchnikowi",0,0,5,0,0,6,249,0,0,0,0,0,0,2,0,0,0,0
+"Sorex araneus",0,0,0,0,0,0,0,11,3,0,0,2,0,0,0,0,0,0

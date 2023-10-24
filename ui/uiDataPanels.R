@@ -81,11 +81,11 @@ manageFilesPanel<-function() {
   return(panel)
 }
 
-manageLanguages<-function() {
-  panel<-fluidRow(
-    fluidRow(
-      column(3, selectLanguage())
-    )
-  )
-  return(panel)
-}
+# manageLanguages<-function() {
+#   panel<-fluidRow(
+#     fluidRow(
+#       column(3, selectLanguage())
+#     )
+#   )
+#   return(panel)
+# }
