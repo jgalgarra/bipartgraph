@@ -51,6 +51,16 @@ polarFillNodesControl <- function() {
   return(control)
 }
 
+# Show Title
+polarPrintTitleControl <- function() {
+  control<-checkboxInput(
+    inputId = "polarPrintTitleControl",
+    label   = controlLabel(strings$value("LABEL_POLAR_SHOW_NAME")),
+    value   = TRUE
+  )
+  return(control)
+}
+
 # Node transparency
 polarAlphaLevelControl <- function() {
   control<-sliderInput(
@@ -95,7 +105,7 @@ polarscreenwidthControl <- function() {
     inputId   = "screenwidthControl",
     label     = "pixels",
     choices   = values,
-    selected  = 800,
+    selected  = 600,
     multiple  = FALSE
   )
   return(control)

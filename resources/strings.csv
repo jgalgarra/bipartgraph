@@ -147,6 +147,7 @@
 "LABEL_POLAR_LEGEND_TITLE_LABEL_SIZE_CONTROL","Tí­tulo de la leyenda","Legend title"
 "LABEL_POLAR_ALPHA_LEVEL_CONTROL","Transparencia","Transparency"
 "LABEL_POLAR_FILL_NODES","Rellenar nodos","Fill nodes"
+"LABEL_POLAR_SHOW_NAME","Mostrar nombre","Print network name"
 "LABEL_PAPER_ORIENTATION","Horizontal","Landscape"
 "LABEL_POLAR_SCREEN_CONFIG_HEADER","Tamaño en pantalla","Screen size"
 "LABEL_POLAR_DOWNLOAD_LINK","Enlace de descarga","Download link"

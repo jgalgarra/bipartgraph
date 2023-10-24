@@ -117,14 +117,14 @@ calculateDiagramOptions<-function(paperSize, ppi, extension) {
   inches    <- inchesmm*pdfSizes[paperSize,]
   # Type
   type      <- capabilities(c("cairo"))
-  ext       <- capabilities(c("jpeg", "png", "eps", "tiff"))
+  ext       <- capabilities(c("jpeg", "png", "eps", "tiff","svg"))
   # Update values
   options$paperSize <- paperSize
   options$ppi       <- ppi
   options$width     <- inches$width*ppi
   options$height    <- inches$height*ppi
   options$cairo     <- type[c("cairo")]
-  options$ext       <- ifelse(ext[c("png")], "png", ifelse(ext[c("jpeg")], "jpeg", ifelse(ext[c("tiff")], "tiff", "")))
+  options$ext       <- ifelse(ext[c("png")], "png", ifelse(ext[c("jpeg")], "jpeg", ifelse(ext[c("tiff")], "tiff", ifelse(ext[c("svg")], "svg", ""))))
   return(options)
 }
 
@@ -139,7 +139,7 @@ validateDiagramOptions<-function(options) {
 }
 
 # Print static ziggurat plot to file
-plotDiagram<-function(file, plot, options) {
+plotZigguratDiagram<-function(file, plot, options) {
   type<-ifelse(options$cairo, "cairo", "windows")
   pointsize<-12
   if(is.null(zgg$landscape_plot))
@@ -153,13 +153,18 @@ plotDiagram<-function(file, plot, options) {
   }
   if (options$ext=="png") {
     png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="jpeg") {
+  } else if (options$ext=="jpg") {
     jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="tiff") {
     tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="eps"){
-    cairo_ps(filename=file, width=w, height=h, fallback_resolution=options$ppi, pointsize=pointsize)
+     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
+         plot = print(plot),
+         device = cairo_ps)
+  }else if (options$ext=="svg"){
+     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
   }
+  
   plot(plot)
   dev.off()
 }
@@ -170,8 +175,8 @@ plotpolarDiagram<-function(file, plot, options) {
   pointsize<-12
   #h <- options$height
   w <- options$width
-  h <- w # To avoid blank space over the plot
-    if (options$ext=="png") {
+  h <- 0.7*w # To avoid blank space over the plot
+  if (options$ext=="png") {
     png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="jpg") {
     jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)

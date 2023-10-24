@@ -610,12 +610,12 @@ paperSizeControl <- function() {
 }
 
 # Ziggurat plot resolution
-ppiControl <- function() {
+zigguratppiControl <- function() {
   values<-c(72, 96, 150, 300, 600)
 
   names(values)<-values
   control<-selectInput(
-    inputId   = "ppi",
+    inputId   = "zigguratppi",
     label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
     choices   = values,
     selected  = 300,
@@ -625,15 +625,15 @@ ppiControl <- function() {
 }
 
 
-# Plot file format
-FileFormat <- function() {
-  values<-c("png","jpg","eps","tiff")
+# Ziggurat Plot file format
+zigguratFileFormat <- function() {
+  values<-c("png","jpg","eps","tiff","svg")
   names(values)<-values
   control<-selectInput(
-    inputId   = "fileextension",
+    inputId   = "zigguratfileextension",
     label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
     choices   = values,
-    selected  = "png",
+    selected  = "svg",
     multiple  = FALSE
   )
   return(control)
@@ -645,6 +645,47 @@ paperLandscape <- function() {
     inputId = "paperLandscape",
     label   = controlLabel(strings$value("LABEL_PAPER_ORIENTATION")),
     value   = TRUE
+  )
+  return(control)
+}
+
+
+
+zigguratDownloadControl <- function() {
+  control<-downloadButton("zigguratDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  return(control)
+}
+
+zigguratsaveSVGControl <- function() {
+  control<-downloadButton("zigguratsaveSVG",label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
+  return(control)
+}
+
+
+zigguratcodeDownloadControl <- function() {
+  control<-downloadButton("zigguratcodeDownload",label = strings$value("LABEL_ZIGGURAT_CODE_DOWNLOAD"))
+  return(control)
+}
+
+# control generico para seleccion de color
+zigguratBckgdColorControl <- function() {
+  control <- colourInput(
+    "zigguratBckgdColorControl",
+    controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_BACKGROUND_COLOR")),
+    value = "#FFFFFF"
+  )
+  return(control)
+}
+
+# Aspect ratio of  the printable plot
+zigguratAspectRatio <- function() {
+  control<-sliderInput(
+    inputId = "zigguratAspectRatio",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_ASPECT_RATIO")),
+    min     = 0.2,
+    max     = 2,
+    value   = 1,
+    step    = 0.1
   )
   return(control)
 }

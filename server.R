@@ -555,6 +555,7 @@ shinyServer(function(input, output, session) {
       red                 = input$selectedDataFile,
       directorystr        = paste0(dataDir, "/"),
       fill_nodes          = input$polarFillNodesControl,
+      print_title         = input$polarPrintTitleControl, 
       alpha_nodes         = input$polarAlphaLevel,
       plotsdir            = "tmppolar/",
       print_to_file       = TRUE,
@@ -594,7 +595,7 @@ shinyServer(function(input, output, session) {
   
   
   diagramOptions<-reactive({
-    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$ppi), input$fileextension))
+    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), input$zigguratileextension))
   })
  
   output$zigguratsaveSVG<-downloadHandler(
@@ -616,18 +617,19 @@ shinyServer(function(input, output, session) {
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$ppi), input$fileextension)
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , input$fileextension)
+      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), input$zigguratfileextension)
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , input$zigguratfileextension)
       return(file)
     },
     content=function(file) {
       myoptions<-diagramOptions()
       validateDiagramOptions(myoptions)
-      
+      myoptions$ppi <- input$zigguratppi
+      myoptions$ext <- input$zigguratfileextension
       # Gets the diagram
       z<-ziggurat()
       plot<-z$plot
-      plotDiagram(file, plot, myoptions)
+      plotZigguratDiagram(file, plot, myoptions)
     },
     contentType=paste0("image/", diagramOptions()$ext)
   )
@@ -696,9 +698,9 @@ shinyServer(function(input, output, session) {
       comando <- paste0(comando,"gshortened = c(\"",llamada$polar_argg$gshortened[1],"\",\"",llamada$polar_argg$gshortened[2],"\")")
       comando <- addCallParam(comando,llamada$polar_argg,"show_histograms")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_title")
-      comando <- addCallParam(comando,llamada$polar_argg,"lsize_axis")
+      #comando <- addCallParam(comando,llamada$polar_argg,"lsize_axis")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_legend")
-      comando <- addCallParam(comando,llamada$polar_argg,"lsize_axis_title")
+      #comando <- addCallParam(comando,llamada$polar_argg,"lsize_axis_title")
       comando <- addCallParam(comando,llamada$polar_argg,"file_name_append",quote = TRUE)
       comando <- addCallParam(comando,llamada$polar_argg,"print_title")
       comando <- paste0(comando,",progress = NULL")
