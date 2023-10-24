@@ -469,6 +469,7 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
+  
   # Network information
   output$networkname<-renderUI({
     z <- ziggurat()

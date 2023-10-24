@@ -11,25 +11,15 @@ library(shinythemes)
 library(shinyjs)
 source("ui/uiZigguratControls.R", encoding="UTF-8")
 
+customDownloadbutton <- function(outputId, label = "DownloadSVG"){
+  tags$a(id = outputId, class = "btn btn-default shiny-download-link", href = "", 
+         target = "_blank", download = NA, icon("download"), label)
+}
+
 downloadPanel <- function() {
   panel<- 
     tags$div(
       class="panelContent",
-      # fluidRow(
-      #   column(9, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="network.png")),
-      # ),
-      # fluidRow(
-      #   column(9,renderText("<br> <br>"))
-      # ),
-      # fluidRow(
-      #   column(4, zigguratsaveSVGControl())
-      # ),
-      # fluidRow(
-      #   column(9,renderText("<br> <br><br> <br>"))
-      # ),
-      # fluidRow(
-      #   column(9, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_STATIC_HEADER"), image="tiff.png"))
-      # ),
       
       fluidRow(
         column(3, paperLandscape()),
@@ -67,23 +57,45 @@ zigguratPanel<-function() {
 # Ziggurat graph panel
 zigguratDiagramPanel <- function() {
   control<- fixedRow(align="left",
-      fixedRow(
+      fluidRow(
         column(8,
-               fixedRow(align="right",
-                        tags$span(
-                          id="zoomPanel",
-                          tags$img(id="zoomfit",    onclick="svgZoomFit()",   onload="svgZoomFit()", src="images/fit_to_width.png"),
-  
-                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png"),
+               fluidRow(align="right",
+                 #          id="zoomPanel",
+                 tags$span(
+                          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                          ),
+                 tags$span(
+                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png")
+                          ),
+                 tags$span(
                           tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/zoom_out.png")
-                          #tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
-                        )
+                          ),
+                 # tags$span(
+                 #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
+                 #          ),
+                 tags$style(type="text/css",
+                            "#download1, #download1:active  {
+                                    background-color:rgba(0,0,0,0);
+                                    color: black;
+                                    font-family: Courier New;
+                                    border-color: rgba(0,0,0,0);
+                                    -webkit-box-shadow: 0px;
+                                    box-shadow: 0px;
+                                    }"),
+                 downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
+                 tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+                                    color: black;
+                                    font-size: 12px;
+                                    border-color: rgba(0,0,0,0);
+                                    -webkit-box-shadow: 2px;
+                                    box-shadow: 0px;}")),
+                 
                ),
-               fixedRow(align="center",valign="top",
+               fluidRow(align="center",valign="top",
                         uiOutput("ziggurat")
                )
         ),
-        column(4,
+        column(3,
           fluidRow(
             uiOutput("networkinfoDetail")
           ),

@@ -633,7 +633,7 @@ zigguratFileFormat <- function() {
     inputId   = "zigguratfileextension",
     label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
     choices   = values,
-    selected  = "svg",
+    selected  = "png",
     multiple  = FALSE
   )
   return(control)
