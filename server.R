@@ -480,6 +480,11 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
+  output$polardetailsheader<-renderUI({
+    p <- polar()
+    details <- paste("<span>", p$polar_argg$glabels[1],"</span >","&nbsp;<span>", p$polar_argg$glabels[2],"</span >")
+    return(HTML(details))
+  })
   
   # Network information
   output$networkname<-renderUI({
@@ -605,6 +610,29 @@ shinyServer(function(input, output, session) {
          alt = "Polar graph")
   }, deleteFile = FALSE)
   
+  # Polar guild A labels
+  output$networkinfoDetailpolarA<-renderUI({
+    p <- polar()
+    names_A <- p$polar_argg$glabels[1]
+    details <- paste("<br><br><span class='GuildTitle' valign='top'><h5>",names_A,"</h5></span><br>")
+    labelsA <- gsub("\\."," ",names(p$result_analysis$matrix[1,]))
+    for (i in 1:length(labelsA))
+      labelsA[i] <- paste("<span class='GuildNamesList'>",sprintf("%2d",i),labelsA[i],"</span>")
+    details <- paste(details,paste(labelsA,collapse="<br>"))
+    return(HTML(details))
+  })
+  
+  output$networkinfoDetailpolarB<-renderUI({
+    p <- polar()
+    details <- ""
+    names_B <- p$polar_argg$glabels[2]
+    details <- paste("<br><br><span class='GuildTitle' valign='top'><h5>",names_B,"</h5></span><br>")
+    labelsB <- gsub("\\."," ",names(p$result_analysis$matrix[,1]))
+    for (i in 1:length(labelsB))
+      labelsB[i] <- paste("<span class='GuildNamesList'>",sprintf("%2d",i),labelsB[i],"</span>")
+    details <- paste(details,paste(labelsB,collapse="<br>"))
+    return(HTML(details))
+  })
   
   diagramOptions<-reactive({
     return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), input$zigguratileextension))

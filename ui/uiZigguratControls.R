@@ -222,7 +222,7 @@ zigguratYDisplaceControlS <- function(name, description)
   return(control)
 }
 
-# Node box height
+# Inner ziggurats box height expansion, ecluded kcoremax
 zigguratHeightExpandControl <- function() {
   control<-sliderInput(
     inputId = "zigguratHeightExpand",

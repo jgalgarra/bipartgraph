@@ -80,7 +80,7 @@
 "LABEL_ZIGGURAT_Y_DISPLACE_A_CONTROL","Desplazamiento vertical clase A","Vertical displacement for guild A"
 "LABEL_ZIGGURAT_Y_DISPLACE_B_CONTROL","Desplazamiento vertical clase B","Vertical displacement for guild B"
 "LABEL_ZIGGURAT_Y_DISPLACE_CONTROL","Desplazamiento vertical zigurats internos","Inner ziggurats vertical displacement"
-"LABEL_ZIGGURAT_HEIGHT_EXPAND_CONTROL","Altura de los nodos","Nodes height"
+"LABEL_ZIGGURAT_HEIGHT_EXPAND_CONTROL","Altura de los ziggurat internos","Internal ziggurats height"
 "LABEL_ZIGGURAT_1SHELL_EXPAND_CONTROL","Expandir nodos 1-shell","1-shell nodes expand"
 "LABEL_ZIGGURAT_COREMAX_HEIGHT_EXPAND_CONTROL","Expandir la altura de la shell máxima","Max shell height expand"
 "LABEL_ZIGGURAT_COREMAX_WIDTH_EXPAND_CONTROL","Expandir la anchura de la shell máxima","Max shell width expand"
