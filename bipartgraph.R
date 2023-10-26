@@ -30,6 +30,7 @@ if (file.exists(fconf)){
   labelA <<- config_params$LabelA[1]
   labelB <<- config_params$LabelB[1]
   shinyport <<- config_params$PORT
+  WikipediaSubdomain <<- config_params$WikipediaSubdomain
 } else {
   strings<<-LocalizedStrings("en")
   czA1 <<- "#4169E1"

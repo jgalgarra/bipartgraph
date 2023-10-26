@@ -14,8 +14,9 @@ showNodeDetails <- function(type, kcore, nodeDf) {
   
   # Create rows
   name    <- nodeDf[1, c("name_species")]
+  name    <- gsub("\\."," ",name)
   label   <- nodeDf[1, c("label")]
-  label   <- paste0("tags$a(\"", label, "\", href=\"", paste0("javascript:showWiki('", type, "',", label, ", '", name , "')"), "\")")
+  label   <- paste0("tags$a(\"", label, "\", href=\"", paste0("javascript:linktoWiki('", type, "',", label, ", '", name , "', '", WikipediaSubdomain , "')"), "\")")
   kcore   <- paste0("\"", kcore, "\"")
   type    <- paste0("\"", type, "\"")
   name    <- paste0("\"", name, "\"")
@@ -271,11 +272,11 @@ create_report <- function(input_file, output_file) {
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_b[2],"'>",zgg$name_guild_b,"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
-  labelsA <- names(zgg$result_analysis$matrix[1,])
+  labelsA <- gsub("\\."," ",names(zgg$result_analysis$matrix[1,]))
   for (i in 1:length(labelsA))
     names_A <- paste(names_A,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_a[1],"'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
   names_B <- ""
-  labelsB <- names(zgg$result_analysis$matrix[,1])
+  labelsB <- gsub("\\."," ",names(zgg$result_analysis$matrix[,1]))
   for (i in 1:length(labelsB))
     names_B <- paste(names_B,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_b[1],"'>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_a[1],"'>",names_A,"</span>"), modified_text)

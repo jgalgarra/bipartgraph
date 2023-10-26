@@ -61,9 +61,9 @@ zigguratDiagramPanel <- function() {
         column(8,
                fluidRow(align="right",
                  #          id="zoomPanel",
-                 tags$span(
-                          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
-                          ),
+                 # tags$span(
+                 #          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                 #          ),
                  tags$span(
                           tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png")
                           ),
@@ -88,14 +88,14 @@ zigguratDiagramPanel <- function() {
                                     font-size: 12px;
                                     border-color: rgba(0,0,0,0);
                                     -webkit-box-shadow: 2px;
-                                    box-shadow: 0px;}")),
+                                    box-shadow: 0px;}"))
                  
                ),
                fluidRow(align="center",valign="top",
                         uiOutput("ziggurat")
                )
         ),
-        column(3,
+        column(4,
           fluidRow(
             uiOutput("networkinfoDetail")
           ),
@@ -110,13 +110,13 @@ zigguratDiagramPanel <- function() {
 
           fluidRow(
             uiOutput("zigguratNodesDetail")
-          ),
-          fluidRow(
-            groupHeader(text=strings$value("LABEL_ZIGGURAT_DIAGRAM_WIKI_HEADER"), image="wikipedia.png")
-          ),
-          fluidRow(
-            uiOutput("zigguratWikiDetail")
-          )
+          )#,
+          # fluidRow(
+          #   groupHeader(text=strings$value("LABEL_ZIGGURAT_DIAGRAM_WIKI_HEADER"), image="wikipedia.png")
+          # ),
+          # fluidRow(
+          #   uiOutput("zigguratWikiDetail")
+          # )
         )
       )
   )

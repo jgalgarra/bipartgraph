@@ -11,7 +11,6 @@ source("ui/uiCommonPanels.R", encoding="UTF-8")
 source("ui/uiDataPanels.R", encoding="UTF-8")
 source("ui/uiZigguratPanels.R", encoding="UTF-8")
 source("ui/uiPolarPanels.R", encoding="UTF-8")
-#source("ui/uiZigguratDownloadPanels.R", encoding="UTF-8")
 
 shinyUI(
     tagList(

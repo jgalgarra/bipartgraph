@@ -82,9 +82,20 @@ shinyServer(function(input, output, session) {
     file<-input$selectedDataFile
     if (!is.null(file) && nchar(file)>0) {
       content<-read.csv(file=paste0(dataDir, "/", file), header=TRUE, stringsAsFactors = FALSE)
+      auxnguild_a = config_params$LabelA
+      auxnguild_b = config_params$LabelB
+      if (grepl("M_SD_",file)){
+        auxnguild_a = "Disperser"
+        auxnguild_b = "Seed"
+      }
+      if (grepl("RA_HP_",file)){
+        auxnguild_a = "Parasite"
+        auxnguild_b = "Host"
+      }
       if (!searchsafefile(fred=file)){
+        # Guild names by default for web of life files
         result_prim <- analyze_network(file, directory = paste0(dataDir, "/"),
-                                       guild_a = "Plant", guild_b = "Pollinator")
+                                       guild_a = auxnguild_a, guild_b = auxnguild_b)
         max_core <- result_prim$max_core
         analyze_file <- TRUE
       }
@@ -154,11 +165,11 @@ shinyServer(function(input, output, session) {
         
         updateTextInput(session, "DataLabelGuildAControl",
                         label <- strings$value("LABEL_ZIGGURAT_LABEL_GUILDA"),
-                        value <- labelA
+                        value <- auxnguild_a
         )
         updateTextInput(session, "DataLabelGuildBControl",
                         label <- strings$value("LABEL_ZIGGURAT_LABEL_GUILDB"),
-                        value <- labelB
+                        value <- auxnguild_b
         )
         restoredefaultzigcolors
       }

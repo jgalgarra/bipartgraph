@@ -1,12 +1,12 @@
 //-----------------------------------------------------------------------------
-// Universidad Politécnica de Madrid - EUITT
+// Universidad Politecnica de Madrid - EUITT
 //  PFC
-//  Representación gráfica de redes bipartitas basadas en descomposición k-core
+//  Representacion grafica de redes bipartitas basadas en descomposicion k-core
 //
-// Autor         : Juan Manuel García Santi
+// Autor         : Juan Manuel Garcia Santi
 // Módulo        : redesbipartitas.js
-// Descricpción  : Funciones javascript que permiten la interacción del usuario
-//                 con el diagrama ziggurat y la presentación de la información
+// Descricpción  : Funciones javascript que permiten la interaccion del usuario
+//                 con el diagrama ziggurat y la presentacion de la informacion
 //                 relativa a nodos y elementos
 //-----------------------------------------------------------------------------
 
@@ -392,6 +392,12 @@ function getNodeTooltipContent(guildCoreData, id) {
 }
 
 // muestra la informacion obtenida de la wikipedia para un nodo concreto
+function linktoWiki(type, id, name,wsubdomain) {
+  window.open('https://'+wsubdomain+'.wikipedia.org/wiki/'+name, "wikipedia", "directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes");
+}
+
+
+// muestra la informacion obtenida de la wikipedia para un nodo concreto
 function showWiki(type, id, name) {
     //alert("showWiki(id=" + id + ", name=" + name + ")");
     var wikiPanelId     = "wikiDetail-" + type + "-" + id;
@@ -478,8 +484,13 @@ function showWiki(type, id, name) {
 // amplia el SVG del ziggurat
 function svgZoomIn() {
     var svg         = $("#ziggurat svg");
-    var _width      = parseFloat(svg[0].getAttribute("width"));
-    var _height     = parseFloat(svg[0].getAttribute("height"));
+    var ziggurat    = $("#ziggurat");
+    var _width      = ziggurat.width();
+    var _height     = ziggurat.height();
+    
+    svg[0].setAttribute("width", _width);
+    svg[0].setAttribute("height", _height);
+    
     svg[0].setAttribute("width", Math.floor(_width*1.1));
     svg[0].setAttribute("height", Math.floor(_height*1.1));
 }
@@ -487,8 +498,12 @@ function svgZoomIn() {
 // reduce el SVG del ziggurat
 function svgZoomOut() {
     var svg         = $("#ziggurat svg");
-    var _width      = parseFloat(svg[0].getAttribute("width"));
-    var _height     = parseFloat(svg[0].getAttribute("height"));
+    var ziggurat    = $("#ziggurat");
+    var _width      = ziggurat.width();
+    var _height     = ziggurat.height();
+    
+    svg[0].setAttribute("width", _width);
+    svg[0].setAttribute("height", _height);
     svg[0].setAttribute("width", Math.floor(_width/1.1));
     svg[0].setAttribute("height", Math.floor(_height/1.1));
 }
@@ -515,6 +530,7 @@ function svgZoomReset() {
     var size        = svg.data("size");
     svg[0].setAttribute("width", size.width);
     svg[0].setAttribute("height", size.height);
+
 
     // restablece el scroll
     ziggurat.scrollTop(0);
