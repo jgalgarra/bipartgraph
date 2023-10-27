@@ -10,6 +10,7 @@ dataDir         <- "data"
 fileExtension   <- ".csv"
 dataFilePattern <- paste0("*.*", fileExtension)
 
+MAX_NUM_CORES <- 20
 weightchoices <-  c("none" = "none","ln" = "ln","log10" = "log10","sqrt" = "sqrt")
 
 if (file.exists("data/references.csv")){

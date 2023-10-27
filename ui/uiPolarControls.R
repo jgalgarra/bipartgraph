@@ -56,7 +56,7 @@ polarPrintTitleControl <- function() {
   control<-checkboxInput(
     inputId = "polarPrintTitleControl",
     label   = controlLabel(strings$value("LABEL_POLAR_SHOW_NAME")),
-    value   = TRUE
+    value   = FALSE
   )
   return(control)
 }

@@ -152,6 +152,7 @@ plotZigguratDiagram<-function(file, plot, options) {
     h <- options$height
     w <- options$width
   }
+  
   if (options$ext=="png") {
     png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="jpg") {
@@ -159,11 +160,11 @@ plotZigguratDiagram<-function(file, plot, options) {
   } else if (options$ext=="tiff") {
     tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="eps"){
-     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
-         plot = print(plot),
-         device = cairo_ps)
+    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
+           plot = print(plot),
+           device = cairo_ps)
   }else if (options$ext=="svg"){
-     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
+    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
   }
   
   plot(plot)
@@ -177,19 +178,20 @@ plotpolarDiagram<-function(file, plot, options) {
   #h <- options$height
   w <- options$width
   h <- 0.7*w # To avoid blank space over the plot
+  effectiveheight <- as.numeric(options$ppi) * h/300 
+  effectivewidth <- as.numeric(options$ppi) * h/300
   if (options$ext=="png") {
-    png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+    png(filename=file, type=type, width=effectivewidth, height=effectiveheight, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="jpg") {
-    jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+    jpeg(filename=file, type=type, width=effectivewidth, height=effectiveheight, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="tiff") {
-    tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+    tiff(filename=file, type=type, width=effectivewidth, height=effectiveheight, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="eps"){
-    #cairo_ps(filename=file, width=w, height=h, fallback_resolution=options$ppi, pointsize=pointsize)
-    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
+    ggsave(filename = file,width=effectivewidth, height=effectiveheight, fallback_resolution=options$ppi,
            plot = print(plot),
            device = cairo_ps)
-   }else if (options$ext=="svg"){
-     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
+  }else if (options$ext=="svg"){
+    ggsave(filename = file,width=effectivewidth, height=effectiveheight)
   }
   plot(plot)
   dev.off()
@@ -260,14 +262,14 @@ validateconfigfile <- function(filedata){
 }
   
 
-create_report <- function(input_file, output_file) {
-  
-  htmlsvg <- zgg$svg$html()
-  cat(htmlsvg, file = paste0("www/reports/",gsub(" ","",zgg$network_name),".svg"))
+create_zigg_report <- function(z,input_file, output_file) {
+  htmlsvg <- z$svg$html()
+  cat(htmlsvg, file = paste0("www/reports/zigg_",gsub(" ","",zgg$network_name),".svg"))
   # Read the contents of the input file
   text <- readLines(input_file, warn = FALSE)
-  
-  modified_text <- gsub("STR_NETWORK_NAME", zgg$network_name, text)
+  modified_text <- gsub("IMG_STR_NETWORK_FILE", paste0("zigg_",zgg$network_name), text)
+  modified_text <- gsub("STR_NETWORK_NAME", zgg$network_name, modified_text)
+  modified_text <- gsub("STR_PLOT_TYPE", "ZIGGURAT", modified_text)
   modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_a[2],"'>",zgg$name_guild_a,"</span >"), modified_text)
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_b[2],"'>",zgg$name_guild_b,"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
@@ -292,4 +294,54 @@ create_report <- function(input_file, output_file) {
     modified_text <- gsub("STR_REFERENCE"," ",modified_text)
   # Write the modified text to the output file
   writeLines(modified_text, con = output_file)
+}
+
+create_polar_report <- function(p, input_file, output_file) {
+  fileplot <- gsub("_report.html",".svg",output_file)
+  ggsave(filename = fileplot,width=7, height=6)
+  nname <- gsub("\\.csv","",p$polar_argg$red)
+  # Read the contents of the input file
+  text <- readLines(input_file, warn = FALSE)
+  modified_text <- gsub("IMG_STR_NETWORK_FILE", paste0("polar_",nname), text)
+  modified_text <- gsub("STR_NETWORK_NAME", nname, modified_text)
+  modified_text <- gsub("STR_PLOT_TYPE", "POLAR", modified_text)
+  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[1],"</span ><br>"), modified_text)
+  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[2],"</span ><br>"), modified_text)
+  pastechar ="<br style='display: block; margin: 1px;'>"
+  names_A <- ""
+  labelsA <- gsub("\\."," ",names(p$result_analysis$matrix[1,]))
+  for (i in 1:length(labelsA))
+    names_A <- paste(names_A,"<tr><td class='GuildNamesList'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
+  names_B <- ""
+  labelsB <- gsub("\\."," ",names(p$result_analysis$matrix[,1]))
+  for (i in 1:length(labelsB))
+    names_B <- paste(names_B,"<tr><td class='GuildNamesList''>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
+  modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'>",names_A,"</span>"), modified_text)
+  modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'>",names_B,"</span>"), modified_text)
+  if (exists("network_references")){
+    if (sum(network_references$ID==nname)!=0)
+      modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==nname,]$Reference,"&nbsp;&nbsp;",
+                                                   network_references[network_references$ID==nname,]$Locality_of_Study), modified_text)
+    else
+      modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+  }
+  else
+    modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+  # Write the modified text to the output file
+  writeLines(modified_text, con = output_file)
+}
+
+visibilityZigDispControl <- function(option="hide",inf,sup){
+if (exists("zgg")){
+  for (j in (zgg$kcoremax+1):MAX_NUM_CORES){
+    if (option=="hide"){
+      shinyjs::hide(paste0("zigguratYDisplaceSA",j))
+      shinyjs::hide(paste0("zigguratYDisplaceSB",j))
+    }
+    if (option=="show"){
+      shinyjs::show(paste0("zigguratYDisplaceSA",j))
+      shinyjs::show(paste0("zigguratYDisplaceSB",j))
+    }
+}
+}
 }

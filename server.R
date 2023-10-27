@@ -82,6 +82,7 @@ shinyServer(function(input, output, session) {
     file<-input$selectedDataFile
     if (!is.null(file) && nchar(file)>0) {
       content<-read.csv(file=paste0(dataDir, "/", file), header=TRUE, stringsAsFactors = FALSE)
+      visibilityZigDispControl("show",1,MAX_NUM_CORES)
       auxnguild_a = config_params$LabelA
       auxnguild_b = config_params$LabelB
       if (grepl("M_SD_",file)){
@@ -392,9 +393,9 @@ shinyServer(function(input, output, session) {
     writelabcols()
     
     session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), names=c(z$name_guild_a, z$name_guild_b), data=list(a=z$list_dfs_a, b=z$list_dfs_b), neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
-    
     # Enables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=FALSE))
+    visibilityZigDispControl("hide",zgg$kcoremax+1,MAX_NUM_CORES)
     
     return(z)
   })
@@ -471,12 +472,22 @@ shinyServer(function(input, output, session) {
   # Network information
   output$networkinfoDetail<-renderUI({
     z <- ziggurat()
-    create_report("www/reports/templates/index.html",paste0("www/reports/",zgg$network_name,"_report.html"))
+    create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),"&nbsp;",zgg$network_name,"<br><h5>", 
                      "<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
                      "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span >")
-                     details <- paste0(details,"&nbsp;&nbsp;<a href='reports/",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+                     details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
     
+    return(HTML(details))
+  })
+  
+  # Network information
+  output$networkinfoDetailpolar<-renderUI({
+    p <- polar()
+    nname <- gsub("\\.csv","",p$polar_argg$red)
+    create_polar_report(p,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
+    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+    details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
   })
   
@@ -610,28 +621,32 @@ shinyServer(function(input, output, session) {
          alt = "Polar graph")
   }, deleteFile = FALSE)
   
+  
+# Build polar guild labels
+  buildPolarGuildLabels <- function(cabecera,mylabels){
+    namesg <- cabecera
+    details <- paste("<br><br><span class='GuildTitle' valign='top'><h5>",namesg,"</h5></span><br>")
+    labels <- gsub("\\."," ",names(mylabels))
+    for (i in 1:length(labels))
+      labels[i] <- paste0("<span class='GuildNamesList'>
+                          <a href='https://",
+                         config_params$WikipediaSubdomain,".wikipedia.org/wiki/",labels[i],"' target='wikipedia' >",sprintf("%2d",i),"</a>&nbsp;&nbsp;",
+                         labels[i],"</span>")
+    details <- paste(details,paste(labels,collapse="<br>"))
+    return(details)
+  }
+  
   # Polar guild A labels
   output$networkinfoDetailpolarA<-renderUI({
     p <- polar()
-    names_A <- p$polar_argg$glabels[1]
-    details <- paste("<br><br><span class='GuildTitle' valign='top'><h5>",names_A,"</h5></span><br>")
-    labelsA <- gsub("\\."," ",names(p$result_analysis$matrix[1,]))
-    for (i in 1:length(labelsA))
-      labelsA[i] <- paste("<span class='GuildNamesList'>",sprintf("%2d",i),labelsA[i],"</span>")
-    details <- paste(details,paste(labelsA,collapse="<br>"))
-    return(HTML(details))
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],p$result_analysis$matrix[1,])
+    return(HTML(mdetails))
   })
   
   output$networkinfoDetailpolarB<-renderUI({
     p <- polar()
-    details <- ""
-    names_B <- p$polar_argg$glabels[2]
-    details <- paste("<br><br><span class='GuildTitle' valign='top'><h5>",names_B,"</h5></span><br>")
-    labelsB <- gsub("\\."," ",names(p$result_analysis$matrix[,1]))
-    for (i in 1:length(labelsB))
-      labelsB[i] <- paste("<span class='GuildNamesList'>",sprintf("%2d",i),labelsB[i],"</span>")
-    details <- paste(details,paste(labelsB,collapse="<br>"))
-    return(HTML(details))
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1])
+    return(HTML(mdetails))
   })
   
   diagramOptions<-reactive({
