@@ -1,4 +1,5 @@
 # Installation script for BipartGraph.
+
 print(Sys.getenv("R_LIBS_USER"))
 dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)
 print(.libPaths())

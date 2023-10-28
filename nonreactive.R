@@ -305,8 +305,8 @@ create_polar_report <- function(p, input_file, output_file) {
   modified_text <- gsub("IMG_STR_NETWORK_FILE", paste0("polar_",nname), text)
   modified_text <- gsub("STR_NETWORK_NAME", nname, modified_text)
   modified_text <- gsub("STR_PLOT_TYPE", "POLAR", modified_text)
-  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[1],"</span ><br>"), modified_text)
-  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[2],"</span ><br>"), modified_text)
+  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[1],"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[2],"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
   labelsA <- gsub("\\."," ",names(p$result_analysis$matrix[1,]))

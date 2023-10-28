@@ -19,6 +19,10 @@ library(shinythemes)
 
 
 fconf <- "conf/CONFIG.txt"
+# Copy default config file
+if (!file.exists(fconf)){
+  file.copy("conf/default/CONFIG.txt", "conf/CONFIG.txt")
+}
 if (file.exists(fconf)){
   config_params <- read.table(fconf, stringsAsFactors=FALSE, header = TRUE, sep = ";")
   strings<<-LocalizedStrings(config_params$LANGUAGE[1])

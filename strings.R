@@ -8,7 +8,7 @@ library(ggplot2)
 
 LocalizedStrings<-function(locale="es") {
   # crea el objeto
-  this<-list(locale=locale, data=read.csv("resources/strings.csv", header=TRUE, row.names=1, encoding="UTF-8", colClasses="character"))
+  this<-list(locale=locale, data=read.csv("resources/strings.csv", header=TRUE, row.names=1,  colClasses="character"))
   
   # obtiene el texto para la clave indicada
   this$value<-function(keys) {
