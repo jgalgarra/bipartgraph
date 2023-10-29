@@ -36,7 +36,7 @@ shinyUI(
           dataPanel()
         ),
         # Interactive Ziggurat panel
-        tabPanel(
+        tabPanel(id = "zigguratmenutab",
           strings$value("LABEL_MENU_ZIGGURAT_PANEL"),
           zigguratPanel()
         ),

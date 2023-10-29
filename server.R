@@ -77,6 +77,7 @@ shinyServer(function(input, output, session) {
   
   # Reads the network data file
   selectedDataFileContent<-reactive({
+    shinyjs::hideElement(id= "panelB")
     max_core <- 0
     analyze_file <- FALSE
     file<-input$selectedDataFile
@@ -384,19 +385,15 @@ shinyServer(function(input, output, session) {
     # Guild positions
     guildAVertex<-which(V(g)$guild_id=="a")
     guildBVertex<-which(V(g)$guild_id=="b")
-    
     # Neighbors of each node
     guildANeighbors<-sapply(guildAVertex, function(x) {neighbors(g, x)$id})
     guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
-    
     # store labels and colors
     writelabcols()
-    
     session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), names=c(z$name_guild_a, z$name_guild_b), data=list(a=z$list_dfs_a, b=z$list_dfs_b), neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
     # Enables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=FALSE))
     visibilityZigDispControl("hide",zgg$kcoremax+1,MAX_NUM_CORES)
-    
     return(z)
   })
   

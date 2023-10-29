@@ -107,16 +107,9 @@ zigguratDiagramPanel <- function() {
             column(1, tags$small("krad") ),
             column(1, tags$small("kdeg"))
           ),
-
           fluidRow(
             uiOutput("zigguratNodesDetail")
-          )#,
-          # fluidRow(
-          #   groupHeader(text=strings$value("LABEL_ZIGGURAT_DIAGRAM_WIKI_HEADER"), image="wikipedia.png")
-          # ),
-          # fluidRow(
-          #   uiOutput("zigguratWikiDetail")
-          # )
+          )
         )
       )
   )
