@@ -7,8 +7,7 @@ This application provides an interactive environment to visualize bipartite ecol
 
 If you find it useful for your research and please include the following citation:
 
-J. Garcia-Algarra, J. M. Pastor, M. L. Mouronte, and J. Galeano, "A Structural Approach to Disentangle the Visualization of Bipartite Biological Networks," Complexity, vol. 2018, Article ID 6204947, 11 pages, 2018. [https://doi:10.1155/2018/6204947](https://doi:10.1155/2018/6204947)
+J. Garcia-Algarra, J. M. Pastor, M. L. Mouronte, and J. Galeano, ["A Structural Approach to Disentangle the Visualization of Bipartite Biological Networks"](https://www.hindawi.com/journals/complexity/2018/6204947/), Complexity, vol. 2018, Article ID 6204947, 11 pages, 2018. 
 
 Additional info:
-Garcia-Algarra J, Pastor JM, Iriondo JM, Galeano J. (2017) Ranking of critical species to preserve the functionality of mutualistic networks using the k-core decomposition. PeerJ 5:e3321 [https://doi.org/10.7717/peerj.3321](https://doi.org/10.7717/peerj.3321)
-
+Garcia-Algarra J, Pastor JM, Iriondo JM, Galeano J. (2017) ["Ranking of critical species to preserve the functionality of mutualistic networks using the k-core decomposition"](https://peerj.com/articles/3321/). PeerJ 5:e3321.
