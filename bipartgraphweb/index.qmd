@@ -20,7 +20,7 @@ Ziggurat plot of the same mutualistic community.
 
 The polar plot uses the same decomposition to reduce information. Nodes are depicted at a distance proportional to the shell they belong to and their areas are proportional to their degree.
 
-![](images/M_PL_039-polar.png){fig-align="center" width="500"}
+![](images/M_PL_039-polar.png){fig-align="center" width="423"}
 
 ::: {align="center" style="font-size:10px"}
 Ziggurat plot of the same mutualistic community.
