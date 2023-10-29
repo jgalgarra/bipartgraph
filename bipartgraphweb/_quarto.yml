@@ -2,13 +2,7 @@ project:
   type: website
   output-dir: ../docs
 
-website:
-  title: "bipartgraphweb"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+
 
 format:
   html:

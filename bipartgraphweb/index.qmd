@@ -1,13 +1,39 @@
 ![](images/rect-BipartGraph.png){width="169"}
 
+This application provides an interactive environment to visualize bipartite ecological networks using the properties of k-core decomposition. Code is available under a MIT license at [Github](https://github.com/jgalgarra/bipartgraph).
 
-This application provides an interactive environment to visualize bipartite ecological networks using the k-core decomposition. The User Guide provides a full description:
+Bipartite networks are usually plotted using the bipartite plot or the interaction matrix. They work nicely with a small number of nodes and links but can become pretty messy for mid-sized networks.
+
+![](images/bipmatr.png){fig-align="center" width="500"}
+
+::: {style="font-size:10px"}
+Mutualistic community in Tenerife, Canary Islands (Spain), with 68 species and 129 links \[ L. Stald, A. Valido, and J. Olesen, Struktur og dynamik i rum og tid at et bestøvningsnetværk pA tenerife, de kanariske øer, Master, thesis, University of Aarhus, Denmark, 2003\]. In mutualism, species fall into two disjoint guilds, such as plants and pollinators or plants and seed dispersers. Ties amongst species of the same guild are forbidden. (a) Bipartite plot of this community. (b) Interaction matrix.
+:::
+
+BipartGraph works with two type of plots: ziggurat and polar. The ziggurat plot works by splitting both guilds in groups of k-shells, and distributes them in an almond-like shape to improve readability. This diagram makes easier to spot central and peripheral nodes.
+
+![](images/M_PL_039-ziggurat.png){fig-align="center" width="700"}
+
+::: {align="center" style="font-size:10px"}
+Ziggurat plot of the same mutualistic community.
+:::
+
+The polar plot uses the same decomposition to reduce information. Nodes are depicted at a distance proportional to the shell they belong to and their areas are proportional to their degree.
+
+![](images/M_PL_039-polar.png){fig-align="center" width="500"}
+
+::: {align="center" style="font-size:10px"}
+Ziggurat plot of the same mutualistic community.
+:::
+
+Bipartgraph is an interactive web application, for network exploration and reporting, and allows to produce high resolution files for journal publication.
+
+The User Guide provides a full description:
 
 [User Guide](https://github.com/jgalgarra/bipartgraph/raw/master/user_guide/BipartGraph%20Guide.pdf)
 
 If you find it useful for your research and please include the following citation:
 
-J. Garcia-Algarra, J. M. Pastor, M. L. Mouronte, and J. Galeano, ["A Structural Approach to Disentangle the Visualization of Bipartite Biological Networks"](https://www.hindawi.com/journals/complexity/2018/6204947/), Complexity, vol. 2018, Article ID 6204947, 11 pages, 2018. 
+J. Garcia-Algarra, J. M. Pastor, M. L. Mouronte, and J. Galeano, ["A Structural Approach to Disentangle the Visualization of Bipartite Biological Networks"](https://www.hindawi.com/journals/complexity/2018/6204947/), Complexity, vol. 2018, Article ID 6204947, 11 pages, 2018.
 
-Additional info:
-Garcia-Algarra J, Pastor JM, Iriondo JM, Galeano J. (2017) ["Ranking of critical species to preserve the functionality of mutualistic networks using the k-core decomposition"](https://peerj.com/articles/3321/). PeerJ 5:e3321.
+Additional info: Garcia-Algarra J, Pastor JM, Iriondo JM, Galeano J. (2017) ["Ranking of critical species to preserve the functionality of mutualistic networks using the k-core decomposition"](https://peerj.com/articles/3321/). PeerJ 5:e3321.

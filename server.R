@@ -690,12 +690,15 @@ shinyServer(function(input, output, session) {
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$polarppi), input$polarfileextension)
+      #opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$polarppi), input$polarfileextension)
+      opt <- calculateDiagramOptions(4, as.numeric(input$polarppi), input$polarfileextension)
       file<-paste0(gsub(".csv", "", input$selectedDataFile), "-polar." , input$polarfileextension)
       return(file)
     },
     content <- function(file) {
       myoptions<-diagramOptions()
+      myoptions$width     <- 14*as.numeric(input$polarppi) #options$width*ppi
+      myoptions$height    <- 14*as.numeric(input$polarppi) #options$height*ppi
       validateDiagramOptions(myoptions)
       myoptions$ppi <- input$polarppi
       myoptions$ext <- input$polarfileextension

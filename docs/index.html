@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>bipartgraphweb</title>
+<title>index</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -40,11 +39,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -64,38 +63,11 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">bipartgraphweb</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
-  </li>  
-  <li class="dropdown-header">
- <span class="menu-text">about.qmd</span></li>
-</ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -107,7 +79,36 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><img src="images/rect-BipartGraph.png" class="img-fluid" width="169"></p>
-<p>This application provides an interactive environment to visualize bipartite ecological networks using the k-core decomposition. The User Guide provides a full description:</p>
+<p>This application provides an interactive environment to visualize bipartite ecological networks using the properties of k-core decomposition. Code is available under a MIT license at <a href="https://github.com/jgalgarra/bipartgraph">Github</a>.</p>
+<p>Bipartite networks are usually plotted using the bipartite plot or the interaction matrix. They work nicely with a small number of nodes and links but can become pretty messy for mid-sized networks.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bipmatr.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+<div style="font-size:10px">
+<p>Mutualistic community in Tenerife, Canary Islands (Spain), with 68 species and 129 links [ L. Stald, A. Valido, and J. Olesen, Struktur og dynamik i rum og tid at et bestøvningsnetværk pA tenerife, de kanariske øer, Master, thesis, University of Aarhus, Denmark, 2003]. In mutualism, species fall into two disjoint guilds, such as plants and pollinators or plants and seed dispersers. Ties amongst species of the same guild are forbidden. (a) Bipartite plot of this community. (b) Interaction matrix.</p>
+</div>
+<p>BipartGraph works with two type of plots: ziggurat and polar. The ziggurat plot works by splitting both guilds in groups of k-shells, and distributes them in an almond-like shape to improve readability. This diagram makes easier to spot central and peripheral nodes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/M_PL_039-ziggurat.png" class="img-fluid figure-img" width="700"></p>
+</figure>
+</div>
+<div data-align="center" style="font-size:10px">
+<p>Ziggurat plot of the same mutualistic community.</p>
+</div>
+<p>The polar plot uses the same decomposition to reduce information. Nodes are depicted at a distance proportional to the shell they belong to and their areas are proportional to their degree.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/M_PL_039-polar.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+<div data-align="center" style="font-size:10px">
+<p>Ziggurat plot of the same mutualistic community.</p>
+</div>
+<p>Bipartgraph is an interactive web application, for network exploration and reporting, and allows to produce high resolution files for journal publication.</p>
+<p>The User Guide provides a full description:</p>
 <p><a href="https://github.com/jgalgarra/bipartgraph/raw/master/user_guide/BipartGraph%20Guide.pdf">User Guide</a></p>
 <p>If you find it useful for your research and please include the following citation:</p>
 <p>J. Garcia-Algarra, J. M. Pastor, M. L. Mouronte, and J. Galeano, <a href="https://www.hindawi.com/journals/complexity/2018/6204947/">“A Structural Approach to Disentangle the Visualization of Bipartite Biological Networks”</a>, Complexity, vol.&nbsp;2018, Article ID 6204947, 11 pages, 2018.</p>
