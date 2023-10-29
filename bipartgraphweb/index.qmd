@@ -6,8 +6,8 @@ title: "bipartgraph"
 
 BipartGraph is an application to plot bipartite networks in Ecology
 
-|      |                                  |
-|:-----|:---------------------------------|
-| Logo | ![](images/rect-BipartGraph.png) |
+|      |                                               |
+|:-----|:----------------------------------------------|
+| Logo | ![](images/rect-BipartGraph.png){width="169"} |
 
 ### 
