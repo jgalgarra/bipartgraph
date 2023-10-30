@@ -296,9 +296,9 @@ create_zigg_report <- function(z,input_file, output_file) {
   writeLines(modified_text, con = output_file)
 }
 
-create_polar_report <- function(p, input_file, output_file) {
+create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
   fileplot <- gsub("_report.html",".svg",output_file)
-  ggsave(filename = fileplot,width=16, height=16)
+  ggsave(filename = fileplot,width=w, height=h)
   nname <- gsub("\\.csv","",p$polar_argg$red)
   # Read the contents of the input file
   text <- readLines(input_file, warn = FALSE)

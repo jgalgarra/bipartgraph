@@ -22,7 +22,7 @@ dataPanel <- function() {
 selectDataPanel<-function() {
   panel<-fluidRow(
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_SELECT_DATA_HEADER"), image="scv.png"))
+      column(12, groupHeader(text=strings$value("LABEL_SELECT_DATA_HEADER"), image="logos-flexline/new-file.png"))
     ),
     fluidRow(
       column(12, tags$h6(strings$value("LABEL_SELECT_DATA_TIP")))
@@ -43,7 +43,7 @@ selectDataPanel<-function() {
     ),
 
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_DATA_CONTENT_HEADER"), image="grid.png"))
+      column(12, groupHeader(text=strings$value("LABEL_DATA_CONTENT_HEADER"), image="logos-flexline/table.png"))
     ),    
     fluidRow(
       column(12, dataTableOutput("selectedDataFileContent"))
@@ -55,8 +55,8 @@ selectDataPanel<-function() {
 manageFilesPanel<-function() {
   panel<-fluidRow(
     fluidRow(
-      column(6, groupHeader(text=strings$value("LABEL_FILE_UPLOAD_HEADER"), image="upload.png")),
-      column(6, groupHeader(text=strings$value("LABEL_FILE_LAST_UPLOADED_HEADER"), image="file.png"))
+      column(6, groupHeader(text=strings$value("LABEL_FILE_UPLOAD_HEADER"), image="logos-flexline/upload.png")),
+      column(6, groupHeader(text=strings$value("LABEL_FILE_LAST_UPLOADED_HEADER"), image="logos-flexline/text-file.png"))
     ),
     fluidRow(
       column(6,
@@ -67,7 +67,7 @@ manageFilesPanel<-function() {
     ),
 
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_AVAILABLE_FILES"), image="documents.png"))
+      column(12, groupHeader(text=strings$value("LABEL_AVAILABLE_FILES"), image="logos-flexline/folder.png"))
     ),
 
     fluidRow(

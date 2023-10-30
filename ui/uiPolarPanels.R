@@ -56,7 +56,7 @@ polarDiagramPanel <- function() {
 polarConfigPanel <- function() {
   panel<-fluidRow(
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="settings.png"))
+      column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
     ),
     fluidRow(
       column(2, polarDisplayTextControl()),
@@ -66,7 +66,7 @@ polarConfigPanel <- function() {
       column(2, polarscreenwidthControl())
     ),
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_POLAR_LABELS_CONFIG_HEADER"), image="generic_text.png"))
+      column(12, groupHeader(text=strings$value("LABEL_POLAR_LABELS_CONFIG_HEADER"), image="logos-flexline/labels.png"))
     ),
     fluidRow(
       column(3, polarLabelsSizeControl("Title", strings$value("LABEL_POLAR_TITLE_LABEL_SIZE_CONTROL"), 16)),
@@ -80,7 +80,7 @@ polarConfigPanel <- function() {
 polardownloadPanel <- function() {
   panel<-fluidRow(
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="settings.png"))
+      column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
     ),
     fluidRow(
       column(3, polarppiControl()),

@@ -188,8 +188,8 @@ zigguratCoreBoxSizeControl <- function() {
     inputId = "zigguratCoreBoxSize",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_COREBOX_SIZE_CONTROL")),
     min     = 0.0,
-    max     = 2.0,
-    value   = 0.2,
+    max     = 1.0,
+    value   = 0.0,
     step    = 0.1
   )
   return(control)

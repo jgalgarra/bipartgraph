@@ -478,6 +478,31 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
+  output$networkGuildALabel<-renderUI({
+    z <- ziggurat()
+    details <- paste("<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$name_guild_a,"</span >")
+    return(HTML(details))
+  })
+  
+  output$networkGuildALabelTail<-renderUI({
+    z <- ziggurat()
+    details <- paste("<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$name_guild_a,"</span >")
+    return(HTML(details))
+  })
+  
+
+  output$networkGuildBLabel<-renderUI({
+    z <- ziggurat()
+    details <- paste("<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$name_guild_b,"</span >")
+    return(HTML(details))
+  })
+  
+  output$networkGuildBLabelTail<-renderUI({
+    z <- ziggurat()
+    details <- paste("<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$name_guild_b,"</span >")
+    return(HTML(details))
+  })
+  
   # Network information
   output$networkinfoDetailpolar<-renderUI({
     p <- polar()

@@ -11,11 +11,6 @@ library(shinythemes)
 library(shinyjs)
 source("ui/uiZigguratControls.R", encoding="UTF-8")
 
-customDownloadbutton <- function(outputId, label = "DownloadSVG"){
-  tags$a(id = outputId, class = "btn btn-default shiny-download-link", href = "", 
-         target = "_blank", download = NA, icon("download"), label)
-}
-
 downloadPanel <- function() {
   panel<- 
     tags$div(
@@ -65,23 +60,14 @@ zigguratDiagramPanel <- function() {
                  #          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
                  #          ),
                  tags$span(
-                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/zoom_in.png")
+                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
                           ),
                  tags$span(
-                          tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/zoom_out.png")
+                          tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/logos-flexline/zoom-out.png")
                           ),
                  # tags$span(
                  #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
                  #          ),
-                 tags$style(type="text/css",
-                            "#download1, #download1:active  {
-                                    background-color:rgba(0,0,0,0);
-                                    color: black;
-                                    font-family: Courier New;
-                                    border-color: rgba(0,0,0,0);
-                                    -webkit-box-shadow: 0px;
-                                    box-shadow: 0px;
-                                    }"),
                  downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
                  tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
                                     color: black;
@@ -89,11 +75,10 @@ zigguratDiagramPanel <- function() {
                                     border-color: rgba(0,0,0,0);
                                     -webkit-box-shadow: 2px;
                                     box-shadow: 0px;}"))
-                 
+
                ),
                fluidRow(align="center",valign="top",
-                        uiOutput("ziggurat")
-               )
+                        uiOutput("ziggurat"))
         ),
         column(4,
           fluidRow(
@@ -125,14 +110,14 @@ zigguratConfigPanel <- function() {
       tabPanel(
         strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
         fluidRow(
-          column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="settings.png"))
+          column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
         ),
         fluidRow(
           column(2, zigguratSVGup()),
           column(2, zigguratSvgScaleFactorControl())
         ),
         fluidRow(
-          column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="link.png"))
+          column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
         ),
         fluidRow(
           column(1, zigguratPaintLinksControl()),
@@ -144,7 +129,7 @@ zigguratConfigPanel <- function() {
           column(2, zigguratAlphaLevelLinkControl())
       ),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="tree_structure.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
       ),
       fluidRow(
         column(2, zigguratHeightExpandControl()),
@@ -163,10 +148,11 @@ zigguratConfigPanel <- function() {
         column(2, restoreColorsControl())
       ),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_Y_DISPLACE_CONTROL"), image="vertdis.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_Y_DISPLACE_CONTROL"), image="logos-flexline/bidir-arrow.png"))
       ),
 
       fluidRow(
+        column(1, uiOutput("networkGuildALabel")),
         column(1, zigguratYDisplaceControlS("A", "2")),
         column(1, zigguratYDisplaceControlS("A", "3")),
         column(1, zigguratYDisplaceControlS("A", "4")),
@@ -186,10 +172,10 @@ zigguratConfigPanel <- function() {
         column(1, zigguratYDisplaceControlS("A", "18")),
         column(1, zigguratYDisplaceControlS("A", "19")),
         column(1, zigguratYDisplaceControlS("A", "20"))
-
       ),
 
       fluidRow(
+        column(1, uiOutput("networkGuildBLabel")),
         column(1, zigguratYDisplaceControlS("B", "2")),
         column(1, zigguratYDisplaceControlS("B", "3")),
         column(1, zigguratYDisplaceControlS("B", "4")),
@@ -211,7 +197,7 @@ zigguratConfigPanel <- function() {
         column(1, zigguratYDisplaceControlS("B", "20"))
       ),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_OUTSIDERS_HEADER"), image="outsiders.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_OUTSIDERS_HEADER"), image="logos-flexline/outsiders.png"))
       ),
       fluidRow(
         column(2, zigguratPaintOutsidersControl()),
@@ -224,7 +210,7 @@ zigguratConfigPanel <- function() {
     tabPanel(
       strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_PANEL"),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="generic_text.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
       ),
       fluidRow(
         column(2, zigguratLabelsSizeControl("Legend", strings$value("LABEL_ZIGGURAT_LEGEND_LABEL_SIZE_CONTROL"), 5))
@@ -242,7 +228,7 @@ zigguratConfigPanel <- function() {
     tabPanel(
       strings$value("LABEL_ZIGGURAT_CONFIG_TAILS_PANEL"),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_TAILS_PANEL"), image="tails.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_TAILS_PANEL"), image="logos-flexline/tails.png"))
       ),
       fluidRow(
         column(3, zigguratKcore2TailVerticalSeparationControl()),
@@ -250,14 +236,19 @@ zigguratConfigPanel <- function() {
         column(3, zigguratKcore1TailDistToCoreControl("2", strings$value("LABEL_ZIGGURAT_KCORE1_TAIL_DIST_TO_CORE_CONTROL_2"))),
         column(3, zigguratInnerTailVerticalSeparationControl())
       ),
-      fluidRow(
+      fluidRow(        
+        column(1, uiOutput("networkGuildALabelTail")),
         column(3, zigguratfattailjumphorizA()),
-        column(3, zigguratfattailjumpvertA()),
+        column(3, zigguratfattailjumpvertA())
+      ),
+
+      fluidRow(
+        column(1, uiOutput("networkGuildBLabelTail")),
         column(3, zigguratfattailjumphorizB()),
         column(3, zigguratfattailjumpvertB())
       ),
       fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_SPECIALIST"), image="specialist.png"))
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_SPECIALIST"), image="logos-flexline/specialists.png"))
       ),
       fluidRow(
         column(3, zigguratroot_specialist_expand_horiz()),
