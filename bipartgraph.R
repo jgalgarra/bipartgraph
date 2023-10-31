@@ -6,8 +6,8 @@
 #
 ###############################################################################
 
-source("global.R", encoding="UTF-8")
 source("strings.R", encoding="UTF-8")
+source("global.R", encoding="UTF-8")
 library(shiny)
 library(gridExtra)
 library(grDevices)
@@ -16,6 +16,8 @@ library(grid)
 library(DT)
 library(kcorebip)
 library(shinythemes)
+library(ggtext)
+library(rlang)
 
 
 fconf <- "conf/CONFIG.txt"

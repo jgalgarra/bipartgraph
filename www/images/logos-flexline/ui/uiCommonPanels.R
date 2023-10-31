@@ -48,7 +48,7 @@ summaryPanel <- function() {
                 tags$p("Garcia-Algarra, J., Pastor, J. M., Iriondo, J. M., & Galeano, J. (2017). Ranking of critical species to preserve the functionality of mutualistic networks using the k-core decomposition. PeerJ, 5, e3321."),
                 tags$a(href="https://peerj.com/articles/3321/", target="_BLANK", "https://peerj.com/articles/3321/"),
                 tags$p("  "),
-                tags$p(HTML("Example networks downloaded from <a href='https://www.web-of-life.es/', target='_BLANK' >Web of Life database</a>. &nbsp; Core Line - Free icons by <a href='https://www.streamlinehq.com/icons?tab=free'>Streamlinehq.com</a> under CC BY 4.0 License"))
+                tags$p(HTML("Example networks downloaded from <a href='https://www.web-of-life.es/', target='_BLANK' >Web of Life database</a>"))
                 
   )
   author  <- "Javier Garcia-Algarra & Juan Manuel Garcia-Santi"
@@ -57,8 +57,6 @@ summaryPanel <- function() {
       column(12,
         fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_INFO_HEADER"), image="logos-flexline/information.png")),
         fluidRow(tags$h5(class="aboutInfo", info)),
-        fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_LICENSE"), image="logos-flexline/license.png")),
-        
         fluidRow(tags$p(class="aboutInfo", "MIT License"),
                  tags$p(class="aboutInfo", "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), 
 to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -67,8 +65,8 @@ The above copyright notice and this permission notice shall be included in all c
         fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_AUTHOR_HEADER"), image="logos-flexline/author.png")),
         fluidRow(tags$h5(class="aboutAuthor", author)),
         fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_VERSION_HEADER"), image="logos-flexline/release.png")),
-        fluidRow(tags$h5(class="aboutVersion", version))
-        
+        fluidRow(tags$h5(class="aboutVersion", version)),
+        fluidRow(tags$small(class="aboutVersion", HTML("Core Line - Free icons by <a href='https://www.streamlinehq.com/icons?tab=free'>Streamlinehq.com</a> under CC BY 4.0 License")))
       )
     ))
   return(panel)

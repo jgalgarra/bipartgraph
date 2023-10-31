@@ -4,8 +4,8 @@ print(Sys.getenv("R_LIBS_USER"))
 dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)
 print(.libPaths())
 
-list.of.packages <- c('ggplot2', 'ggrepel', 'colourpicker','svglite',
-                      'grid','igraph', 'bipartite','jsonlite',
+list.of.packages <- c('ggplot2', 'colourpicker','svglite',
+                      'grid','igraph', 'bipartite','jsonlite', 'ggtext',
                       'gridExtra', 'vegan', 'sna', 'fields','DT',
                       'shiny', 'shinythemes', 'shinyjs')
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
