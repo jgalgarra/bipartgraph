@@ -12,6 +12,15 @@ dataFilePattern <- paste0("*.*", fileExtension)
 
 MAX_NUM_CORES <- 20
 weightchoices <-  c("none" = "none","ln" = "ln","log10" = "log10","sqrt" = "sqrt")
+outsidercontrols <- c("zigguratPaintOutsiders","zigguratoutsiders_expand_horiz","zigguratoutsiders_expand_vert",
+                      "zigguratoutsiders_separation_expand","zigguratoutsiders_legend_expand")
+specialistcontrols <- c("zigguratroot_specialist_expand_horiz","zigguratroot_specialistskcore2_horiz",
+                        "zigguratroot_specialistskcore2_vert","zigguratroot_specialist_boxesseparation",
+                        "zigguratroot_specialist_expand_vert","zigguratkcore1specialists_leafs_vertical_separation")
+tailcontrols <- c("zigguratKcore2TailVerticalSeparation","zigguratKcore1TailDistToCore","zigguratKcore1TailDistToCore1",
+                  "zigguratKcore1TailDistToCore2",
+                  "zigguratInnerTailVerticalSeparation","zigguratfattailjumphorizA","zigguratfattailjumpvertA",
+                  "zigguratfattailjumphorizB","zigguratfattailjumpvertB")
 
 if (file.exists("data/references.csv")){
   network_references <- read.csv("data/references.csv")

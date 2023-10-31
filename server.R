@@ -83,7 +83,11 @@ shinyServer(function(input, output, session) {
     file<-input$selectedDataFile
     if (!is.null(file) && nchar(file)>0) {
       content<-read.csv(file=paste0(dataDir, "/", file), header=TRUE, stringsAsFactors = FALSE)
+      # Restore controls visibility
       visibilityZigDispControl("show",1,MAX_NUM_CORES)
+      SwitchControls("enable",outsidercontrols)
+      SwitchControls("enable",specialistcontrols)
+      SwitchControls("enable",tailcontrols)
       auxnguild_a = config_params$LabelA
       auxnguild_b = config_params$LabelB
       if (grepl("M_SD_",file)){
@@ -393,7 +397,17 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), names=c(z$name_guild_a, z$name_guild_b), data=list(a=z$list_dfs_a, b=z$list_dfs_b), neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
     # Enables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=FALSE))
+    # Only shows ziggurat displacement controls for existing k-shells 
     visibilityZigDispControl("hide",zgg$kcoremax+1,MAX_NUM_CORES)
+    # Disable outsider controls if all nodes are part of the giaan component
+    if(length(names(zgg$outsider))==0)
+      SwitchControls("disable",outsidercontrols)
+    # Disable specialist controls if there are not specialists
+    if(nrow(zgg$df_chains)==0)
+      SwitchControls("disable",specialistcontrols)
+    # Disable tail controls if there are no tails
+    if (is.na(zgg$orphans_a) && is.na(zgg$orphans_b))
+      SwitchControls("disable",tailcontrols)
     return(z)
   })
   
@@ -478,29 +492,26 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
-  output$networkGuildALabel<-renderUI({
+  buildcoloredguildlabels <- function(color,guildname){
     z <- ziggurat()
-    details <- paste("<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$name_guild_a,"</span >")
+    details <- paste("<span  style='color:",color,"'>",guildname,"</span >")
     return(HTML(details))
+  }
+  
+  output$networkGuildALabel<-renderUI({
+    return(buildcoloredguildlabels(zgg$color_guild_a[1],zgg$name_guild_a))
   })
   
   output$networkGuildALabelTail<-renderUI({
-    z <- ziggurat()
-    details <- paste("<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$name_guild_a,"</span >")
-    return(HTML(details))
+    return(buildcoloredguildlabels(zgg$color_guild_a[1],zgg$name_guild_a))
   })
-  
 
   output$networkGuildBLabel<-renderUI({
-    z <- ziggurat()
-    details <- paste("<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$name_guild_b,"</span >")
-    return(HTML(details))
+    return(buildcoloredguildlabels(zgg$color_guild_b[1],zgg$name_guild_b))
   })
   
   output$networkGuildBLabelTail<-renderUI({
-    z <- ziggurat()
-    details <- paste("<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$name_guild_b,"</span >")
-    return(HTML(details))
+    return(buildcoloredguildlabels(zgg$color_guild_b[1],zgg$name_guild_b))
   })
   
   # Network information

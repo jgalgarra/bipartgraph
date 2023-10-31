@@ -207,33 +207,16 @@ zigguratConfigPanel <- function() {
         column(2, zigguratoutsiders_legend_expand())
       )
     ),
-    tabPanel(
-      strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_PANEL"),
-      fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
-      ),
-      fluidRow(
-        column(2, zigguratLabelsSizeControl("Legend", strings$value("LABEL_ZIGGURAT_LEGEND_LABEL_SIZE_CONTROL"), 5))
-      ),
-      fluidRow(
-        column(2, zigguratLabelsSizeControl("kCoreMax", strings$value("LABEL_ZIGGURAT_KCOREMAX_LABEL_SIZE_CONTROL"), 5)),
-        column(2, zigguratLabelsSizeControl("Ziggurat", strings$value("LABEL_ZIGGURAT_ZIGGURAT_LABEL_SIZE_CONTROL"), 4.5)),
-        column(2, zigguratLabelsSizeControl("kCore1", strings$value("LABEL_ZIGGURAT_KCORE1_LABEL_SIZE_CONTROL"), 4))
-      ),
-      fluidRow(
-        column(2, zigguratCoreBoxSizeControl()),
-        column(2, zigguratLabelsSizeControl("CoreBox", strings$value("LABEL_ZIGGURAT_COREBOX_LABEL_SIZE_CONTROL"), 5))
-      )
-    ),
+    
     tabPanel(
       strings$value("LABEL_ZIGGURAT_CONFIG_TAILS_PANEL"),
       fluidRow(
         column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_TAILS_PANEL"), image="logos-flexline/tails.png"))
       ),
       fluidRow(
-        column(3, zigguratKcore2TailVerticalSeparationControl()),
         column(3, zigguratKcore1TailDistToCoreControl("1", strings$value("LABEL_ZIGGURAT_KCORE1_TAIL_DIST_TO_CORE_CONTROL_1"))),
         column(3, zigguratKcore1TailDistToCoreControl("2", strings$value("LABEL_ZIGGURAT_KCORE1_TAIL_DIST_TO_CORE_CONTROL_2"))),
+        column(3, zigguratKcore2TailVerticalSeparationControl()),
         column(3, zigguratInnerTailVerticalSeparationControl())
       ),
       fluidRow(        
@@ -241,7 +224,7 @@ zigguratConfigPanel <- function() {
         column(3, zigguratfattailjumphorizA()),
         column(3, zigguratfattailjumpvertA())
       ),
-
+      
       fluidRow(
         column(1, uiOutput("networkGuildBLabelTail")),
         column(3, zigguratfattailjumphorizB()),
@@ -259,6 +242,26 @@ zigguratConfigPanel <- function() {
       fluidRow(
         column(3, zigguratroot_specialist_boxesseparation()),
         column(3, zigguratkcore1specialists_leafs_vertical_separation())
+      )
+    ),
+    
+    
+    tabPanel(
+      strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_PANEL"),
+      fluidRow(
+        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
+      ),
+      fluidRow(
+        column(2, zigguratLabelsSizeControl("Legend", strings$value("LABEL_ZIGGURAT_LEGEND_LABEL_SIZE_CONTROL"), 5))
+      ),
+      fluidRow(
+        column(2, zigguratLabelsSizeControl("kCoreMax", strings$value("LABEL_ZIGGURAT_KCOREMAX_LABEL_SIZE_CONTROL"), 5)),
+        column(2, zigguratLabelsSizeControl("Ziggurat", strings$value("LABEL_ZIGGURAT_ZIGGURAT_LABEL_SIZE_CONTROL"), 4.5)),
+        column(2, zigguratLabelsSizeControl("kCore1", strings$value("LABEL_ZIGGURAT_KCORE1_LABEL_SIZE_CONTROL"), 4))
+      ),
+      fluidRow(
+        column(2, zigguratCoreBoxSizeControl()),
+        column(2, zigguratLabelsSizeControl("CoreBox", strings$value("LABEL_ZIGGURAT_COREBOX_LABEL_SIZE_CONTROL"), 5))
       )
     ),
     

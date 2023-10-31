@@ -332,16 +332,35 @@ create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
 }
 
 visibilityZigDispControl <- function(option="hide",inf,sup){
-if (exists("zgg")){
-  for (j in (zgg$kcoremax+1):MAX_NUM_CORES){
-    if (option=="hide"){
-      shinyjs::hide(paste0("zigguratYDisplaceSA",j))
-      shinyjs::hide(paste0("zigguratYDisplaceSB",j))
+  if (exists("zgg")){
+    if ((option=="hide") && (zgg$kcoremax==2)){
+      shinyjs::hide("networkGuildALabel")
+      shinyjs::hide("networkGuildBLabel")
     }
     if (option=="show"){
-      shinyjs::show(paste0("zigguratYDisplaceSA",j))
-      shinyjs::show(paste0("zigguratYDisplaceSB",j))
+      shinyjs::show("networkGuildALabel")
+      shinyjs::show("networkGuildBLabel")
     }
+    for (j in (zgg$kcoremax):MAX_NUM_CORES){
+      if (option=="hide"){
+        shinyjs::hide(paste0("zigguratYDisplaceSA",j))
+        shinyjs::hide(paste0("zigguratYDisplaceSB",j))
+      }
+      if (option=="show"){
+        shinyjs::show(paste0("zigguratYDisplaceSA",j))
+        shinyjs::show(paste0("zigguratYDisplaceSB",j))
+      }
+    }
+  }
 }
-}
+
+SwitchControls <- function(option="disable",lcontrols){
+  if (exists("zgg")){
+    for (i in lcontrols){
+      if (option=="disable")
+          shinyjs::disable(i)
+      if (option=="enable")
+        shinyjs::enable(i)
+    }
+  }
 }
