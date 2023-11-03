@@ -101,7 +101,7 @@ shinyServer(function(input, output, session) {
       if (!searchsafefile(fred=file)){
         # Guild names by default for web of life files
         result_prim <- analyze_network(file, directory = paste0(dataDir, "/"),
-                                       guild_a = auxnguild_a, guild_b = auxnguild_b)
+                                       guild_a = auxnguild_a, guild_b = auxnguild_b, only_NODF = TRUE)
         max_core <- result_prim$max_core
         analyze_file <- TRUE
       }
@@ -569,7 +569,8 @@ shinyServer(function(input, output, session) {
     red <- input$selectedDataFile
     red_name <- strsplit(red,".csv")[[1]][1]
     result_analysis <- analyze_network(red, directory = paste0(dataDir, "/"),
-                                       guild_a = input$DataLabelGuildAControl, guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE)
+                                       guild_a = input$DataLabelGuildAControl, only_NODF = TRUE,
+                                       guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE)
     numlinks <- result_analysis$links
     results_indiv <- data.frame(Name = c(), Species = c(), kradius = c(), kdegree = c(), kshell = c(), krisk = c())
     clase <- grepl(input$DataLabelGuildAControl,V(result_analysis$graph)$name)
