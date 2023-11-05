@@ -88,6 +88,7 @@ shinyServer(function(input, output, session) {
       SwitchControls("enable",outsidercontrols)
       SwitchControls("enable",specialistcontrols)
       SwitchControls("enable",tailcontrols)
+      SwitchControls("enable",weightcontrols)
       auxnguild_a = config_params$LabelA
       auxnguild_b = config_params$LabelB
       if (grepl("M_SD_",file)){
@@ -408,6 +409,10 @@ shinyServer(function(input, output, session) {
     # Disable tail controls if there are no tails
     if (is.na(zgg$orphans_a) && is.na(zgg$orphans_b))
       SwitchControls("disable",tailcontrols)
+    # Binary network
+    if(sum(zgg$result_analysis$matrix > 1)==0)
+      SwitchControls("disable",weightcontrols)
+    
     return(z)
   })
   
@@ -483,8 +488,14 @@ shinyServer(function(input, output, session) {
   # Network information
   output$networkinfoDetail<-renderUI({
     z <- ziggurat()
+    if (sum(zgg$result_analysis$matrix > 1)==0)
+      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+    else
+      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
     create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
-    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),"&nbsp;",zgg$network_name,"<br><h5>", 
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",zgg$network_name,"&nbsp;",strw,"&nbsp;",
+                     zgg$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><h5>", 
                      "<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
                      "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span >")
                      details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
