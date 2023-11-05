@@ -95,6 +95,10 @@ shinyServer(function(input, output, session) {
         auxnguild_a = "Disperser"
         auxnguild_b = "Seed"
       }
+      if (grepl("M_PL_",file)){
+        auxnguild_a = "Plant"
+        auxnguild_b = "Pollinator"
+      }
       if (grepl("RA_HP_",file)){
         auxnguild_a = "Parasite"
         auxnguild_b = "Host"
@@ -318,7 +322,7 @@ shinyServer(function(input, output, session) {
       color_link                                    = input$zigguratColorLink,
       alpha_link                                    = input$zigguratAlphaLevelLink,
       size_link                                     = input$zigguratLinkSize,
-      displace_y_a                                  = c(0, input$zigguratYDisplaceSA2, input$zigguratYDisplaceSA3,
+      displace_y_a                                  = -1*c(0, input$zigguratYDisplaceSA2, input$zigguratYDisplaceSA3,
                                                         input$zigguratYDisplaceSA4,input$zigguratYDisplaceSA5,
                                                         input$zigguratYDisplaceSA6,input$zigguratYDisplaceSA7,
                                                         input$zigguratYDisplaceSA8,input$zigguratYDisplaceSA9,
