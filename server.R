@@ -471,7 +471,7 @@ shinyServer(function(input, output, session) {
         }
         # Data frame with species details
         nodeDf  <- kcore_df[kcore_df$label==nodeId, c("label", "name_species", "kdegree", "kradius")]
-        details <- paste(details, showNodeDetails(type, kcore, nodeDf), collapse="")
+        details <- paste(details, showNodeDetails(type, kcore, nodeDf,zgg$network_name), collapse="")
       }
     }
     
@@ -517,7 +517,7 @@ shinyServer(function(input, output, session) {
   # Network information
   output$networkinfoDetailpolar<-renderUI({
     p <- polar()
-    nname <- gsub("\\.csv","",p$polar_argg$red)
+    nname <- get_network_name(p$polar_argg$red)
     create_polar_report(p,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
@@ -657,10 +657,11 @@ shinyServer(function(input, output, session) {
   
   
 # Build polar guild labels
-  buildPolarGuildLabels <- function(cabecera,mylabels){
+  buildPolarGuildLabels <- function(cabecera,mylabels,pfile){
     namesg <- cabecera
+    nname <- get_network_name(pfile)
     details <- paste("<br><br><span class='GuildTitle' valign='top'><h5>",namesg,"</h5></span><br>")
-    labels <- gsub("\\."," ",names(mylabels))
+    labels <- clean_species_names(names(mylabels),nname)
     for (i in 1:length(labels))
       labels[i] <- paste0("<span class='GuildNamesList'>
                           <a href='https://",
@@ -673,13 +674,13 @@ shinyServer(function(input, output, session) {
   # Polar guild A labels
   output$networkinfoDetailpolarA<-renderUI({
     p <- polar()
-    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],p$result_analysis$matrix[1,])
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],p$result_analysis$matrix[1,],p$polar_argg$red)
     return(HTML(mdetails))
   })
   
   output$networkinfoDetailpolarB<-renderUI({
     p <- polar()
-    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1])
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1],p$polar_argg$red)
     return(HTML(mdetails))
   })
   
@@ -729,7 +730,7 @@ shinyServer(function(input, output, session) {
     filename=function() {
       #opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$polarppi), input$polarfileextension)
       opt <- calculateDiagramOptions(4, as.numeric(input$polarppi), input$polarfileextension)
-      file<-paste0(gsub(".csv", "", input$selectedDataFile), "-polar." , input$polarfileextension)
+      file<-paste0(get_network_name(input$selectedDataFile), "-polar." , input$polarfileextension)
       return(file)
     },
     content <- function(file) {

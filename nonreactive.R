@@ -7,14 +7,14 @@
 ###############################################################################
 
 # Show the detailed information of the selected node
-showNodeDetails <- function(type, kcore, nodeDf) {
+showNodeDetails <- function(type, kcore, nodeDf,network) {
   rows    <- eval(parse(text="fluidRow()"))
   columns <- ""
   sizes   <- c(1, 2, 4, 1, 1, 1)
   
   # Create rows
   name    <- nodeDf[1, c("name_species")]
-  name    <- gsub("\\."," ",name)
+  name    <- clean_species_names(name,network)
   label   <- nodeDf[1, c("label")]
   label   <- paste0("tags$a(\"", label, "\", href=\"", paste0("javascript:linktoWiki('", type, "',", label, ", '", name , "', '", WikipediaSubdomain , "')"), "\")")
   kcore   <- paste0("\"", kcore, "\"")
@@ -255,7 +255,7 @@ static_error_msg <- function(mykey){
 
 # Check that configuration file contents are correct
 validateconfigfile <- function(filedata){
-    if (gsub(".csv","",filedata$filename)!=zgg$network_name){
+    if (get_network_name(filedata$filename)!=zgg$network_name){
       return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
     }
     return("OK")
@@ -274,11 +274,11 @@ create_zigg_report <- function(z,input_file, output_file) {
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_b[2],"'>",zgg$name_guild_b,"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
-  labelsA <- gsub("\\."," ",names(zgg$result_analysis$matrix[1,]))
+  labelsA <- clean_species_names(names(zgg$result_analysis$matrix[1,]),zgg$network_name)
   for (i in 1:length(labelsA))
     names_A <- paste(names_A,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_a[1],"'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
   names_B <- ""
-  labelsB <- gsub("\\."," ",names(zgg$result_analysis$matrix[,1]))
+  labelsB <- clean_species_names(names(zgg$result_analysis$matrix[,1]),zgg$network_name)
   for (i in 1:length(labelsB))
     names_B <- paste(names_B,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_b[1],"'>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_a[1],"'>",names_A,"</span>"), modified_text)
@@ -296,10 +296,21 @@ create_zigg_report <- function(z,input_file, output_file) {
   writeLines(modified_text, con = output_file)
 }
 
+get_network_name <- function(namefile){
+  return(gsub(".CSV","",gsub(".csv","",namefile)))
+}
+
+clean_species_names <- function(listspecies,nnetwork){
+  splabels <- gsub("\\."," ",listspecies)
+  splabels <- gsub(nnetwork,"",splabels)
+  splabels <- trimws(splabels)
+  return <- splabels
+}
+
 create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
   fileplot <- gsub("_report.html",".svg",output_file)
   ggsave(filename = fileplot,width=w, height=h)
-  nname <- gsub("\\.csv","",p$polar_argg$red)
+  nname <- get_network_name(p$polar_argg$red)
   # Read the contents of the input file
   text <- readLines(input_file, warn = FALSE)
   modified_text <- gsub("IMG_STR_NETWORK_FILE", paste0("polar_",nname), text)
@@ -309,11 +320,11 @@ create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[2],"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
-  labelsA <- gsub("\\."," ",names(p$result_analysis$matrix[1,]))
+  labelsA <- clean_species_names(names(p$result_analysis$matrix[1,]),nname)
   for (i in 1:length(labelsA))
     names_A <- paste(names_A,"<tr><td class='GuildNamesList'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
   names_B <- ""
-  labelsB <- gsub("\\."," ",names(p$result_analysis$matrix[,1]))
+  labelsB <- clean_species_names(names(p$result_analysis$matrix[,1]),nname)
   for (i in 1:length(labelsB))
     names_B <- paste(names_B,"<tr><td class='GuildNamesList''>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'>",names_A,"</span>"), modified_text)
