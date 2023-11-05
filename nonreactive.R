@@ -285,7 +285,7 @@ create_zigg_report <- function(z,input_file, output_file) {
   modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_b[1],"'>",names_B,"</span>"), modified_text)
   if (exists("network_references")){
      if (sum(network_references$ID==zgg$network_name)!=0)
-        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"&nbsp;&nbsp;",
+        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"&nbsp;",
                                                      network_references[network_references$ID==zgg$network_name,]$Locality_of_Study), modified_text)
      else
         modified_text <- gsub("STR_REFERENCE"," ",modified_text)
@@ -331,7 +331,7 @@ create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
   modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'>",names_B,"</span>"), modified_text)
   if (exists("network_references")){
     if (sum(network_references$ID==nname)!=0)
-      modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==nname,]$Reference,"&nbsp;&nbsp;",
+      modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==nname,]$Reference,"&nbsp;",
                                                    network_references[network_references$ID==nname,]$Locality_of_Study), modified_text)
     else
       modified_text <- gsub("STR_REFERENCE"," ",modified_text)

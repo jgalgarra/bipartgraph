@@ -23,8 +23,8 @@ tailcontrols <- c("zigguratKcore2TailVerticalSeparation","zigguratKcore1TailDist
                   "zigguratfattailjumphorizB","zigguratfattailjumpvertB")
 weightcontrols <- c("zigguratweighted_links")
 
-if (file.exists("data/references.csv")){
-  network_references <- read.csv("data/references.csv")
+if (file.exists("data/refs/references.csv")){
+  network_references <- read.csv("data/refs/references.csv")
   names(network_references) <- gsub("\\.","_",names(network_references))
 }
 
