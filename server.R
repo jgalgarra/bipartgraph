@@ -136,9 +136,22 @@ shinyServer(function(input, output, session) {
       output$NodesGuildA <- renderText({
         paste(ncol(content)-1,strings$value("LABEL_SPECIES"))
       })
+      
       output$NodesGuildB <- renderText({
         paste(nrow(content),strings$value("LABEL_SPECIES"))
       })
+      
+      output$NetworkType <- renderText({
+        if (sum(content[1:nrow(content),2:ncol(content)] > 1)==0)
+          strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+        else
+          strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+      })
+      
+      output$NetworkLinks <- renderText({
+        paste(sum(content[1:nrow(content),2:ncol(content)]>0),strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"))
+      })
+      
       dflabcols <- searchlabcols(fred = file)
       if (ncol(dflabcols)>0){
         updateTextInput(session, "DataLabelGuildAControl",

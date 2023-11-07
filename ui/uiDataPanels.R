@@ -28,7 +28,9 @@ selectDataPanel<-function() {
       column(12, tags$h6(strings$value("LABEL_SELECT_DATA_TIP")))
     ),
     fluidRow(
-      column(8, selectDataFileControl(path=dataDir, pattern=dataFilePattern)),
+      column(4, selectDataFileControl(path=dataDir, pattern=dataFilePattern)),
+      column(2, tags$h5(textOutput("NetworkType"))),
+      column(2, tags$h5(textOutput("NetworkLinks"),valign="middle")),
       column(4, actionButton("ResetAll", label = strings$value("LABEL_ACTION_RESET")))
     ),
 
