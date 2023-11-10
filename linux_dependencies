@@ -1,0 +1,6 @@
+# First step, update your distro
+sudo apt update
+# Install R. Skip this command if there is available a working R environment. 
+sudo apt install r-base r-base-dev -y
+# Add these libraries on a fresh Ubuntu desktop install. Change apt-get to yum for Red Hat/Fedora distros
+sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev 
