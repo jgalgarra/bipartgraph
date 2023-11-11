@@ -133,18 +133,17 @@ zigguratConfigPanel <- function() {
       ),
       fluidRow(
         column(2, zigguratHeightExpandControl()),
-        column(2, zigguratHopx()),
         column(2, ziggurat1shellExpandControl()),
         column(2, zigguratCoreMaxHExp()),
-        column(2, zigguratCoreMaxWExp())
-
+        column(2, zigguratCoreMaxWExp()),
+        column(2, zigguratHopx())
       ),
       fluidRow(
-        column(2, zigguratAlphaLevelControl()),
         column(2, zigguratColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
         column(2, zigguratColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
         column(2, zigguratColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
         column(2, zigguratColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
+        column(2, zigguratAlphaLevelControl()),
         column(2, restoreColorsControl())
       ),
       fluidRow(

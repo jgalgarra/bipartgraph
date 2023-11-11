@@ -85,33 +85,6 @@ zigguratAspectRatioControl <- function() {
   return(control)
 }
 
-# # horizontal legend expand
-# zigguratdisplace_legend_horiz <- function() {
-#   control<-sliderInput(
-#     inputId = "zigguratdisplace_legend_horiz",
-#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_HORIZ")),
-#     min     = -2,
-#     max     = 3.0,
-#     value   = 0,
-#     step    = 0.1
-#   )
-#   return(control)
-# }
-# 
-# 
-# # Legend expansion vert
-# zigguratdisplace_legend_vert<- function() {
-#   control<-sliderInput(
-#     inputId = "zigguratdisplace_legend_vert",
-#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_CONFIG_LEGEND_DISPLACE_VERT")),
-#     min     = -2,
-#     max     = 3.0,
-#     value   = 0,
-#     step    = 0.1
-#   )
-#   return(control)
-# }
-
 # Expand horizontal separation among inner ziggurats
 zigguratHopx <- function() {
   control<-sliderInput(
@@ -195,25 +168,13 @@ zigguratCoreBoxSizeControl <- function() {
   return(control)
 }
 
-# ziggurat displacement
-zigguratYDisplaceControl <- function(name, description) {
-  control<-sliderInput(
-    inputId = paste0("zigguratYDisplace", name),
-    label   = controlLabel(description),
-    min     = 0.0,
-    max     = 15.0,
-    value   = 11.0,
-    step    = 1.0
-  )
-  return(control)
-}
-
 # 
 zigguratYDisplaceControlS <- function(name, description)
 {
   control<-sliderInput(
     inputId = paste0("zigguratYDisplaceS", name, description),
-    label   = controlLabel(paste0(description,"-shell ",name)),
+    label   = controlLabel(HTML(paste0("&darr;&nbsp;",description,"-shell ",name,"&nbsp;&uarr;"))),
+    ticks = FALSE,
     min     = -2.0,
     max     = 2.0,
     value   = 0.0,
