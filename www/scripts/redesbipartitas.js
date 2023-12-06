@@ -78,7 +78,7 @@ function updateNodeEvents() {
             var pattern="kcore" + kcore + "-" + guild;
 
             // estilo del cursor
-            $("[id*=" + pattern + "]").css("cursor", "pointer");
+            $("[id*=" + pattern + "]").css("pointer", "pointer");
 
             // eventos para resaltar un nodo y los asociados
             $("[id*=" + pattern + "]").click(function() {
@@ -101,7 +101,7 @@ function updateNodeEvents() {
 function updateLinkEvents() {
     var pattern="link";
     // estilo del cursor
-    $("g[id*=" + pattern + "]").css("cursor", "pointer");
+    $("g[id*=" + pattern + "]").css("pointer", "pointer");
 
     // eventos
     $("g[id*=" + pattern + "]").mouseover(function() {
