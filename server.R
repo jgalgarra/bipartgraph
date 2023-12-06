@@ -423,7 +423,7 @@ shinyServer(function(input, output, session) {
     if(nrow(zgg$df_chains)==0)
       SwitchControls("disable",specialistcontrols)
     # Disable tail controls if there are no tails
-    if (is.na(zgg$orphans_a) && is.na(zgg$orphans_b))
+    if (is.na(zgg$orphans_a)[1] && is.na(zgg$orphans_b)[1])
       SwitchControls("disable",tailcontrols)
     # Binary network
     if(sum(zgg$result_analysis$matrix > 1)==0)
