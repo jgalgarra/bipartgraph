@@ -10,7 +10,7 @@
     /* height:     400px; */
     height: 80%;
     width: 90%;
-    cursor:     move;
+    cursor:     pointer;
     margin-top: 0px;
 }
 
@@ -47,7 +47,7 @@
 
 /* imagenes de zoom */
 #zoomin, #zoomout, #zoomfit, #zoomreset {
-    cursor: pointer;
+    /* cursor: move; */
     width:  16px;
     height: 16px;
 }
