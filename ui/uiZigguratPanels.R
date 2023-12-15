@@ -55,10 +55,10 @@ zigguratDiagramPanel <- function() {
       fluidRow(
         column(8,
                fluidRow(align="right",
-                 #          id="zoomPanel",
-                 # tags$span(
-                 #          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
-                 #          ),
+                  #          id="zoomPanel",
+                  # tags$span(
+                  #          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                  #          ),
                  tags$span(
                           tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
                           ),
@@ -113,8 +113,8 @@ zigguratConfigPanel <- function() {
           column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
         ),
         fluidRow(
-          column(2, zigguratSVGup()),
-          column(2, zigguratSvgScaleFactorControl())
+          column(2,zigguratSvgScaleFactorControl() ),
+          column(2, zigguratSVGup())
         ),
         fluidRow(
           column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
