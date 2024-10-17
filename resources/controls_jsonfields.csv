@@ -75,7 +75,7 @@ zigguratLabelsSizekCore1;lsize_kcore1;slider;1;1
 zigguratLabelsSizeLegend;lsize_legend;slider;1;1
 zigguratLabelsSizeCoreBox;lsize_core_box;slider;1;1
 zigguratSvgScaleFactor;svg_scale_factor;slider;1;25
-zigguratSVGup;move_all_SVG_up;slider;1;0,01
+zigguratSVGup;move_all_SVG_up;slider;1;0.01
 DataLabelGuildAControl;label_strguilda;textinput;1;0
 DataLabelGuildBControl;label_strguildb;textinput;1;0
 zigguratUseSpline;use_spline;checkbox;1;0
@@ -86,4 +86,4 @@ zigguratColorGuildA1;color_guild_a;colourinput;1;0
 zigguratColorGuildA2;color_guild_a;colourinput;2;0
 zigguratColorGuildB1;color_guild_b;colourinput;1;0
 zigguratColorGuildB2;color_guild_b;colourinput;2;0
-zigguratColorLink;color_link;colourinput;1;0
+0;color_link;colourinput;1;0
