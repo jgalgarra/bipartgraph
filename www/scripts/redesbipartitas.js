@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------
-// Universidad Politecnica de Madrid - EUITT
-//  PFC
+//  Desarrollo Original
+//  PFC Universidad Politecnica de Madrid - EUITT
 //  Representacion grafica de redes bipartitas basadas en descomposicion k-core
 //
 // Autor         : Juan Manuel Garcia Santi
@@ -8,15 +8,18 @@
 // Descricpción  : Funciones javascript que permiten la interaccion del usuario
 //                 con el diagrama ziggurat y la presentacion de la informacion
 //                 relativa a nodos y elementos
+//
+// Ampliado en el marco de BipartGraph por Javer Garcia Algarra
 //-----------------------------------------------------------------------------
 
 // funcion que se llama cuando la pagina esta cargada
 function windowLoad() {
-    // actualiza los tooltips de ayuda
-    updateHelpTooltips();
+    console.log("Pagina cargada")
+    // // actualiza los tooltips de ayuda
+    // updateHelpTooltips();
 
-    // indica al servidor que el cliente esta listo
-    Shiny.onInputChange("windowLoad", new Date());
+    // // indica al servidor que el cliente esta listo
+    // Shiny.onInputChange("windowLoad", new Date());
 }
 
 // establece los tooltips de ayuda de todos los elementos

@@ -24,7 +24,8 @@ shinyUI(
         tags$link(rel="stylesheet", type="text/css", href="css/perfect-scrollbar.css"),
         tags$link(rel="stylesheet", type="text/css", href="css/jquery.qtip.css"),
         tags$link(rel="stylesheet", type="text/css", href="css/redesbipartitas.css"),
-        tags$script("$(window).load(function() {windowLoad()})")#,
+        #tags$script("$(window).load(function() {windowLoad()})"),   # deprecated
+        tags$script("$(window).on('load', function(){windowLoad()})")
       ),
       FullPage <- navbarPage(
         title = div("", img(src = "images/rect-BipartGraph-tr.png", id = "bipartgraph", height = "25px",style = "position: relative; margin:-15px 0px; display:right-align;")),

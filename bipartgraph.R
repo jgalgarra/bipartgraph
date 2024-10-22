@@ -8,22 +8,22 @@
 
 source("strings.R", encoding="UTF-8")
 source("global.R", encoding="UTF-8")
-library(shiny)
 library(gridExtra)
 library(grDevices)
 library(gtable)
 library(grid)
 library(DT)
 library(kcorebip)
-library(shinythemes)
 library(ggtext)
 library(rlang)
+library(shiny)
+library(shinythemes)
 
 
 fconf <- "conf/CONFIG.txt"
 # Copy default config file
 if (!file.exists(fconf)){
-  file.copy("conf/default/CONFIG.txt", "conf/CONFIG.txt")
+  file.copy("conf/default/CONFIG.txt", fconf)
 }
 if (file.exists(fconf)){
   config_params <- read.table(fconf, stringsAsFactors=FALSE, header = TRUE, sep = ";")
@@ -37,6 +37,8 @@ if (file.exists(fconf)){
   labelB <<- config_params$LabelB[1]
   shinyport <<- config_params$PORT
   WikipediaSubdomain <<- config_params$WikipediaSubdomain
+  
+  print(paste("WikipediaSubdomain",WikipediaSubdomain))
 } else {
   strings<<-LocalizedStrings("en")
   czA1 <<- "#4169E1"
