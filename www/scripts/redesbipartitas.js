@@ -14,9 +14,9 @@
 
 // funcion que se llama cuando la pagina esta cargada
 function windowLoad() {
-    console.log("Pagina cargada")
-    // // actualiza los tooltips de ayuda
-    // updateHelpTooltips();
+    console.log("Page loaded");
+    // actualiza los tooltips de ayuda
+    updateHelpTooltips();
 
     // // indica al servidor que el cliente esta listo
     // Shiny.onInputChange("windowLoad", new Date());
@@ -594,18 +594,6 @@ Shiny.addCustomMessageHandler(
     }
 );
 
-// registra la funcion que se usa para mostrar los textos de los mensajes
-// en el lenguage seleccionado
-var messagesMap=null;
-Shiny.addCustomMessageHandler(
-    "messagesHandler",
-    function(messages) {
-        messagesMap=messages;
-    }
-);
-function getMessage(key) {
-    return messagesMap[key];
-}
 
 //registra la funcion que se usa para mostrar los textos de los mensajes
 //en el lenguage seleccionado
@@ -617,3 +605,18 @@ Shiny.addCustomMessageHandler(
         //alert("zigguratData=" + JSON.stringify(zigguratData));
     }
 );
+
+// registra la funcion que se usa para mostrar los textos de los mensajes
+// en el lenguage seleccionado
+var messagesMap=null;
+Shiny.addCustomMessageHandler(
+    "messagesHandler",
+    function(messages) {
+        messagesMap=messages;
+    }
+);
+
+function getMessage(key) {
+  console.log(messagesMap[key]);
+  return messagesMap[key];
+}

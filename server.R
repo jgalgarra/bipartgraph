@@ -30,14 +30,18 @@ shinyServer(function(input, output, session) {
   # shinyjs::hide("polarcodeDownload")
   shinyjs::hide("networkAnalysis")
   
-  observeEvent(input$windowLoad, {
+  
+  
+
+  
+  observe( {
     # Create user messages for javascript
     messagesNames<-c("LABEL_ZIGGURAT_INFO_DETAILS_TYPE", "LABEL_ZIGGURAT_INFO_DETAILS_KCORE", "LABEL_ZIGGURAT_INFO_DETAILS_ID", "LABEL_ZIGGURAT_INFO_DETAILS_NAME", "LABEL_ZIGGURAT_INFO_DETAILS_KRADIUS", "LABEL_ZIGGURAT_INFO_DETAILS_KDEGREE", "MESSAGE_CONFIRM_DELETE_FILES", "MESSAGE_WIKIPEDIA_NO_INFO_ERROR", "MESSAGE_WIKIPEDIA_DOWNLOAD_ERROR")
     messages<-strings$value(messagesNames)
     names(messages)<-messagesNames
     session$sendCustomMessage(type="messagesHandler", as.list(messages))
   })
-  
+
   # Write labels and colors
   writelabcols <- function()
   {
