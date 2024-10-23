@@ -54,7 +54,7 @@ zigguratDiagramPanel <- function() {
   control<- fixedRow(align="left",
       fluidRow(
         
-        column(8,  
+        column(7,  
                fluidRow(align="left",valign="top",
                         uiOutput("ziggurat"))
             ),
@@ -62,8 +62,8 @@ zigguratDiagramPanel <- function() {
                fluidRow(align="center",
                         #          id="zoomPanel",
                         # tags$span(
-                        #         tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
-                        #         ),
+                        #        tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                        #        ),
                         tags$span(
                           tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
                         ),
@@ -86,7 +86,7 @@ zigguratDiagramPanel <- function() {
                         )
           
         ),
-        column(3,
+        column(4,
           fluidRow(
             uiOutput("networkinfoDetail")
           ),

@@ -14,7 +14,7 @@
 
 // funcion que se llama cuando la pagina esta cargada
 function windowLoad() {
-    console.log("Page loaded");
+   
     // actualiza los tooltips de ayuda
     updateHelpTooltips();
 
@@ -520,13 +520,14 @@ function svgZoomFit() {
     var svg         = $("#ziggurat svg");
     var _width      = ziggurat.width();
     var _height     = ziggurat.height();
+
     svg[0].setAttribute("width", _width);
     svg[0].setAttribute("height", _height);
 
     // restablece el scroll
     ziggurat.scrollTop(0);
     ziggurat.scrollLeft(0);
-    ziggurat.perfectScrollbar("update");
+    //ziggurat.perfectScrollbar("update");
 }
 
 // establece el tamaño SVG del ziggurat a su tamaño real
