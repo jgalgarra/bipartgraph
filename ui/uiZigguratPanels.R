@@ -53,34 +53,40 @@ zigguratPanel<-function() {
 zigguratDiagramPanel <- function() {
   control<- fixedRow(align="left",
       fluidRow(
-        column(8,
-               fluidRow(align="right",
-                  #          id="zoomPanel",
-                  # tags$span(
-                  #          tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
-                  #          ),
-                 tags$span(
+        
+        column(8,  
+               fluidRow(align="center",valign="top",
+                        uiOutput("ziggurat"))
+            ),
+        column(1,
+               fluidRow(align="center",
+                        #          id="zoomPanel",
+                        # tags$span(
+                        #         tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                        #         ),
+                        tags$span(
                           tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
-                          ),
-                 tags$span(
+                        ),
+                        tags$span(
                           tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/logos-flexline/zoom-out.png")
-                          ),
-                 # tags$span(
-                 #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
-                 #          ),
-                 downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
-                 tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+                        )
+               ),
+               fluidRow(align="center",
+                        # tags$span(
+                        #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
+                        #          ),
+                        downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
+                        tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
                                     color: black;
                                     font-size: 12px;
                                     border-color: rgba(0,0,0,0);
                                     -webkit-box-shadow: 2px;
                                     box-shadow: 0px;}"))
-
-               ),
-               fluidRow(align="center",valign="top",
-                        uiOutput("ziggurat"))
+                        
+                        )
+          
         ),
-        column(4,
+        column(3,
           fluidRow(
             uiOutput("networkinfoDetail")
           ),

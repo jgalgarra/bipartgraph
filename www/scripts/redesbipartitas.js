@@ -24,8 +24,9 @@ function windowLoad() {
 
 // establece los tooltips de ayuda de todos los elementos
 var helpTooltips=[
-    {id: "zoomin",      value: "Incrementar el nivel de zoom del ziggurat"},
-    {id: "zoomout",     value: "Disminuir el nivel de zoom del ziggurat"},
+    {id: "zoomin",      value: "Ziggurat zoom in"},
+    
+    {id: "zoomout",     value: "Ziggurat zoom out"},
     {id: "zoomfit",     value: "Ajustar el ziggurat a la ventana de visualización"},
     {id: "zoomreset",   value: "Visualizar el ziggurat en su tamaño real"}
 ];
@@ -104,7 +105,7 @@ function updateNodeEvents() {
 function updateLinkEvents() {
     var pattern="link";
     // estilo del cursor
-    $("g[id*=" + pattern + "]").css("pointer", "pointer");
+    $("g[id*=" + pattern + "]").css("pointer","pointer");
 
     // eventos
     $("g[id*=" + pattern + "]").mouseover(function() {
