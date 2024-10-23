@@ -55,7 +55,7 @@ zigguratDiagramPanel <- function() {
       fluidRow(
         
         column(8,  
-               fluidRow(align="center",valign="top",
+               fluidRow(align="left",valign="top",
                         uiOutput("ziggurat"))
             ),
         column(1,

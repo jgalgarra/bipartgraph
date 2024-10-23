@@ -618,6 +618,5 @@ Shiny.addCustomMessageHandler(
 );
 
 function getMessage(key) {
-  console.log(messagesMap[key]);
   return messagesMap[key];
 }

@@ -1,0 +1,615 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-560 -220 1186.5 714">
+<rect id="kcore2-a-1-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-394.57" y="-124.01" width="19.48" height="74.41" />
+<rect id="kcore2-a-2-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-372.92" y="-121.92" width="19.48" height="72.32" />
+<rect id="kcore2-a-3-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-351.28" y="-119.84" width="19.48" height="70.24" />
+<rect id="kcore2-a-4-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-329.63" y="-117.76" width="19.48" height="68.16" />
+<rect id="kcore2-a-5-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-307.99" y="-115.67" width="19.48" height="66.07" />
+<rect id="kcore2-a-6-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-286.34" y="-113.59" width="19.48" height="63.99" />
+<rect id="kcore2-a-7-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-264.7" y="-111.51" width="19.48" height="61.91" />
+<rect id="kcore2-a-8-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-243.05" y="-109.42" width="19.48" height="59.82" />
+<rect id="kcore2-a-9-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-221.41" y="-107.34" width="19.48" height="57.74" />
+<rect id="kcore2-a-10-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-199.76" y="-105.26" width="19.48" height="55.66" />
+<rect id="kcore2-a-11-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-178.12" y="-103.17" width="19.48" height="53.57" />
+<rect id="kcore2-a-12-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-156.47" y="-101.09" width="19.48" height="51.49" />
+<rect id="kcore2-a-13-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-134.83" y="-99.01" width="19.48" height="49.41" />
+<rect id="kcore2-a-14-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-113.18" y="-96.92" width="19.48" height="47.32" />
+<rect id="kcore2-a-15-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-91.54" y="-94.84" width="19.48" height="45.24" />
+<rect id="kcore2-a-16-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-69.89" y="-92.76" width="19.48" height="43.16" />
+<rect id="kcore2-a-17-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-48.25" y="-90.67" width="19.48" height="41.07" />
+<rect id="kcore2-a-18-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-26.61" y="-88.59" width="19.49" height="38.99" />
+<rect id="kcore2-a-19-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-4.96" y="-86.51" width="19.48" height="36.91" />
+<rect id="kcore2-a-20-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="16.68" y="-84.42" width="19.48" height="34.82" />
+<rect id="kcore2-a-21-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="38.33" y="-82.34" width="19.48" height="32.74" />
+<rect id="kcore2-a-22-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="59.97" y="-80.26" width="19.48" height="30.66" />
+<rect id="kcore2-a-23-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="81.62" y="-78.17" width="19.48" height="28.57" />
+<rect id="kcore2-a-24-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="103.26" y="-76.09" width="19.48" height="26.49" />
+<rect id="kcore2-a-25-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="124.91" y="-74.01" width="19.48" height="24.41" />
+<text id="kcore2-a-1-text" y="-86.8" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-384.83" dy="0">4</tspan>
+</text>
+<text id="kcore2-a-2-text" y="-85.76" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-363.18" dy="0">8</tspan>
+</text>
+<text id="kcore2-a-3-text" y="-84.72" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-341.54" dy="0">48</tspan>
+</text>
+<text id="kcore2-a-4-text" y="-83.68" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-319.89" dy="0">51</tspan>
+</text>
+<text id="kcore2-a-5-text" y="-82.64" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-298.25" dy="0">42</tspan>
+</text>
+<text id="kcore2-a-6-text" y="-81.6" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-276.6" dy="0">35</tspan>
+</text>
+<text id="kcore2-a-7-text" y="-80.55" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-254.96" dy="0">40</tspan>
+</text>
+<text id="kcore2-a-8-text" y="-79.51" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-233.31" dy="0">17</tspan>
+</text>
+<text id="kcore2-a-9-text" y="-78.47" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-211.67" dy="0">44</tspan>
+</text>
+<text id="kcore2-a-10-text" y="-77.43" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-190.02" dy="0">10</tspan>
+</text>
+<text id="kcore2-a-11-text" y="-76.39" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-168.38" dy="0">30</tspan>
+</text>
+<text id="kcore2-a-12-text" y="-75.35" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-146.73" dy="0">46</tspan>
+</text>
+<text id="kcore2-a-13-text" y="-74.3" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-125.09" dy="0">49</tspan>
+</text>
+<text id="kcore2-a-14-text" y="-73.26" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-103.44" dy="0">5</tspan>
+</text>
+<text id="kcore2-a-15-text" y="-72.22" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-81.8" dy="0">38</tspan>
+</text>
+<text id="kcore2-a-16-text" y="-71.18" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-60.15" dy="0">23</tspan>
+</text>
+<text id="kcore2-a-17-text" y="-70.14" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-38.51" dy="0">32</tspan>
+</text>
+<text id="kcore2-a-18-text" y="-69.1" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="-16.86" dy="0">33</tspan>
+</text>
+<text id="kcore2-a-19-text" y="-68.05" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="4.78" dy="0">26</tspan>
+</text>
+<text id="kcore2-a-20-text" y="-67.01" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="26.42" dy="0">41</tspan>
+</text>
+<text id="kcore2-a-21-text" y="-65.97" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="48.07" dy="0">13</tspan>
+</text>
+<text id="kcore2-a-22-text" y="-64.93" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="69.71" dy="0">19</tspan>
+</text>
+<text id="kcore2-a-23-text" y="-63.89" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="91.36" dy="0">27</tspan>
+</text>
+<text id="kcore2-a-24-text" y="-62.85" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="113" dy="0">22</tspan>
+</text>
+<text id="kcore2-a-25-text" y="-61.8" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#00008B">
+<tspan x="134.65" dy="0">11</tspan>
+</text>
+<rect id="kcore2-b-1-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-304.38" y="49.6" width="18.45" height="74.41" />
+<rect id="kcore2-b-2-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-283.88" y="49.6" width="18.44" height="72.04" />
+<rect id="kcore2-b-3-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-263.39" y="49.6" width="18.45" height="69.67" />
+<rect id="kcore2-b-4-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-242.89" y="49.6" width="18.45" height="67.3" />
+<rect id="kcore2-b-5-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-222.39" y="49.6" width="18.45" height="64.94" />
+<rect id="kcore2-b-6-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-201.89" y="49.6" width="18.44" height="62.57" />
+<rect id="kcore2-b-7-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-181.4" y="49.6" width="18.45" height="60.2" />
+<rect id="kcore2-b-8-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-160.9" y="49.6" width="18.45" height="57.83" />
+<rect id="kcore2-b-9-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-140.4" y="49.6" width="18.44" height="55.47" />
+<rect id="kcore2-b-10-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-119.91" y="49.6" width="18.45" height="53.1" />
+<rect id="kcore2-b-11-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-99.41" y="49.6" width="18.45" height="50.73" />
+<rect id="kcore2-b-12-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-78.91" y="49.6" width="18.44" height="48.37" />
+<rect id="kcore2-b-13-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-58.42" y="49.6" width="18.45" height="46" />
+<rect id="kcore2-b-14-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-37.92" y="49.6" width="18.45" height="43.63" />
+<rect id="kcore2-b-15-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-17.42" y="49.6" width="18.44" height="41.26" />
+<rect id="kcore2-b-16-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="3.07" y="49.6" width="18.45" height="38.9" />
+<rect id="kcore2-b-17-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="23.57" y="49.6" width="18.45" height="36.53" />
+<rect id="kcore2-b-18-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="44.07" y="49.6" width="18.45" height="34.16" />
+<rect id="kcore2-b-19-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="64.57" y="49.6" width="18.44" height="31.79" />
+<rect id="kcore2-b-20-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="85.06" y="49.6" width="18.45" height="29.43" />
+<rect id="kcore2-b-21-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="105.56" y="49.6" width="18.45" height="27.06" />
+<rect id="kcore2-b-22-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="126.06" y="49.6" width="18.44" height="24.69" />
+<text id="kcore2-b-1-text" y="86.8" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-295.16" dy="0">13</tspan>
+</text>
+<text id="kcore2-b-2-text" y="85.62" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-274.66" dy="0">11</tspan>
+</text>
+<text id="kcore2-b-3-text" y="84.44" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-254.16" dy="0">2</tspan>
+</text>
+<text id="kcore2-b-4-text" y="83.25" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-233.67" dy="0">6</tspan>
+</text>
+<text id="kcore2-b-5-text" y="82.07" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-213.17" dy="0">18</tspan>
+</text>
+<text id="kcore2-b-6-text" y="80.89" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-192.67" dy="0">10</tspan>
+</text>
+<text id="kcore2-b-7-text" y="79.7" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-172.17" dy="0">28</tspan>
+</text>
+<text id="kcore2-b-8-text" y="78.52" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-151.68" dy="0">24</tspan>
+</text>
+<text id="kcore2-b-9-text" y="77.33" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-131.18" dy="0">21</tspan>
+</text>
+<text id="kcore2-b-10-text" y="76.15" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-110.68" dy="0">26</tspan>
+</text>
+<text id="kcore2-b-11-text" y="74.97" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-90.19" dy="0">16</tspan>
+</text>
+<text id="kcore2-b-12-text" y="73.78" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-69.69" dy="0">1</tspan>
+</text>
+<text id="kcore2-b-13-text" y="72.6" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-49.19" dy="0">14</tspan>
+</text>
+<text id="kcore2-b-14-text" y="71.42" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-28.7" dy="0">22</tspan>
+</text>
+<text id="kcore2-b-15-text" y="70.23" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="-8.2" dy="0">5</tspan>
+</text>
+<text id="kcore2-b-16-text" y="69.05" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="12.3" dy="0">19</tspan>
+</text>
+<text id="kcore2-b-17-text" y="67.87" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="32.8" dy="0">20</tspan>
+</text>
+<text id="kcore2-b-18-text" y="66.68" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="53.29" dy="0">3</tspan>
+</text>
+<text id="kcore2-b-19-text" y="65.5" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="73.79" dy="0">8</tspan>
+</text>
+<text id="kcore2-b-20-text" y="64.31" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="94.29" dy="0">27</tspan>
+</text>
+<text id="kcore2-b-21-text" y="63.13" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="114.78" dy="0">12</tspan>
+</text>
+<text id="kcore2-b-22-text" y="61.95" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:15px;fill:#FF0000">
+<tspan x="135.28" dy="0">7</tspan>
+</text>
+<rect id="kcore2-1-rect" style="fill:none;fill-opacity:0.3" stroke="#8B4C39" stroke-dasharray="1 1" stroke-width="0" x="-411.17" y="-134.34" width="561.21" height="263.51" />
+<text id="kcore2-1-text" y="-2.58" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:10.5px;fill:transparent">
+</text>
+<text id="kcore2-1-text" y="0" transform="rotate(-90 -402.32 0)" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:15px;fill:#8B4C39">
+<tspan x="-402.32" dy="0">2-shell</tspan>
+</text>
+<rect id="edge-kcore1-a-7-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="126.2" width="5.52999999999997" height="5.52999999999999" />
+<text id="edge-kcore1-a-7-1-text" y="128.96" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 3</tspan>
+</text>
+<rect id="edge-kcore1-a-12-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="148.71" width="5.52999999999997" height="5.53" />
+<text id="edge-kcore1-a-12-1-text" y="151.47" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 14</tspan>
+</text>
+<rect id="edge-kcore1-a-3-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="171.22" width="5.52999999999997" height="5.53" />
+<text id="edge-kcore1-a-3-1-text" y="173.98" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 45</tspan>
+</text>
+<rect id="edge-kcore1-a-20-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="193.73" width="5.52999999999997" height="5.53" />
+<text id="edge-kcore1-a-20-1-text" y="196.49" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 18</tspan>
+</text>
+<rect id="edge-kcore1-a-19-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="216.24" width="5.52999999999997" height="5.53" />
+<text id="edge-kcore1-a-19-1-text" y="219" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 43</tspan>
+</text>
+<rect id="edge-kcore1-a-1-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="238.75" width="7.06" height="7.06" />
+<text id="edge-kcore1-a-1-1-text" y="242.28" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="275.53" dy="0"> 24  29</tspan>
+</text>
+<rect id="edge-kcore1-a-24-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="263.4" width="5.52999999999997" height="5.53000000000003" />
+<text id="edge-kcore1-a-24-1-text" y="266.16" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 20</tspan>
+</text>
+<rect id="edge-kcore1-a-10-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="285.91" width="7.06" height="7.06" />
+<text id="edge-kcore1-a-10-1-text" y="289.44" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="275.53" dy="0"> 12  31</tspan>
+</text>
+<rect id="edge-kcore1-a-18-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="310.56" width="5.52999999999997" height="5.52999999999997" />
+<text id="edge-kcore1-a-18-1-text" y="313.32" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 34</tspan>
+</text>
+<rect id="edge-kcore1-a-6-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="333.06" width="7.06" height="7.06999999999999" />
+<text id="edge-kcore1-a-6-1-text" y="336.6" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="275.53" dy="0"> 15  28</tspan>
+</text>
+<rect id="edge-kcore1-a-2-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="357.71" width="5.52999999999997" height="5.54000000000002" />
+<text id="edge-kcore1-a-2-1-text" y="360.48" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="274.76" dy="0"> 6</tspan>
+</text>
+<rect id="edge-kcore1-a-11-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="380.22" width="8.23000000000002" height="8.23999999999995" />
+<text id="edge-kcore1-a-11-1-text" y="384.34" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="276.12" dy="0"> 25 36  37</tspan>
+</text>
+<rect id="edge-kcore1-a-13-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="272" y="406.52" width="9.22000000000003" height="9.22000000000003" />
+<text id="edge-kcore1-a-13-1-text" y="411.13" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="276.61" dy="0"> 7 47  50 53</tspan>
+</text>
+<rect id="specialist-chains-kcore1-b-1-1-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-468.37" y="-193.38" width="7.38" height="7.38" />
+<text id="specialist-chains-kcore1-b-1-1-text" y="-189.69" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#FF0000">
+<tspan x="-464.68" dy="0"> 15</tspan>
+</text>
+<rect id="specialist-chains-kcore1-a-2-1-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-499.98" y="-204.45" width="7.38" height="7.38" />
+<text id="specialist-chains-kcore1-a-2-1-text" y="-200.76" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-496.29" dy="0"> 52</tspan>
+</text>
+<rect id="outsiders-kcore1-a-1-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-218.29" y="278.85" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-a-2-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-199.84" y="278.85" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-a-3-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-181.39" y="278.85" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-a-4-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-162.94" y="278.85" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-a-5-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-144.49" y="278.85" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-a-6-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-126.04" y="278.85" width="7.38000000000001" height="7.38" />
+<text id="outsiders-kcore1-a-1-text" y="282.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-214.6" dy="0">1</tspan>
+</text>
+<text id="outsiders-kcore1-a-2-text" y="282.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-196.15" dy="0">2</tspan>
+</text>
+<text id="outsiders-kcore1-a-3-text" y="282.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-177.7" dy="0">9</tspan>
+</text>
+<text id="outsiders-kcore1-a-4-text" y="282.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-159.25" dy="0">16</tspan>
+</text>
+<text id="outsiders-kcore1-a-5-text" y="282.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-140.8" dy="0">21</tspan>
+</text>
+<text id="outsiders-kcore1-a-6-text" y="282.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#00008B">
+<tspan x="-122.35" dy="0">39</tspan>
+</text>
+<rect id="outsiders-kcore1-b-1-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-218.29" y="303.21" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-b-2-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-199.84" y="303.21" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-b-3-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-181.39" y="303.21" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-b-4-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-162.94" y="303.21" width="7.38" height="7.38" />
+<rect id="outsiders-kcore1-b-5-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-144.49" y="303.21" width="7.38" height="7.38" />
+<text id="outsiders-kcore1-b-1-text" y="306.9" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#FF0000">
+<tspan x="-214.6" dy="0">4</tspan>
+</text>
+<text id="outsiders-kcore1-b-2-text" y="306.9" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#FF0000">
+<tspan x="-196.15" dy="0">9</tspan>
+</text>
+<text id="outsiders-kcore1-b-3-text" y="306.9" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#FF0000">
+<tspan x="-177.7" dy="0">17</tspan>
+</text>
+<text id="outsiders-kcore1-b-4-text" y="306.9" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#FF0000">
+<tspan x="-159.25" dy="0">23</tspan>
+</text>
+<text id="outsiders-kcore1-b-5-text" y="306.9" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:12px;fill:#FF0000">
+<tspan x="-140.8" dy="0">25</tspan>
+</text>
+<text id="corelabel-1-text" y="271.25" style="text-anchor:start;dominant-baseline:baseline;font-family:Arial;font-size:15px;fill:grey50">
+<tspan x="-223.02" dy="0">Outside the giant component</tspan>
+</text>
+<rect id="annotation-1-rect" style="fill:none;fill-opacity:0.5" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="563.67" y="-0.04" width="0.0400000000000773" height="0.04" />
+<text id="annotation-1-text" y="-0.02" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:10.5px;fill:transparent">
+</text>
+<text id="annotation-1-text" y="0" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:3px;fill:red">
+<tspan x="563.67" dy="0">.</tspan>
+</text>
+<text id="annotation-1-text" y="0" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:3px;fill:red">
+<tspan x="-556.08" dy="0">.</tspan>
+</text>
+<g id="link-1-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-2-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-254.16 49.6"/>
+</g>
+<g id="link-3-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-192.67 49.6"/>
+</g>
+<g id="link-4-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-172.17 49.6"/>
+</g>
+<g id="link-5-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-151.68 49.6"/>
+</g>
+<g id="link-6-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-90.19 49.6"/>
+</g>
+<g id="link-7-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L-28.7 49.6"/>
+</g>
+<g id="link-8-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-384.83 -49.6 L73.79 49.6"/>
+</g>
+<g id="link-9-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-10-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-11-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L-254.16 49.6"/>
+</g>
+<g id="link-12-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L-213.17 49.6"/>
+</g>
+<g id="link-13-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L-172.17 49.6"/>
+</g>
+<g id="link-14-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L-49.19 49.6"/>
+</g>
+<g id="link-15-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-363.18 -49.6 L94.29 49.6"/>
+</g>
+<g id="link-16-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-341.54 -49.6 L-172.17 49.6"/>
+</g>
+<g id="link-17-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-341.54 -49.6 L-151.68 49.6"/>
+</g>
+<g id="link-18-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-341.54 -49.6 L-131.18 49.6"/>
+</g>
+<g id="link-19-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-341.54 -49.6 L-110.68 49.6"/>
+</g>
+<g id="link-20-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-341.54 -49.6 L32.8 49.6"/>
+</g>
+<g id="link-21-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-341.54 -49.6 L94.29 49.6"/>
+</g>
+<g id="link-22-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-319.89 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-23-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-319.89 -49.6 L-233.67 49.6"/>
+</g>
+<g id="link-24-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-319.89 -49.6 L-49.19 49.6"/>
+</g>
+<g id="link-25-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-319.89 -49.6 L73.79 49.6"/>
+</g>
+<g id="link-26-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-298.25 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-27-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-298.25 -49.6 L-90.19 49.6"/>
+</g>
+<g id="link-28-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-298.25 -49.6 L-69.69 49.6"/>
+</g>
+<g id="link-29-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-298.25 -49.6 L53.29 49.6"/>
+</g>
+<g id="link-30-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-276.6 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-31-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-276.6 -49.6 L-254.16 49.6"/>
+</g>
+<g id="link-32-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-276.6 -49.6 L-8.2 49.6"/>
+</g>
+<g id="link-33-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-276.6 -49.6 L12.3 49.6"/>
+</g>
+<g id="link-34-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-254.96 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-35-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-254.96 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-36-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-254.96 -49.6 L-192.67 49.6"/>
+</g>
+<g id="link-37-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-233.31 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-38-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-233.31 -49.6 L-213.17 49.6"/>
+</g>
+<g id="link-39-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-233.31 -49.6 L-131.18 49.6"/>
+</g>
+<g id="link-40-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-211.67 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-41-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-211.67 -49.6 L-233.67 49.6"/>
+</g>
+<g id="link-42-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-211.67 -49.6 L-131.18 49.6"/>
+</g>
+<g id="link-43-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-190.02 -49.6 L-8.2 49.6"/>
+</g>
+<g id="link-44-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-190.02 -49.6 L53.29 49.6"/>
+</g>
+<g id="link-45-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-190.02 -49.6 L135.28 49.6"/>
+</g>
+<g id="link-46-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-168.38 -49.6 L-254.16 49.6"/>
+</g>
+<g id="link-47-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-168.38 -49.6 L-90.19 49.6"/>
+</g>
+<g id="link-48-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-168.38 -49.6 L12.3 49.6"/>
+</g>
+<g id="link-49-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-146.73 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-50-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-146.73 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-51-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-125.09 -49.6 L-213.17 49.6"/>
+</g>
+<g id="link-52-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-125.09 -49.6 L-110.68 49.6"/>
+</g>
+<g id="link-53-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-125.09 -49.6 L114.78 49.6"/>
+</g>
+<g id="link-54-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-103.44 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-55-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-103.44 -49.6 L-172.17 49.6"/>
+</g>
+<g id="link-56-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-81.8 -49.6 L-151.68 49.6"/>
+</g>
+<g id="link-57-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-81.8 -49.6 L32.8 49.6"/>
+</g>
+<g id="link-58-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-81.8 -49.6 L114.78 49.6"/>
+</g>
+<g id="link-59-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-60.15 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-60-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-60.15 -49.6 L-233.67 49.6"/>
+</g>
+<g id="link-61-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-38.51 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-62-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-38.51 -49.6 L-8.2 49.6"/>
+</g>
+<g id="link-63-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-16.86 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-64-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-16.86 -49.6 L-110.68 49.6"/>
+</g>
+<g id="link-65-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M4.78 -49.6 L-295.16 49.6"/>
+</g>
+<g id="link-66-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M4.78 -49.6 L-110.68 49.6"/>
+</g>
+<g id="link-67-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M26.42 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-68-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M26.42 -49.6 L-28.7 49.6"/>
+</g>
+<g id="link-69-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M48.07 -49.6 L-274.66 49.6"/>
+</g>
+<g id="link-70-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M48.07 -49.6 L-192.67 49.6"/>
+</g>
+<g id="link-71-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M69.71 -49.6 L-254.16 49.6"/>
+</g>
+<g id="link-72-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M69.71 -49.6 L-213.17 49.6"/>
+</g>
+<g id="link-73-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M91.36 -49.6 L-131.18 49.6"/>
+</g>
+<g id="link-74-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M91.36 -49.6 L-49.19 49.6"/>
+</g>
+<g id="link-75-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M113 -49.6 L-69.69 49.6"/>
+</g>
+<g id="link-76-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M113 -49.6 L-28.7 49.6"/>
+</g>
+<g id="link-77-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M134.65 -49.6 L-233.67 49.6"/>
+</g>
+<g id="link-78-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M134.65 -49.6 L135.28 49.6"/>
+</g>
+<g id="link-79-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-214.6 286.23 L-196.15 303.21"/>
+</g>
+<g id="link-80-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-214.6 286.23 L-159.25 303.21"/>
+</g>
+<g id="link-81-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-196.15 286.23 L-196.15 303.21"/>
+</g>
+<g id="link-82-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-196.15 286.23 L-159.25 303.21"/>
+</g>
+<g id="link-83-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-177.7 286.23 L-214.6 303.21"/>
+</g>
+<g id="link-84-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-159.25 286.23 L-177.7 303.21"/>
+</g>
+<g id="link-85-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-140.8 286.23 L-140.8 303.21"/>
+</g>
+<g id="link-86-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-122.35 286.23 L-214.6 303.21"/>
+</g>
+<g id="link-1-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M144.5 74.29  L158.67 74.99 L172.84 77.72 L187 82.11 L201.17 87.85 L215.33 94.71 L229.5 102.49 L243.67 110.94 L257.83 119.84 L272 128.96"/>
+</g>
+<g id="link-2-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M124.01 76.66  L140.45 77.62 L156.89 81.35 L173.34 87.35 L189.78 95.21 L206.22 104.61 L222.67 115.24 L239.11 126.8 L255.55 138.99 L272 151.47"/>
+</g>
+<g id="link-3-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M62.52 83.76  L85.79 84.91 L109.07 89.42 L132.34 96.66 L155.62 106.13 L178.89 117.46 L202.17 130.29 L225.45 144.23 L248.72 158.92 L272 173.98"/>
+</g>
+<g id="link-4-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M42.02 86.13  L67.57 87.54 L93.13 93.05 L118.68 101.9 L144.23 113.49 L169.78 127.36 L195.34 143.04 L220.89 160.1 L246.44 178.07 L272 196.49"/>
+</g>
+<g id="link-5-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M21.52 88.5  L49.35 90.17 L77.18 96.68 L105.01 107.15 L132.84 120.85 L160.67 137.25 L188.51 155.8 L216.34 175.97 L244.17 197.22 L272 219"/>
+</g>
+<g id="link-6-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-60.47 97.97  L-23.53 99.81 L13.41 107.01 L50.36 118.59 L87.3 133.74 L124.24 151.87 L161.18 172.39 L198.12 194.69 L235.06 218.19 L272 242.28"/>
+</g>
+<g id="link-7-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-142.45 107.43  L-96.4 109.47 L-50.35 117.39 L-4.3 130.12 L41.75 146.79 L87.8 166.73 L133.85 189.29 L179.9 213.82 L225.95 239.67 L272 266.16"/>
+</g>
+<g id="link-8-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-183.45 112.17  L-132.84 114.44 L-82.24 123.29 L-31.63 137.5 L18.97 156.12 L69.58 178.39 L120.18 203.59 L170.79 230.98 L221.39 259.84 L272 289.44"/>
+</g>
+<g id="link-9-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-203.94 114.54  L-151.06 117.08 L-98.18 127 L-45.3 142.95 L7.59 163.82 L60.47 188.79 L113.35 217.05 L166.23 247.77 L219.11 280.14 L272 313.32"/>
+</g>
+<g id="link-10-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-224.44 116.9  L-169.28 119.71 L-114.12 130.68 L-58.96 148.3 L-3.8 171.37 L51.36 198.97 L106.52 230.2 L161.68 264.15 L216.84 299.92 L272 336.6"/>
+</g>
+<g id="link-11-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-244.94 119.27  L-187.5 122.36 L-130.06 134.4 L-72.63 153.75 L-15.19 179.07 L42.25 209.38 L99.69 243.67 L157.12 280.94 L214.56 320.22 L272 360.48"/>
+</g>
+<g id="link-12-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-265.44 121.64  L-205.72 125 L-146.01 138.11 L-86.29 159.18 L-26.58 186.77 L33.14 219.77 L92.85 257.12 L152.57 297.72 L212.28 340.49 L272 384.34"/>
+</g>
+<g id="link-13-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-285.93 124.01  L-223.94 127.68 L-161.95 142.01 L-99.96 165.04 L-37.96 195.19 L24.03 231.26 L86.02 272.08 L148.01 316.45 L210.01 363.2 L272 411.13"/>
+</g>
+<g id="link-14-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-460.99 -189.69  L-430.88 -183.14 L-400.77 -176.37 L-370.67 -169.18 L-340.56 -161.34 L-310.45 -152.65 L-280.34 -142.88 L-250.24 -131.82 L-220.13 -119.27 L-190.02 -105.26"/>
+</g>
+<g id="link-15-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
+<path d="M-492.6 -200.76  L-489.9 -199.9 L-487.21 -199.02 L-484.52 -198.07 L-481.83 -197.04 L-479.14 -195.9 L-476.44 -194.62 L-473.75 -193.17 L-471.06 -191.53 L-468.37 -189.69"/>
+</g>
+</svg>
