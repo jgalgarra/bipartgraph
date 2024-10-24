@@ -2,5 +2,7 @@
 "M_PL_007.csv";"Pollinator";"Plant"
 "M_SD_025.csv";"Disperser";"Seed"
 "M_PL_002.csv";"Pollinator";"Plant"
-"example-try-this-first.csv";"Pollinator";"Plant"
+"example-try-this-first.csv";"Plant";"Pollinator"
+"dattilo2014.csv";"Pollinator";"Plant"
+"gonzalez_loiselle_2016.csv";"Pollinator";"Plant"
 "CANGREJOS.csv";"Pollinator";"Plant"
