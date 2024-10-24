@@ -51,59 +51,61 @@ zigguratPanel<-function() {
 
 # Ziggurat graph panel
 zigguratDiagramPanel <- function() {
-  control<- fixedRow(align="left",
-      fluidRow(
+  control<- fluidRow(align="left",
+                  column(8,
+                       fluidRow(
+                         column(4,zigguratSvgScaleFactorControl() ),
+                         column(4, zigguratSVGup()),
+                         column(4,
+                                fluidRow(align="center",
+                                         #          id="zoomPanel",
+                                         # tags$span(
+                                         #        tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                                         #        ),
+                                         tags$span(
+                                           tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
+                                         ),
+                                         tags$span(
+                                           tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/logos-flexline/zoom-out.png")
+                                         ),
+                                         # tags$span(
+                                         #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
+                                         #          ),
+                                         downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
+                                         tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+                                        color: black;
+                                        font-size: 12px;
+                                        border-color: rgba(0,0,0,0);
+                                        -webkit-box-shadow: 2px;
+                                        box-shadow: 0px;}"))
+                                         
+                                )
+                                
+                         ),
+                     ),
         
-        column(7,  
-               fluidRow(align="left",valign="top",
+                    fluidRow(align="left",valign="top",
                         uiOutput("ziggurat"))
-            ),
-        column(1,
-               fluidRow(align="center",
-                        #          id="zoomPanel",
-                        # tags$span(
-                        #        tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
-                        #        ),
-                        tags$span(
-                          tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
-                        ),
-                        tags$span(
-                          tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/logos-flexline/zoom-out.png")
-                        )
-               ),
-               fluidRow(align="center",
-                        # tags$span(
-                        #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
-                        #          ),
-                        downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
-                        tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
-                                    color: black;
-                                    font-size: 12px;
-                                    border-color: rgba(0,0,0,0);
-                                    -webkit-box-shadow: 2px;
-                                    box-shadow: 0px;}"))
-                        
-                        )
-          
-        ),
-        column(4,
-          fluidRow(
-            uiOutput("networkinfoDetail")
-          ),
-          fluidRow(
-            column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
-            column(2, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_TYPE"))),
-            column(4, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_NAME"))),
-            column(1, tags$small("kshell")),
-            column(1, tags$small("krad") ),
-            column(1, tags$small("kdeg"))
-          ),
-          fluidRow(
-            uiOutput("zigguratNodesDetail")
-          )
-        )
-      )
-  )
+                  ),
+        
+                  column(4,
+                      fluidRow(
+                        uiOutput("networkinfoDetail")
+                      ),
+                      fluidRow(
+                        column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
+                        column(2, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_TYPE"))),
+                        column(4, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_NAME"))),
+                        column(1, tags$small("kshell")),
+                        column(1, tags$small("krad") ),
+                        column(1, tags$small("kdeg"))
+                      ),
+                      fluidRow(
+                        uiOutput("zigguratNodesDetail")
+                      )
+                    )
+                  )
+
   return(control)
 }
 
@@ -115,13 +117,13 @@ zigguratConfigPanel <- function() {
     ),
       tabPanel(id="tab_vis",
         title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
-        fluidRow(
-          column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
-        ),
-        fluidRow(
-          column(2,zigguratSvgScaleFactorControl() ),
-          column(2, zigguratSVGup())
-        ),
+        # fluidRow(
+        #   column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
+        # ),
+        # fluidRow(
+        #   column(2,zigguratSvgScaleFactorControl() ),
+        #   column(2, zigguratSVGup())
+        # ),
         fluidRow(
           column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
         ),

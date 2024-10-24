@@ -31,9 +31,6 @@ shinyServer(function(input, output, session) {
   shinyjs::hide("networkAnalysis")
   
   
-  
-
-  
   observe( {
     # Create user messages for javascript
     messagesNames<-c("LABEL_ZIGGURAT_INFO_DETAILS_TYPE", "LABEL_ZIGGURAT_INFO_DETAILS_KCORE", "LABEL_ZIGGURAT_INFO_DETAILS_ID", "LABEL_ZIGGURAT_INFO_DETAILS_NAME", "LABEL_ZIGGURAT_INFO_DETAILS_KRADIUS", "LABEL_ZIGGURAT_INFO_DETAILS_KDEGREE", "MESSAGE_CONFIRM_DELETE_FILES", "MESSAGE_WIKIPEDIA_NO_INFO_ERROR", "MESSAGE_WIKIPEDIA_DOWNLOAD_ERROR")
@@ -96,16 +93,16 @@ shinyServer(function(input, output, session) {
       auxnguild_a = config_params$LabelA
       auxnguild_b = config_params$LabelB
       if (grepl("M_SD_",file)){
-        auxnguild_a = "Seed"
-        auxnguild_b = "Disperser"
+        auxnguild_a = "Disperser"
+        auxnguild_b = "Seed"
       }
       if (grepl("M_PL_",file)){
-        auxnguild_a = "Plant"
-        auxnguild_b = "Pollinator"
+        auxnguild_a = "Pollinator"
+        auxnguild_b = "Plant"
       }
       if (grepl("RA_HP_",file)){
-        auxnguild_a = "Parasite"
-        auxnguild_b = "Host"
+        auxnguild_a = "Host"
+        auxnguild_b = "Parasite"
       }
       if (!searchsafefile(fred=file)){
         # Guild names by default for web of life files
