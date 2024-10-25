@@ -330,6 +330,7 @@ shinyServer(function(input, output, session) {
       paintlinks                                    = input$zigguratPaintLinks,
       print_to_file                                 = FALSE,
       plotsdir                                      = tempdir(),
+      orderkcoremaxby                               = "kradius",
       alpha_level                                   = input$zigguratAlphaLevel,
       color_guild_a                                 = c(input$zigguratColorGuildA1, input$zigguratColorGuildA2),
       color_guild_b                                 = c(input$zigguratColorGuildB1, input$zigguratColorGuildB2),
@@ -850,6 +851,7 @@ shinyServer(function(input, output, session) {
       llamada <- zgg$ziggurat_argg
       comando <- paste0("ziggurat_graph(\"data/\"",",\"",llamada$filename,"\"")
       comando <- addCallParam(comando,llamada,"paintlinks")
+      comando <- paste0(comando,llamada,"orderkcoremaxby")
       comando <- paste0(comando,",print_to_file = TRUE")
       comando <- paste0(comando,",plotsdir = \"plot_results/ziggurat\"")
       comando <- addCallParam(comando,llamada,"alpha_level")
@@ -968,6 +970,10 @@ shinyServer(function(input, output, session) {
           else if (controls_jsonfields$ControlType[i] == "checkbox")
             updckbx(controls_jsonfields$ControlName[i],
                    json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+          else if (controls_jsonfields$ControlType[i] == "radiobutton")
+            updradiobutton(controls_jsonfields$ControlName[i],
+                    json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+          
           else if (controls_jsonfields$ControlType[i] == "textinput"){
             etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
             updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)

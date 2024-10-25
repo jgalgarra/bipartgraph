@@ -523,7 +523,23 @@ zigguratSvgScaleFactorControl <- function() {
   return(control)
 }
 
+#Set core max order
+# zigguratkcoremaxorder <- function(){
+#    control <- radioButtons("orderkcoremaxby", strings$value("LABEL_ZIGGURAT_MAXCORE_ORDER"),
+#              c("kradius" = "kradius",
+#                "kdegree" = "kdegree"
+#                ))
+#   return(control)
+# }
 
+zigguratkcoremaxorder <- function(){
+  control<-checkboxInput(
+    inputId = "orderkcoremaxby",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_MAXCORE_ORDER")),
+    value   = FALSE
+  )
+  return(control)
+}
 
 # Crop top SVG
 zigguratSVGup <- function() {
