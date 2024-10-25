@@ -54,8 +54,9 @@ zigguratDiagramPanel <- function() {
   control<- fluidRow(align="left",
                   column(8,
                        fluidRow(
-                         column(4,zigguratSvgScaleFactorControl() ),
-                         column(4, zigguratSVGup()),
+                         column(2,zigguratSvgScaleFactorControl() ),
+                         column(3, zigguratSVGup()),
+                         column(3, zigguratSVGright()),
                          column(4,
                                 fluidRow(align="center",
                                          #          id="zoomPanel",

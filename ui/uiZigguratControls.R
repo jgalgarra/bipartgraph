@@ -530,10 +530,23 @@ zigguratSVGup <- function() {
   control<-sliderInput(
     inputId = "zigguratSVGup",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SVG_UP")),
-    min     = 0,
+    min     = -50,
     max     = 50,
     value   = 0,
-    step    = 5
+    step    = 10
+  )
+  return(control)
+}
+
+# Crop right SVG
+zigguratSVGright <- function() {
+  control<-sliderInput(
+    inputId = "zigguratSVGright",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SVG_RIGHT")),
+    min     = -50,
+    max     = 50,
+    value   = 0,
+    step    = 10
   )
   return(control)
 }
