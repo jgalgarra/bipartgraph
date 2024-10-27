@@ -323,6 +323,7 @@ shinyServer(function(input, output, session) {
     # Disables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=TRUE))
     
+
     # Plot ziggurat
     z<-ziggurat_graph(
       datadir                                       = paste0(dataDir, "/"),
@@ -330,7 +331,9 @@ shinyServer(function(input, output, session) {
       paintlinks                                    = input$zigguratPaintLinks,
       print_to_file                                 = FALSE,
       plotsdir                                      = tempdir(),
-      orderkcoremaxby                               = "kradius",
+      #orderkcoremaxby                               = valordkcoremax[as.numeric(input$orderkcoremaxby)+1],
+      orderkcoremaxby                               = input$orderkcoremaxby,
+      
       alpha_level                                   = input$zigguratAlphaLevel,
       color_guild_a                                 = c(input$zigguratColorGuildA1, input$zigguratColorGuildA2),
       color_guild_b                                 = c(input$zigguratColorGuildB1, input$zigguratColorGuildB2),
@@ -851,7 +854,7 @@ shinyServer(function(input, output, session) {
       llamada <- zgg$ziggurat_argg
       comando <- paste0("ziggurat_graph(\"data/\"",",\"",llamada$filename,"\"")
       comando <- addCallParam(comando,llamada,"paintlinks")
-      comando <- paste0(comando,llamada,"orderkcoremaxby")
+      comando <- addCallParam(comando,llamada,"orderkcoremaxby",quote=TRUE)
       comando <- paste0(comando,",print_to_file = TRUE")
       comando <- paste0(comando,",plotsdir = \"plot_results/ziggurat\"")
       comando <- addCallParam(comando,llamada,"alpha_level")
@@ -924,8 +927,9 @@ shinyServer(function(input, output, session) {
     },
     content <- function(file) {
       dir.create("tmpcode/", showWarnings = FALSE)
+
       jsonzgg <- jsonlite::toJSON(x = zgg$ziggurat_argg[1:length(zgg$ziggurat_argg)-1], pretty = TRUE, force = TRUE)
-      cat(jsonzgg, file = "tmpcode/zgg.json")
+      cat(paste(jsonzgg,"\n"), file = "tmpcode/zgg.json")
       file.copy("tmpcode/zgg.json",file)
     },
     contentType="text/plain"
@@ -967,13 +971,17 @@ shinyServer(function(input, output, session) {
           if (controls_jsonfields$ControlType[i] == "slider")
             updateSliderInput(session, controls_jsonfields$ControlName[i],
                               value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
-          else if (controls_jsonfields$ControlType[i] == "checkbox")
-            updckbx(controls_jsonfields$ControlName[i],
-                   json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
-          else if (controls_jsonfields$ControlType[i] == "radiobutton")
-            updradiobutton(controls_jsonfields$ControlName[i],
-                    json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
-          
+          else if (controls_jsonfields$ControlType[i] == "checkbox"){
+            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+            updckbx(controls_jsonfields$ControlName[i],etq)
+          }
+          else if (controls_jsonfields$ControlType[i] == "radiobuttons"){
+            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+            
+            updateRadioButtons(session, controls_jsonfields$ControlName[i],
+                               choices = get(controls_jsonfields$Labels[i]),
+                               selected = etq)
+          }
           else if (controls_jsonfields$ControlType[i] == "textinput"){
             etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
             updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)

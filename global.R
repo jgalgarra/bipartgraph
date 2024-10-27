@@ -81,3 +81,6 @@ linkLabel <- function(text, img) {
   )
   return(label)
 }
+
+# Order kcoremax
+valordkcoremax <- c("kradius","kdegree")

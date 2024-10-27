@@ -115,7 +115,7 @@
 "LABEL_ZIGGURAT_SVG_UP","Desplazar verticalmente (%)","Move upwards (%)"
 "LABEL_ZIGGURAT_SVG_RIGHT","Desplazar hacia la derecha (%)","Move rightwards (%)"
 "LABEL_ZIGGURAT_SVG_SCALE","Reescalar texto","Text rescaling"
-"LABEL_ZIGGURAT_MAXCORE_ORDER","Orden del core máximo","Core max order by"
+"LABEL_ZIGGURAT_MAXCORE_ORDER","Orden del core máximo","Core max order"
 "LABEL_ZIGGURAT_SPECIALIST","Cadenas de especialistas","Specialist chains"
 "LABEL_ZIGGURAT_SPECIALIST_ROOT_EXPAND_HORIZ","Distancia horiz. del nodo raíz a la red","Root node horiz. distance to network"
 "LABEL_ZIGGURAT_SPECIALIST_ROOT_EXPAND_VERT","Distancia vert. del nodo raíz a la red","Root node vert. distance to network"
