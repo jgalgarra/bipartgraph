@@ -521,7 +521,6 @@ shinyServer(function(input, output, session) {
                      "<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
                      "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span >")
                      details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
-    
     return(HTML(details))
   })
   

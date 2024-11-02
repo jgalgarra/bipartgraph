@@ -173,7 +173,7 @@ zigguratYDisplaceControlS <- function(name, description)
 {
   control<-sliderInput(
     inputId = paste0("zigguratYDisplaceS", name, description),
-    label   = controlLabel(HTML(paste0("&darr;&nbsp;",description,"-shell ",name,"&nbsp;&uarr;"))),
+    label   = controlLabel(HTML(paste0("&darr;&nbsp;",description,"-shell ","&uarr;"))),
     ticks = FALSE,
     min     = -2.0,
     max     = 2.0,
@@ -545,7 +545,7 @@ zigguratkcoremaxorder <- function(){
 zigguratSVGup <- function() {
   control<-sliderInput(
     inputId = "zigguratSVGup",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SVG_UP")),
+    label   = controlLabel(HTML(paste("&darr;",strings$value("LABEL_ZIGGURAT_SVG_UP"),"&uarr;"))),
     min     = -50,
     max     = 50,
     value   = 0,
@@ -558,7 +558,7 @@ zigguratSVGup <- function() {
 zigguratSVGright <- function() {
   control<-sliderInput(
     inputId = "zigguratSVGright",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SVG_RIGHT")),
+    label   = controlLabel(HTML(paste("&larr;",strings$value("LABEL_ZIGGURAT_SVG_RIGHT"),"&rarr;"))),
     min     = -50,
     max     = 50,
     value   = 0,
