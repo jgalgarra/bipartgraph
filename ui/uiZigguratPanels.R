@@ -289,8 +289,6 @@ zigguratConfigPanel <- function() {
        column(10, verbatimTextOutput("contentsfileconfigzigplot"))
       )
     )
-
   )
-
   return(panel)
 }

@@ -14,7 +14,7 @@ source("ui/uiBipartiteControls.R", encoding="UTF-8")
 bipartitePanel<-function() {
   panel<-tabsetPanel(
     tabPanel(strings$value("LABEL_ZIGGURAT_DIAGRAM_PANEL"), tags$div(class="panelContent", bipartiteDiagramPanel())),
-    #tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", zigguratConfigPanel())),
+    tabPanel(strings$value("LABEL_ZIGGURAT_CONFIG_PANEL"),  tags$div(class="panelContent", bipartiteConfigPanel())),
     #tabPanel(strings$value("LABEL_MENU_DOWNLOAD_PANEL"),  tags$div(class="panelContent", downloadPanel()))
   )
   return(panel)
@@ -62,6 +62,51 @@ bipartiteDiagramPanel <- function() {
                            )
                       )
                     )
-
   return(control)
+}
+
+# Configuration
+bipartiteConfigPanel <- function() {
+  panel<-tabsetPanel(
+    fluidRow(
+      uiOutput("networkname")
+    ),
+    tabPanel(id="tab_vis",
+             title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
+             fluidRow(
+               column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
+             ),
+             fluidRow(
+                 column(2, bipartiteLinkSizeControl()),
+                 column(2, bipartiteweighted_links()),
+             #   column(2, bipartiteColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
+             #   column(2, bipartiteAlphaLevelLinkControl())
+             ),
+             # fluidRow(
+             #   column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
+             # ),
+             # fluidRow(
+             #   column(2, bipartiteColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
+             #   column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
+             #   column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
+             #   column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
+             #   column(2, bipartiteAlphaLevelControl()),
+             #   column(2, restoreColorsControl())
+             # ),
+             # 
+             # tabPanel(
+             #   strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
+             #   fluidRow(
+             #     column(4, bipartiteloadZigConfigControlFile()),
+             #     column(2, bipartiteshowZigConfigControlFile()),
+             #     column(4, tags$h2(" "),bipartitesaveZigConfigControlFile())
+             #   ),
+             #   # Show bipartite configuration file raw JSON contents
+             #   fluidRow(
+             #     column(10, verbatimTextOutput("contentsfileconfigzigplot"))
+             #   )
+             # )
+    )
+  )
+    return(panel)
 }
