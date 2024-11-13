@@ -11,6 +11,8 @@ source("ui/uiCommonPanels.R", encoding="UTF-8")
 source("ui/uiDataPanels.R", encoding="UTF-8")
 source("ui/uiZigguratPanels.R", encoding="UTF-8")
 source("ui/uiPolarPanels.R", encoding="UTF-8")
+source("ui/uiBipartitePanels.R", encoding="UTF-8")
+
 
 shinyUI(
     tagList(
@@ -36,7 +38,7 @@ shinyUI(
           strings$value("LABEL_MENU_DATA_PANEL"),
           dataPanel()
         ),
-        # Interactive Ziggurat panel
+        #Interactive Ziggurat panel
         tabPanel(id = "zigguratmenutab",
           strings$value("LABEL_MENU_ZIGGURAT_PANEL"),
           zigguratPanel()
@@ -44,6 +46,11 @@ shinyUI(
         tabPanel(
           strings$value("LABEL_MENU_POLAR_PANEL"),
           polarPanel()
+        ),
+        # Interactive bipartite panel
+        tabPanel(id = "bipartitemenutab",
+                 strings$value("LABEL_MENU_BIPARTITE_PANEL"),
+                 bipartitePanel()
         ),
         # About panel
         tabPanel(

@@ -66,10 +66,10 @@ zigguratDiagramPanel <- function() {
                                          #        tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
                                          #        ),
                                          tags$span(
-                                           tags$img(id="zoomin",     onclick="svgZoomIn()",    src="images/logos-flexline/zoom-in.png")
+                                           tags$img(id="zoomin",     onclick="svgZoomIn('ziggurat')",    src="images/logos-flexline/zoom-in.png")
                                          ),
                                          tags$span(
-                                           tags$img(id="zoomout",    onclick="svgZoomOut()",   src="images/logos-flexline/zoom-out.png")
+                                           tags$img(id="zoomout",    onclick="svgZoomOut('ziggurat')",   src="images/logos-flexline/zoom-out.png")
                                          ),
                                          # tags$span(
                                          #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
@@ -86,9 +86,10 @@ zigguratDiagramPanel <- function() {
                                 
                          ),
                      ),
-        
+                     tags$span(id="ziggplot",
                     fluidRow(align="left",valign="top",
                         uiOutput("ziggurat"))
+                     )
                   ),
         
                   column(4,

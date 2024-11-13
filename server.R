@@ -8,6 +8,7 @@
 ###############################################################################
 
 source("nonreactive.R")
+source("bipartite_graph.R")
 
 #
 # Server process
@@ -300,6 +301,63 @@ shinyServer(function(input, output, session) {
     session$reload()
   })
   
+  # Reactive bipartite plotting
+  bipartite<-reactive({
+    
+    validate(
+      need(nchar(input$selectedDataFile)>0, strings$value("MESSAGE_SELECT_DATE_FILE_ERROR"))
+    )
+    # Auxiliar trim function
+    trim <- function (x) gsub("^\\s+|\\s+$", "", x)
+    
+    # Empties select nodes
+    markedNodes$data<-data.frame()
+    
+    # Progress bar
+    progress<-shiny::Progress$new()
+    progress$set(message="", value = 0)
+    
+    # Close progress bar
+    on.exit(progress$close())
+    
+    # Disables bipartite container panel 
+    session$sendCustomMessage(type="disableDivHandler", list(id="chilopodograph", disable=TRUE)) 
+    bplot<-bipartite_graph(datadir                                       = paste0(dataDir, "/"),
+                       filename                                      = input$selectedDataFile,
+                       style="chilopodograph",orderkcoremaxby = "kdegree",
+                       weighted_links = "none",
+                       color_link = "#6d6d6e",
+                       coremax_triangle_height_factor = 3, coremax_triangle_width_factor = 3,
+                       hide_plot_border = TRUE,
+                       guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
+                       square_nodes_size_scale = input$bipartiteNodeRescale,
+                       svg_scale_factor = input$bipartiteSvgScaleFactor,
+                       #move_all_SVG_up  = 0.01*input$bipartiteSVGup,
+                       # move_all_SVG_right = ifelse(!is.null(input$bipartiteSVGright),
+                       #                             input$bipartiteSVGright/10,0),
+                       progress=progress)
+    print(paste("guild_gap_increase",(100+input$bipartiteGuildgapincrease)))
+    print(paste("move_all_SVG_right",ifelse(!is.null(input$bipartiteSVGright),
+                                            input$bipartiteSVGright/10,0)))
+    # ziggurat igraph object
+    g<-bplot$result_analysis$graph
+    
+    # Guild positions
+    guildAVertex<-which(V(g)$guild_id=="a")
+    guildBVertex<-which(V(g)$guild_id=="b")
+    # Neighbors of each node
+    guildANeighbors<-sapply(guildAVertex, function(x) {neighbors(g, x)$id})
+    guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
+    # store labels and colors
+    writelabcols()
+    session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
+    session$sendCustomMessage(type="bipartiteDataHandler", list(ids=c("a", "b"),
+                              names=c(bplot$name_guild_a, bplot$name_guild_b), 
+                              data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
+                              neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
+
+    return(bplot)
+  })
   
   # Reactive ziggurat plotting
   ziggurat<-reactive({
@@ -324,16 +382,14 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=TRUE))
     
 
-    # Plot ziggurat
+    #Plot ziggurat
     z<-ziggurat_graph(
       datadir                                       = paste0(dataDir, "/"),
       filename                                      = input$selectedDataFile,
       paintlinks                                    = input$zigguratPaintLinks,
       print_to_file                                 = FALSE,
       plotsdir                                      = tempdir(),
-      #orderkcoremaxby                               = valordkcoremax[as.numeric(input$orderkcoremaxby)+1],
       orderkcoremaxby                               = input$orderkcoremaxby,
-      
       alpha_level                                   = input$zigguratAlphaLevel,
       color_guild_a                                 = c(input$zigguratColorGuildA1, input$zigguratColorGuildA2),
       color_guild_b                                 = c(input$zigguratColorGuildB1, input$zigguratColorGuildB2),
@@ -417,7 +473,11 @@ shinyServer(function(input, output, session) {
     guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
     # store labels and colors
     writelabcols()
-    session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), names=c(z$name_guild_a, z$name_guild_b), data=list(a=z$list_dfs_a, b=z$list_dfs_b), neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
+    session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), 
+                              names=c(z$name_guild_a, z$name_guild_b), 
+                              data=list(a=z$list_dfs_a, b=z$list_dfs_b), 
+                              neighbors=list(a=guildANeighbors,
+                                             b=guildBNeighbors)))
     # Enables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=FALSE))
     # Only shows ziggurat displacement controls for existing k-shells 
@@ -434,20 +494,23 @@ shinyServer(function(input, output, session) {
     # Binary network
     if(sum(zgg$result_analysis$matrix > 1)==0)
       SwitchControls("disable",weightcontrols)
-    
     return(z)
   })
   
   # Updates selected nodes info
   observeEvent(input$markedNodesData, {
-    result    <- data.frame(guild=character(0), kcore=integer(0), nodeId=integer(0), stringsAsFactors=FALSE)
+    result    <- data.frame(guild=character(0), kcore=integer(0), nodeId=integer(0), plottype=character(0), stringsAsFactors=FALSE)
     nodesData <- input$markedNodesData
+    plottype <- ifelse(sum(grepl("ziggurat",nodesData))==0,"bipartite","ziggurat")
     guilds    <- nodesData[grep("\\.guild", names(nodesData))]
     kcores    <- as.integer(nodesData[grep("\\.kcore", names(nodesData))])
+    plottype    <- nodesData[grep("\\.plottype", names(nodesData))][1]
     if (!is.null(guilds) && length(guilds)>0) {
       for (i in 1:length(guilds)) {
         nodeIds <- as.integer(nodesData[grep(paste0("^", i, "\\.nodeIds"), names(nodesData))])
-        row     <- data.frame(guild=guilds[i], kcore=kcores[i], nodeId=nodeIds, row.names=NULL, stringsAsFactors=FALSE)
+        row     <- data.frame(guild=guilds[i], kcore=kcores[i], 
+                              nodeId=nodeIds, plottype = plottype, 
+                              row.names=NULL, stringsAsFactors=FALSE)
         result  <- rbind(result, row)
       }
     }
@@ -471,18 +534,29 @@ shinyServer(function(input, output, session) {
   output$ziggurat<-renderUI({
     z<-ziggurat()
     svg<-z$svg
-    html<-paste0(svg$html(), "<script>updateSVGEvents()</script>")
+    html<-paste0(svg$html(), "<script>updateSVGEvents('ziggurat')</script>")
     return(HTML(html))
   })
   
+  # Plots bipartite object
+  output$bipartite<-renderUI({
+    b<-bipartite()
+    svg<-b$svg
+    html<-paste0(svg$html(), "<script>updateSVGEvents('chilopodograph')</script>") 
+    return(HTML(html))
+  })
+
   # Shows the details of a selected node in ziggurat
   output$zigguratNodesDetail<-renderUI({
     z         <- ziggurat()
     nodesData <- markedNodes$data
+    print(nodesData)
+    plotstyle <- nodesData$plottype[1]
     details   <- ""
     if (nrow(nodesData)>0) {
       # Sort selected nodes
       nodesData <- nodesData[order(ifelse(nodesData$guild=="a", 0, 1), -nodesData$kcore, nodesData$nodeId),]
+
       # Shows nodes data
       for (i in 1:nrow(nodesData)) {
         guild   <- nodesData[i, "guild"]
@@ -498,7 +572,10 @@ shinyServer(function(input, output, session) {
         }
         # Data frame with species details
         nodeDf  <- kcore_df[kcore_df$label==nodeId, c("label", "name_species", "kdegree", "kradius")]
-        details <- paste(details, showNodeDetails(type, kcore, nodeDf,zgg$network_name), collapse="")
+        if (plotstyle=="ziggurat")
+          details <- paste(details, showNodeDetails(type, kcore, nodeDf,zgg$network_name), collapse="")
+        else
+          details <- ""
       }
     }
     
@@ -506,6 +583,25 @@ shinyServer(function(input, output, session) {
     details<-paste(details, "<script>updateZigguratNodesDetailScroll()</script>")
     return(HTML(details))
   })
+  
+  
+  # Network information for bipartite plot
+  output$networkinfoDetailbip<-renderUI({
+    z <- ziggurat()
+    if (sum(zgg$result_analysis$matrix > 1)==0)
+      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+    else
+      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+    create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
+    details <- paste(bpp$network_name,"<br>",strw,"&nbsp;",
+                     bpp$result_analysis$links,"&nbsp;",
+                     strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><span  style='color:",zgg$color_guild_a[1],"'>",zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
+                     "<span  style='color:",zgg$color_guild_b[1],"'>", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span ><br>")
+    #details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+    return(HTML(details))
+  })
+  
   
   # Network information
   output$networkinfoDetail<-renderUI({

@@ -4,12 +4,12 @@
 //  Representacion grafica de redes bipartitas basadas en descomposicion k-core
 //
 // Autor         : Juan Manuel Garcia Santi
+//                 Ampliado en el marco de BipartGraph por Javer Garcia Algarra
 // Módulo        : redesbipartitas.js
 // Descricpción  : Funciones javascript que permiten la interaccion del usuario
 //                 con el diagrama ziggurat y la presentacion de la informacion
 //                 relativa a nodos y elementos
 //
-// Ampliado en el marco de BipartGraph por Javer Garcia Algarra
 //-----------------------------------------------------------------------------
 
 // funcion que se llama cuando la pagina esta cargada
@@ -22,6 +22,7 @@ function windowLoad() {
     // Shiny.onInputChange("windowLoad", new Date());
 }
 
+var plotData;
 // establece los tooltips de ayuda de todos los elementos
 var helpTooltips=[
     {id: "zoomin",      value: "Ziggurat zoom in"},
@@ -43,28 +44,33 @@ function updateHelpTooltips() {
 }
 
 //actualiza los eventos asociados a todos los elementos del SVG
-function updateSVGEvents() {
+function updateSVGEvents(plottype) {
+    let plotData;
+    let idsvg;
+    if (plottype=="ziggurat")
+        idsvg = "#ziggurat";
+    else
+        idsvg = "#bipartite"
+    if (plottype == "ziggurat")
+        plotData = zigguratData;
+    else // if (plottype == "bipartite")
+        plotData = bipartiteData;
     // actualiza los eventos asociados a las etiquetas
-    updateNodeEvents();
-
+    updateNodeEvents(plottype,plotData);
     // actualiza los eventos asociados a los enlaces
     updateLinkEvents();
-
     // actualiza los tooltips
-    updateNodeTooltips();
-
+    updateNodeTooltips(plottype,plotData);
     // inicializa el scroll mediante "drag"
-    $("#ziggurat").dragscrollable();
-
+    $(idsvg).dragscrollable();
     // inicializa el scroll
-    $("#ziggurat").perfectScrollbar({scrollXMarginOffset:4, scrollYMarginOffset:4});
-    $("#zigguratNodesDetail").perfectScrollbar({scrollXMarginOffset:16, scrollYMarginOffset:4});
-
+    $(idsvg).perfectScrollbar({scrollXMarginOffset:4, scrollYMarginOffset:4});
+    $(idsvg+"NodesDetail").perfectScrollbar({scrollXMarginOffset:16, scrollYMarginOffset:4});
     // almacena la informacion del tamaño del SVG
-    svgZoomStore();
+    //svgZoomStore(idsvg);
 
     // establece el SVG a su tamaño real
-    svgZoomFit();
+    //svgZoomFit(idsvg);
 }
 
 // actualiza el scroll de los detalles de los nodos del ziggurat
@@ -73,30 +79,34 @@ function updateZigguratNodesDetailScroll() {
 }
 
 // actualiza los eventos asociados a los nodos del SVG
-function updateNodeEvents() {
-    for (var i=0;i<zigguratData.ids.length;++i) {
-        var guild       = zigguratData.ids[i];
-        var guildName   = zigguratData.names[i];
-        var guildData   = zigguratData.data[guild];
-        for (var kcore=1;kcore<=guildData.length;++kcore) {
-            var pattern="kcore" + kcore + "-" + guild;
+function updateNodeEvents(plottype,plotData) {
 
+    for (var i=0;i<plotData.ids.length;++i) {
+        var guild       = plotData.ids[i];
+        var guildName   = plotData.names[i];
+        var guildData   = plotData.data[guild];
+        for (var kcore=1;kcore<=guildData.length;++kcore) {
+            var pattern=plottype+"kcore" + kcore + "-" + guild;
+            if (kcore==1)
+                pattern=plottype+"edge-kcore" + kcore + "-" + guild;
             // estilo del cursor
             $("[id*=" + pattern + "]").css("pointer", "pointer");
-
             // eventos para resaltar un nodo y los asociados
             $("[id*=" + pattern + "]").click(function() {
-                markRelatedNodes($(this).attr("id").replace("-text", "").replace("-rect",""));
+                markRelatedNodes($(this).attr("id").replace("-text", "").replace("-rect",""),plottype,plotData);
             });
 
             // datos asociados al nodo
             $("rect[id*=" + pattern + "]").each(function() {
                 var id=$(this).attr("id").replace("-rect", "");
+
                 $(this).data("guild", guild);
-                $(this).data("kcore", kcore);
+                $(this).data("kcore", kcore);  
                 $(this).data("nodeIds", getNodeIds($("#" + id + "-text").find("tspan").toArray()));
                 $(this).data("marked", false);
+
             });
+
         }
     }
 }
@@ -119,14 +129,17 @@ function updateLinkEvents() {
 }
 
 // actualiza los tooltips de los nodos
-function updateNodeTooltips() {
-    for (var i=0;i<zigguratData.ids.length;++i) {
-        var guild       = zigguratData.ids[i];
-        var guildName   = zigguratData.names[i];
-        var guildData   = zigguratData.data[guild];
+function updateNodeTooltips(plottype, plotData) {
+
+    for (var i=0;i<plotData.ids.length;++i) {
+        var guild       = plotData.ids[i];
+        var guildName   = plotData.names[i];
+        var guildData   = plotData.data[guild];
         for (var kcore=1;kcore<=guildData.length;++kcore) {
             // tooltips
-            var pattern="kcore" + kcore + "-" + guild;
+            var pattern=plottype+"kcore" + kcore + "-" + guild;
+            if (kcore==1)
+                pattern=plottype+"edge-kcore" + kcore + "-" + guild;
             var guildCoreData=guildData[kcore-1];
             if (guildCoreData!=null) {
                 $("rect[id*=" + pattern + "]").each(function() {
@@ -149,12 +162,17 @@ function updateNodeTooltips() {
 }
 
 // resalta el nodo indicado en el SVG
-function markNode(nodeId) {
+function markNode(nodeId,plottype) {
     // marca el texto
+
+    if (nodeId.indexOf(plottype) == -1){
+        console.log("bye")
+        return;
+    }
     $("#" + nodeId + "-text").each(function() {
         // incrementa la fuente
         var fontSize=parseInt($(this).css("font-size").replace("px",""));
-        $(this).css("font-size", (fontSize+4) + "px");
+        $(this).css("font-size", (fontSize*1.3) + "px");
     });
 
     // marca el nodo
@@ -174,7 +192,7 @@ function unmarkNode(nodeId) {
     $("#" + nodeId + "-text").each(function() {
         // reduce la fuente
         var fontSize=parseInt($(this).css("font-size").replace("px",""));
-        $(this).css("font-size", (fontSize-4) + "px");
+        $(this).css("font-size", (fontSize/1.3) + "px");
     });
 
     // desmarca el nodo
@@ -219,23 +237,23 @@ function unmarkLink(linkId) {
 }
 
 // resalta el nodo, los nodos relacionados y los enlaces que les unen
-function markRelatedNodes(nodeId) {
-    var svg             = $("#ziggurat svg");
+function markRelatedNodes(nodeId,plottype,plotData) {
+
+    var svg             = $("#"+plottype+" svg");
     var node            = $("rect[id*=" + nodeId + "]");
     var nodeIds         = node.data("nodeIds");
     var guild           = node.data("guild");
     var marked          = node.data("marked");
     var markedNodes     = [];
     var markedNodesData = [];
-    var neighbors       = (zigguratData.neighbors[guild])[nodeIds[0]-1];
+    var neighbors       = (plotData.neighbors[guild])[nodeIds[0]-1];
+
     if (!$.isArray(neighbors)) {
         neighbors=[neighbors];
     }
-
     // si el nodo estaba marcado solo deshace el marcado de todos los nodos, si no lo
     // estaba desmarca los nodos anteriores y marca los nuevos
     var nodes=$("rect[id*=kcore]");
-
     // desmarca todos los nodos y enlaces marcados
     nodes.each(function() {
         if ($(this).data("marked")) {
@@ -266,16 +284,16 @@ function markRelatedNodes(nodeId) {
                     ++i;
                 }
 
-                // si es vecino lo marca
-                if (isNeighbor) {
-                    markNode($(this).attr("id").replace("-rect", ""));
+                // si es vecino y del mismo tipo de gráfico lo marca
+                if ((isNeighbor) && (($(this).attr("id")).indexOf(plottype)==0)){
+                    markNode($(this).attr("id").replace("-rect", ""),plottype);
                     markedNodes.push($(this).attr("id").replace("-rect", ""));
                 }
             }
         });
 
         // marca el nodo seleccionado
-        markNode(node.attr("id").replace("-rect", ""));
+        markNode(node.attr("id").replace("-rect", ""),plottype);
         markedNodes.push(node.attr("id").replace("-rect", ""));
 
         // comprueba los enlaces que intersectan
@@ -293,8 +311,10 @@ function markRelatedNodes(nodeId) {
             markedNodeData[(i+1)]={
                 guild:      markedNode.data("guild"),
                 kcore:      markedNode.data("kcore"),
-                nodeIds:    markedNode.data("nodeIds")
+                nodeIds:    markedNode.data("nodeIds"),
+                plottype:   plottype
             };
+            console.log(markedNodeData);
             markedNodesData.push(markedNodeData);
         }
         // notifica los nodos marcados
@@ -485,12 +505,13 @@ function showWiki(type, id, name) {
     }
 }
 
-// amplia el SVG del ziggurat
-function svgZoomIn() {
-    var svg         = $("#ziggurat svg");
-    var ziggurat    = $("#ziggurat");
-    var _width      = ziggurat.width();
-    var _height     = ziggurat.height();
+
+// amplia el SVG
+function svgZoomIn(plottype) {
+    var svg         = $("#"+plottype+" svg");
+    var plot    = $("#"+plottype);
+    var _width      = plot.width();
+    var _height     = plot.height();
     
     svg[0].setAttribute("width", _width);
     svg[0].setAttribute("height", _height);
@@ -501,12 +522,12 @@ function svgZoomIn() {
     ziggurat.scrollLeft(0);
 }
 
-// reduce el SVG del ziggurat
-function svgZoomOut() {
-    var svg         = $("#ziggurat svg");
-    var ziggurat    = $("#ziggurat");
-    var _width      = ziggurat.width();
-    var _height     = ziggurat.height();
+// reduce el SVG
+function svgZoomOut(plottype) {
+    var svg         = $("#"+plottype+" svg");
+    var plot        = $("#"+plottype);
+    var _width      = plot.width();
+    var _height     = plot.height();
     
     svg[0].setAttribute("width", _width);
     svg[0].setAttribute("height", _height);
@@ -515,9 +536,10 @@ function svgZoomOut() {
 }
 
 // ajusta el SVG del ziggurat al marco que lo contiene
-function svgZoomFit() {
-    var ziggurat    = $("#ziggurat");
-    var svg         = $("#ziggurat svg");
+function svgZoomFit(idsvg) {
+
+    var ziggurat    = $(idsvg);
+    var svg         = $(idsvg+" svg");
     var _width      = ziggurat.width();
     var _height     = ziggurat.height();
 
@@ -525,19 +547,18 @@ function svgZoomFit() {
     svg[0].setAttribute("height", _height);
 
     // restablece el scroll
-    ziggurat.scrollTop(0);
-    ziggurat.scrollLeft(0);
+    plot.scrollTop(0);
+    plot.scrollLeft(0);
     //ziggurat.perfectScrollbar("update");
 }
 
 // establece el tamaño SVG del ziggurat a su tamaño real
-function svgZoomReset() {
-    var ziggurat    = $("#ziggurat");
-    var svg         = $("#ziggurat svg");
+function svgZoomReset(idsvg) {
+    var ziggurat    = $(idsvg);
+    var svg         = $(idsvg+" svg");
     var size        = svg.data("size");
     svg[0].setAttribute("width", size.width);
     svg[0].setAttribute("height", size.height);
-
 
     // restablece el scroll
     ziggurat.scrollTop(0);
@@ -546,11 +567,15 @@ function svgZoomReset() {
 }
 
 // almacena la informacion sobre el tamaño original del ziggurat
-function svgZoomStore() {
-    var svg         = $("#ziggurat svg");
+function svgZoomStore(idsvg) {
+    var svg         = $(idsvg+" svg");
     var _viewBox    = svg[0].getAttribute("viewBox");
     var _width      = _viewBox.split(" ")[2];
     var _height     = _viewBox.split(" ")[3];
+
+    localStorage.setItem(idsvg+"width",parseFloat(_width));
+    localStorage.setItem(idsvg+"height",parseFloat(_height));
+    
     svg.data("size", {width:parseFloat(_width), height:parseFloat(_height)});
 }
 
@@ -605,6 +630,14 @@ Shiny.addCustomMessageHandler(
     function(data) {
         zigguratData=data;
         //alert("zigguratData=" + JSON.stringify(zigguratData));
+    }
+);
+var bipartiteData=null;
+Shiny.addCustomMessageHandler(
+    "bipartiteDataHandler",
+    function(data) {
+        bipartiteData=data;
+        //alert("bipartiteData=" + JSON.stringify(bipartiteData));
     }
 );
 

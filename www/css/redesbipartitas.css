@@ -46,7 +46,7 @@
 }
 
 /* imagenes de zoom */
-#zoomin, #zoomout, #zoomfit, #zoomreset {
+#zoomin, #zoomout, #zoomfit, #zoomreset, #zoominbip, #zoomoutbip {
     /* cursor: move; */
     width:  16px;
     height: 16px;
