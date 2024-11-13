@@ -23,13 +23,13 @@ bipartitePanel<-function() {
 
 # Ziggurat graph panel
 bipartiteDiagramPanel <- function() {
-  control<- fluidRow(column(9,
+  control<- fluidRow(column(12,
                       fluidRow(
                             column(2, bipartiteSvgScaleFactorControl() ),
                             column(2, bipartiteNodeRescale()),
                             column(2, bipartiteGuildgapincreaseControl()),
-                            # column(2, bipartiteSVGright()),
-                            column(3,
+                            column(2, bipartitePlottype()),
+                            column(2,
                                    fluidRow(align="center",
                                             tags$span(
                                               tags$img(id="zoominbip",     
@@ -49,22 +49,19 @@ bipartiteDiagramPanel <- function() {
                                         -webkit-box-shadow: 2px;
                                         box-shadow: 0px;}"))
                                    )
-                                   
                                  ),
-                            column(3,
-                                   fluidRow(
-                                     uiOutput("networkinfoDetailbip")
-                                   )
-                                 )
+                            column(2,
+                                   fluidRow(align="left",
+                                            uiOutput("networkinfoDetailbip"))
+                            )
                               ),
                       tags$span(id="bipartiteplot",
                       fluidRow(       #align="center",valign="top",style="padding-left: 2%;padding-right: 2%; padding-top:2%;",
-                               uiOutput("bipartite")
+                                  column(10,align="center",uiOutput("bipartite"))
                               )
                            )
-                     )
-                     
-
+                      )
                     )
+
   return(control)
 }

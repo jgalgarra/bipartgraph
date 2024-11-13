@@ -697,7 +697,8 @@ draw_parallel_guilds <- function(basex,topx,basey,topy,numboxes,nnodes,fillcolor
       d1$kcore[i] <- s[[1]][2]
     }
   }
-  d1 <- d1[d1$label!="",]         # Remove empty kshell separator cells 
+  d1 <- d1[!(d1$label %in% c("","NA")),]         # Remove empty kshell separator cells 
+  d1 <- d1[!is.na(d1$x1),] 
   for (i in 1:nrow(d1)){
     d1[i,]$kdegree <- igraphnet[paste0(strguild,d1[i,]$label)]$kdegree
     d1[i,]$kradius <- igraphnet[paste0(strguild,d1[i,]$label)]$kradius
@@ -2238,8 +2239,8 @@ if (debugging)
   # bipartite_graph("data/","dattilo2014.csv", style="chilopodograph",orderkcoremaxby = "kdegree",
   #              guild_gap_increase = 1,weighted_links = "none",square_nodes_size_scale=1,backg_color = "white",
   #              hide_plot_border = FALSE, flip_results=FALSE)
-  bipartite_graph("data/","dattilo2014.csv",square_nodes_size_scale = 2,
-                       style="chilopodograph",orderkcoremaxby = "kdegree",
+  bipartite_graph("data/","CANGREJOS.csv",square_nodes_size_scale = 2,
+                       style="kcoreorder",orderkcoremaxby = "kdegree",
                        guild_gap_increase = 1,weighted_links = "none",svg_scale_factor = 1,color_link = "#6d6d6e",
 
                        hide_plot_border = TRUE,move_all_SVG_right = 90)

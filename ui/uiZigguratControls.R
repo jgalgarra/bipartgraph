@@ -549,7 +549,7 @@ zigguratSVGup <- function() {
     min     = -50,
     max     = 50,
     value   = 0,
-    step    = 10
+    step    = 5
   )
   return(control)
 }

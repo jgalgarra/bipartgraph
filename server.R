@@ -321,10 +321,10 @@ shinyServer(function(input, output, session) {
     on.exit(progress$close())
     
     # Disables bipartite container panel 
-    session$sendCustomMessage(type="disableDivHandler", list(id="chilopodograph", disable=TRUE)) 
+    session$sendCustomMessage(type="disableDivHandler", list(id=input$bipartitePlottype, disable=TRUE)) 
     bplot<-bipartite_graph(datadir                                       = paste0(dataDir, "/"),
                        filename                                      = input$selectedDataFile,
-                       style="chilopodograph",orderkcoremaxby = "kdegree",
+                       style=input$bipartitePlottype,orderkcoremaxby = "kdegree",
                        weighted_links = "none",
                        color_link = "#6d6d6e",
                        coremax_triangle_height_factor = 3, coremax_triangle_width_factor = 3,
@@ -542,7 +542,7 @@ shinyServer(function(input, output, session) {
   output$bipartite<-renderUI({
     b<-bipartite()
     svg<-b$svg
-    html<-paste0(svg$html(), "<script>updateSVGEvents('chilopodograph')</script>") 
+    html<-paste0(svg$html(), "<script>updateSVGEvents('",input$bipartitePlottype,"')</script>") 
     return(HTML(html))
   })
 

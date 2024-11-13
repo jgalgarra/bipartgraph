@@ -22,7 +22,10 @@ tailcontrols <- c("zigguratKcore2TailVerticalSeparation","zigguratKcore1TailDist
                   "zigguratInnerTailVerticalSeparation","zigguratfattailjumphorizA","zigguratfattailjumpvertA",
                   "zigguratfattailjumphorizB","zigguratfattailjumpvertB")
 weightcontrols <- c("zigguratweighted_links")
-
+# Order kcoremax
+valordkcoremax <- c("kradius","kdegree")
+# Bipartite plot types
+valPlottype <- c("chilopodograph","legacy","kcoreorder")
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")
   names(network_references) <- gsub("\\.","_",names(network_references))
@@ -81,6 +84,3 @@ linkLabel <- function(text, img) {
   )
   return(label)
 }
-
-# Order kcoremax
-valordkcoremax <- c("kradius","kdegree")

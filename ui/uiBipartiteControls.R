@@ -46,6 +46,16 @@ bipartiteNodeRescale <- function() {
   return(control)
 }
 
+#Plot type
+bipartitePlottype <- function(){
+  control <- radioButtons("bipartitePlottype", HTML(paste("<span class='controlLabel'>",
+                                                          strings$value("LABEL_BIPARTITE_PLOTTYPE"),"</span>")),
+                          choices = valPlottype,
+                          selected = "chilopodograph"
+  )
+  return(control)
+}
+
 # Crop top SVG
 bipartiteSVGup <- function() {
   control<-sliderInput(
