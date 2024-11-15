@@ -95,6 +95,7 @@ function updateNodeEvents(plottype,plotData) {
             $("[id*=" + pattern + "]").click(function() {
                 markRelatedNodes($(this).attr("id").replace("-text", "").replace("-rect",""),plottype,plotData);
             });
+            
 
             // datos asociados al nodo
             $("rect[id*=" + pattern + "]").each(function() {
@@ -106,7 +107,7 @@ function updateNodeEvents(plottype,plotData) {
                 $(this).data("marked", false);
 
             });
-
+           
         }
     }
 }
@@ -130,6 +131,20 @@ function updateLinkEvents() {
 
 // actualiza los tooltips de los nodos
 function updateNodeTooltips(plottype, plotData) {
+    function textToolTipkcore1() {
+        var nodeIds=$(this).data("nodeIds");
+        var id=$(this).attr("id").replace("-rect", "");
+        $("[id*=" + id + "]").each(function() {
+            $(this).qtip("destroy", true);
+            $(this).qtip({
+                content:    {text: getTooltipContent(guildName, kcore, guildCoreData, nodeIds)},
+                style:      {classes: "qtip-bootstrap rbtooltipinfo", width: 500},
+                show:       {delay:50},
+                hide:       {delay:0},
+                position:   {my: "bottom left", at: "top left", target: "mouse"}
+            });
+        });
+    }
 
     for (var i=0;i<plotData.ids.length;++i) {
         var guild       = plotData.ids[i];
@@ -139,24 +154,12 @@ function updateNodeTooltips(plottype, plotData) {
             // tooltips
             var pattern=plottype+"kcore" + kcore + "-" + guild;
             if (kcore==1)
-                pattern=plottype+"edge-kcore" + kcore + "-" + guild;
+                pattern = plottype+"edge-kcore" + kcore + "-" + guild;
             var guildCoreData=guildData[kcore-1];
-            if (guildCoreData!=null) {
-                $("rect[id*=" + pattern + "]").each(function() {
-                    var nodeIds=$(this).data("nodeIds");
-                    var id=$(this).attr("id").replace("-rect", "");
-                    $("[id*=" + id + "]").each(function() {
-                        $(this).qtip("destroy", true);
-                        $(this).qtip({
-                            content:    {text: getTooltipContent(guildName, kcore, guildCoreData, nodeIds)},
-                            style:      {classes: "qtip-bootstrap rbtooltipinfo", width: 500},
-                            show:       {delay:50},
-                            hide:       {delay:0},
-                            position:   {my: "bottom left", at: "top left", target: "mouse"}
-                        });
-                    });
-                });
-            }
+            // Tail nodes
+            if (guildCoreData!=null)
+                $("rect[id*=" + pattern + "]").each(textToolTipkcore1);
+                
         }
     }
 }
@@ -247,7 +250,6 @@ function markRelatedNodes(nodeId,plottype,plotData) {
     var markedNodes     = [];
     var markedNodesData = [];
     var neighbors       = (plotData.neighbors[guild])[nodeIds[0]-1];
-
     if (!$.isArray(neighbors)) {
         neighbors=[neighbors];
     }
@@ -314,7 +316,6 @@ function markRelatedNodes(nodeId,plottype,plotData) {
                 nodeIds:    markedNode.data("nodeIds"),
                 plottype:   plottype
             };
-            console.log(markedNodeData);
             markedNodesData.push(markedNodeData);
         }
         // notifica los nodos marcados
@@ -376,15 +377,17 @@ function getTooltipContent(guildName, kcore, guildCoreData, nodeIds) {
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KRADIUS") + "</th>";
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KDEGREE") + "</th>";
     content+="</tr>";
-    for (var i=0;i<nodeIds.length;++i) {
-        var id=nodeIds[i];
-        var node=getNodeTooltipContent(guildCoreData, id);
-        content+="<tr>";
-        content+="<td>" +  id + "</td>";
-        content+="<td>" + node.name + "</td>";
-        content+="<td>" + node.kradius + "</td>";
-        content+="<td>" + node.kdegree + "</td>";
-        content+="</tr>";
+    if (typeof nodeIds !== 'undefined'){
+        for (var i=0;i<nodeIds.length;++i) {
+            var id=nodeIds[i];
+            var node=getNodeTooltipContent(guildCoreData, id);
+            content+="<tr>";
+            content+="<td>" +  id + "</td>";
+            content+="<td>" + node.name + "</td>";
+            content+="<td>" + node.kradius + "</td>";
+            content+="<td>" + node.kdegree + "</td>";
+            content+="</tr>";
+        }
     }
     content+="</table>";
     return content;
@@ -396,16 +399,16 @@ function getNodeTooltipContent(guildCoreData, id) {
     var bFound=false;
     var i=0;
     while (!bFound && i<guildCoreData.label.length) {
-        if (guildCoreData.label[i]==id) {
+        if (guildCoreData.label[i]==id) {      
             bFound=true;
         } else {
             ++i;
         }
     }
-
     var name="(error)";
     var kdegree="(error)";
     var kradius="(error)";
+
     if (bFound) {
         name=guildCoreData.name_species[i];
         kdegree=Math.round(guildCoreData.kdegree[i]*100)/100;;

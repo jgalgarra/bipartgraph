@@ -8,7 +8,6 @@
 ###############################################################################
 
 source("nonreactive.R")
-source("bipartite_graph.R")
 
 #
 # Server process
@@ -352,6 +351,7 @@ shinyServer(function(input, output, session) {
     # store labels and colors
     writelabcols()
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
+ #   print(bplot$list_dfs_a,bplot$list_dfs_b)
     session$sendCustomMessage(type="bipartiteDataHandler", list(ids=c("a", "b"),
                               names=c(bplot$name_guild_a, bplot$name_guild_b), 
                               data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
@@ -390,7 +390,7 @@ shinyServer(function(input, output, session) {
       paintlinks                                    = input$zigguratPaintLinks,
       print_to_file                                 = FALSE,
       plotsdir                                      = tempdir(),
-      orderkcoremaxby                               = input$orderkcoremaxby,
+      orderkcoremaxby                               = "kradius",
       alpha_level                                   = input$zigguratAlphaLevel,
       color_guild_a                                 = c(input$zigguratColorGuildA1, input$zigguratColorGuildA2),
       color_guild_b                                 = c(input$zigguratColorGuildB1, input$zigguratColorGuildB2),
@@ -474,13 +474,18 @@ shinyServer(function(input, output, session) {
     guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
     # store labels and colors
     writelabcols()
-    session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), 
-                              names=c(z$name_guild_a, z$name_guild_b), 
-                              data=list(a=z$list_dfs_a, b=z$list_dfs_b), 
-                              neighbors=list(a=guildANeighbors,
-                                             b=guildBNeighbors)))
+    print("z$list_dfs_a")
+    print(z$list_dfs_a)
+    print("z$list_dfs_b")
+    print(z$list_dfs_b)
     # Enables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=FALSE))
+    print("enviando zigguratDataHandler")
+    session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), 
+                                                               names=c(z$name_guild_a, z$name_guild_b), 
+                                                               data=list(a=z$list_dfs_a, b=z$list_dfs_b), 
+                                                               neighbors=list(a=guildANeighbors,
+                                                                              b=guildBNeighbors)))
     # Only shows ziggurat displacement controls for existing k-shells 
     visibilityZigDispControl("hide",zgg$kcoremax+1,MAX_NUM_CORES)
     # Disable outsider controls if all nodes are part of the giaan component
@@ -594,11 +599,14 @@ shinyServer(function(input, output, session) {
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
     create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
-    details <- paste(bpp$network_name,"<br>",strw,"&nbsp;",
+    if (exists("bpp"))
+      details <- paste(bpp$network_name,"<br>",strw,"&nbsp;",
                      bpp$result_analysis$links,"&nbsp;",
                      strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
                      "<br><span  style='color:",zgg$color_guild_a[1],"'>",zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
                      "<span  style='color:",zgg$color_guild_b[1],"'>", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span ><br>")
+    else
+      details <- ""
     #details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
     return(HTML(details))
   })

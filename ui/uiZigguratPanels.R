@@ -57,7 +57,7 @@ zigguratDiagramPanel <- function() {
                          column(2,zigguratSvgScaleFactorControl() ),
                          column(2, zigguratSVGup()),
                          column(2, zigguratSVGright()),
-                         column(2, zigguratkcoremaxorder()),
+                         #column(2, zigguratkcoremaxorder()),
                          
                          column(4,
                                 fluidRow(align="center",
