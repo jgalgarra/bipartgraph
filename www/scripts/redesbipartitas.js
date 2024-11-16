@@ -9,6 +9,7 @@
 // Descricpción  : Funciones javascript que permiten la interaccion del usuario
 //                 con el diagrama ziggurat y la presentacion de la informacion
 //                 relativa a nodos y elementos
+//                 Ampliado para trabajar con diagrama bipartito
 //
 //-----------------------------------------------------------------------------
 
@@ -131,6 +132,8 @@ function updateLinkEvents() {
 
 // actualiza los tooltips de los nodos
 function updateNodeTooltips(plottype, plotData) {
+    console.log("plotdata");
+    console.log(plotData)
     function textToolTipkcore1() {
         var nodeIds=$(this).data("nodeIds");
         var id=$(this).attr("id").replace("-rect", "");
@@ -363,16 +366,17 @@ function getTooltipContent(guildName, kcore, guildCoreData, nodeIds) {
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_TYPE") + "</th>";
     content+="<td>" + guildName + "</td>";
     content+="</tr>";
-    content+="<tr>";
-    content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KCORE") + "</th>";
-    content+="<td>" + kcore + "</td>";
-    content+="</tr>";
+    // content+="<tr>";
+    // content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KCORE") + "</th>";
+    // content+="<td>" + kcore + "</td>";
+    // content+="</tr>";
     content+="</table>";
 
     // datos de cada elemento
     content+="<table class='rbtooltiptableinfo2'>";
     content+="<tr>";
-    content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_ID") + "</th>";
+    content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_ID") + "&nbsp;</th>";
+    content+="<th align='center'>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KCORE") + "</th>";
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_NAME") + "</th>";
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KRADIUS") + "</th>";
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KDEGREE") + "</th>";
@@ -382,10 +386,17 @@ function getTooltipContent(guildName, kcore, guildCoreData, nodeIds) {
             var id=nodeIds[i];
             var node=getNodeTooltipContent(guildCoreData, id);
             content+="<tr>";
-            content+="<td>" +  id + "</td>";
+            content+="<td>" +  id + "&nbsp;</td>";
+            content+="<td align='center'>" + node.kcore + "</td>";
             content+="<td>" + node.name + "</td>";
-            content+="<td>" + node.kradius + "</td>";
-            content+="<td>" + node.kdegree + "</td>";
+            if (node.kradius>0) 
+                content+="<td>" + node.kradius + "</td>";
+            else
+                content+="<td></td>";
+            if (node.kdegree>0)
+                content+="<td>" + node.kdegree + "</td>";
+            else
+                content+="<td></td>";
             content+="</tr>";
         }
     }
@@ -408,13 +419,15 @@ function getNodeTooltipContent(guildCoreData, id) {
     var name="(error)";
     var kdegree="(error)";
     var kradius="(error)";
+    var kcore="(error)";
 
     if (bFound) {
+        kcore=guildCoreData.kcorelabel[i];
         name=guildCoreData.name_species[i];
         kdegree=Math.round(guildCoreData.kdegree[i]*100)/100;;
         kradius=Math.round(guildCoreData.kradius[i]*100)/100;;
     }
-    value={id:id, name:name, kdegree:kdegree, kradius:kradius};
+    value={id:id, kcore: kcore, name:name, kdegree:kdegree, kradius:kradius};
     return value;
 }
 
