@@ -76,6 +76,28 @@ shinyServer(function(input, output, session) {
     )
   }
   
+  
+  #Restore the default bipartite colors
+  restoredefaultbipartitecolors <- function()
+  {
+    updateColourInput(session, "bipartiteColorGuildA1",
+                      label = strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"),
+                      value = czA1
+    )
+    updateColourInput(session, "bipartiteColorGuildA2",
+                      label = strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"),
+                      value = czA2
+    )
+    updateColourInput(session, "bipartiteColorGuildB1",
+                      label = strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"),
+                      value = czB1
+    )
+    updateColourInput(session, "bipartiteColorGuildB2",
+                      label = strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"),
+                      value = czB2
+    )
+  }
+  
   # Reads the network data file
   selectedDataFileContent<-reactive({
     shinyjs::hideElement(id= "panelB")
@@ -197,6 +219,7 @@ shinyServer(function(input, output, session) {
                         value <- auxnguild_b
         )
         restoredefaultzigcolors
+        #restoredefaultbipartitecolors
       }
     }
     else{
@@ -272,8 +295,13 @@ shinyServer(function(input, output, session) {
   )
   
   # Restore default ziggurat colors
-  observeEvent(input$restoreColors, {
+  observeEvent(input$restoreColorsControl, {
     restoredefaultzigcolors()
+  })
+  
+  # Restore default bipartite colors
+  observeEvent(input$restorebipartiteColorsControl, {
+    restoredefaultbipartitecolors()
   })
   
   # Delete selected files
@@ -325,7 +353,11 @@ shinyServer(function(input, output, session) {
                        filename                                      = input$selectedDataFile,
                        style=input$bipartitePlottype,orderkcoremaxby = "kdegree",
                        weighted_links = input$bipartiteweighted_links,
-                       color_link = "#6d6d6e",
+                       color_link = input$bipartiteColorLink,
+                       alpha_link = input$bipartiteAlphaLevelLink,
+                       alpha_level = input$bipartiteAlphaLevel,
+                       color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
+                       color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
                        coremax_triangle_height_factor = 3, coremax_triangle_width_factor = 3,
                        hide_plot_border = TRUE,
                        guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
@@ -334,13 +366,11 @@ shinyServer(function(input, output, session) {
                        size_link = input$bipartiteLinkSize,
                        label_strguilda = trim(input$DataLabelGuildAControl),
                        label_strguildb = trim(input$DataLabelGuildBControl),
+                       lsize_kcoremax  = input$bipartiteLabelsSizekCoreMax,
                        #move_all_SVG_up  = 0.01*input$bipartiteSVGup,
                        # move_all_SVG_right = ifelse(!is.null(input$bipartiteSVGright),
                        #                             input$bipartiteSVGright/10,0),
                        progress=progress)
-    print(paste("guild_gap_increase",(100+input$bipartiteGuildgapincrease)))
-    print(paste("move_all_SVG_right",ifelse(!is.null(input$bipartiteSVGright),
-                                            input$bipartiteSVGright/10,0)))
     # ziggurat igraph object
     g<-bplot$result_analysis$graph
     
@@ -353,7 +383,6 @@ shinyServer(function(input, output, session) {
     # store labels and colors
     writelabcols()
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
- #   print(bplot$list_dfs_a,bplot$list_dfs_b)
     session$sendCustomMessage(type="bipartiteDataHandler", list(ids=c("a", "b"),
                               names=c(bplot$name_guild_a, bplot$name_guild_b), 
                               data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
@@ -476,13 +505,8 @@ shinyServer(function(input, output, session) {
     guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
     # store labels and colors
     writelabcols()
-    print("z$list_dfs_a")
-    print(z$list_dfs_a)
-    print("z$list_dfs_b")
-    print(z$list_dfs_b)
     # Enables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=FALSE))
-    print("enviando zigguratDataHandler")
     session$sendCustomMessage(type="zigguratDataHandler", list(ids=c("a", "b"), 
                                                                names=c(z$name_guild_a, z$name_guild_b), 
                                                                data=list(a=z$list_dfs_a, b=z$list_dfs_b), 
@@ -558,7 +582,6 @@ shinyServer(function(input, output, session) {
   output$zigguratNodesDetail<-renderUI({
     z         <- ziggurat()
     nodesData <- markedNodes$data
-    print(nodesData)
     plotstyle <- nodesData$plottype[1]
     details   <- ""
     if (nrow(nodesData)>0) {

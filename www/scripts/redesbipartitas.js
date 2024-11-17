@@ -24,6 +24,7 @@ function windowLoad() {
 }
 
 var plotData;
+var fp;
 // establece los tooltips de ayuda de todos los elementos
 var helpTooltips=[
     {id: "zoomin",      value: "Ziggurat zoom in"},
@@ -214,31 +215,31 @@ function unmarkNode(nodeId) {
 }
 
 // resalta el enlace indicado en el SVG
-function markLink(linkId) {
+function markLink(linkId,plottype) {
     $("g[id*=" + linkId + "]").each(function() {
+        plottype === 'ziggurat' ? fp = 1 : fp = 50;
         // incrementa el ancho del enlace
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth+2);
+        $(this).css("stroke-width", strokeWidth+2*fp);
 
         // indica que el enlace esta marcado
         $(this).data("marked", true);
 
-        $(this).css("stroke-dasharray","5,5");
+        $(this).css("stroke-dasharray",`${5*fp},${5*fp}`);
     });
 }
 
 // elimina el resaltado del enlace indicado en el SVG
-function unmarkLink(linkId) {
+function unmarkLink(linkId,plottype) {
+    plottype === 'ziggurat' ? fp = 1 : fp = 50;
     $("g[id*=" + linkId + "]").each(function() {
         // reduce el ancho del enlace
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth-2);
+        $(this).css("stroke-width", strokeWidth-2*fp);
 
         // indica que el enlace no esta marcado
         $(this).data("marked", false);
-
-
-        $(this).css("stroke-dasharray","5,0");
+        $(this).css("stroke-dasharray",`${5*fp},0`);
     });
 }
 
@@ -267,7 +268,7 @@ function markRelatedNodes(nodeId,plottype,plotData) {
     });
     $("g[id*=link-]").each(function() {
         if ($(this).data("marked")) {
-            unmarkLink($(this).attr("id"));
+            unmarkLink($(this).attr("id"),plottype);
         }
     });
 
@@ -305,7 +306,7 @@ function markRelatedNodes(nodeId,plottype,plotData) {
         $("g[id*=link-] path").each(function() {
            var intersect=pathIntersectRect($(this)[0], node[0]);
            if (intersect) {
-               markLink($(this).parent().attr("id"));
+               markLink($(this).parent().attr("id"),plottype);
            }
         });
 

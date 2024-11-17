@@ -89,7 +89,29 @@ bipartiteLinkSizeControl <- function() {
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_LINK_SIZE_CONTROL")),
     min     = 0.1,
     max     = 2.0,
-    value   = 0.5,
+    value   = 0.3,
+    step    = 0.1
+  )
+  return(control)
+}
+# Color picker
+bipartiteColorControl <- function(name, description, default) {
+  control <- colourInput(
+    paste0("bipartiteColor" , name),
+    controlLabel(description),
+    value = default
+  )
+  return(control)
+}
+
+# Link transparency
+bipartiteAlphaLevelLinkControl <- function() {
+  control<-sliderInput(
+    inputId = "bipartiteAlphaLevelLink",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_ALPHA_LEVEL_LINK_CONTROL")),
+    min     = 0.1,
+    max     = 1.0,
+    value   = 0.3,
     step    = 0.1
   )
   return(control)
@@ -102,3 +124,30 @@ bipartiteweighted_links <- function() {
                          weightchoices)
   return(control)
 }
+
+# Transparency
+bipartiteAlphaLevelControl <- function() {
+  control<-sliderInput(
+    inputId = "bipartiteAlphaLevel",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_ALPHA_LEVEL_CONTROL")),
+    min     = 0.1,
+    max     = 1.0,
+    value   = 0.2,
+    step    = 0.1
+  )
+  return(control)
+}
+
+# label sizes
+bipartiteLabelsSizeControl <- function(name, description, default) {
+  control<-sliderInput(
+    inputId = paste0("bipartiteLabelsSize", name),
+    label   = controlLabel(description),
+    min     = 0,
+    max     = 10.0,
+    value   = default,
+    step    = 0.5
+  )
+  return(control)
+}
+
