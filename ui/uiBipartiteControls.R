@@ -151,3 +151,7 @@ bipartiteLabelsSizeControl <- function(name, description, default) {
   return(control)
 }
 
+bipartitesaveSVGControl <- function() {
+  control<-downloadButton("bipartitesaveSVG",label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
+  return(control)
+}

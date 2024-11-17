@@ -873,6 +873,23 @@ shinyServer(function(input, output, session) {
     },
     contentType=paste0("text/svg+xml")
   )
+  
+  output$bipartitesaveSVG<-downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-bipartite-",input$bipartitePlottype,".svg")
+      return(file)
+    },
+    content=function(file){
+      # Gets the diagram
+      bp <- bipartite()
+      htmlsvg <- bp$svg$html()
+      dir.create("tmpcode/", showWarnings = FALSE)
+      cat(htmlsvg, file = "tmpcode/tmpbip.svg")
+      file.copy("tmpcode/tmpbip.svg",file)
+    },
+    contentType=paste0("text/svg+xml")
+  )
+  
    
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
