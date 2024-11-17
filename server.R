@@ -678,6 +678,14 @@ shinyServer(function(input, output, session) {
       return(HTML("                                    "))
   })
   
+  # Network information
+  output$networknamebip<-renderUI({
+    z <- ziggurat()
+    if (exists("zgg") && !is.null(zgg))
+      return(HTML( paste( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",strings$value("LABEL_NETWORK"),": ",zgg$network_name,"</B>") ) )
+    else
+      return(HTML("                                    "))
+  })
   # Wikipedia information
   output$zigguratWikiDetail<-renderUI({
     z         <- ziggurat()

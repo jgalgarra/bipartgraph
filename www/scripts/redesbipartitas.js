@@ -132,8 +132,8 @@ function updateLinkEvents() {
 
 // actualiza los tooltips de los nodos
 function updateNodeTooltips(plottype, plotData) {
-    console.log("plotdata");
-    console.log(plotData)
+    // console.log("plotdata");
+    // console.log(plotData)
     function textToolTipkcore1() {
         var nodeIds=$(this).data("nodeIds");
         var id=$(this).attr("id").replace("-rect", "");
