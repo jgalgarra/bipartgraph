@@ -25,6 +25,7 @@ function windowLoad() {
 
 var plotData;
 var fp;
+var incfont = 1.3;      // Increase font size of marked nodes
 // establece los tooltips de ayuda de todos los elementos
 var helpTooltips=[
     {id: "zoomin",      value: "Ziggurat zoom in"},
@@ -179,7 +180,9 @@ function markNode(nodeId,plottype) {
     $("#" + nodeId + "-text").each(function() {
         // incrementa la fuente
         var fontSize=parseInt($(this).css("font-size").replace("px",""));
-        $(this).css("font-size", (fontSize*1.3) + "px");
+        $(this).css("font-size", (fontSize*incfont) + "px");
+        $(this).css("font-style", "italic");
+        $(this).css("font-weight", "bold");
     });
 
     // marca el nodo
@@ -194,12 +197,14 @@ function markNode(nodeId,plottype) {
 }
 
 // elimina el resaltado del nodo indicado en el SVG
-function unmarkNode(nodeId) {
+function unmarkNode(nodeId,plottype) {
     // desmarca el texto
     $("#" + nodeId + "-text").each(function() {
         // reduce la fuente
         var fontSize=parseInt($(this).css("font-size").replace("px",""));
-        $(this).css("font-size", (fontSize/1.3) + "px");
+        $(this).css("font-size", (fontSize/incfont) + "px");
+        $(this).css("font-style", "normal");
+        $(this).css("font-weight", "normal");
     });
 
     // desmarca el nodo
@@ -263,7 +268,7 @@ function markRelatedNodes(nodeId,plottype,plotData) {
     // desmarca todos los nodos y enlaces marcados
     nodes.each(function() {
         if ($(this).data("marked")) {
-            unmarkNode($(this).attr("id").replace("-rect", ""));
+            unmarkNode($(this).attr("id").replace("-rect", ""),plottype);
         }
     });
     $("g[id*=link-]").each(function() {

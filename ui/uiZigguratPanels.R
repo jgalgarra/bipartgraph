@@ -52,64 +52,64 @@ zigguratPanel<-function() {
 # Ziggurat graph panel
 zigguratDiagramPanel <- function() {
   control<- fluidRow(align="left",
-                  column(8,
-                       fluidRow(
-                         column(2,zigguratSvgScaleFactorControl() ),
-                         column(2, zigguratSVGup()),
-                         column(2, zigguratSVGright()),
-                         column(2, zigguratkcoremaxorder()),
-                         
-                         column(4,
-                                fluidRow(align="center",
-                                         #          id="zoomPanel",
-                                         # tags$span(
-                                         #        tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
-                                         #        ),
-                                         tags$span(
-                                           tags$img(id="zoomin",     onclick="svgZoomIn('ziggurat')",    src="images/logos-flexline/zoom-in.png")
-                                         ),
-                                         tags$span(
-                                           tags$img(id="zoomout",    onclick="svgZoomOut('ziggurat')",   src="images/logos-flexline/zoom-out.png")
-                                         ),
-                                         # tags$span(
-                                         #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
-                                         #          ),
-                                         downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
-                                         tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+                     column(8,
+                            fluidRow(
+                              column(2,zigguratSvgScaleFactorControl() ),
+                              column(2, zigguratSVGup()),
+                              column(2, zigguratSVGright()),
+                              column(2, zigguratkcoremaxorder()),
+                              
+                              column(4,
+                                     fluidRow(align="center",
+                                              #          id="zoomPanel",
+                                              # tags$span(
+                                              #        tags$img(id="zoomfit",    onclick="svgZoomFit()",   src="images/fit_to_width.png")
+                                              #        ),
+                                              tags$span(
+                                                tags$img(id="zoomin",     onclick="svgZoomIn('ziggurat')",    src="images/logos-flexline/zoom-in.png")
+                                              ),
+                                              tags$span(
+                                                tags$img(id="zoomout",    onclick="svgZoomOut('ziggurat')",   src="images/logos-flexline/zoom-out.png")
+                                              ),
+                                              # tags$span(
+                                              #          tags$img(id="zoomreset",  onclick="svgZoomReset()", src="images/sinchronize.png")
+                                              #          ),
+                                              downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
+                                              tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
                                         color: black;
                                         font-size: 12px;
                                         border-color: rgba(0,0,0,0);
                                         -webkit-box-shadow: 2px;
                                         box-shadow: 0px;}"))
-                                         
-                                )
-                                
-                         ),
+                                              
+                                     )
+                                     
+                              ),
+                            ),
+                            tags$span(id="ziggplot",
+                                      fluidRow(align="center",valign="top",
+                                               uiOutput("ziggurat"))
+                            )
                      ),
-                     tags$span(id="ziggplot",
-                    fluidRow(align="left",valign="top",
-                        uiOutput("ziggurat"))
+                     
+                     column(4,
+                            fluidRow(
+                              uiOutput("networkinfoDetail")
+                            ),
+                            fluidRow(
+                              column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
+                              column(2, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_TYPE"))),
+                              column(4, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_NAME"))),
+                              column(1, tags$small("kshell")),
+                              column(1, tags$small("krad") ),
+                              column(1, tags$small("kdeg"))
+                            ),
+                            fluidRow(
+                              uiOutput("zigguratNodesDetail")
+                            )
                      )
-                  ),
-        
-                  column(4,
-                      fluidRow(
-                        uiOutput("networkinfoDetail")
-                      ),
-                      fluidRow(
-                        column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
-                        column(2, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_TYPE"))),
-                        column(4, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_NAME"))),
-                        column(1, tags$small("kshell")),
-                        column(1, tags$small("krad") ),
-                        column(1, tags$small("kdeg"))
-                      ),
-                      fluidRow(
-                        uiOutput("zigguratNodesDetail")
-                      )
-                    )
-                  )
-
+  )
+  
   return(control)
 }
 
@@ -119,105 +119,105 @@ zigguratConfigPanel <- function() {
     fluidRow(
       uiOutput("networkname")
     ),
-      tabPanel(id="tab_vis",
-        title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
-        # fluidRow(
-        #   column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
-        # ),
-        # fluidRow(
-        #   column(2,zigguratSvgScaleFactorControl() ),
-        #   column(2, zigguratSVGup())
-        # ),
-        fluidRow(
-          column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
-        ),
-        fluidRow(
-          column(1, zigguratPaintLinksControl()),
-          column(1, zigguratUseSplineControl()),
-          column(2, zigguratSplinePointsControl()),
-          column(2, zigguratLinkSizeControl()),
-          column(2, zigguratweighted_links()),
-          column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
-          column(2, zigguratAlphaLevelLinkControl())
-      ),
-      fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
-      ),
-      fluidRow(
-        #column(2, zigguratkcoremaxorder()),
-        column(2, zigguratHeightExpandControl()),
-        column(2, ziggurat1shellExpandControl()),
-        column(2, zigguratCoreMaxHExp()),
-        column(2, zigguratCoreMaxWExp()),
-        column(2, zigguratHopx())
-      ),
-      fluidRow(
-        column(2, zigguratColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
-        column(2, zigguratColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
-        column(2, zigguratColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
-        column(2, zigguratColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
-        column(2, zigguratAlphaLevelControl()),
-        #column(2, restoreColorsControl())
-      ),
-      fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_Y_DISPLACE_CONTROL"), image="logos-flexline/bidir-arrow.png"))
-      ),
-
-      fluidRow(
-        column(1, uiOutput("networkGuildALabel")),
-        column(1, zigguratYDisplaceControlS("A", "2")),
-        column(1, zigguratYDisplaceControlS("A", "3")),
-        column(1, zigguratYDisplaceControlS("A", "4")),
-        column(1, zigguratYDisplaceControlS("A", "5")),
-        column(1, zigguratYDisplaceControlS("A", "6")),
-        column(1, zigguratYDisplaceControlS("A", "7")),
-        column(1, zigguratYDisplaceControlS("A", "8")),
-        column(1, zigguratYDisplaceControlS("A", "9")),
-        column(1, zigguratYDisplaceControlS("A", "10")),
-        column(1, zigguratYDisplaceControlS("A", "11")),
-        column(1, zigguratYDisplaceControlS("A", "12")),
-        column(1, zigguratYDisplaceControlS("A", "13")),
-        column(1, zigguratYDisplaceControlS("A", "14")),
-        column(1, zigguratYDisplaceControlS("A", "15")),
-        column(1, zigguratYDisplaceControlS("A", "16")),
-        column(1, zigguratYDisplaceControlS("A", "17")),
-        column(1, zigguratYDisplaceControlS("A", "18")),
-        column(1, zigguratYDisplaceControlS("A", "19")),
-        column(1, zigguratYDisplaceControlS("A", "20"))
-      ),
-
-      fluidRow(
-        column(1, uiOutput("networkGuildBLabel")),
-        column(1, zigguratYDisplaceControlS("B", "2")),
-        column(1, zigguratYDisplaceControlS("B", "3")),
-        column(1, zigguratYDisplaceControlS("B", "4")),
-        column(1, zigguratYDisplaceControlS("B", "5")),
-        column(1, zigguratYDisplaceControlS("B", "6")),
-        column(1, zigguratYDisplaceControlS("B", "7")),
-        column(1, zigguratYDisplaceControlS("B", "8")),
-        column(1, zigguratYDisplaceControlS("B", "9")),
-        column(1, zigguratYDisplaceControlS("B", "10")),
-        column(1, zigguratYDisplaceControlS("B", "11")),
-        column(1, zigguratYDisplaceControlS("B", "12")),
-        column(1, zigguratYDisplaceControlS("B", "13")),
-        column(1, zigguratYDisplaceControlS("B", "14")),
-        column(1, zigguratYDisplaceControlS("B", "15")),
-        column(1, zigguratYDisplaceControlS("B", "16")),
-        column(1, zigguratYDisplaceControlS("B", "17")),
-        column(1, zigguratYDisplaceControlS("B", "18")),
-        column(1, zigguratYDisplaceControlS("B", "19")),
-        column(1, zigguratYDisplaceControlS("B", "20"))
-      ),
-      fluidRow(
-        column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_OUTSIDERS_HEADER"), image="logos-flexline/outsiders.png"))
-      ),
-      fluidRow(
-        column(2, zigguratPaintOutsidersControl()),
-        column(2, zigguratoutsiders_expand_horiz()),
-        column(2, zigguratoutsiders_expand_vert()),
-        column(2, zigguratoutsiders_separation_expand()),
-        column(2, zigguratoutsiders_legend_expand())
-      )
+    tabPanel(id="tab_vis",
+             title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
+             # fluidRow(
+             #   column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
+             # ),
+             # fluidRow(
+             #   column(2,zigguratSvgScaleFactorControl() ),
+             #   column(2, zigguratSVGup())
+             # ),
+             fluidRow(
+               column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
+             ),
+             fluidRow(
+               column(1, zigguratPaintLinksControl()),
+               column(1, zigguratUseSplineControl()),
+               column(2, zigguratSplinePointsControl()),
+               column(2, zigguratLinkSizeControl()),
+               column(2, zigguratweighted_links()),
+               column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
+               column(2, zigguratAlphaLevelLinkControl())
+             ),
+             fluidRow(
+               column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
+             ),
+             fluidRow(
+               #column(2, zigguratkcoremaxorder()),
+               column(2, zigguratHeightExpandControl()),
+               column(2, ziggurat1shellExpandControl()),
+               column(2, zigguratCoreMaxHExp()),
+               column(2, zigguratCoreMaxWExp()),
+               column(2, zigguratHopx())
+             ),
+             fluidRow(
+               column(2, zigguratColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
+               column(2, zigguratColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
+               column(2, zigguratColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
+               column(2, zigguratColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
+               column(2, zigguratAlphaLevelControl()),
+               #column(2, restoreColorsControl())
+             ),
+             fluidRow(
+               column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_Y_DISPLACE_CONTROL"), image="logos-flexline/bidir-arrow.png"))
+             ),
+             
+             fluidRow(
+               column(1, uiOutput("networkGuildALabel")),
+               column(1, zigguratYDisplaceControlS("A", "2")),
+               column(1, zigguratYDisplaceControlS("A", "3")),
+               column(1, zigguratYDisplaceControlS("A", "4")),
+               column(1, zigguratYDisplaceControlS("A", "5")),
+               column(1, zigguratYDisplaceControlS("A", "6")),
+               column(1, zigguratYDisplaceControlS("A", "7")),
+               column(1, zigguratYDisplaceControlS("A", "8")),
+               column(1, zigguratYDisplaceControlS("A", "9")),
+               column(1, zigguratYDisplaceControlS("A", "10")),
+               column(1, zigguratYDisplaceControlS("A", "11")),
+               column(1, zigguratYDisplaceControlS("A", "12")),
+               column(1, zigguratYDisplaceControlS("A", "13")),
+               column(1, zigguratYDisplaceControlS("A", "14")),
+               column(1, zigguratYDisplaceControlS("A", "15")),
+               column(1, zigguratYDisplaceControlS("A", "16")),
+               column(1, zigguratYDisplaceControlS("A", "17")),
+               column(1, zigguratYDisplaceControlS("A", "18")),
+               column(1, zigguratYDisplaceControlS("A", "19")),
+               column(1, zigguratYDisplaceControlS("A", "20"))
+             ),
+             
+             fluidRow(
+               column(1, uiOutput("networkGuildBLabel")),
+               column(1, zigguratYDisplaceControlS("B", "2")),
+               column(1, zigguratYDisplaceControlS("B", "3")),
+               column(1, zigguratYDisplaceControlS("B", "4")),
+               column(1, zigguratYDisplaceControlS("B", "5")),
+               column(1, zigguratYDisplaceControlS("B", "6")),
+               column(1, zigguratYDisplaceControlS("B", "7")),
+               column(1, zigguratYDisplaceControlS("B", "8")),
+               column(1, zigguratYDisplaceControlS("B", "9")),
+               column(1, zigguratYDisplaceControlS("B", "10")),
+               column(1, zigguratYDisplaceControlS("B", "11")),
+               column(1, zigguratYDisplaceControlS("B", "12")),
+               column(1, zigguratYDisplaceControlS("B", "13")),
+               column(1, zigguratYDisplaceControlS("B", "14")),
+               column(1, zigguratYDisplaceControlS("B", "15")),
+               column(1, zigguratYDisplaceControlS("B", "16")),
+               column(1, zigguratYDisplaceControlS("B", "17")),
+               column(1, zigguratYDisplaceControlS("B", "18")),
+               column(1, zigguratYDisplaceControlS("B", "19")),
+               column(1, zigguratYDisplaceControlS("B", "20"))
+             ),
+             fluidRow(
+               column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_OUTSIDERS_HEADER"), image="logos-flexline/outsiders.png"))
+             ),
+             fluidRow(
+               column(2, zigguratPaintOutsidersControl()),
+               column(2, zigguratoutsiders_expand_horiz()),
+               column(2, zigguratoutsiders_expand_vert()),
+               column(2, zigguratoutsiders_separation_expand()),
+               column(2, zigguratoutsiders_legend_expand())
+             )
     ),
     
     tabPanel(
@@ -283,10 +283,10 @@ zigguratConfigPanel <- function() {
         column(4, zigguratloadZigConfigControlFile()),
         column(2, zigguratshowZigConfigControlFile()),
         column(4, tags$h2(" "),zigguratsaveZigConfigControlFile())
-       ),
+      ),
       # Show ziggurat configuration file raw JSON contents
       fluidRow(
-       column(10, verbatimTextOutput("contentsfileconfigzigplot"))
+        column(10, verbatimTextOutput("contentsfileconfigzigplot"))
       )
     )
   )

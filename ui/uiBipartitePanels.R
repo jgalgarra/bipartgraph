@@ -78,7 +78,7 @@ bipartiteConfigPanel <- function() {
                column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
              ),
              fluidRow(
-               column(2, bipartiteLabelsSizeControl("kCoreMax", strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 5)),
+               column(2, bipartiteLabelsSizeControl("kCoreMax", strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3.5)),
              ),
              fluidRow(
                column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
