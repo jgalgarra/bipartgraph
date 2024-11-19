@@ -224,7 +224,7 @@ bipartiteFileFormat <- function() {
   names(values)<-values
   control<-selectInput(
     inputId   = "bipartitefileextension",
-    label     = controlLabel(strings$value("LABEL_BIPARTITE_DOWNLOAD_PLOT_FILE_FORMAT")),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
     choices   = values,
     selected  = "png",
     multiple  = FALSE
@@ -244,7 +244,7 @@ bipartiteDownloadPanel <- function() {
       
       fluidRow(
         column(3, bipartiteppiControl()),
-        column(3,bipartiteFileFormat()),
+        column(3, bipartiteFileFormat()),
         column(2, bipartiteShowTitleControl()),
         column(2, bipartiteShowLegendControl())
       ),

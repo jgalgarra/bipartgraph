@@ -177,8 +177,6 @@ plotZigguratDiagram<-function(file, plot, options) {
 plotStaticDiagram<-function(file, plot, options,myenv=zgg, aratio=9/16) {
   type<-ifelse(options$cairo, "cairo", "windows")
   pointsize<-12
-  # if(is.null(myenv$landscape_plot))
-  #   myenv$landscape_plot <- TRUE
   if (!myenv$flip_results){
     w <- options$width
     h <- w*aratio/0.85
@@ -186,16 +184,15 @@ plotStaticDiagram<-function(file, plot, options,myenv=zgg, aratio=9/16) {
     h <- options$width
     w <- 0.85*h*aratio
   }
-  print(paste("width",w,"height",h))
   mres = as.numeric(options$ppi)
   if (options$ext=="png") {
-    png(filename=file, type=type, width=w, height=h, units="px", res=as.numeric(options$ppi), pointsize=pointsize)
+    png(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="jpg") {
-    jpeg(filename=file, type=type, width=w*mres, height=h*mres, units="px", res=as.numeric(options$ppi), pointsize=pointsize)
+    jpeg(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="tiff") {
-    tiff(filename=file, type=type, width=w*mres, height=h*mres, units="px", res=as.numeric(options$ppi), pointsize=pointsize)
+    tiff(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="eps"){
-    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
+    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/mres, fallback_resolution=options$ppi,
            plot = print(plot),
            device = cairo_ps)
   }else if (options$ext=="svg"){
