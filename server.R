@@ -351,6 +351,7 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id=input$bipartitePlottype, disable=TRUE)) 
     bplot<-bipartite_graph(datadir                                       = paste0(dataDir, "/"),
                        filename                                      = input$selectedDataFile,
+                       flip_results = input$bipartiteVerticalLayout,
                        style=input$bipartitePlottype,orderkcoremaxby = "kdegree",
                        weighted_links = input$bipartiteweighted_links,
                        color_link = input$bipartiteColorLink,
@@ -367,6 +368,9 @@ shinyServer(function(input, output, session) {
                        label_strguilda = trim(input$DataLabelGuildAControl),
                        label_strguildb = trim(input$DataLabelGuildBControl),
                        lsize_kcoremax  = input$bipartiteLabelsSizekCoreMax,
+                       landscape_plot  = input$paperLandscape,
+                       show_title = input$bipartiteShowTitle,
+                       show_legend = input$bipartiteShowLegend,
                        #move_all_SVG_up  = 0.01*input$bipartiteSVGup,
                        # move_all_SVG_right = ifelse(!is.null(input$bipartiteSVGright),
                        #                             input$bipartiteSVGright/10,0),
@@ -482,7 +486,8 @@ shinyServer(function(input, output, session) {
       label_strguildb                               = trim(input$DataLabelGuildBControl),
       landscape_plot                                = input$paperLandscape,
       backg_color                                   = input$zigguratBckgdColorControl,
-      show_title                                    = TRUE,
+      show_title                                    = input$zigguratShowTitle,
+      show_legend                                   = input$zigguratShowLegend,
       use_spline                                    = input$zigguratUseSpline,
       spline_points                                 = input$zigguratSplinePoints,
       square_nodes_size_scale                       = input$ziggurat1shellExpandControl,
@@ -490,7 +495,7 @@ shinyServer(function(input, output, session) {
       svg_scale_factor                              = 25*input$zigguratSvgScaleFactor,
       move_all_SVG_up                               = 0.01*input$zigguratSVGup,
       move_all_SVG_right                            = 0.01*input$zigguratSVGright,
-      aspect_ratio                                  = input$zigguratAspectRatio,
+      aspect_ratio                                  = 1,#input$zigguratAspectRatio,
       progress                                      = progress
     )
     
@@ -617,25 +622,22 @@ shinyServer(function(input, output, session) {
   
   
   # Network information for bipartite plot
-  output$networkinfoDetailbip<-renderUI({
-    z <- ziggurat()
-    if (sum(zgg$result_analysis$matrix > 1)==0)
+    output$networkinfoDetailBip<-renderUI({
+    bplot <- bipartite()
+    if (sum(bpp$result_analysis$matrix > 1)==0)
       strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
-    create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
-    if (exists("bpp"))
-      details <- paste(bpp$network_name,"<br>",strw,"&nbsp;",
+    #create_zigg_report(bplot,"www/reports/templates/index.html",paste0("www/reports/bipartite_",bpp$network_name,"_report.html"))
+    details <- paste(bpp$network_name,"&nbsp;",strw,"&nbsp;",
                      bpp$result_analysis$links,"&nbsp;",
                      strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
-                     "<br><span  style='color:",zgg$color_guild_a[1],"'>",zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
-                     "<span  style='color:",zgg$color_guild_b[1],"'>", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span ><br>")
-    else
-      details <- ""
-    #details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+                     "<br><h5>", 
+                     "<span  style='color:",bpp$color_guild_a[1],"'>",bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
+                     "<span  style='color:",bpp$color_guild_b[1],"'>",bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
+    details <- paste0(details,"<a href='reports/bipartite_",bpp$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
     return(HTML(details))
   })
-  
   
   # Network information
   output$networkinfoDetail<-renderUI({
@@ -854,10 +856,22 @@ shinyServer(function(input, output, session) {
     return(HTML(mdetails))
   })
   
-  diagramOptions<-reactive({
-    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), input$zigguratileextension))
+  zigguratdiagramOptions<-reactive({
+    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), 
+                                   input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowLegend))
   })
  
+  bipartitediagramOptions<-reactive({
+    return(calculateDiagramOptions(4, as.numeric(input$bipartiteppi), 
+                                   input$bipartitefileextension, input$bipartiteShowTitle, input$bipartiteShowLegend))
+  })
+  
+  polardiagramOptions<-reactive({
+    return(calculateDiagramOptions(4, as.numeric(input$polarppi), 
+                                   input$polarfileextension, TRUE, TRUE))
+  })
+  
+  
   output$zigguratsaveSVG<-downloadHandler(
     filename=function() {
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat.svg")
@@ -894,12 +908,13 @@ shinyServer(function(input, output, session) {
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), input$zigguratfileextension)
+      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), 
+                                     input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowTitle)
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , input$zigguratfileextension)
       return(file)
     },
     content=function(file) {
-      myoptions<-diagramOptions()
+      myoptions<-zigguratdiagramOptions()
       validateDiagramOptions(myoptions)
       myoptions$ppi <- input$zigguratppi
       myoptions$ext <- input$zigguratfileextension
@@ -908,20 +923,48 @@ shinyServer(function(input, output, session) {
       plot<-z$plot
       plotZigguratDiagram(file, plot, myoptions)
     },
-    contentType=paste0("image/", diagramOptions()$ext)
+    contentType=paste0("image/", zigguratdiagramOptions()$ext)
   )
   
+  # Bipartite plot download button
+  output$bipartiteDownload<-downloadHandler(
+    filename=function() {
+      opt <- calculateDiagramOptions(4, as.numeric(input$bipatiteppi), input$bipartitefileextension, input$bipartiteShowTitle, input$bipartiteShowLegend)
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-",input$bipartitePlottype,"." , input$bipartitefileextension)
+      return(file)
+    },
+    content=function(file) {
+      myoptions<-bipartitediagramOptions()
+      #validateDiagramOptions(myoptions)
+      myoptions$ppi <- input$bipartiteppi
+      myoptions$ext <- input$bipartitefileextension
+      # Gets the diagram
+      g<-bipartite()
+      bplot<-g$plot
+      myfratio <- (g$tot_height/g$tot_width)
+      if (input$bipartiteVerticalLayout){
+        bplot <- bplot + coord_fixed() + scale_x_reverse() + coord_flip()
+        pwidth = 7
+        pheight = 16
+      } else {
+        pheight = myfratio
+        pwidth = 7
+      }
+      plotStaticDiagram(file, bplot, myoptions,myenv=bpp, aratio = myfratio)
+    },
+    contentType=paste0("image/", bipartitediagramOptions()$ext)
+  )
  
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
       #opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$polarppi), input$polarfileextension)
-      opt <- calculateDiagramOptions(4, as.numeric(input$polarppi), input$polarfileextension)
-      file<-paste0(get_network_name(input$selectedDataFile), "-polar." , input$polarfileextension)
+      opt <- calculateDiagramOptions(4, as.numeric(input$polarppi), input$polarfileextension, input$show_title, input$show_legend)
+      file<-paste0(get_network_name(input$selectedDataFile), "-polar." , input$polarfileextension, input$show_title, input$show_legend)
       return(file)
     },
     content <- function(file) {
-      myoptions<-diagramOptions()
+      myoptions<-polardiagramOptions()
       myoptions$width     <- 14*as.numeric(input$polarppi) #options$width*ppi
       myoptions$height    <- 14*as.numeric(input$polarppi) #options$height*ppi
       validateDiagramOptions(myoptions)

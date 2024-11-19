@@ -43,14 +43,15 @@ shinyUI(
           strings$value("LABEL_MENU_ZIGGURAT_PANEL"),
           zigguratPanel()
         ),
-        tabPanel(
-          strings$value("LABEL_MENU_POLAR_PANEL"),
-          polarPanel()
-        ),
         # Interactive bipartite panel
         tabPanel(id = "bipartitemenutab",
                  strings$value("LABEL_MENU_BIPARTITE_PANEL"),
                  bipartitePanel()
+        ),
+        # Polar panel
+        tabPanel(
+          strings$value("LABEL_MENU_POLAR_PANEL"),
+          polarPanel()
         ),
         # About panel
         tabPanel(

@@ -567,6 +567,42 @@ zigguratSVGright <- function() {
   return(control)
 }
 
+# Show title in printed file
+zigguratShowTitleControl <- function() {
+  control<-checkboxInput(
+    inputId = "zigguratShowTitle",
+    label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_TITLE")),
+    value   = TRUE
+  )
+  return(control)
+}
+# 
+# # Show legend in printed file
+# zigguratShowLegendControl <- function() {
+#   control<-checkboxInput(
+#     inputId = "zigguratShowLegend",
+#     label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_LEGEND")),
+#     value   = TRUE
+#   )
+#   return(control)
+# }
+
+
+# Legend position
+valzigShowLegend <<- c(strings$value("LABEL_BIPARTITE_SHOW_LEGEND_TOP"),strings$value("LABEL_BIPARTITE_SHOW_LEGEND_BOTTOM"),
+                    strings$value("LABEL_BIPARTITE_SHOW_LEGEND_HIDE"))
+
+#Plot type
+zigguratShowLegendControl <- function(){
+  control <- radioButtons("zigguratShowLegend", HTML(paste("<span class='controlLabel'>",
+                                                            strings$value("LABEL_BIPARTITE_SHOW_LEGEND"),"</span>")),
+                          choiceNames = valzigShowLegend,
+                          choiceValues= c("TOP","BOTTOM","HIDE"),
+                          selected = "BOTTOM"
+  )
+  return(control)
+}
+
 # Downlad diagram size
 paperSizeControl <- function() {
   values<-1:6

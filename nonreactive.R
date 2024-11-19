@@ -108,7 +108,7 @@ availableFilesDetails<-function(filesList) {
 #   paperSize: 0-DINA0, 1-DINA1, ...
 #   ppi: pixels per inch
 
-calculateDiagramOptions<-function(paperSize, ppi, extension) {
+calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_legend) {
   options<-list(paperSize=1, width=480, height=480, ppi=300, cairo=FALSE, ext=extension)
   # Dimensions in DIN and inches
   widths    <- c(t(sapply(c(841, 841), function(x) {x*(1/2)^(0:3)})))
@@ -122,6 +122,8 @@ calculateDiagramOptions<-function(paperSize, ppi, extension) {
   # Update values
   options$paperSize <- paperSize
   options$ppi       <- ppi
+  options$show_title <- show_title
+  options$show_legend  <- show_legend
   options$width     <- inches$width*ppi
   options$height    <- inches$height*ppi
   options$cairo     <- type[c("cairo")]
@@ -159,6 +161,39 @@ plotZigguratDiagram<-function(file, plot, options) {
     jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
   } else if (options$ext=="tiff") {
     tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
+  } else if (options$ext=="eps"){
+    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
+           plot = print(plot),
+           device = cairo_ps)
+  }else if (options$ext=="svg"){
+    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
+  }
+  
+  plot(plot)
+  dev.off()
+}
+
+# Print static plot to file
+plotStaticDiagram<-function(file, plot, options,myenv=zgg, aratio=9/16) {
+  type<-ifelse(options$cairo, "cairo", "windows")
+  pointsize<-12
+  # if(is.null(myenv$landscape_plot))
+  #   myenv$landscape_plot <- TRUE
+  if (!myenv$flip_results){
+    w <- options$width
+    h <- w*aratio/0.85
+  } else {
+    h <- options$width
+    w <- 0.85*h*aratio
+  }
+  print(paste("width",w,"height",h))
+  mres = as.numeric(options$ppi)
+  if (options$ext=="png") {
+    png(filename=file, type=type, width=w, height=h, units="px", res=as.numeric(options$ppi), pointsize=pointsize)
+  } else if (options$ext=="jpg") {
+    jpeg(filename=file, type=type, width=w*mres, height=h*mres, units="px", res=as.numeric(options$ppi), pointsize=pointsize)
+  } else if (options$ext=="tiff") {
+    tiff(filename=file, type=type, width=w*mres, height=h*mres, units="px", res=as.numeric(options$ppi), pointsize=pointsize)
   } else if (options$ext=="eps"){
     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
            plot = print(plot),

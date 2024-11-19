@@ -3,7 +3,7 @@
 #  
 # Module         : bipartgraph.R
 # Description    : Application launcher
-#
+#http://127.0.0.1:32663/graphics/plot_zoom_png?width=305&height=616
 ###############################################################################
 rm(list = ls())
 source("strings.R", encoding="UTF-8")

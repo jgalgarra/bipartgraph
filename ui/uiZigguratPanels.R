@@ -17,15 +17,18 @@ downloadPanel <- function() {
       class="panelContent",
       
       fluidRow(
-        column(3, paperLandscape()),
         column(3, paperSizeControl()),
-        column(3, zigguratppiControl())
+        column(3, zigguratppiControl()),
+        column(2, paperLandscape()),
+        column(2, zigguratShowTitleControl()),
+        column(2, zigguratShowLegendControl())
       ),
       
       fluidRow(
         column(3, zigguratBckgdColorControl()),
         column(3, zigguratAspectRatio()),
-        column(3, zigguratFileFormat())
+        column(3, zigguratFileFormat()),
+        
       ),
       fluidRow(div(
         tags$br()

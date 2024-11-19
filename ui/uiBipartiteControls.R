@@ -25,7 +25,9 @@ bipartiteSvgScaleFactorControl <- function() {
 bipartiteGuildgapincreaseControl <- function() {
   control<-sliderInput(
     inputId = "bipartiteGuildgapincrease",
-    label   = controlLabel(HTML(paste("&larr;",strings$value("LABEL_BIPARTITE_GUILD_GAP_INCREASE"),"&rarr;"))),
+    #label   = controlLabel(HTML(paste("&larr;",strings$value("LABEL_BIPARTITE_GUILD_GAP_INCREASE"),"&rarr;"))),
+    label   = controlLabel(HTML(strings$value("LABEL_BIPARTITE_GUILD_GAP_INCREASE"))),
+    
     min     = -80,
     max     = 200,
     value   = 0,
@@ -154,4 +156,107 @@ bipartiteLabelsSizeControl <- function(name, description, default) {
 bipartitesaveSVGControl <- function() {
   control<-downloadButton("bipartitesaveSVG",label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
   return(control)
+}
+
+# Show title in printed file
+bipartiteShowTitleControl <- function() {
+  control<-checkboxInput(
+    inputId = "bipartiteShowTitle",
+    label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_TITLE")),
+    value   = TRUE
+  )
+  return(control)
+}
+
+# Show legend in printed file
+# bipartiteShowLegendControl <- function() {
+#   control<-checkboxInput(
+#     inputId = "bipartiteShowLegend",
+#     label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_LEGEND")),
+#     value   = TRUE
+#   )
+#   return(control)
+# }
+
+# Legend position
+valShowLegend <<- c(strings$value("LABEL_BIPARTITE_SHOW_LEGEND_TOP"),strings$value("LABEL_BIPARTITE_SHOW_LEGEND_BOTTOM"),
+                    strings$value("LABEL_BIPARTITE_SHOW_LEGEND_HIDE"))
+
+#Plot type
+bipartiteShowLegendControl <- function(){
+  control <- radioButtons("bipartiteShowLegend", HTML(paste("<span class='controlLabel'>",
+                                                          strings$value("LABEL_BIPARTITE_SHOW_LEGEND"),"</span>")),
+                          choiceNames = valShowLegend,
+                          choiceValues= c("TOP","BOTTOM","HIDE"),
+                          selected = "TOP"
+  )
+  return(control)
+}
+
+# Rotate plot 90 degrees
+bipartiteVerticalLayoutControl <- function() {
+  control<-checkboxInput(
+    inputId = "bipartiteVerticalLayout",
+    label   = controlLabel(strings$value("LABEL_BIPARTITE_VERTICAL_LAYOUT")),
+    value   = FALSE
+  )
+  return(control)
+}
+# bipartite plot resolution
+bipartiteppiControl <- function() {
+  values<-c(72, 96, 150, 300, 600)
+  
+  names(values)<-values
+  control<-selectInput(
+    inputId   = "bipartiteppi",
+    label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
+    choices   = values,
+    selected  = 300,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+
+# bipartite Plot file format
+bipartiteFileFormat <- function() {
+  values<-c("png","jpg","eps","tiff","svg")
+  names(values)<-values
+  control<-selectInput(
+    inputId   = "bipartitefileextension",
+    label     = controlLabel(strings$value("LABEL_BIPARTITE_DOWNLOAD_PLOT_FILE_FORMAT")),
+    choices   = values,
+    selected  = "png",
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+bipartiteDownloadControl <- function() {
+  control<-downloadButton("bipartiteDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  return(control)
+}
+
+bipartiteDownloadPanel <- function() {
+  panel<- 
+    tags$div(
+      class="panelContent",
+      
+      fluidRow(
+        column(3, bipartiteppiControl()),
+        column(3,bipartiteFileFormat()),
+        column(2, bipartiteShowTitleControl()),
+        column(2, bipartiteShowLegendControl())
+      ),
+      
+      fluidRow(div(
+        tags$br()
+      )),
+      useShinyjs(),
+      fluidRow(
+ #       column(3, bipartitecodeDownloadControl()),
+        column(3, bipartiteDownloadControl())
+      )
+    )
+  return(panel)
 }
