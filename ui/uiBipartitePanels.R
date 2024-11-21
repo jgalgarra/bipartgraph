@@ -54,8 +54,8 @@ bipartiteDiagramPanel <- function() {
                                      
                               ),
                             ),
-                            tags$span(id="bipartiteplot",
-                                      fluidRow(align="center",valign="top",
+                           
+                                      fluidRow( tags$span(id="bipartiteplot",align="center",
                                                uiOutput("bipartite"))
                             )
                      ),
@@ -64,14 +64,7 @@ bipartiteDiagramPanel <- function() {
                             fluidRow(align="left",
                               uiOutput("networkinfoDetailBip")
                             ),
-                            # fluidRow(
-                            #   column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
-                            #   column(2, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_TYPE"))),
-                            #   column(4, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_NAME"))),
-                            #   column(1, tags$small("kshell")),
-                            #   column(1, tags$small("krad") ),
-                            #   column(1, tags$small("kdeg"))
-                            # )
+                            
                      )
   )
   return(control)

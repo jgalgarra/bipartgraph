@@ -17,7 +17,7 @@ downloadPanel <- function() {
       class="panelContent",
       
       fluidRow(
-        column(3, paperSizeControl()),
+        #column(3, paperSizeControl()),
         column(3, zigguratppiControl()),
         column(2, paperLandscape()),
         column(2, zigguratShowTitleControl()),
@@ -25,7 +25,7 @@ downloadPanel <- function() {
       ),
       
       fluidRow(
-        column(3, zigguratBckgdColorControl()),
+        #column(3, zigguratBckgdColorControl()),
         column(3, zigguratAspectRatio()),
         column(3, zigguratFileFormat()),
         

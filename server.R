@@ -367,7 +367,7 @@ shinyServer(function(input, output, session) {
                        size_link = input$bipartiteLinkSize,
                        label_strguilda = trim(input$DataLabelGuildAControl),
                        label_strguildb = trim(input$DataLabelGuildBControl),
-                       lsize_kcoremax  = input$bipartiteLabelsSizekCoreMax,
+                       lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
                        landscape_plot  = input$paperLandscape,
                        show_title = input$bipartiteShowTitle,
                        show_legend = input$bipartiteShowLegend,
@@ -452,11 +452,11 @@ shinyServer(function(input, output, session) {
                                                         input$zigguratYDisplaceSB16,input$zigguratYDisplaceSB17,
                                                         input$zigguratYDisplaceSB18,input$zigguratYDisplaceSB19,
                                                         input$zigguratYDisplaceSB20),
-      lsize_kcoremax                                = input$zigguratLabelsSizekCoreMax,
-      lsize_zig                                     = input$zigguratLabelsSizeZiggurat,
-      lsize_kcore1                                  = input$zigguratLabelsSizekCore1,
+      lsize_kcoremax                                = input$zigguratSvgScaleFactor*input$zigguratLabelsSizekCoreMax,
+      lsize_zig                                     = input$zigguratSvgScaleFactor*input$zigguratLabelsSizeZiggurat,
+      lsize_kcore1                                  = input$zigguratSvgScaleFactor*input$zigguratLabelsSizekCore1,
       lsize_legend                                  = input$zigguratLabelsSizeLegend,
-      lsize_core_box                                = input$zigguratLabelsSizeCoreBox,
+      lsize_core_box                                = input$zigguratSvgScaleFactor*input$zigguratLabelsSizeCoreBox,
       labels_color                                  = c(input$zigguratColorLabelGuildA, input$zigguratColorLabelGuildB),
       height_box_y_expand                           = input$zigguratHeightExpand,
       kcore2tail_vertical_separation                = input$zigguratKcore2TailVerticalSeparation,
@@ -485,7 +485,7 @@ shinyServer(function(input, output, session) {
       label_strguilda                               = trim(input$DataLabelGuildAControl),
       label_strguildb                               = trim(input$DataLabelGuildBControl),
       landscape_plot                                = input$paperLandscape,
-      backg_color                                   = input$zigguratBckgdColorControl,
+      backg_color                                   = "transparent",
       show_title                                    = input$zigguratShowTitle,
       show_legend                                   = input$zigguratShowLegend,
       use_spline                                    = input$zigguratUseSpline,
@@ -857,7 +857,8 @@ shinyServer(function(input, output, session) {
   })
   
   zigguratdiagramOptions<-reactive({
-    return(calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), 
+    return(calculateDiagramOptions(#as.numeric(input$paperSize), 
+                                   4,as.numeric(input$zigguratppi), 
                                    input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowLegend))
   })
  
@@ -908,7 +909,8 @@ shinyServer(function(input, output, session) {
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$zigguratppi), 
+      opt <- calculateDiagramOptions(4,#as.numeric(input$paperSize), 
+                                     as.numeric(input$zigguratppi), 
                                      input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowTitle)
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , input$zigguratfileextension)
       return(file)
