@@ -25,7 +25,7 @@ weightcontrols <- c("zigguratweighted_links")
 # Order kcoremax
 valordkcoremax <- c("kradius","kdegree")
 # Bipartite plot types
-valPlottype <- c("chilopodograph","legacy","kcoreorder")
+valPlottype <- c("chilopod","legacy","kcoreorder")
 
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")

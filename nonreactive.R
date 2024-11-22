@@ -174,15 +174,15 @@ plotZigguratDiagram<-function(file, plot, options) {
 }
 
 # Print static plot to file
-plotStaticDiagram<-function(file, plot, options,myenv=zgg, aratio=9/16) {
+plotStaticDiagram<-function(file, plot, options,myenv=zgg) {
   type<-ifelse(options$cairo, "cairo", "windows")
   pointsize<-12
   if (!myenv$flip_results){
-    w <- options$width
-    h <- w*aratio/0.85
+    w <- options$height * 0.85
+    h <- options$width * 0.5
   } else {
-    h <- options$width
-    w <- 0.85*h*aratio
+    h <- options$height *0.85
+    w <- options$width * myenv$tot_height/myenv$tot_width
   }
   mres = as.numeric(options$ppi)
   if (options$ext=="png") {
@@ -254,23 +254,23 @@ searchsafefile <- function(fred="")
   }
   return(FALSE)
 }
-  
-  # Search labels and colors
+
+# Search labels and colors
 searchlabcols <- function(fred="")
 {
   datoslabcol <- data.frame("file" = c(), "LabelGuildA" = c(), "LabelGuildB" = c(),
-                              "ColorZigGuildA1" = c(), "ColorZigGuildA2" = c(),
-                              "ColorZigGuildB1" = c(), "ColorZigGuildB2" = c())
+                            "ColorZigGuildA1" = c(), "ColorZigGuildA2" = c(),
+                            "ColorZigGuildB1" = c(), "ColorZigGuildB2" = c())
   if (file.exists("conf/labelcolors.csv")){
-      labelcolors <<- read.table("conf/labelcolors.csv",sep=";",header = TRUE)
-  if (nrow(labelcolors[toupper(labelcolors$file) == toupper(fred),])>0){
+    labelcolors <<- read.table("conf/labelcolors.csv",sep=";",header = TRUE)
+    if (nrow(labelcolors[toupper(labelcolors$file) == toupper(fred),])>0){
       datoslabcol <- labelcolors[toupper(labelcolors$file) == toupper(fred),][1,]
     }
   }
   return(datoslabcol)
 }
 
-  #Aux function to add a parameter and reproduce the function call
+#Aux function to add a parameter and reproduce the function call
 addCallParam <- function(com,lpar,param,quoteparam = FALSE)
 {
   if (quoteparam)
@@ -279,7 +279,7 @@ addCallParam <- function(com,lpar,param,quoteparam = FALSE)
     com <- paste0(com," ,",param," = ",lpar[param])
   return(com)
 }
-  
+
 
 static_error_msg <- function(mykey){
   return(static_strings[static_strings$key==mykey,][config_params$LANGUAGE])
@@ -287,12 +287,12 @@ static_error_msg <- function(mykey){
 
 # Check that configuration file contents are correct
 validateconfigfile <- function(filedata){
-    if (get_network_name(filedata$filename)!=zgg$network_name){
-      return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
-    }
-    return("OK")
+  if (get_network_name(filedata$filename)!=zgg$network_name){
+    return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
+  }
+  return("OK")
 }
-  
+
 
 create_zigg_report <- function(z,input_file, output_file) {
   htmlsvg <- z$svg$html()
@@ -316,11 +316,11 @@ create_zigg_report <- function(z,input_file, output_file) {
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_a[1],"'>",names_A,"</span>"), modified_text)
   modified_text <- gsub("STR_SPECIES_B", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_b[1],"'>",names_B,"</span>"), modified_text)
   if (exists("network_references")){
-     if (sum(network_references$ID==zgg$network_name)!=0)
-        modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"&nbsp;",
-                                                     network_references[network_references$ID==zgg$network_name,]$Locality_of_Study), modified_text)
-     else
-        modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+    if (sum(network_references$ID==zgg$network_name)!=0)
+      modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==zgg$network_name,]$Reference,"&nbsp;",
+                                                   network_references[network_references$ID==zgg$network_name,]$Locality_of_Study), modified_text)
+    else
+      modified_text <- gsub("STR_REFERENCE"," ",modified_text)
   }
   else
     modified_text <- gsub("STR_REFERENCE"," ",modified_text)
@@ -401,7 +401,7 @@ SwitchControls <- function(option="disable",lcontrols){
   if (exists("zgg")){
     for (i in lcontrols){
       if (option=="disable")
-          shinyjs::disable(i)
+        shinyjs::disable(i)
       if (option=="enable")
         shinyjs::enable(i)
     }

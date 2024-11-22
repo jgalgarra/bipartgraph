@@ -53,7 +53,7 @@ bipartitePlottype <- function(){
   control <- radioButtons("bipartitePlottype", HTML(paste("<span class='controlLabel'>",
                                                           strings$value("LABEL_BIPARTITE_PLOTTYPE"),"</span>")),
                           choices = valPlottype,
-                          selected = "chilopodograph"
+                          selected = "chilopod"
   )
   return(control)
 }

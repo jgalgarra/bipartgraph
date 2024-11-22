@@ -38,7 +38,7 @@ shinyServer(function(input, output, session) {
     names(messages)<-messagesNames
     session$sendCustomMessage(type="messagesHandler", as.list(messages))
   })
-
+  
   # Write labels and colors
   writelabcols <- function()
   {
@@ -350,31 +350,31 @@ shinyServer(function(input, output, session) {
     # Disables bipartite container panel 
     session$sendCustomMessage(type="disableDivHandler", list(id=input$bipartitePlottype, disable=TRUE)) 
     bplot<-bipartite_graph(datadir                                       = paste0(dataDir, "/"),
-                       filename                                      = input$selectedDataFile,
-                       flip_results = input$bipartiteVerticalLayout,
-                       style=input$bipartitePlottype,orderkcoremaxby = "kdegree",
-                       weighted_links = input$bipartiteweighted_links,
-                       color_link = input$bipartiteColorLink,
-                       alpha_link = input$bipartiteAlphaLevelLink,
-                       alpha_level = input$bipartiteAlphaLevel,
-                       color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
-                       color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
-                       coremax_triangle_height_factor = 3, coremax_triangle_width_factor = 3,
-                       hide_plot_border = TRUE,
-                       guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
-                       square_nodes_size_scale = input$bipartiteNodeRescale,
-                       svg_scale_factor = input$bipartiteSvgScaleFactor,
-                       size_link = input$bipartiteLinkSize,
-                       label_strguilda = trim(input$DataLabelGuildAControl),
-                       label_strguildb = trim(input$DataLabelGuildBControl),
-                       lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
-                       landscape_plot  = input$paperLandscape,
-                       show_title = input$bipartiteShowTitle,
-                       show_legend = input$bipartiteShowLegend,
-                       #move_all_SVG_up  = 0.01*input$bipartiteSVGup,
-                       # move_all_SVG_right = ifelse(!is.null(input$bipartiteSVGright),
-                       #                             input$bipartiteSVGright/10,0),
-                       progress=progress)
+                           filename                                      = input$selectedDataFile,
+                           flip_results = input$bipartiteVerticalLayout,
+                           style=input$bipartitePlottype,orderkcoremaxby = "kdegree",
+                           weighted_links = input$bipartiteweighted_links,
+                           color_link = input$bipartiteColorLink,
+                           alpha_link = input$bipartiteAlphaLevelLink,
+                           alpha_level = input$bipartiteAlphaLevel,
+                           color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
+                           color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
+                           coremax_triangle_height_factor = 3, coremax_triangle_width_factor = 3,
+                           hide_plot_border = TRUE,
+                           guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
+                           square_nodes_size_scale = input$bipartiteNodeRescale,
+                           svg_scale_factor = input$bipartiteSvgScaleFactor,
+                           size_link = input$bipartiteLinkSize,
+                           label_strguilda = trim(input$DataLabelGuildAControl),
+                           label_strguildb = trim(input$DataLabelGuildBControl),
+                           lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
+                           landscape_plot  = input$paperLandscape,
+                           show_title = input$bipartiteShowTitle,
+                           show_legend = input$bipartiteShowLegend,
+                           #move_all_SVG_up  = 0.01*input$bipartiteSVGup,
+                           # move_all_SVG_right = ifelse(!is.null(input$bipartiteSVGright),
+                           #                             input$bipartiteSVGright/10,0),
+                           progress=progress)
     # ziggurat igraph object
     g<-bplot$result_analysis$graph
     
@@ -388,10 +388,10 @@ shinyServer(function(input, output, session) {
     writelabcols()
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
     session$sendCustomMessage(type="bipartiteDataHandler", list(ids=c("a", "b"),
-                              names=c(bplot$name_guild_a, bplot$name_guild_b), 
-                              data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
-                              neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
-
+                                                                names=c(guildANeighbors, bplot$name_guild_b), 
+                                                                data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
+                                                                neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
+    
     return(bplot)
   })
   
@@ -417,7 +417,7 @@ shinyServer(function(input, output, session) {
     # Disables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=TRUE))
     
-
+    
     #Plot ziggurat
     z<-ziggurat_graph(
       datadir                                       = paste0(dataDir, "/"),
@@ -443,15 +443,15 @@ shinyServer(function(input, output, session) {
                                                         input$zigguratYDisplaceSA18,input$zigguratYDisplaceSA19,
                                                         input$zigguratYDisplaceSA20),
       displace_y_b                                  =   c(0, input$zigguratYDisplaceSB2, input$zigguratYDisplaceSB3,
-                                                        input$zigguratYDisplaceSB4,input$zigguratYDisplaceSB5,
-                                                        input$zigguratYDisplaceSB6,input$zigguratYDisplaceSB7,
-                                                        input$zigguratYDisplaceSB8,input$zigguratYDisplaceSB9,
-                                                        input$zigguratYDisplaceSB10,input$zigguratYDisplaceSB11,
-                                                        input$zigguratYDisplaceSB12,input$zigguratYDisplaceSB13,
-                                                        input$zigguratYDisplaceSB14,input$zigguratYDisplaceSB15,
-                                                        input$zigguratYDisplaceSB16,input$zigguratYDisplaceSB17,
-                                                        input$zigguratYDisplaceSB18,input$zigguratYDisplaceSB19,
-                                                        input$zigguratYDisplaceSB20),
+                                                          input$zigguratYDisplaceSB4,input$zigguratYDisplaceSB5,
+                                                          input$zigguratYDisplaceSB6,input$zigguratYDisplaceSB7,
+                                                          input$zigguratYDisplaceSB8,input$zigguratYDisplaceSB9,
+                                                          input$zigguratYDisplaceSB10,input$zigguratYDisplaceSB11,
+                                                          input$zigguratYDisplaceSB12,input$zigguratYDisplaceSB13,
+                                                          input$zigguratYDisplaceSB14,input$zigguratYDisplaceSB15,
+                                                          input$zigguratYDisplaceSB16,input$zigguratYDisplaceSB17,
+                                                          input$zigguratYDisplaceSB18,input$zigguratYDisplaceSB19,
+                                                          input$zigguratYDisplaceSB20),
       lsize_kcoremax                                = input$zigguratSvgScaleFactor*input$zigguratLabelsSizekCoreMax,
       lsize_zig                                     = input$zigguratSvgScaleFactor*input$zigguratLabelsSizeZiggurat,
       lsize_kcore1                                  = input$zigguratSvgScaleFactor*input$zigguratLabelsSizekCore1,
@@ -582,7 +582,7 @@ shinyServer(function(input, output, session) {
     html<-paste0(svg$html(), "<script>updateSVGEvents('",input$bipartitePlottype,"')</script>") 
     return(HTML(html))
   })
-
+  
   # Shows the details of a selected node in ziggurat
   output$zigguratNodesDetail<-renderUI({
     z         <- ziggurat()
@@ -592,7 +592,7 @@ shinyServer(function(input, output, session) {
     if (nrow(nodesData)>0) {
       # Sort selected nodes
       nodesData <- nodesData[order(ifelse(nodesData$guild=="a", 0, 1), -nodesData$kcore, nodesData$nodeId),]
-
+      
       # Shows nodes data
       for (i in 1:nrow(nodesData)) {
         guild   <- nodesData[i, "guild"]
@@ -622,7 +622,7 @@ shinyServer(function(input, output, session) {
   
   
   # Network information for bipartite plot
-    output$networkinfoDetailBip<-renderUI({
+  output$networkinfoDetailBip<-renderUI({
     bplot <- bipartite()
     if (sum(bpp$result_analysis$matrix > 1)==0)
       strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
@@ -652,7 +652,7 @@ shinyServer(function(input, output, session) {
                      "<br><h5>", 
                      "<span  style='color:",zgg$color_guild_a[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_a, zgg$name_guild_a,"</span >","&nbsp;",
                      "<span  style='color:",zgg$color_guild_b[1],"'>","&nbsp;&nbsp;", zgg$result_analysis$num_guild_b, zgg$name_guild_b,"</span >")
-                     details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",zgg$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
     return(HTML(details))
   })
   
@@ -669,7 +669,7 @@ shinyServer(function(input, output, session) {
   output$networkGuildALabelTail<-renderUI({
     return(buildcoloredguildlabels(zgg$color_guild_a[1],zgg$name_guild_a))
   })
-
+  
   output$networkGuildBLabel<-renderUI({
     return(buildcoloredguildlabels(zgg$color_guild_b[1],zgg$name_guild_b))
   })
@@ -722,7 +722,7 @@ shinyServer(function(input, output, session) {
       types   <- ifelse(nodesData$guild=="a", z$name_guild_a, z$name_guild_b)
       details <- paste(details, showWiki(types, nodesData), collapse="")
     }
-  
+    
     return(HTML(details))
   })
   
@@ -828,7 +828,7 @@ shinyServer(function(input, output, session) {
   }, deleteFile = FALSE)
   
   
-# Build polar guild labels
+  # Build polar guild labels
   buildPolarGuildLabels <- function(cabecera,mylabels,pfile){
     namesg <- cabecera
     nname <- get_network_name(pfile)
@@ -837,8 +837,8 @@ shinyServer(function(input, output, session) {
     for (i in 1:length(labels))
       labels[i] <- paste0("<span class='GuildNamesList'>
                           <a href='https://",
-                         config_params$WikipediaSubdomain,".wikipedia.org/wiki/",labels[i],"' target='wikipedia' >",sprintf("%2d",i),"</a>&nbsp;&nbsp;",
-                         labels[i],"</span>")
+                          config_params$WikipediaSubdomain,".wikipedia.org/wiki/",labels[i],"' target='wikipedia' >",sprintf("%2d",i),"</a>&nbsp;&nbsp;",
+                          labels[i],"</span>")
     details <- paste(details,paste(labels,collapse="<br>"))
     return(details)
   }
@@ -858,13 +858,15 @@ shinyServer(function(input, output, session) {
   
   zigguratdiagramOptions<-reactive({
     return(calculateDiagramOptions(#as.numeric(input$paperSize), 
-                                   4,as.numeric(input$zigguratppi), 
-                                   input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowLegend))
+      4,as.numeric(input$zigguratppi), 
+      input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowLegend))
   })
- 
+  
   bipartitediagramOptions<-reactive({
     return(calculateDiagramOptions(4, as.numeric(input$bipartiteppi), 
-                                   input$bipartitefileextension, input$bipartiteShowTitle, input$bipartiteShowLegend))
+                                   input$bipartitefileextension, 
+                                   input$bipartiteShowTitle, 
+                                   input$bipartiteShowLegend))
   })
   
   polardiagramOptions<-reactive({
@@ -905,7 +907,7 @@ shinyServer(function(input, output, session) {
     contentType=paste0("text/svg+xml")
   )
   
-   
+  
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
@@ -946,17 +948,20 @@ shinyServer(function(input, output, session) {
       myfratio <- (g$tot_height/g$tot_width)
       if (input$bipartiteVerticalLayout){
         bplot <- bplot + coord_fixed() + scale_x_reverse() + coord_flip()
-        pwidth = 7
-        pheight = 16
-      } else {
-        pheight = myfratio
-        pwidth = 7
       }
-      plotStaticDiagram(file, bplot, myoptions,myenv=bpp, aratio = myfratio)
+      #   pheight = 5
+      #   pwidth = 16
+      #   
+      # } else {
+      #   pheight = 16
+      #   pwidth = 5
+      # }
+
+      plotStaticDiagram(file, bplot,myoptions,myenv=bpp)
     },
     contentType=paste0("image/", bipartitediagramOptions()$ext)
   )
- 
+  
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
@@ -978,7 +983,7 @@ shinyServer(function(input, output, session) {
     },
     contentType=paste0("image/", input$polarfileextension)
   )
-
+  
   session$onSessionEnded(function() { unlink("analysis_indiv", recursive = TRUE)
     unlink("tmpcode", recursive = TRUE)
     unlink("tmppolar", recursive = TRUE)})
@@ -1126,7 +1131,7 @@ shinyServer(function(input, output, session) {
     },
     content <- function(file) {
       dir.create("tmpcode/", showWarnings = FALSE)
-
+      
       jsonzgg <- jsonlite::toJSON(x = zgg$ziggurat_argg[1:length(zgg$ziggurat_argg)-1], pretty = TRUE, force = TRUE)
       cat(paste(jsonzgg,"\n"), file = "tmpcode/zgg.json")
       file.copy("tmpcode/zgg.json",file)
@@ -1146,13 +1151,13 @@ shinyServer(function(input, output, session) {
     updateSelectInput(session, selectLanguage,
                       choices = c("en", "es"),
                       selected = input$selectLanguage)
-
-    })
+    
+  })
   
   observeEvent(input$zigguratReport, { 
     create_report("www/reports/templates/index.html",paste0("www/reports/",zgg$network_name,"_report.html"))
   })
-
+  
   output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
       filePath <- input$zigguratloadZigConfigFile$datapath
@@ -1184,7 +1189,7 @@ shinyServer(function(input, output, session) {
           else if (controls_jsonfields$ControlType[i] == "textinput"){
             etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
             updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
-            }
+          }
           else if (controls_jsonfields$ControlType[i] == "colourinput"){
             updateColourInput(session,controls_jsonfields$ControlName[i],
                               value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
