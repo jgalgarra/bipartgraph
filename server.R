@@ -359,7 +359,6 @@ shinyServer(function(input, output, session) {
                            alpha_level = input$bipartiteAlphaLevel,
                            color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
                            color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
-                           coremax_triangle_height_factor = 3, coremax_triangle_width_factor = 3,
                            hide_plot_border = TRUE,
                            guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
                            square_nodes_size_scale = input$bipartiteNodeRescale,
@@ -387,10 +386,11 @@ shinyServer(function(input, output, session) {
     # store labels and colors
     writelabcols()
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
-    session$sendCustomMessage(type="bipartiteDataHandler", list(ids=c("a", "b"),
-                                                                names=c(guildANeighbors, bplot$name_guild_b), 
-                                                                data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
-                                                                neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
+    session$sendCustomMessage(type="bipartiteDataHandler", 
+                              list(ids=c("a", "b"),
+                              names=c(bplot$name_guild_a, bplot$name_guild_b), 
+                              data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
+                              neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
     
     return(bplot)
   })
