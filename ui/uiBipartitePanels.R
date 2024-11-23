@@ -133,9 +133,9 @@ bipartiteConfigPanel <- function() {
       strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
       useShinyjs(),
       fluidRow(
-        column(4, bipartiteloadBipConfigControlFile()),
-        column(2, bipartiteshowBipConfigControlFile()),
-        column(4, tags$h2(" "),bipartitesaveBipConfigControlFile())
+        column(4, bipartiteloadBipConfigFileControl()),
+        column(2, bipartiteshowBipConfigFileControl()),
+        column(4, tags$h2(" "),bipartitesaveBipConfigFileControl())
       ),
       # Show bipartite configuration file raw JSON contents
       fluidRow(

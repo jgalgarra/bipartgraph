@@ -177,7 +177,7 @@ bipartiteShowLegendControl <- function(){
   control <- radioButtons("bipartiteShowLegend", HTML(paste("<span class='controlLabel'>",
                                                           strings$value("LABEL_BIPARTITE_SHOW_LEGEND"),"</span>")),
                           choiceNames = valShowLegend,
-                          choiceValues= c("TOP","BOTTOM","HIDE"),
+                          choiceValues= valShowLegendValue,
                           selected = "TOP"
   )
   return(control)
@@ -234,13 +234,13 @@ bipartitecodeDownloadControl <- function() {
 }
 
 # Save bipartite plot config parameters
-bipartitesaveBipConfigControlFile <- function() {
+bipartitesaveBipConfigFileControl <- function() {
   control<-downloadButton("bipartitesaveBipConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
   return(control)
 }
 
 #Load bipartite plot config parameters
-bipartiteloadBipConfigControlFile <- function() {
+bipartiteloadBipConfigFileControl <- function() {
   control<-fileInput(
     inputId   = "bipartiteloadBipConfigFile",
     accept    = c(".json"),
@@ -250,9 +250,9 @@ bipartiteloadBipConfigControlFile <- function() {
   return(control)
 }
 
-bipartiteshowBipConfigControlFile <- function() {
+bipartiteshowBipConfigFileControl <- function() {
   control<-checkboxInput(
-    inputId = "bipartiteshowBipConfigControlFile",
+    inputId = "bipartiteshowBipConfigFile",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
     value   = FALSE
   )

@@ -485,13 +485,13 @@ zigguratLabelsSizeControl <- function(name, description, default) {
 }
 
 # Save ziggurat plot config parameters
-zigguratsaveZigConfigControlFile <- function() {
+zigguratsaveZigConfigFileControl <- function() {
   control<-downloadButton("zigguratsaveZigConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
   return(control)
 }
 
 #Load ziggurat plot config parameters
-zigguratloadZigConfigControlFile <- function() {
+zigguratloadZigConfigFileControl <- function() {
   control<-fileInput(
     inputId   = "zigguratloadZigConfigFile",
     accept    = c(".json"),
@@ -501,9 +501,9 @@ zigguratloadZigConfigControlFile <- function() {
   return(control)
 }
 
-zigguratshowZigConfigControlFile <- function() {
+zigguratshowZigConfigFileControl <- function() {
   control<-checkboxInput(
-    inputId = "zigguratshowZigConfigControlFile",
+    inputId = "zigguratshowZigConfigFile",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
     value   = FALSE
   )

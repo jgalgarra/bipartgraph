@@ -283,9 +283,9 @@ zigguratConfigPanel <- function() {
     tabPanel(
       strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
       fluidRow(
-        column(4, zigguratloadZigConfigControlFile()),
-        column(2, zigguratshowZigConfigControlFile()),
-        column(4, tags$h2(" "),zigguratsaveZigConfigControlFile())
+        column(4, zigguratloadZigConfigFileControl()),
+        column(2, zigguratshowZigConfigFileControl()),
+        column(4, tags$h2(" "),zigguratsaveZigConfigFileControl())
       ),
       # Show ziggurat configuration file raw JSON contents
       fluidRow(
