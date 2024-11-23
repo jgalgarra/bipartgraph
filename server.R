@@ -1111,6 +1111,56 @@ shinyServer(function(input, output, session) {
     contentType="text/plain"
   )
   
+  #Downloads the bipartite generating code
+  output$bipartitecodeDownload <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-bipartite-code.txt")
+      return(file)
+    },
+    content <- function(file) {
+      p <- bipartite()
+      dir.create("tmpcode/", showWarnings = FALSE)
+      sink("tmpcode/codebipartite.txt")
+      llamada <- bpp$bipartite_argg
+      comando <- paste0("bipartite_graph(\"data/\"",",\"",llamada$filename,"\"")
+      comando <- addCallParam(comando,llamada,"paintlinks")
+      comando <- addCallParam(comando,llamada,"orderkcoremaxby",quote=TRUE)
+      comando <- addCallParam(comando,llamada,"print_to_file")
+      comando <- paste0(comando,",plotsdir = \"plot_results/\"")
+      comando <- addCallParam(comando,llamada,"guild_gap_increase")
+      comando <- addCallParam(comando,llamada,"style",quote=TRUE)
+      comando <- addCallParam(comando,llamada,"flip_results")
+      comando <- addCallParam(comando,llamada,"alpha_level")
+      comando <- paste0(comando,",color_guild_a = c(\"",llamada$color_guild_a[1],"\",\"",llamada$color_guild_a[2],"\")")
+      comando <- paste0(comando,",color_guild_b = c(\"",llamada$color_guild_b[1],"\",\"",llamada$color_guild_b[2],"\")")
+      comando <- paste(comando,"\n")
+      comando <- addCallParam(comando,llamada,"alpha_link")
+      comando <- addCallParam(comando,llamada,"size_link")
+      comando <- addCallParam(comando,llamada,"color_link", quote = TRUE)
+      comando <- addCallParam(comando,llamada,"lsize_kcoremax")
+      comando <- addCallParam(comando,llamada,"lsize_kcore1")
+      comando <- addCallParam(comando,llamada,"lsize_legend")
+      comando <- addCallParam(comando,llamada,"lsize_core_box")
+      comando <- addCallParam(comando,llamada,"hide_plot_border")
+      comando <- addCallParam(comando,llamada,"label_strguilda", quote = TRUE)
+      comando <- addCallParam(comando,llamada,"label_strguildb", quote = TRUE)
+      comando <- addCallParam(comando,llamada,"backg_color", quote = TRUE)
+      comando <- addCallParam(comando,llamada,"show_title")
+      comando <- addCallParam(comando,llamada,"show_legend", quote = TRUE)
+      comando <- addCallParam(comando,llamada,"svg_scale_factor")
+      comando <- addCallParam(comando,llamada,"weighted_links", quote =TRUE)
+      comando <- addCallParam(comando,llamada,"square_nodes_size_scale")
+      comando <- paste0(comando,",progress = NULL")
+      comando <- paste0(comando,")")
+      cat(comando)
+      sink()
+      file.copy("tmpcode/codebipartite.txt", file)
+    },
+    contentType="text/plain"
+  )
+  
+  
+  
   #Downloads the ziggurat plot configuration parameters
   output$zigguratsaveZigConfigFile <- downloadHandler(
     filename=function() {

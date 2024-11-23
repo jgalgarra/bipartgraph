@@ -168,16 +168,6 @@ bipartiteShowTitleControl <- function() {
   return(control)
 }
 
-# Show legend in printed file
-# bipartiteShowLegendControl <- function() {
-#   control<-checkboxInput(
-#     inputId = "bipartiteShowLegend",
-#     label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_LEGEND")),
-#     value   = TRUE
-#   )
-#   return(control)
-# }
-
 # Legend position
 valShowLegend <<- c(strings$value("LABEL_BIPARTITE_SHOW_LEGEND_TOP"),strings$value("LABEL_BIPARTITE_SHOW_LEGEND_BOTTOM"),
                     strings$value("LABEL_BIPARTITE_SHOW_LEGEND_HIDE"))
@@ -237,26 +227,9 @@ bipartiteDownloadControl <- function() {
   return(control)
 }
 
-bipartiteDownloadPanel <- function() {
-  panel<- 
-    tags$div(
-      class="panelContent",
-      
-      fluidRow(
-        column(3, bipartiteppiControl()),
-        column(3, bipartiteFileFormat()),
-        column(2, bipartiteShowTitleControl()),
-        column(2, bipartiteShowLegendControl())
-      ),
-      
-      fluidRow(div(
-        tags$br()
-      )),
-      useShinyjs(),
-      fluidRow(
- #       column(3, bipartitecodeDownloadControl()),
-        column(3, bipartiteDownloadControl())
-      )
-    )
-  return(panel)
+
+bipartitecodeDownloadControl <- function() {
+  control<-downloadButton("bipartitecodeDownload",label = strings$value("LABEL_ZIGGURAT_CODE_DOWNLOAD"))
+  return(control)
 }
+
