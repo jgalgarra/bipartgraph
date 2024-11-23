@@ -1177,13 +1177,29 @@ shinyServer(function(input, output, session) {
     contentType="text/plain"
   )
   
-  updckbx <- function(idchkbx,jsonvalue){
-    updateCheckboxInput(
-      session =  session,
-      inputId =  idchkbx, 
-      value = jsonvalue
-    )
-  }
+  #Downloads the bipartite plot configuration parameters
+  output$bipartitesaveBipConfigFile <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-",bpp$style,"-plot-config.json")
+      return(file)
+    },
+    content <- function(file) {
+      dir.create("tmpcode/", showWarnings = FALSE)
+      bpp$bipartite_argg$plotsdir <-""
+      jsonbpp <- jsonlite::toJSON(x = bpp$bipartite_argg[1:length(bpp$bipartite_argg)-1], pretty = TRUE, force = TRUE)
+      cat(paste(jsonbpp,"\n"), file = "tmpcode/bpp.json")
+      file.copy("tmpcode/bpp.json",file)
+    },
+    contentType="text/plain"
+  )
+  
+  # updckbx <- function(idchkbx,jsonvalue){
+  #   updateCheckboxInput(
+  #     session =  session,
+  #     inputId =  idchkbx, 
+  #     value = jsonvalue
+  #   )
+  # }
   
   output$language <- reactive({
     updateSelectInput(session, selectLanguage,
@@ -1195,6 +1211,7 @@ shinyServer(function(input, output, session) {
   observeEvent(input$zigguratReport, { 
     create_report("www/reports/templates/index.html",paste0("www/reports/",zgg$network_name,"_report.html"))
   })
+  
   
   output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
@@ -1209,34 +1226,35 @@ shinyServer(function(input, output, session) {
         result_validation <- validateconfigfile(json_data)
       }
       if (result_validation=="OK"){
-        for (i in 1:nrow(controls_jsonfields)){
-          if (controls_jsonfields$ControlType[i] == "slider")
-            updateSliderInput(session, controls_jsonfields$ControlName[i],
-                              value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
-          else if (controls_jsonfields$ControlType[i] == "checkbox"){
-            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
-            updckbx(controls_jsonfields$ControlName[i],etq)
-          }
-          else if (controls_jsonfields$ControlType[i] == "radiobuttons"){
-            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
-            
-            updateRadioButtons(session, controls_jsonfields$ControlName[i],
-                               choices = get(controls_jsonfields$Labels[i]),
-                               selected = etq)
-          }
-          else if (controls_jsonfields$ControlType[i] == "textinput"){
-            etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
-            updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
-          }
-          else if (controls_jsonfields$ControlType[i] == "colourinput"){
-            updateColourInput(session,controls_jsonfields$ControlName[i],
-                              value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
-          }
-          else if (controls_jsonfields$ControlType[i] == "selectinput")
-            updateSelectInput(session, controls_jsonfields$ControlName[i],
-                              choices = weightchoices,
-                              selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
-        }
+        parseJSONConfig(controls_jsonfields,session,json_data)
+        # for (i in 1:nrow(controls_jsonfields)){
+        #   if (controls_jsonfields$ControlType[i] == "slider")
+        #     updateSliderInput(session, controls_jsonfields$ControlName[i],
+        #                       value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
+        #   else if (controls_jsonfields$ControlType[i] == "checkbox"){
+        #     etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+        #     updckbx(controls_jsonfields$ControlName[i],etq)
+        #   }
+        #   else if (controls_jsonfields$ControlType[i] == "radiobuttons"){
+        #     etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+        #     
+        #     updateRadioButtons(session, controls_jsonfields$ControlName[i],
+        #                        choices = get(controls_jsonfields$Labels[i]),
+        #                        selected = etq)
+        #   }
+        #   else if (controls_jsonfields$ControlType[i] == "textinput"){
+        #     etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+        #     updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
+        #   }
+        #   else if (controls_jsonfields$ControlType[i] == "colourinput"){
+        #     updateColourInput(session,controls_jsonfields$ControlName[i],
+        #                       value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+        #   }
+        #   else if (controls_jsonfields$ControlType[i] == "selectinput")
+        #     updateSelectInput(session, controls_jsonfields$ControlName[i],
+        #                       choices = weightchoices,
+        #                       selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+        # }
         if (input$zigguratshowZigConfigControlFile){
           contentsfileconfigzigplot
         }

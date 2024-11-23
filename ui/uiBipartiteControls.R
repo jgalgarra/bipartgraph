@@ -233,3 +233,28 @@ bipartitecodeDownloadControl <- function() {
   return(control)
 }
 
+# Save bipartite plot config parameters
+bipartitesaveBipConfigControlFile <- function() {
+  control<-downloadButton("bipartitesaveBipConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
+  return(control)
+}
+
+#Load bipartite plot config parameters
+bipartiteloadBipConfigControlFile <- function() {
+  control<-fileInput(
+    inputId   = "bipartiteloadBipConfigFile",
+    accept    = c(".json"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCONFIG_CONTROL")),
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+bipartiteshowBipConfigControlFile <- function() {
+  control<-checkboxInput(
+    inputId = "bipartiteshowBipConfigControlFile",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
+    value   = FALSE
+  )
+  return(control)
+}

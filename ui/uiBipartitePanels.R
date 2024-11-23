@@ -96,12 +96,12 @@ bipartiteDiagramPanel <- function() {
 # Configuration
 bipartiteConfigPanel <- function() {
   panel<-fluidRow(
-    # tabsetPanel(
+    tabsetPanel(
     # fluidRow(
     #   uiOutput("networknamebip")
     # ),
-    # tabPanel(id="tab_vis",
-    #          title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
+    tabPanel(id="tab_vis_bip",
+            title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
     fluidRow(
       column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
     ),
@@ -127,21 +127,22 @@ bipartiteConfigPanel <- function() {
       column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
       column(2, bipartiteAlphaLevelControl()),
       #column(2, restorebipartiteColorsControl())
-    ),
-    # 
-    # tabPanel(
-    #   strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
-    #   fluidRow(
-    #     column(4, bipartiteloadZigConfigControlFile()),
-    #     column(2, bipartiteshowZigConfigControlFile()),
-    #     column(4, tags$h2(" "),bipartitesaveZigConfigControlFile())
-    #   ),
-    #   # Show bipartite configuration file raw JSON contents
-    #   fluidRow(
-    #     column(10, verbatimTextOutput("contentsfileconfigzigplot"))
-    #   )
-    # )
-    
+      )
+     ),
+    tabPanel(
+      strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
+      useShinyjs(),
+      fluidRow(
+        column(4, bipartiteloadBipConfigControlFile()),
+        column(2, bipartiteshowBipConfigControlFile()),
+        column(4, tags$h2(" "),bipartitesaveBipConfigControlFile())
+      ),
+      # Show bipartite configuration file raw JSON contents
+      fluidRow(
+        column(10, verbatimTextOutput("contentsfileconfigbipplot"))
+      )
+    )
+    )
   )
   return(panel)
 }

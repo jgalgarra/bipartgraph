@@ -407,3 +407,42 @@ SwitchControls <- function(option="disable",lcontrols){
     }
   }
 }
+
+
+updckbx <- function(idchkbx,jsonvalue,session){
+  updateCheckboxInput(
+    session =  session,
+    inputId =  idchkbx, 
+    value = jsonvalue
+  )
+}
+parseJSONConfig <- function(controls_jsonfields,session,json_data){
+  for (i in 1:nrow(controls_jsonfields)){
+        if (controls_jsonfields$ControlType[i] == "slider")
+          updateSliderInput(session, controls_jsonfields$ControlName[i],
+                            value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
+        else if (controls_jsonfields$ControlType[i] == "checkbox"){
+          etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+          updckbx(controls_jsonfields$ControlName[i],etq,session)
+        }
+        else if (controls_jsonfields$ControlType[i] == "radiobuttons"){
+          etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+          
+          updateRadioButtons(session, controls_jsonfields$ControlName[i],
+                             choices = get(controls_jsonfields$Labels[i]),
+                             selected = etq)
+        }
+        else if (controls_jsonfields$ControlType[i] == "textinput"){
+          etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
+          updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
+        }
+        else if (controls_jsonfields$ControlType[i] == "colourinput"){
+          updateColourInput(session,controls_jsonfields$ControlName[i],
+                            value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+        }
+        else if (controls_jsonfields$ControlType[i] == "selectinput")
+          updateSelectInput(session, controls_jsonfields$ControlName[i],
+                            choices = weightchoices,
+                            selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
+      }
+}
