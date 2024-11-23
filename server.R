@@ -1000,16 +1000,6 @@ shinyServer(function(input, output, session) {
     contentType="text/csv"
   )
   
-  #Aux function to add a parameter and reproduce the function call
-  addCallParam <- function(com,lpar,param,quoteparam = FALSE)
-  {
-    if (quoteparam)
-      com <- paste0(com," ,",param," = \"",lpar[param],"\"")
-    else
-      com <- paste0(com," ,",param," = ",lpar[param])
-    return(com)
-  }
-  
   # Downloads the polar generating code
   output$polarcodeDownload <- downloadHandler(
     filename=function() {
@@ -1023,7 +1013,7 @@ shinyServer(function(input, output, session) {
       llamada <- p["polar_argg"]
       comando <- paste0("polg <- polar_graph(\"",llamada$polar_argg$red,"\",")
       comando <- paste0(comando, "directorystr = \"",llamada$polar_argg$directorystr,"\"")
-      comando <- paste0(comando,",plotsdir = \"plot_results/polar/\",print_to_file = TRUE,")
+      comando <- paste0(comando,",plotsdir = \"plot_results/\",print_to_file = TRUE,")
       comando <- paste0(comando,"glabels = c(\"",llamada$polar_argg$glabels[1],"\",\"",llamada$polar_argg$glabels[2],"\"),")
       comando <- paste0(comando,"gshortened = c(\"",llamada$polar_argg$gshortened[1],"\",\"",llamada$polar_argg$gshortened[2],"\")")
       comando <- addCallParam(comando,llamada$polar_argg,"show_histograms")
@@ -1060,7 +1050,7 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"paintlinks")
       comando <- addCallParam(comando,llamada,"orderkcoremaxby",quote=TRUE)
       comando <- paste0(comando,",print_to_file = TRUE")
-      comando <- paste0(comando,",plotsdir = \"plot_results/ziggurat\"")
+      comando <- paste0(comando,",plotsdir = \"plot_results/\"")
       comando <- addCallParam(comando,llamada,"alpha_level")
       comando <- paste0(comando,",color_guild_a = c(\"",llamada$color_guild_a[1],"\",\"",llamada$color_guild_a[2],"\")")
       comando <- paste0(comando,",color_guild_b = c(\"",llamada$color_guild_b[1],"\",\"",llamada$color_guild_b[2],"\")")
@@ -1081,7 +1071,7 @@ shinyServer(function(input, output, session) {
       comando <- paste0(comando,",kcore1tail_disttocore = ",paste("c(",paste(llamada$kcore1tail_disttocore,collapse=",")),")")
       comando <- addCallParam(comando,llamada,"innertail_vertical_separation")
       comando <- addCallParam(comando,llamada,"factor_hop_x")
-      comando <- paste0(comando,",displace_legend = ",paste("c(",paste(llamada$displace_legend,collapse=",")),")")
+      #comando <- paste0(comando,",displace_legend = ",paste("c(",paste(llamada$displace_legend,collapse=",")),")")
       comando <- paste0(comando,",fattailjumphoriz = ",paste("c(",paste(llamada$fattailjumphoriz,collapse=",")),")")
       comando <- paste0(comando,",fattailjumpvert = ",paste("c(",paste(llamada$fattailjumpvert,collapse=",")),")")
       comando <- addCallParam(comando,llamada,"coremax_triangle_height_factor")
@@ -1105,6 +1095,7 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"landscape_plot")
       comando <- addCallParam(comando,llamada,"backg_color", quote = TRUE)
       comando <- addCallParam(comando,llamada,"show_title")
+      comando <- addCallParam(comando,llamada,"show_legend", quote = TRUE)
       comando <- addCallParam(comando,llamada,"use_spline")
       comando <- addCallParam(comando,llamada,"spline_points")
       comando <- addCallParam(comando,llamada,"file_name_append", quote =TRUE)

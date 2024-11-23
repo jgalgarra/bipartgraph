@@ -16,6 +16,7 @@ library(DT)
 library(kcorebip)
 library(ggtext)
 library(rlang)
+
 library(shiny)
 library(shinythemes)
 
@@ -45,6 +46,8 @@ if (file.exists(fconf)){
   labelA <<- strings$value("LABEL_ZIGGURAT_LABEL_GUILDA_DEFAULT")
   labelB <<- strings$value("LABEL_ZIGGURAT_LABEL_GUILDB_DEFAULT")
   shinyport <<- 8080
+  
+  dir.create("plot_results/", showWarnings = FALSE)
 }
 
 # Launch Application
