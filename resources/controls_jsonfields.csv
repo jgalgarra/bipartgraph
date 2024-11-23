@@ -87,4 +87,6 @@ zigguratColorGuildA2;color_guild_a;colourinput;2;0;none
 zigguratColorGuildB1;color_guild_b;colourinput;1;0;none
 zigguratColorGuildB2;color_guild_b;colourinput;2;0;none
 zigguratColorControl;color_link;colourinput;1;0;none
-orderkcoremaxby;orderkcoremaxby;radiobuttons;1;1;valordkcoremax
+zigguratOrderkcoremaxby;orderkcoremaxby;radiobuttons;1;1;valordkcoremax
+zigguratShowLegend;show_legend;radiobuttons;1;1;valShowLegendValue
+zigguratShowTitle;show_title;checkbox;1;0;none

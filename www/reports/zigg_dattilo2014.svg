@@ -22,19 +22,19 @@
 <rect id="zigguratkcore3-b-5-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="88.46" y="62.28" width="63.69" height="49.82" />
 <rect id="zigguratkcore3-b-6-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="159.23" y="62.28" width="63.69" height="38.92" />
 <text id="zigguratkcore3-b-1-text" y="108.98" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:20px;fill:#FF0000">
-<tspan x="-162.77" dy="0">2</tspan>
+<tspan x="-162.77" dy="0">1</tspan>
 </text>
 <text id="zigguratkcore3-b-2-text" y="103.54" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:20px;fill:#FF0000">
-<tspan x="-92" dy="0">4</tspan>
+<tspan x="-92" dy="0">2</tspan>
 </text>
 <text id="zigguratkcore3-b-3-text" y="98.09" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:20px;fill:#FF0000">
-<tspan x="-21.23" dy="0">1</tspan>
+<tspan x="-21.23" dy="0">3</tspan>
 </text>
 <text id="zigguratkcore3-b-4-text" y="92.64" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:20px;fill:#FF0000">
-<tspan x="49.54" dy="0">3</tspan>
+<tspan x="49.54" dy="0">5</tspan>
 </text>
 <text id="zigguratkcore3-b-5-text" y="87.19" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:20px;fill:#FF0000">
-<tspan x="120.31" dy="0">5</tspan>
+<tspan x="120.31" dy="0">4</tspan>
 </text>
 <text id="zigguratkcore3-b-6-text" y="81.74" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:20px;fill:#FF0000">
 <tspan x="191.08" dy="0">6</tspan>
@@ -95,20 +95,21 @@
 <text id="zigguratedge-kcore1-a-tail-3-1-text" y="522.86" transform="rotate(30 -215.85 522.86)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#00008B">
 <tspan x="-215.85" dy="0"> 17</tspan>
 </text>
-<rect id="zigguratedge-kcore1-a-tail-1-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-274.51" y="522.96" width="39.49" height="39.49" />
-<text id="zigguratedge-kcore1-a-tail-1-1-text" y="542.71" transform="rotate(30 -254.77 542.71)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#00008B">
-<tspan x="-254.77" dy="0"> 12 13  16</tspan>
+<rect id="zigguratedge-kcore1-a-tail-2-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-268.04" y="522.96" width="26.54" height="26.54" />
+<text id="zigguratedge-kcore1-a-tail-2-1-text" y="536.23" transform="rotate(30 -254.77 536.23)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#00008B">
+<tspan x="-254.77" dy="0"> 11</tspan>
 </text>
 <rect id="zigguratedge-kcore1-b-tail-2-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-172.5" y="-483.56" width="26.54" height="26.54" />
 <text id="zigguratedge-kcore1-b-tail-2-1-text" y="-470.29" transform="rotate(-30 -159.23 -470.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#FF0000">
 <tspan x="-159.23" dy="0"> 16</tspan>
 </text>
-<rect id="zigguratedge-kcore1-a-fattail-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-725.38" y="42.66" width="26.53" height="26.54" />
-<text id="zigguratedge-kcore1-a-fattail-1-text" y="55.93" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#00008B">
-<tspan x="-712.12" dy="0"> 11</tspan>
+<rect id="zigguratedge-kcore1-a-fattail-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-725.38" y="49.04" width="39.49" height="39.49" />
+<text id="zigguratedge-kcore1-a-fattail-1-text" y="68.79" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#00008B">
+<tspan x="-705.64" dy="0"> 12 13 </tspan>
+<tspan x="-705.64" dy="22.4"> 16</tspan>
 </text>
-<rect id="zigguratedge-kcore1-b-fattail-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-725.38" y="-69.2" width="26.53" height="26.54" />
-<text id="zigguratedge-kcore1-b-fattail-1-text" y="-55.93" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#FF0000">
+<rect id="zigguratedge-kcore1-b-fattail-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-725.38" y="-75.58" width="26.53" height="26.54" />
+<text id="zigguratedge-kcore1-b-fattail-1-text" y="-62.31" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:16px;fill:#FF0000">
 <tspan x="-712.12" dy="0"> 13</tspan>
 </text>
 <rect id="zigguratedge-kcore1-a-1-1-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-978.52" y="401.21" width="35.38" height="35.38" />
@@ -151,10 +152,10 @@
 <tspan x="-548.46" dy="0">.</tspan>
 </text>
 <g id="zigguratlink-1-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-698.85 55.93 L-194.62 108.98"/>
+<path d="M-685.89 68.79 L-194.62 108.98"/>
 </g>
 <g id="zigguratlink-2-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-698.85 -55.93 L-194.62 -108.98"/>
+<path d="M-698.85 -62.31 L-194.62 -108.98"/>
 </g>
 <g id="zigguratlink-3-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
 <path d="M-146.85 -62.28 L-162.77 62.28"/>
@@ -190,10 +191,10 @@
 <path d="M-40.69 -62.28 L120.31 62.28"/>
 </g>
 <g id="zigguratlink-14-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M65.46 -62.28 L-162.77 62.28"/>
+<path d="M65.46 -62.28 L-92 62.28"/>
 </g>
 <g id="zigguratlink-15-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M65.46 -62.28 L-92 62.28"/>
+<path d="M65.46 -62.28 L-21.23 62.28"/>
 </g>
 <g id="zigguratlink-16-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
 <path d="M65.46 -62.28 L49.54 62.28"/>
@@ -211,7 +212,7 @@
 <path d="M171.62 -62.28 L-92 62.28"/>
 </g>
 <g id="zigguratlink-21-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M171.62 -62.28 L-21.23 62.28"/>
+<path d="M171.62 -62.28 L120.31 62.28"/>
 </g>
 <g id="zigguratlink-22-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
 <path d="M171.62 -62.28 L191.08 62.28"/>
@@ -241,13 +242,13 @@
 <path d="M106.15 734.64 L106.15 805.41"/>
 </g>
 <g id="zigguratlink-1-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-176.92 496.21  L-143.9 466.41 L-110.87 435.63 L-77.85 402.91 L-44.82 367.25 L-11.79 327.69 L21.23 283.25 L54.26 232.96 L87.28 175.84 L120.31 112.1"/>
+<path d="M-176.92 496.21  L-151.76 467.26 L-126.6 437.35 L-101.44 405.55 L-76.27 370.91 L-51.11 332.47 L-25.95 289.3 L-0.79 240.43 L24.38 184.93 L49.54 123"/>
 </g>
 <g id="zigguratlink-2-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-215.85 509.59  L-186.36 479.59 L-156.87 448.62 L-127.38 415.68 L-97.9 379.79 L-68.41 339.98 L-38.92 295.26 L-9.44 244.64 L20.05 187.15 L49.54 123"/>
+<path d="M-215.85 509.59  L-194.22 480.44 L-172.6 450.34 L-150.97 418.33 L-129.35 383.45 L-107.73 344.76 L-86.1 301.3 L-64.48 252.11 L-42.85 196.24 L-21.23 133.9"/>
 </g>
 <g id="zigguratlink-3-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-254.77 522.96  L-228.82 492.78 L-202.87 461.6 L-176.92 428.45 L-150.97 392.34 L-125.03 352.27 L-99.08 307.26 L-73.13 256.32 L-47.18 198.46 L-21.23 133.9"/>
+<path d="M-254.77 522.96  L-236.68 493.62 L-218.6 463.32 L-200.51 431.1 L-182.43 396 L-164.34 357.05 L-146.26 313.3 L-128.17 263.79 L-110.09 207.55 L-92 144.79"/>
 </g>
 <g id="zigguratlink-4-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
 <path d="M-159.23 -457.02  L-146.06 -432.37 L-132.89 -406.92 L-119.72 -379.85 L-106.55 -350.36 L-93.38 -317.65 L-80.21 -280.9 L-67.03 -239.3 L-53.86 -192.06 L-40.69 -139.34"/>
@@ -256,19 +257,19 @@
 <path d="M-162.77 155.69  L-99.02 206.33 L-35.27 249.7 L28.49 279.53 L92.24 298 L155.99 311.68 L219.74 327.17 L283.49 351.08 L347.25 390.01 L411 449.6"/>
 </g>
 <g id="zigguratlink-6-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-21.23 133.9  L26.79 188.29 L74.82 234.88 L122.85 266.91 L170.87 286.75 L218.9 301.45 L266.92 318.09 L314.95 343.77 L362.97 385.59 L411 449.6"/>
+<path d="M-92 144.79  L-36.11 197.31 L19.78 242.29 L75.67 273.22 L131.55 292.37 L187.44 306.56 L243.33 322.63 L299.22 347.43 L355.11 387.8 L411 449.6"/>
 </g>
 <g id="zigguratlink-7-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-21.23 133.9  L29.97 179.28 L81.17 218.16 L132.37 244.89 L183.57 261.45 L234.77 273.71 L285.97 287.6 L337.17 309.03 L388.37 343.92 L439.57 397.34"/>
+<path d="M-162.77 155.69  L-95.84 197.33 L-28.92 232.99 L38.01 257.51 L104.94 272.69 L171.87 283.94 L238.79 296.68 L305.72 316.34 L372.65 348.34 L439.57 397.34"/>
 </g>
 <g id="zigguratlink-8-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M49.54 123  L92.88 170.26 L136.21 210.75 L179.55 238.59 L222.89 255.83 L266.22 268.6 L309.56 283.06 L352.9 305.38 L396.24 341.71 L439.57 397.34"/>
+<path d="M-21.23 133.9  L29.97 179.28 L81.17 218.16 L132.37 244.89 L183.57 261.45 L234.77 273.71 L285.97 287.6 L337.17 309.03 L388.37 343.92 L439.57 397.34"/>
 </g>
 <g id="zigguratlink-9-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-162.77 155.69  L-92.67 188.32 L-22.56 216.27 L47.54 235.49 L117.64 247.39 L187.74 256.21 L257.84 266.19 L327.95 281.6 L398.05 306.68 L468.15 345.08"/>
+<path d="M-92 144.79  L-29.76 179.3 L32.48 208.86 L94.72 229.18 L156.96 241.77 L219.19 251.09 L281.43 261.65 L343.67 277.94 L405.91 304.47 L468.15 345.08"/>
 </g>
 <g id="zigguratlink-10-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M120.31 112.1  L158.96 152.24 L197.61 186.62 L236.26 210.26 L274.9 224.9 L313.55 235.75 L352.2 248.03 L390.85 266.98 L429.5 297.84 L468.15 345.08"/>
+<path d="M49.54 123  L96.05 161.26 L142.56 194.03 L189.08 216.57 L235.59 230.52 L282.1 240.86 L328.61 252.57 L375.13 270.64 L421.64 300.05 L468.15 345.08"/>
 </g>
 <g id="zigguratlink-11-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
 <path d="M-146.85 -155.69  L-84.6 -244 L-22.35 -301.68 L39.9 -337.11 L102.14 -360.07 L164.39 -380.34 L226.64 -407.7 L288.88 -451.89 L351.13 -516.16 L413.38 -591.2"/>
@@ -283,7 +284,7 @@
 <path d="M65.46 -123  L104.12 -217.93 L142.78 -279.94 L181.43 -318.03 L220.09 -342.71 L258.75 -364.51 L297.41 -393.93 L336.06 -441.44 L374.72 -510.53 L413.38 -591.2"/>
 </g>
 <g id="zigguratlink-15-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
-<path d="M-943.14 401.21  L-832.84 379.62 L-722.54 357.33 L-612.24 333.63 L-501.95 307.8 L-391.65 279.15 L-281.35 246.96 L-171.06 210.54 L-60.76 169.17 L49.54 123"/>
+<path d="M-943.14 401.21  L-840.7 380.47 L-738.27 359.05 L-635.83 336.27 L-533.4 311.46 L-430.97 283.93 L-328.53 253.01 L-226.1 218.01 L-123.66 178.25 L-21.23 133.9"/>
 </g>
 <g id="zigguratlink-16-path" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="0.3" stroke-opacity="0.5">
 <path d="M-1102.37 593.1  L-1088.61 579.59 L-1074.85 565.63 L-1061.08 550.78 L-1047.32 534.61 L-1033.56 516.67 L-1019.8 496.52 L-1006.04 473.71 L-992.28 447.81 L-978.52 418.9"/>

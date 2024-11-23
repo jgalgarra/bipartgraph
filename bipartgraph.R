@@ -6,7 +6,6 @@
 #
 ###############################################################################
 rm(list = ls())
-source("strings.R", encoding="UTF-8")
 source("global.R", encoding="UTF-8")
 library(gridExtra)
 library(grDevices)

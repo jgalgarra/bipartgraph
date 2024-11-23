@@ -5,6 +5,8 @@
 # Description    : Global function and panels
 #
 ###############################################################################
+source("strings.R", encoding="UTF-8")
+
 # Search data files
 dataDir         <- "data"
 fileExtension   <- ".csv"
@@ -26,6 +28,8 @@ weightcontrols <- c("zigguratweighted_links")
 valordkcoremax <- c("kradius","kdegree")
 # Bipartite plot types
 valPlottype <- c("chilopod","legacy","kcoreorder")
+# Legend position
+valShowLegendValue <<- c("TOP","BOTTOM","HIDE")
 
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")

@@ -69,7 +69,6 @@
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant"
 "M_SD_001.csv";"Disperser";"Seed"
 "M_PL_072_11.csv";"Pollinator";"Plant"
-"kim_2016.csv";"Pollinator";"Plant"
 "RA_HP_042.csv";"Host";"Parasite"
 "M_PL_072_01.csv";"Pollinator";"Plant"
 "M_SD_011.csv";"Disperser";"Seed"
@@ -84,4 +83,5 @@
 "M_SD_023.csv";"Disperser";"Seed"
 "example-try-this-first.csv";"Pollinator";"Plant"
 "CANGREJOS.csv";"Pollinator";"Plant"
+"kim_2016.csv";"Pollinator";"Plant"
 "dattilo2014.csv";"Pollinator";"Plant"

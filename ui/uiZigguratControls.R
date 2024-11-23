@@ -525,7 +525,7 @@ zigguratSvgScaleFactorControl <- function() {
 
 #Set core max order
 zigguratkcoremaxorder <- function(){
-   control <- radioButtons("orderkcoremaxby", HTML(paste("<span class='controlLabel'>",strings$value("LABEL_ZIGGURAT_MAXCORE_ORDER"),"</span>")),
+   control <- radioButtons("zigguratOrderkcoremaxby", HTML(paste("<span class='controlLabel'>",strings$value("LABEL_ZIGGURAT_MAXCORE_ORDER"),"</span>")),
                           choices = valordkcoremax,
                           selected = "kradius"
                           )
@@ -587,21 +587,21 @@ zigguratShowTitleControl <- function() {
 #   return(control)
 # }
 
-
-# Legend position
-valzigShowLegend <<- c(strings$value("LABEL_BIPARTITE_SHOW_LEGEND_TOP"),strings$value("LABEL_BIPARTITE_SHOW_LEGEND_BOTTOM"),
-                    strings$value("LABEL_BIPARTITE_SHOW_LEGEND_HIDE"))
-
 #Plot type
 zigguratShowLegendControl <- function(){
   control <- radioButtons("zigguratShowLegend", HTML(paste("<span class='controlLabel'>",
-                                                            strings$value("LABEL_BIPARTITE_SHOW_LEGEND"),"</span>")),
-                          choiceNames = valzigShowLegend,
-                          choiceValues= c("TOP","BOTTOM","HIDE"),
+                                                                    strings$value("LABEL_BIPARTITE_SHOW_LEGEND"),"</span>")),
+                          choiceNames =  c(strings$value("LABEL_BIPARTITE_SHOW_LEGEND_TOP"),strings$value("LABEL_BIPARTITE_SHOW_LEGEND_BOTTOM"),
+                                           strings$value("LABEL_BIPARTITE_SHOW_LEGEND_HIDE")),
+                          choiceValues= valShowLegendValue,
                           selected = "BOTTOM"
   )
   return(control)
 }
+
+
+
+
 
 # Downlad diagram size
 paperSizeControl <- function() {

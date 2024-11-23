@@ -4,7 +4,6 @@
 # Module         : strings.R
 # Description    : User interfaz
 ###############################################################################
-library(ggplot2)
 
 LocalizedStrings<-function(locale="es") {
   # crea el objeto

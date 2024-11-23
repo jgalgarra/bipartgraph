@@ -370,9 +370,6 @@ shinyServer(function(input, output, session) {
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
-                           #move_all_SVG_up  = 0.01*input$bipartiteSVGup,
-                           # move_all_SVG_right = ifelse(!is.null(input$bipartiteSVGright),
-                           #                             input$bipartiteSVGright/10,0),
                            progress=progress)
     # ziggurat igraph object
     g<-bplot$result_analysis$graph
@@ -425,7 +422,7 @@ shinyServer(function(input, output, session) {
       paintlinks                                    = input$zigguratPaintLinks,
       print_to_file                                 = FALSE,
       plotsdir                                      = tempdir(),
-      orderkcoremaxby                               = input$orderkcoremaxby,#"kradius",
+      orderkcoremaxby                               = input$zigguratOrderkcoremaxby,#"kradius",
       alpha_level                                   = input$zigguratAlphaLevel,
       color_guild_a                                 = c(input$zigguratColorGuildA1, input$zigguratColorGuildA2),
       color_guild_b                                 = c(input$zigguratColorGuildB1, input$zigguratColorGuildB2),
@@ -1122,7 +1119,7 @@ shinyServer(function(input, output, session) {
     },
     content <- function(file) {
       dir.create("tmpcode/", showWarnings = FALSE)
-      
+      zgg$ziggurat_argg$plotsdir <-""
       jsonzgg <- jsonlite::toJSON(x = zgg$ziggurat_argg[1:length(zgg$ziggurat_argg)-1], pretty = TRUE, force = TRUE)
       cat(paste(jsonzgg,"\n"), file = "tmpcode/zgg.json")
       file.copy("tmpcode/zgg.json",file)
