@@ -352,7 +352,7 @@ shinyServer(function(input, output, session) {
     bplot<-bipartite_graph(datadir                                       = paste0(dataDir, "/"),
                            filename                                      = input$selectedDataFile,
                            flip_results = input$bipartiteVerticalLayout,
-                           style=input$bipartitePlottype,orderkcoremaxby = "kdegree",
+                           style=input$bipartitePlottype,orderkcoremaxby = "kradius",
                            weighted_links = input$bipartiteweighted_links,
                            color_link = input$bipartiteColorLink,
                            alpha_link = input$bipartiteAlphaLevelLink,
