@@ -286,8 +286,16 @@ static_error_msg <- function(mykey){
 }
 
 # Check that configuration file contents are correct
-validateconfigfile <- function(filedata){
-  if (get_network_name(filedata$filename)!=zgg$network_name){
+validateconfigfile <- function(jsondata,network_name,plottype){
+  configname <- get_network_name(jsondata$filename)
+  if (jsondata$style=='ziggurat'){
+    if (plottype!='ziggurat')
+      return(static_error_msg("MESSAGE_ERROR_JSON_PLOTTYPE"))
+  } else {
+    if (plottype=='ziggurat')
+      return(static_error_msg("MESSAGE_ERROR_JSON_PLOTTYPE"))
+  }
+  if (configname!=network_name){
     return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
   }
   return("OK")

@@ -362,10 +362,10 @@ shinyServer(function(input, output, session) {
                            hide_plot_border = TRUE,
                            guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
                            square_nodes_size_scale = input$bipartiteNodeRescale,
-                           svg_scale_factor = input$bipartiteSvgScaleFactor,
                            size_link = input$bipartiteLinkSize,
                            label_strguilda = trim(input$DataLabelGuildAControl),
                            label_strguildb = trim(input$DataLabelGuildBControl),
+                           svg_scale_factor = 1,
                            lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
@@ -1180,7 +1180,7 @@ shinyServer(function(input, output, session) {
   #Downloads the bipartite plot configuration parameters
   output$bipartitesaveBipConfigFile <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-",bpp$style,"-plot-config.json")
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-bipartite-plot-config.json")
       return(file)
     },
     content <- function(file) {
@@ -1192,14 +1192,6 @@ shinyServer(function(input, output, session) {
     },
     contentType="text/plain"
   )
-  
-  # updckbx <- function(idchkbx,jsonvalue){
-  #   updateCheckboxInput(
-  #     session =  session,
-  #     inputId =  idchkbx, 
-  #     value = jsonvalue
-  #   )
-  # }
   
   output$language <- reactive({
     updateSelectInput(session, selectLanguage,
@@ -1213,9 +1205,10 @@ shinyServer(function(input, output, session) {
   })
   
   
-  output$contentsfileconfigzigplot <- reactive({
+output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
       filePath <- input$zigguratloadZigConfigFile$datapath
+      print(filePath)
       contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
       contentsfileconfigzigplot <- paste("JSON CONTENTS","\n",contentsfileconfigzigplot)
       if (!grepl(".json",filePath))
@@ -1223,39 +1216,11 @@ shinyServer(function(input, output, session) {
       else {
         json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
         fields_json_data <- names(json_data)
-        result_validation <- validateconfigfile(json_data)
+        result_validation <- validateconfigfile(json_data,zgg$network_name,'ziggurat')
       }
       if (result_validation=="OK"){
         parseJSONConfig(controls_jsonfields,session,json_data)
-        # for (i in 1:nrow(controls_jsonfields)){
-        #   if (controls_jsonfields$ControlType[i] == "slider")
-        #     updateSliderInput(session, controls_jsonfields$ControlName[i],
-        #                       value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
-        #   else if (controls_jsonfields$ControlType[i] == "checkbox"){
-        #     etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
-        #     updckbx(controls_jsonfields$ControlName[i],etq)
-        #   }
-        #   else if (controls_jsonfields$ControlType[i] == "radiobuttons"){
-        #     etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
-        #     
-        #     updateRadioButtons(session, controls_jsonfields$ControlName[i],
-        #                        choices = get(controls_jsonfields$Labels[i]),
-        #                        selected = etq)
-        #   }
-        #   else if (controls_jsonfields$ControlType[i] == "textinput"){
-        #     etq = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]
-        #     updateTextInput(session, controls_jsonfields$ControlName[i],label=etq,value=etq)
-        #   }
-        #   else if (controls_jsonfields$ControlType[i] == "colourinput"){
-        #     updateColourInput(session,controls_jsonfields$ControlName[i],
-        #                       value=json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
-        #   }
-        #   else if (controls_jsonfields$ControlType[i] == "selectinput")
-        #     updateSelectInput(session, controls_jsonfields$ControlName[i],
-        #                       choices = weightchoices,
-        #                       selected = json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])
-        # }
-        if (input$zigguratshowZigConfigControlFile){
+        if (input$zigguratshowZigConfigFile){
           contentsfileconfigzigplot
         }
       }
@@ -1263,5 +1228,29 @@ shinyServer(function(input, output, session) {
         contentsfileconfigzigplot <- paste(result_validation,"\n\n",contentsfileconfigzigplot)
     }
   })
+
+output$contentsfileconfigbipplot <- reactive({
+  if (!is.null(input$bipartiteloadBipConfigFile)){
+    filePath <- input$bipartiteloadBipConfigFile$datapath
+    contentsfileconfigbipplot <- paste(readLines(filePath), collapse = "\n")
+    contentsfileconfigbipplot <- paste("JSON CONTENTS","\n",contentsfileconfigbipplot)
+    if (!grepl(".json",filePath))
+      result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+    else {
+      json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+      fields_json_data <- names(json_data)
+      result_validation <- validateconfigfile(json_data,bpp$network_name,'bipartite')
+    }
+    if (result_validation=="OK"){
+      parseJSONConfig(controls_jsonfields,session,json_data)
+      if (input$bipartiteshowBipConfigFile){
+        contentsfileconfigbipplot
+      }
+    }
+    else
+      contentsfileconfigbipplot <- paste(result_validation,"\n\n",contentsfileconfigbipplot)
+  }
+})
+
   
 })
