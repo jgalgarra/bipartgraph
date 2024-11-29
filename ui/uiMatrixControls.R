@@ -1,17 +1,17 @@
 ###############################################################################
 # BipartGraph
 #  
-# Module         : uiPolarControls.R
-# Description    : Polar graph panel
+# Module         : uiMatrixControls.R
+# Description    : Matrix graph panel
 #                  
 ###############################################################################
 
 library(shinyjs)
 
 # Show text
-polarDisplayTextControl <- function() {
+matrixDisplayTextControl <- function() {
   control<- sliderInput(
-    inputId = "polarDisplayText",
+    inputId = "matrixDisplayText",
     label   = controlLabel(strings$value("LABEL_POLAR_SHOW_LABELS_CONTROL")),
     min     = 0,
     max     = 100,
@@ -22,9 +22,9 @@ polarDisplayTextControl <- function() {
 }
 
 # Include histograms
-polarDisplayHistograms <- function() {
+matrixDisplayHistograms <- function() {
   control<-checkboxInput(
-    inputId = "polarDisplayHistograms",
+    inputId = "matrixDisplayHistograms",
     label   = controlLabel(strings$value("LABEL_POLAR_INCLUDE_HISTOGRAMS")),
     value   = TRUE
   )
@@ -42,9 +42,9 @@ downloadLink <- function() {
 }
 
 # Fill nodes
-polarFillNodesControl <- function() {
+matrixFillNodesControl <- function() {
   control<-checkboxInput(
-    inputId = "polarFillNodesControl",
+    inputId = "matrixFillNodesControl",
     label   = controlLabel(strings$value("LABEL_POLAR_FILL_NODES")),
     value   = FALSE
   )
@@ -52,9 +52,9 @@ polarFillNodesControl <- function() {
 }
 
 # Show Title
-polarPrintTitleControl <- function() {
+matrixPrintTitleControl <- function() {
   control<-checkboxInput(
-    inputId = "polarPrintTitleControl",
+    inputId = "matrixPrintTitleControl",
     label   = controlLabel(strings$value("LABEL_POLAR_SHOW_NAME")),
     value   = FALSE
   )
@@ -62,9 +62,9 @@ polarPrintTitleControl <- function() {
 }
 
 # Node transparency
-polarAlphaLevelControl <- function() {
+matrixAlphaLevelControl <- function() {
   control<-sliderInput(
-    inputId = "polarAlphaLevel",
+    inputId = "matrixAlphaLevel",
     label   = controlLabel(strings$value("LABEL_POLAR_ALPHA_LEVEL_CONTROL")),
     min     = 0.0,
     max     = 1.0,
@@ -75,9 +75,9 @@ polarAlphaLevelControl <- function() {
 }
 
 # Label size
-polarLabelsSizeControl <- function(name, description, default) {
+matrixLabelsSizeControl <- function(name, description, default) {
   control<-sliderInput(
-    inputId = paste0("polarLabelsSize", name),
+    inputId = paste0("matrixLabelsSize", name),
     label   = controlLabel(description),
     min     = 8,
     max     = 20,
@@ -88,7 +88,7 @@ polarLabelsSizeControl <- function(name, description, default) {
 }
 
 # Screen size control
-polarscreenwidthControl <- function() {
+matrixscreenwidthControl <- function() {
   values<-c(400, 600, 800, 1000, 1200)
   names(values)<-values
   control<-selectInput(
@@ -101,13 +101,13 @@ polarscreenwidthControl <- function() {
   return(control)
 }
 
-# Polar plot resolution
-polarppiControl <- function(typeplot) {
+# Matrix plot resolution
+matrixppiControl <- function(typeplot) {
   values<-c(72, 96, 150, 300, 600)
   
   names(values)<-values
   control<-selectInput(
-    inputId   = "polarppi",
+    inputId   = "matrixppi",
     label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
     choices   = values,
     selected  = 300,
@@ -117,11 +117,11 @@ polarppiControl <- function(typeplot) {
 }
 
 # Plot file format
-polarFileFormat <- function() {
+matrixFileFormat <- function() {
   values<-c("png","jpg","eps","tiff","svg")
   names(values)<-values
   control<-selectInput(
-    inputId   = "polarfileextension",
+    inputId   = "matrixfileextension",
     label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
     choices   = values,
     selected  = "png",
@@ -130,13 +130,13 @@ polarFileFormat <- function() {
   return(control)
 }
 
-polarDownloadControl <- function() {
-  control<-downloadButton("polarDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
-  #shinyjs::hidden(p(id = "polarDownload", "Processing..."))
+matrixDownloadControl <- function() {
+  control<-downloadButton("matrixDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  #shinyjs::hidden(p(id = "matrixDownload", "Processing..."))
   return(control)
 }
 
-polarcodeDownloadControl <- function() {
-  control<-downloadButton("polarcodeDownload",label = strings$value("LABEL_POLAR_CODE_DOWNLOAD"))
+matrixcodeDownloadControl <- function() {
+  control<-downloadButton("matrixcodeDownload",label = strings$value("LABEL_POLAR_CODE_DOWNLOAD"))
   return(control)
 }

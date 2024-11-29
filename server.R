@@ -824,7 +824,7 @@ shinyServer(function(input, output, session) {
          alt = "Polar graph")
   }, deleteFile = FALSE)
   
-  
+
   # Build polar guild labels
   buildPolarGuildLabels <- function(cabecera,mylabels,pfile){
     namesg <- cabecera
@@ -852,7 +852,105 @@ shinyServer(function(input, output, session) {
     mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1],p$polar_argg$red)
     return(HTML(mdetails))
   })
+
+  # Reactive function to plot the matrix graph
+  matrix<-reactive({
+    validate(
+      need(nchar(input$selectedDataFile)>0, strings$value("MESSAGE_SELECT_DATE_FILE_ERROR"))
+    )
+    
+    #swidth = input$screenwidthControl
+    #sheight = input$screenwidthControl
+    
+    progress<-shiny::Progress$new()
+    progress$set(message="", value = 0)
+    on.exit(progress$close())
+    
+    # Disables polar panel
+    session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=TRUE))
+    
+    # Plots matrix_graph
+    
+    p <- matrix_graph("data/",input$selectedDataFile,
+                      print_to_file = FALSE,
+                      orderby = "kradius",ppi=300,
+                      flip_matrix = FALSE, links_weight = FALSE,
+                      show_species_names = TRUE,
+                      show_title = FALSE,
+                      show_legend = FALSE,
+                      progress            = progress)
+    
+    # p<-polar_graph(
+    #   red                 = input$selectedDataFile,
+    #   directorystr        = paste0(dataDir, "/"),
+    #   fill_nodes          = input$polarFillNodesControl,
+    #   print_title         = input$polarPrintTitleControl, 
+    #   alpha_nodes         = input$polarAlphaLevel,
+    #   plotsdir            = "tmppolar/",
+    #   print_to_file       = TRUE,
+    #   printable_labels    = input$polarDisplayText,
+    #   show_histograms     = FALSE,
+    #   glabels             = c(input$DataLabelGuildAControl, input$DataLabelGuildBControl),
+    #   gshortened          = c(substr(input$DataLabelGuildAControl, 1, 4),substr(input$DataLabelGuildBControl, 1, 4)),
+    #   lsize_title         = input$polarLabelsSizeTitle,
+    #   lsize_axis          = input$polarLabelsSizeAxis,
+    #   lsize_legend        = input$polarLabelsSizeLegend,
+    #   lsize_axis_title    = input$polarLabelsSizeAxisTitle,
+    #   lsize_legend_title  = input$polarLabelsSizeLegendTitle,
+    #   progress            = progress
+    # )
+    
+    # Enables polar container
+    session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=FALSE))
+    
+    return(p)
+  })
   
+  # Plot the matrix graph
+  output$matrix <- renderImage({
+    p <- matrix()
+    # Return a list containing the filename
+    list(src = normalizePath(p[["matrix_file"]]),
+         contentType = 'image/png',
+         width = 600,#input$screenwidthControl,
+         height =600,# input$screenwidthControl,
+         alt = "Matrix graph")
+  }, deleteFile = FALSE)
+  
+  buildMatrixGuildLabels <- buildPolarGuildLabels
+  
+  # Polar guild A labels
+  output$networkinfoDetailmatrixA<-renderUI({
+    p <- matrix()
+    mdetails <- buildMatrixGuildLabels(p$mat_argg$label_strguilda,p$result_analysis$matrix[1,],p$mat_argg$filename)
+    return(HTML(mdetails))
+  })
+  
+  output$networkinfoDetailmatrixB<-renderUI({
+    p <- matrix()
+    mdetails <- buildMatrixGuildLabels(p$mat_argg$label_strguildb,p$result_analysis$matrix[,1],p$mat_argg$filename)
+    return(HTML(mdetails))
+  })
+  # Network information
+  
+  output$networkinfoDetailmatrix<-renderUI({
+    p <- matrix()
+    nname <- get_network_name(p$mat_argg$filename)
+    #create_polar_report(p,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
+    
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",nname,"&nbsp;",p$network_type,"&nbsp;",
+                     p$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><h5>", 
+                     "<span  style='color:",p$mat_argg$color_guild_a,"'>","&nbsp;&nbsp;", p$result_analysis$num_guild_a, p$mat_argg$label_strguilda,"</span >","&nbsp;",
+                     "<span  style='color:",p$mat_argg$color_guild_b,"'>","&nbsp;&nbsp;", p$result_analysis$num_guild_b, p$mat_argg$label_strguildb,"</span >")
+    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5><hr>")
+    
+    # 
+    # details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+    # details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
+    return(HTML(details))
+  })
+    
   zigguratdiagramOptions<-reactive({
     return(calculateDiagramOptions(#as.numeric(input$paperSize), 
       4,as.numeric(input$zigguratppi), 

@@ -10,8 +10,10 @@ library(shinythemes)
 source("ui/uiCommonPanels.R", encoding="UTF-8")
 source("ui/uiDataPanels.R", encoding="UTF-8")
 source("ui/uiZigguratPanels.R", encoding="UTF-8")
-source("ui/uiPolarPanels.R", encoding="UTF-8")
+source("ui/uiMatrixPanels.R", encoding="UTF-8")
 source("ui/uiBipartitePanels.R", encoding="UTF-8")
+source("ui/uiPolarPanels.R", encoding="UTF-8")
+
 
 
 shinyUI(
@@ -47,6 +49,12 @@ shinyUI(
         tabPanel(id = "bipartitemenutab",
                  strings$value("LABEL_MENU_BIPARTITE_PANEL"),
                  bipartitePanel()
+        ),
+        
+        # Matrix panel
+        tabPanel(
+          strings$value("LABEL_MENU_MATRIX_PANEL"),
+              matrixPanel()
         ),
         # Polar panel
         tabPanel(

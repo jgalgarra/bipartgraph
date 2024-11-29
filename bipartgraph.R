@@ -48,6 +48,9 @@ if (file.exists(fconf)){
   
   dir.create("plot_results/", showWarnings = FALSE)
 }
+tmpplots <<- "tmp"
+# Remove tmp files of last run
+unlink(tmpplots,recursive=TRUE)
 
 # Launch Application
 runApp(

@@ -78,7 +78,7 @@ bipartiteDiagramPanel <- function() {
                               ),
                             ),
                             
-                            fluidRow( tags$span(id="bipartiteplot",align="center",
+                            fluidRow( tags$span(id="bipartiteplot",style="text-align:center",
                                                 uiOutput("bipartite"))
                             )
                      ),
