@@ -27,16 +27,14 @@ polarDiagramPanel <- function() {
   else
     nfic <- ""
   control<-fluidRow(valign="top",
-    column(7,
+    column(8,
       fluidRow(plotOutput("polar",inline = FALSE))
       ),
     
     
-    column(5,
+    column(4,
       fluidRow(
-        column(7,
                uiOutput("networkinfoDetailpolar")
-        ),
       ),
       fluidRow(
           column(5,tags$small(

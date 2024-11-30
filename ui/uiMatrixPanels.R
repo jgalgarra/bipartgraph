@@ -27,16 +27,18 @@ matrixDiagramPanel <- function() {
   # else
   #   nfic <- ""
   control<-fluidRow(valign="top",
-    column(7,
-      fluidRow(plotOutput("matrix",inline = FALSE))
-      ),
-    
-    
-    column(5,
+    column(8,
       fluidRow(
-        column(7,
+             column(4, matrixOrderby()),
+             column(1, matrixShowNamesControl()),
+             column(1, matrixRotateControl()),
+             column(1, matrixWeightsControl())
+      ),
+      fluidRow(align="center",plotOutput("matrix",inline = FALSE))
+      ),
+    column(4,
+      fluidRow(
                uiOutput("networkinfoDetailmatrix")
-        ),
       ),
       fluidRow(
           column(5,tags$small(
@@ -50,7 +52,6 @@ matrixDiagramPanel <- function() {
   )
   return(control)
 }
-
 
 # Config panel
 matrixConfigPanel <- function() {

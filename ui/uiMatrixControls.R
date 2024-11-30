@@ -8,6 +8,47 @@
 
 library(shinyjs)
 
+# Rotate matrix 90 degrees
+matrixRotateControl <- function() {
+  control<-checkboxInput(
+    inputId = "matrixRotate",
+    label   = controlLabel(strings$value("LABEL_MATRIX_ROTATE")),
+    value   = FALSE
+  )
+  return(control)
+}
+
+# Rotate link weights
+matrixWeightsControl <- function() {
+  control<-checkboxInput(
+    inputId = "matrixWeights",
+    label   = controlLabel(strings$value("LABEL_MATRIX_WEIGHTS")),
+    value   = FALSE
+  )
+  return(control)
+}
+
+# Show species names
+matrixShowNamesControl <- function() {
+  control<-checkboxInput(
+    inputId = "matrixShowNames",
+    label   = controlLabel(strings$value("LABEL_MATRIX_SHOW_SPECIES_NAMES")),
+    value   = TRUE
+  )
+  return(control)
+}
+
+# Set nodes order
+matrixOrderby <- function(){
+  control <- radioButtons("matrixOrderby", HTML(paste("<span class='controlLabel'>",
+                                                          strings$value('LABEL_MATRIX_ORDER'),"</span>")),
+                          choices = valordmatrix,
+                          selected = "kradius", inline=TRUE
+  )
+  return(control)
+}
+
+
 # Show text
 matrixDisplayTextControl <- function() {
   control<- sliderInput(

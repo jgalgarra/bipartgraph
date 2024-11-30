@@ -30,6 +30,8 @@ valordkcoremax <- c("kradius","kdegree")
 valPlottype <- c("chilopod","legacy","kcoreorder")
 # Legend position
 valShowLegendValue <<- c("TOP","BOTTOM","HIDE")
+# Order matrix
+valordmatrix <- c("kradius","kdegree","degree")
 
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")
