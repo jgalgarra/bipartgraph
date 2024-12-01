@@ -30,9 +30,13 @@ matrixDiagramPanel <- function() {
     column(8,
       fluidRow(
              column(4, matrixOrderby()),
-             column(1, matrixShowNamesControl()),
              column(1, matrixRotateControl()),
-             column(1, matrixWeightsControl())
+             column(1, matrixShowNamesControl()),
+             column(1, matrixShowTitleControl()),
+             column(1, matrixShowLegendControl()),
+             column(1, matrixWeightsControl()),
+             column(2, matrixTextresizeControl() ),
+
       ),
       fluidRow(align="center",plotOutput("matrix",inline = FALSE))
       ),
@@ -60,7 +64,7 @@ matrixConfigPanel <- function() {
       column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
     ),
     fluidRow(
-      column(2, matrixDisplayTextControl()),
+      #column(2, matrixDisplayTextControl()),
       column(2, matrixAlphaLevelControl()),
       column(2, matrixFillNodesControl()),
       column(2, matrixPrintTitleControl()),

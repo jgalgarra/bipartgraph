@@ -38,6 +38,27 @@ matrixShowNamesControl <- function() {
   return(control)
 }
 
+# Show network name as plot title
+matrixShowTitleControl <- function() {
+  control<-checkboxInput(
+    inputId = "matrixShowTitle",
+    label   = controlLabel(strings$value("LABEL_POLAR_SHOW_NAME")),
+    value   = FALSE
+  )
+  return(control)
+}
+
+
+# Show guild names as legend
+matrixShowLegendControl <- function() {
+  control<-checkboxInput(
+    inputId = "matrixShowLegend",
+    label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_LEGEND")),
+    value   = TRUE
+  )
+  return(control)
+}
+
 # Set nodes order
 matrixOrderby <- function(){
   control <- radioButtons("matrixOrderby", HTML(paste("<span class='controlLabel'>",
@@ -50,14 +71,14 @@ matrixOrderby <- function(){
 
 
 # Show text
-matrixDisplayTextControl <- function() {
+matrixTextresizeControl <- function() {
   control<- sliderInput(
-    inputId = "matrixDisplayText",
-    label   = controlLabel(strings$value("LABEL_POLAR_SHOW_LABELS_CONTROL")),
-    min     = 0,
-    max     = 100,
-    value   = 100,
-    step    = 1
+    inputId = "matrixTextresize",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_TEXT_SCALE")),
+    min     = 0.5,
+    max     = 2,
+    value   = 1,
+    step    = 0.1
   )
   return(control)
 }

@@ -363,7 +363,7 @@ shinyServer(function(input, output, session) {
                            lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
-                           show_legend = input$bipartiteShowLegend,
+                           show_legend = input$matrixShowLegend,
                            progress=progress)
     # ziggurat igraph object
     g<-bplot$result_analysis$graph
@@ -868,12 +868,16 @@ shinyServer(function(input, output, session) {
                       flip_matrix = input$matrixRotate, 
                       links_weight = input$matrixWeights,
                       show_species_names = input$matrixShowNames,
-                      show_title = TRUE,
-                      show_legend = TRUE,
+                      show_title = input$matrixShowTitle,
+                      show_legend = input$matrixShowLegend,
+                      label_size = 18 * input$matrixTextresize,
                       label_strguilda = input$DataLabelGuildAControl,
                       label_strguildb = input$DataLabelGuildBControl,
                       progress            = progress)
-    
+    if (p$binary_network)
+      shinyjs::hide("matrixWeights")
+    else
+      shinyjs::show("matrixWeights")
     # Enables matrix plot container
     session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=FALSE))
     return(p)
