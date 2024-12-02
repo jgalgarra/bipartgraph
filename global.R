@@ -91,3 +91,67 @@ linkLabel <- function(text, img) {
   )
   return(label)
 }
+
+# Print file format
+PrintFileFormat <- function(plotlabel) {
+  values<-c("png","jpg","eps","tiff","svg")
+  names(values)<-values
+  control<-selectInput(
+    inputId   = paste0(plotlabel,"fileextension"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
+    choices   = values,
+    selected  = "png",
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+# Downlad diagram size
+paperSizeControl <- function() {
+  values<-1:6
+  names(values)<-paste0("A", values)
+  control<-selectInput(
+    inputId   = "paperSize",
+    label     = controlLabel(strings$value("LABEL_PAPER_SIZE_CONTROL")),
+    choices   = values,
+    selected  = 4,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+#Paper orientation
+paperLandscape <- function() {
+  control<-checkboxInput(
+    inputId = "paperLandscape",
+    label   = controlLabel(strings$value("LABEL_PAPER_ORIENTATION")),
+    value   = TRUE
+  )
+  return(control)
+}
+
+
+# Ziggurat plot resolution
+PrintppiControl <- function(plotlabel) {
+  values<-c(72, 96, 150, 300, 600)
+  names(values)<-values
+  control<-selectInput(
+    inputId   = paste0(plotlabel,"ppi"),
+    label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
+    choices   = values,
+    selected  = 300,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+PrintDownloadControl <- function(plotlabel) {
+  control<-downloadButton(paste0(plotlabel,"Download"),label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  return(control)
+}
+
+saveSVGControl <- function(plotlabel) {
+  control<-downloadButton(paste0(plotlabel,"saveSVG"),label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
+  return(control)
+}
+

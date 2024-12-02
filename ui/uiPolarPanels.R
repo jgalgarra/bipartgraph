@@ -81,12 +81,12 @@ polardownloadPanel <- function() {
       column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
     ),
     fluidRow(
-      column(3, polarppiControl()),
-      column(3, polarFileFormat())
+      column(3, PrintppiControl("polar")),
+      column(3, PrintFileFormat("polar"))
     ),
     fluidRow(
       column(3,polarcodeDownloadControl()),
-      column(3,polarDownloadControl())
+      column(3,PrintDownloadControl("polar"))
     )
   )
 }

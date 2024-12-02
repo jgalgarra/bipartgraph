@@ -26,8 +26,8 @@ bipartiteDownloadPanel <- function() {
       class="panelContent",
       
       fluidRow(
-        column(3, bipartiteppiControl()),
-        column(3, bipartiteFileFormat()),
+        column(3, PrintppiControl("bipartite")),
+        column(3, PrintFileFormat("bipartite")),
         column(2, bipartiteShowTitleControl()),
         column(2, bipartiteShowLegendControl())
       ),
@@ -38,7 +38,7 @@ bipartiteDownloadPanel <- function() {
       useShinyjs(),
       fluidRow(
         column(3, bipartitecodeDownloadControl()),
-        column(3, bipartiteDownloadControl())
+        column(3, PrintDownloadControl("bipartite"))
       )
     )
   return(panel)

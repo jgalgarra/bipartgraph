@@ -209,19 +209,6 @@ bipartiteppiControl <- function() {
 
 
 # bipartite Plot file format
-bipartiteFileFormat <- function() {
-  values<-c("png","jpg","eps","tiff","svg")
-  names(values)<-values
-  control<-selectInput(
-    inputId   = "bipartitefileextension",
-    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
-    choices   = values,
-    selected  = "png",
-    multiple  = FALSE
-  )
-  return(control)
-}
-
 bipartiteDownloadControl <- function() {
   control<-downloadButton("bipartiteDownload",label = strings$value("LABEL_PLOT_DOWNLOAD"))
   return(control)

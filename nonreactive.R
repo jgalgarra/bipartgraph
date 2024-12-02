@@ -104,6 +104,71 @@ availableFilesDetails<-function(filesList) {
   return(filesDetails)
 }
 
+
+# Print file format
+PrintFileFormat <- function(plotlabel) {
+  values<-c("png","jpg","eps","tiff","svg")
+  names(values)<-values
+  control<-selectInput(
+    inputId   = paste0(plotlabel,"fileextension"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT")),
+    choices   = values,
+    selected  = "png",
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+# Downlad diagram size
+paperSizeControl <- function() {
+  values<-1:6
+  names(values)<-paste0("A", values)
+  control<-selectInput(
+    inputId   = "paperSize",
+    label     = controlLabel(strings$value("LABEL_PAPER_SIZE_CONTROL")),
+    choices   = values,
+    selected  = 4,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+#Paper orientation
+paperLandscape <- function() {
+  control<-checkboxInput(
+    inputId = "paperLandscape",
+    label   = controlLabel(strings$value("LABEL_PAPER_ORIENTATION")),
+    value   = TRUE
+  )
+  return(control)
+}
+
+
+# Ziggurat plot resolution
+PrintppiControl <- function(plotlabel) {
+  values<-c(72, 96, 150, 300, 600)
+  names(values)<-values
+  control<-selectInput(
+    inputId   = paste0(plotlabel,"ppi"),
+    label     = controlLabel(strings$value("LABEL_RESOLUTION_SIZE_CONTROL")),
+    choices   = values,
+    selected  = 300,
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+PrintDownloadControl <- function(plotlabel) {
+  control<-downloadButton(paste0(plotlabel,"Download"),label = strings$value("LABEL_PLOT_DOWNLOAD"))
+  return(control)
+}
+
+saveSVGControl <- function(plotlabel) {
+  control<-downloadButton(paste0(plotlabel,"saveSVG"),label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
+  return(control)
+}
+
+
 # Get the configurable options to print a static plot
 #   paperSize: 0-DINA0, 1-DINA1, ...
 #   ppi: pixels per inch
@@ -141,50 +206,39 @@ validateDiagramOptions<-function(options) {
   ))
 }
 
-# Print static ziggurat plot to file
-plotZigguratDiagram<-function(file, plot, options) {
-  type<-ifelse(options$cairo, "cairo", "windows")
-  pointsize<-12
-  if(is.null(zgg$landscape_plot))
-    zgg$landscape_plot <- TRUE
-  if (zgg$landscape_plot){
-    w <- options$height
-    h <- options$width
-  } else {
-    h <- options$height
-    w <- options$width
-  }
-  
-  if (options$ext=="png") {
-    png(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="jpg") {
-    jpeg(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="tiff") {
-    tiff(filename=file, type=type, width=w, height=h, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="eps"){
-    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi), fallback_resolution=options$ppi,
-           plot = print(plot),
-           device = cairo_ps)
-  }else if (options$ext=="svg"){
-    ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
-  }
-  
-  plot(plot)
-  dev.off()
-}
-
 # Print static plot to file
-plotStaticDiagram<-function(file, plot, options,myenv=zgg) {
+plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
   type<-ifelse(options$cairo, "cairo", "windows")
   pointsize<-12
-  if (!myenv$flip_results){
-    w <- options$height * 0.85
-    h <- options$width * 0.5
-  } else {
-    h <- options$height *0.85
-    w <- options$width * myenv$tot_height/myenv$tot_width
-  }
   mres = as.numeric(options$ppi)
+  if (plottype=="bipartite"){
+    if (!myenv$flip_results){
+      w <- options$height * 0.85
+      h <- options$width * 0.5
+    } else {
+      h <- options$height *0.85
+      w <- options$width * myenv$tot_height/myenv$tot_width
+    }
+  }
+  else if (plottype=="matrix"){
+    w=myenv$plot_width*mres
+    h=myenv$plot_height*mres
+    if (myenv$flip_results){
+      w = h
+      h = myenv$plot_width*mres
+    }
+  }
+  else if (plottype =="ziggurat"){
+    if(is.null(zgg$landscape_plot))
+      myenv$landscape_plot <- TRUE
+    if (myenv$landscape_plot){
+      w <- options$height
+      h <- options$width
+    } else {
+      h <- options$height
+      w <- options$width
+    }
+  }
   if (options$ext=="png") {
     png(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="jpg") {
@@ -202,33 +256,6 @@ plotStaticDiagram<-function(file, plot, options,myenv=zgg) {
   plot(plot)
   dev.off()
 }
-
-# Print polar plot to file
-plotpolarDiagram<-function(file, plot, options) {
-  type<-ifelse(options$cairo, "cairo", "windows")
-  pointsize<-12
-  #h <- options$height
-  w <- options$width
-  h <- 0.7*w # To avoid blank space over the plot
-  effectiveheight <- as.numeric(options$ppi) * h/300 
-  effectivewidth <- as.numeric(options$ppi) * h/300
-  if (options$ext=="png") {
-    png(filename=file, type=type, width=effectivewidth, height=effectiveheight, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="jpg") {
-    jpeg(filename=file, type=type, width=effectivewidth, height=effectiveheight, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="tiff") {
-    tiff(filename=file, type=type, width=effectivewidth, height=effectiveheight, units="px", res=options$ppi, pointsize=pointsize)
-  } else if (options$ext=="eps"){
-    ggsave(filename = file,width=effectivewidth, height=effectiveheight, fallback_resolution=options$ppi,
-           plot = print(plot),
-           device = cairo_ps)
-  }else if (options$ext=="svg"){
-    ggsave(filename = file,width=effectivewidth, height=effectiveheight)
-  }
-  plot(plot)
-  dev.off()
-}
-
 
 
 # Print PDF

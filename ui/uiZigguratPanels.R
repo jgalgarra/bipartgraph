@@ -18,7 +18,7 @@ downloadPanel <- function() {
       
       fluidRow(
         #column(3, paperSizeControl()),
-        column(3, zigguratppiControl()),
+        column(3, PrintppiControl("ziggurat")),
         column(2, paperLandscape()),
         column(2, zigguratShowTitleControl()),
         column(2, zigguratShowLegendControl())
@@ -27,7 +27,7 @@ downloadPanel <- function() {
       fluidRow(
         #column(3, zigguratBckgdColorControl()),
         column(3, zigguratAspectRatio()),
-        column(3, zigguratFileFormat()),
+        column(3, PrintFileFormat("ziggurat")),
         
       ),
       fluidRow(div(
@@ -36,7 +36,7 @@ downloadPanel <- function() {
       useShinyjs(),
       fluidRow(
         column(3, zigguratcodeDownloadControl()),
-        column(3, zigguratDownloadControl())
+        column(3, PrintDownloadControl("ziggurat"))
       )
     )
   return(panel)

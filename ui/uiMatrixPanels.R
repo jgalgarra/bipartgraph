@@ -29,13 +29,16 @@ matrixDiagramPanel <- function() {
   control<-fluidRow(valign="top",
     column(8,
       fluidRow(
-             column(4, matrixOrderby()),
+             column(2, matrixOrderby()),
+             column(2, matrixTextresizeControl() ),
+             column(2, matrixPlotresizeControl() ),
              column(1, matrixRotateControl()),
              column(1, matrixShowNamesControl()),
              column(1, matrixShowTitleControl()),
              column(1, matrixShowLegendControl()),
+      
              column(1, matrixWeightsControl()),
-             column(2, matrixTextresizeControl() ),
+             
 
       ),
       fluidRow(align="center",plotOutput("matrix",inline = FALSE))
@@ -63,20 +66,13 @@ matrixConfigPanel <- function() {
     fluidRow(
       column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
     ),
+    # fluidRow(
+    #   column(1, matrixShowTitleControl()),
+    #   column(1, matrixShowLegendControl()),
+    # ),
     fluidRow(
-      #column(2, matrixDisplayTextControl()),
-      column(2, matrixAlphaLevelControl()),
-      column(2, matrixFillNodesControl()),
-      column(2, matrixPrintTitleControl()),
-      column(2, matrixscreenwidthControl())
-    ),
-    fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_POLAR_LABELS_CONFIG_HEADER"), image="logos-flexline/labels.png"))
-    ),
-    fluidRow(
-      column(3, matrixLabelsSizeControl("Title", strings$value("LABEL_POLAR_TITLE_LABEL_SIZE_CONTROL"), 16)),
-      column(3, matrixLabelsSizeControl("Legend", strings$value("LABEL_POLAR_LEGEND_LABEL_SIZE_CONTROL"), 10)),
-      column(3, matrixLabelsSizeControl("LegendTitle", strings$value("LABEL_POLAR_LEGEND_TITLE_LABEL_SIZE_CONTROL"), 10))
+      column(2, matrixColorControl("GuildA", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA2)),
+      column(2, matrixColorControl("GuildB", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB2)),
     )
   )
   return(panel)
@@ -85,15 +81,12 @@ matrixConfigPanel <- function() {
 matrixdownloadPanel <- function() {
   panel<-fluidRow(
     fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
-    ),
-    fluidRow(
-      column(3, matrixppiControl()),
-      column(3, matrixFileFormat())
+      column(3, PrintppiControl("matrix")),
+      column(3, PrintFileFormat("matrix"))
     ),
     fluidRow(
       column(3,matrixcodeDownloadControl()),
-      column(3,matrixDownloadControl())
+      column(3,PrintDownloadControl("matrix"))
     )
   )
 }

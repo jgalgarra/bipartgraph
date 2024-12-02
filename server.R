@@ -859,7 +859,7 @@ shinyServer(function(input, output, session) {
     progress<-shiny::Progress$new()
     progress$set(message="Matrix...", value = 0)
     on.exit(progress$close())
-    # Disables polar panel
+    # Disables matrix panel
     session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=TRUE))
     # Plots matrix_graph
     p <- matrix_graph("data/",input$selectedDataFile,
@@ -873,13 +873,16 @@ shinyServer(function(input, output, session) {
                       label_size = 18 * input$matrixTextresize,
                       label_strguilda = input$DataLabelGuildAControl,
                       label_strguildb = input$DataLabelGuildBControl,
+                      color_guild_a = input$matrixColorGuildA,
+                      color_guild_b = input$matrixColorGuildB,
                       progress            = progress)
+    # Enables matrix container
+    session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=FALSE))
+    shinyjs::enable("matrixDownload")
     if (p$binary_network)
       shinyjs::hide("matrixWeights")
     else
       shinyjs::show("matrixWeights")
-    # Enables matrix plot container
-    session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=FALSE))
     return(p)
   })
   
@@ -889,7 +892,7 @@ shinyServer(function(input, output, session) {
     # Return a list containing the filename
     list(src = normalizePath(p[["matrix_file"]]),
          contentType = 'image/png',
-         width = paste0(min(100,1.1*round(100*ifelse(mat$mat_argg$flip_matrix,1/p$aspect,p$aspect))),"%"),#input$screenwidthControl,
+         width = paste0(0.01*input$matrixPlotresize*min(100,1.1*round(100*ifelse(mat$mat_argg$flip_matrix,1/p$aspect,p$aspect))),"%"),
          # input$screenwidthControl,
          alt = "Matrix graph")
   }, deleteFile = FALSE)
@@ -958,6 +961,12 @@ shinyServer(function(input, output, session) {
                                    input$polarfileextension, TRUE, TRUE))
   })
   
+  matrixdiagramOptions<-reactive({
+    return(calculateDiagramOptions(4, as.numeric(input$matrixppi), 
+                                   input$matrixfileextension, TRUE, TRUE))
+  })
+  
+  
   
   output$zigguratsaveSVG<-downloadHandler(
     filename=function() {
@@ -995,7 +1004,7 @@ shinyServer(function(input, output, session) {
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(4,#as.numeric(input$paperSize), 
+      opt <- calculateDiagramOptions(4, 
                                      as.numeric(input$zigguratppi), 
                                      input$zigguratfileextension, input$zigguratShowTitle, input$zigguratShowTitle)
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat." , input$zigguratfileextension)
@@ -1009,7 +1018,7 @@ shinyServer(function(input, output, session) {
       # Gets the diagram
       z<-ziggurat()
       plot<-z$plot
-      plotZigguratDiagram(file, plot, myoptions)
+      plotStaticDiagram(file, plot,myoptions,"ziggurat",myenv=zgg)
     },
     contentType=paste0("image/", zigguratdiagramOptions()$ext)
   )
@@ -1033,7 +1042,7 @@ shinyServer(function(input, output, session) {
       if (input$bipartiteVerticalLayout){
         bplot <- bplot + coord_fixed() + scale_x_reverse() + coord_flip()
       }
-      plotStaticDiagram(file, bplot,myoptions,myenv=bpp)
+      plotStaticDiagram(file, bplot,myoptions,"bipartite",myenv=bpp)
     },
     contentType=paste0("image/", bipartitediagramOptions()$ext)
   )
@@ -1041,7 +1050,6 @@ shinyServer(function(input, output, session) {
   # Download the polar plot
   output$polarDownload <- downloadHandler(
     filename=function() {
-      #opt <- calculateDiagramOptions(as.numeric(input$paperSize), as.numeric(input$polarppi), input$polarfileextension)
       opt <- calculateDiagramOptions(4, as.numeric(input$polarppi), input$polarfileextension, input$show_title, input$show_legend)
       file<-paste0(get_network_name(input$selectedDataFile), "-polar." , input$polarfileextension, input$show_title, input$show_legend)
       return(file)
@@ -1056,6 +1064,27 @@ shinyServer(function(input, output, session) {
       p <- polar()
       plot <- p$full_plot
       plotpolarDiagram(file, plot, myoptions)
+    },
+    contentType=paste0("image/", input$polarfileextension)
+  )
+  
+  # Download the matrix plot
+  output$matrixDownload <- downloadHandler(
+    filename=function() {
+      opt <- calculateDiagramOptions(4, as.numeric(input$matrixppi), input$matrixfileextension, input$show_title, input$show_legend)
+      file<-paste0(get_network_name(input$selectedDataFile), "MATRIX_orderby_",input$matrixOrderby,".",input$matrixfileextension)
+      return(file)
+    },
+    content <- function(file) {
+      myoptions<-matrixdiagramOptions()
+      myoptions$width     <- 10*as.numeric(input$matrixppi) #options$width*ppi
+      myoptions$height    <- 10*as.numeric(input$matrixppi) #options$height*ppi
+      validateDiagramOptions(myoptions)
+      myoptions$ppi <- input$matrixppi
+      myoptions$ext <- input$matrixfileextension
+      p <- matrix()
+      plot <- p$plot
+      plotStaticDiagram(file, plot,myoptions,"matrix",myenv=p)
     },
     contentType=paste0("image/", input$polarfileextension)
   )
@@ -1094,9 +1123,7 @@ shinyServer(function(input, output, session) {
       comando <- paste0(comando,"gshortened = c(\"",llamada$polar_argg$gshortened[1],"\",\"",llamada$polar_argg$gshortened[2],"\")")
       comando <- addCallParam(comando,llamada$polar_argg,"show_histograms")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_title")
-      #comando <- addCallParam(comando,llamada$polar_argg,"lsize_axis")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_legend")
-      #comando <- addCallParam(comando,llamada$polar_argg,"lsize_axis_title")
       comando <- addCallParam(comando,llamada$polar_argg,"file_name_append",quote = TRUE)
       comando <- addCallParam(comando,llamada$polar_argg,"print_title")
       comando <- paste0(comando,",progress = NULL")
@@ -1110,6 +1137,43 @@ shinyServer(function(input, output, session) {
     },
     contentType="text/plain"
   )
+  
+  # Downloads the polar generating code
+  output$matrixcodeDownload <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-matrix-code.txt")
+      return(file)
+    },
+    content <- function(file) {
+      mp <- matrix()
+      dir.create("tmpcode/", showWarnings = FALSE)
+      sink("tmpcode/codematrix.txt")
+      llamada <- mp$mat_argg
+
+      comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\",")
+      comando <- paste0(comando, "orderby = \"",llamada$orderby,"\",")
+      comando <- paste0(comando, "label_strguilda = \"",llamada$label_strguilda,"\",")
+      comando <- paste0(comando, "label_strguildb = \"",llamada$label_strguildb,"\",")
+      comando <- paste0(comando, "label_size = ",llamada$label_size,",")
+      comando <- paste0(comando, "color_guild_a = \"",llamada$color_guild_a,"\",")
+      comando <- paste0(comando, "color_guild_b = \"",llamada$color_guild_b,"\",")
+      comando <- paste0(comando, "color_links = \"",llamada$color_links,"\",")
+      comando <- paste0(comando, "flip_matrix = ",llamada$flip_matrix,",")
+      comando <- paste0(comando, "links_weight = ",llamada$links_weight,",")
+      comando <- paste0(comando, "show_species_names = ",llamada$show_species_names,",")
+      comando <- paste0(comando, "show_title = ",llamada$show_title,",")
+      comando <- paste0(comando, "show_legend = ",llamada$show_legend,",")
+      comando <- paste0(comando, "print_to_file = ",llamada$print_to_file,",")
+      comando <- paste0(comando, "ppi = ",llamada$ppi,",")
+      comando <- paste0(comando,"progress = NULL")
+      comando <- paste0(comando,")")
+      cat(comando)
+      sink()
+      file.copy("tmpcode/codematrix.txt", file)
+    },
+    contentType="text/plain"
+  )
+  
   
   #Downloads the ziggurat generating code
   output$zigguratcodeDownload <- downloadHandler(
