@@ -619,7 +619,6 @@ shinyServer(function(input, output, session) {
       strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
-    #create_zigg_report(bplot,"www/reports/templates/index.html",paste0("www/reports/bipartite_",bpp$network_name,"_report.html"))
     details <- paste(bpp$network_name,"&nbsp;",strw,"&nbsp;",
                      bpp$result_analysis$links,"&nbsp;",
                      strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
@@ -671,9 +670,10 @@ shinyServer(function(input, output, session) {
   
   # Network information
   output$networkinfoDetailpolar<-renderUI({
-    p <- polar()
-    nname <- get_network_name(p$polar_argg$red)
-    create_polar_report(p,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
+    pol <- polar()
+    nname <- get_network_name(pol$polar_argg$red)
+    create_polar_report(pol,"www/reports/templates/index.html",
+                        paste0("www/reports/polar_",nname,"_report.html"))
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
@@ -695,10 +695,28 @@ shinyServer(function(input, output, session) {
   })
   
   # Network information
-  output$networknamebip<-renderUI({
-    z <- ziggurat()
-    if (exists("zgg") && !is.null(zgg))
-      return(HTML( paste( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",strings$value("LABEL_NETWORK"),": ",zgg$network_name,"</B>") ) )
+  output$networknamepolar<-renderUI({
+    pol <- polar()
+    if (exists("pol") && !is.null(pol))
+      return(HTML( paste( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",strings$value("LABEL_NETWORK"),": ",pol$network_name,"</B>") ) )
+    else
+      return(HTML("                                    "))
+  })
+  
+  
+  output$networknamematrix<-renderUI({
+    mp <- matrix()
+    if (exists("mat") && !is.null(mat))
+      return(HTML( paste( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",strings$value("LABEL_NETWORK"),": ",mat$network_name,"</B>") ) )
+    else
+      return(HTML("                                    "))
+  })
+  
+  # Network information
+  output$networknamebipartite<-renderUI({
+    mybp <- bipartite()
+    if (exists("bpp") && !is.null(bpp))
+      return(HTML( paste( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",strings$value("LABEL_NETWORK"),": ",bpp$network_name,"</B>") ) )
     else
       return(HTML("                                    "))
   })
@@ -777,10 +795,9 @@ shinyServer(function(input, output, session) {
     
     # Plots polar graph and histograms
     p<-polar_graph(
-      red                 = input$selectedDataFile,
-      directorystr        = paste0(dataDir, "/"),
-      fill_nodes          = input$polarFillNodesControl,
-      print_title         = input$polarPrintTitleControl, 
+      "data/",input$selectedDataFile,
+      fill_nodes          = input$polarFillNodes,
+      print_title         = input$polarPrintTitle, 
       alpha_nodes         = input$polarAlphaLevel,
       plotsdir            = "tmppolar/",
       print_to_file       = TRUE,
@@ -813,8 +830,8 @@ shinyServer(function(input, output, session) {
     # Return a list containing the filename
     list(src = normalizePath(p["polar_file"][[1]]),
          contentType = 'image/png',
-         width = input$screenwidthControl,
-         height = input$screenwidthControl,
+         width = 600,#input$screenwidthControl,
+         height = 600,#input$screenwidthControl,
          alt = "Polar graph")
   }, deleteFile = FALSE)
   
@@ -837,13 +854,13 @@ shinyServer(function(input, output, session) {
   # Polar guild A labels
   output$networkinfoDetailpolarA<-renderUI({
     p <- polar()
-    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],p$result_analysis$matrix[1,],p$polar_argg$red)
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],p$result_analysis$matrix[1,],p$polar_argg$filename)
     return(HTML(mdetails))
   })
   
   output$networkinfoDetailpolarB<-renderUI({
     p <- polar()
-    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1],p$polar_argg$red)
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1],p$polar_argg$filename)
     return(HTML(mdetails))
   })
 
@@ -918,8 +935,7 @@ shinyServer(function(input, output, session) {
   output$networkinfoDetailmatrix<-renderUI({
     p <- matrix()
     nname <- get_network_name(p$mat_argg$filename)
-    #create_polar_report(p,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
-    
+   
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
     
@@ -934,9 +950,9 @@ shinyServer(function(input, output, session) {
   
   # Network information
   output$networkinfoDetailpolar<-renderUI({
-    p <- polar()
-    nname <- get_network_name(p$polar_argg$red)
-    create_polar_report(p,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
+    pol <- polar()
+    nname <- get_network_name(pol$polar_argg$filename)
+    create_polar_report(pol,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
@@ -1063,7 +1079,7 @@ shinyServer(function(input, output, session) {
       myoptions$ext <- input$polarfileextension
       p <- polar()
       plot <- p$full_plot
-      plotpolarDiagram(file, plot, myoptions)
+      plotStaticDiagram(file, plot,myoptions,"polar",myenv=p)
     },
     contentType=paste0("image/", input$polarfileextension)
   )
@@ -1116,15 +1132,12 @@ shinyServer(function(input, output, session) {
       dir.create("tmpcode/", showWarnings = FALSE)
       sink("tmpcode/codepolar.txt")
       llamada <- p["polar_argg"]
-      comando <- paste0("polg <- polar_graph(\"",llamada$polar_argg$red,"\",")
-      comando <- paste0(comando, "directorystr = \"",llamada$polar_argg$directorystr,"\"")
+      comando <- paste0("polg <- polar_graph(\"",llamada$polar_argg$datadir,"\",\"",llamada$polar_argg$filename)
       comando <- paste0(comando,",plotsdir = \"plot_results/\",print_to_file = TRUE,")
       comando <- paste0(comando,"glabels = c(\"",llamada$polar_argg$glabels[1],"\",\"",llamada$polar_argg$glabels[2],"\"),")
       comando <- paste0(comando,"gshortened = c(\"",llamada$polar_argg$gshortened[1],"\",\"",llamada$polar_argg$gshortened[2],"\")")
-      comando <- addCallParam(comando,llamada$polar_argg,"show_histograms")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_title")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_legend")
-      comando <- addCallParam(comando,llamada$polar_argg,"file_name_append",quote = TRUE)
       comando <- addCallParam(comando,llamada$polar_argg,"print_title")
       comando <- paste0(comando,",progress = NULL")
       comando <- addCallParam(comando,llamada$polar_argg,"fill_nodes")
@@ -1320,6 +1333,28 @@ shinyServer(function(input, output, session) {
     contentType="text/plain"
   )
   
+  #Downloads the polar plot configuration parameters
+  output$polarsavePolarConfigFile <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-polar-plot-config.json")
+      return(file)
+    },
+    content <- function(file){ 
+      pol <- polar()
+      dir.create("tmpcode/", showWarnings = FALSE)
+      myargg <- pol$polar_argg[1:(length(pol$polar_argg)-1)]
+      myargg$network_name <- pol$network_name
+      myargg$style <- "polar"
+      myargg$plotsdir <-""
+      jsonbpp <- jsonlite::toJSON(x = myargg, pretty = TRUE, force = TRUE)
+      cat(paste(jsonbpp,"\n"), file = "tmpcode/polar.json")
+      file.copy("tmpcode/polar.json",file)
+    },
+    contentType="text/plain"
+  )
+  
+  
+  
   #Downloads the bipartite plot configuration parameters
   output$bipartitesaveBipConfigFile <- downloadHandler(
     filename=function() {
@@ -1373,12 +1408,25 @@ output$contentsfileconfigzigplot <- reactive({
       filePath <- input$zigguratloadZigConfigFile$datapath
       contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
       contentsfileconfigzigplot <- paste("JSON CONTENTS","\n",contentsfileconfigzigplot)
+      result_validation ="FILE ERROR"
       if (!grepl(".json",filePath))
         result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
       else {
-        json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-        fields_json_data <- names(json_data)
-        result_validation <- validateconfigfile(json_data,zgg$network_name,'ziggurat')
+        tryCatch(
+          {
+            json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+            fields_json_data <- names(json_data)
+            result_validation <- validateconfigfile(json_data,zgg$network_name,'ziggurat')
+          },
+          error = function(cond) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",cond))
+          },
+          warning = function(w) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",w))
+          }
+        )
       }
       if (result_validation=="OK"){
         parseJSONConfig(controls_jsonfields,session,json_data,'ziggurat')
@@ -1396,13 +1444,27 @@ output$contentsfileconfigbipplot <- reactive({
     filePath <- input$bipartiteloadBipConfigFile$datapath
     contentsfileconfigbipplot <- paste(readLines(filePath), collapse = "\n")
     contentsfileconfigbipplot <- paste("JSON CONTENTS","\n",contentsfileconfigbipplot)
+    result_validation ="FILE ERROR"
     if (!grepl(".json",filePath))
       result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
     else {
-      json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-      fields_json_data <- names(json_data)
-      result_validation <- validateconfigfile(json_data,bpp$network_name,'bipartite')
+      tryCatch(
+        {
+          json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+          fields_json_data <- names(json_data)
+          result_validation <- validateconfigfile(json_data,bpp$network_name,'bipartite')
+        },
+        error = function(cond) {
+          result_validation = "Invalid_JSON"
+          message(paste("Invalid JSON",cond))
+          },
+        warning = function(w) {
+          result_validation = "Invalid_JSON"
+          message(paste("Invalid JSON",w))
+        }
+      )
     }
+    
     if (result_validation=="OK"){
       parseJSONConfig(controls_jsonfields,session,json_data,'bipartite')
       if (input$bipartiteshowBipConfigFile){
@@ -1420,22 +1482,71 @@ output$contentsfileconfigmatrixplot <- reactive({
     filePath <- input$matrixloadMatrixConfigFile$datapath
     contentsfileconfigmatrixplot <- paste(readLines(filePath), collapse = "\n")
     contentsfileconfigmatrixplot <- paste("JSON CONTENTS","\n",contentsfileconfigmatrixplot)
+    result_validation ="FILE ERROR"
     if (!grepl(".json",filePath))
       result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
     else {
-      json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-      fields_json_data <- names(json_data)
-      result_validation <- validateconfigfile(json_data,mat$network_name,'matrix')
+      tryCatch(
+        {
+          json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+          fields_json_data <- names(json_data)
+          result_validation <- validateconfigfile(json_data,mat$network_name,'matrix')
+        },
+        error = function(cond) {
+          result_validation = "Invalid_JSON"
+          message(paste("Invalid JSON",cond))
+          },
+        warning = function(w) {
+          result_validation = "Invalid_JSON"
+          message(paste("Invalid JSON",w))
+        }
+      )
     }
     if (result_validation=="OK"){
       parseJSONConfig(controls_jsonfields,session,json_data,'matrix')
       if (input$matrixshowMatrixConfigFile){
-        print("parece ques só")
         contentsfileconfigmatrixplot
       }
     }
     else
       contentsfileconfigmatrixplot <- paste(result_validation,"\n\n",contentsfileconfigmatrixplot)
+  }
+})
+
+output$contentsfileconfigpolarplot <- reactive({
+  if (!is.null(input$polarloadPolarConfigFile)){
+    pol<-polar()
+    filePath <- input$polarloadPolarConfigFile$datapath
+    contentsfileconfigpolarplot <- paste(readLines(filePath), collapse = "\n")
+    contentsfileconfigpolarplot <- paste("JSON CONTENTS","\n",contentsfileconfigpolarplot)
+    result_validation ="FILE ERROR"
+    if (!grepl(".json",filePath))
+      result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+    else {
+      tryCatch(
+        {
+          json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+          fields_json_data <- names(json_data)
+          result_validation <- validateconfigfile(json_data,pol$network_name,'polar')
+        },
+        error = function(cond) {
+          result_validation = "Invalid_JSON"
+          message(paste("Invalid JSON",cond))
+        },
+        warning = function(w) {
+          result_validation = "Invalid_JSON"
+          message(paste("Invalid JSON",w))
+        }
+      )
+    }
+    if (result_validation=="OK"){
+      parseJSONConfig(controls_jsonfields,session,json_data,'polar')
+      if (input$polarshowPolarConfigFile){
+        contentsfileconfigpolarplot
+      }
+    }
+    else
+      contentsfileconfigpolarplot <- paste(result_validation,"\n\n",contentsfileconfigpolarplot)
   }
 })
 

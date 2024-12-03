@@ -114,3 +114,11 @@
 "matrixShowNames";"show_species_names";"checkbox";1;0;"none"
 "matrixShowTitle";"show_title";"checkbox";1;0;"none"
 "matrixShowLegend";"show_legend";"checkbox";1;0;"none"
+"polarDisplayText";"printable_labels";"slider";1;0;"none"
+"polarAlphaLevel";"alpha_nodes";"slider";1;0;"none"
+"polarFillNodes";"fill_nodes";"checkbox";1;0;"none"
+"polarPrintTitle";"print_title";"checkbox";1;0;"none"
+"polarLabelsSizeTitle";"lsize_title";"slider";1;0;"none"
+"polarLabelsSizeLegend";"lsize_legend";"slider";1;0;"none"
+"polarLabelsSizeLegendTitle";"lsize_legend_title";"slider";1;0;"none"
+

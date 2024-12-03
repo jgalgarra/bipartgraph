@@ -124,13 +124,6 @@ zigguratConfigPanel <- function() {
     ),
     tabPanel(id="tab_vis",
              title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
-             # fluidRow(
-             #   column(12, groupHeader(text= strings$value("LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER"), image="logos-flexline/configure.png"))
-             # ),
-             # fluidRow(
-             #   column(2,zigguratSvgScaleFactorControl() ),
-             #   column(2, zigguratSVGup())
-             # ),
              fluidRow(
                column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
              ),
@@ -147,7 +140,6 @@ zigguratConfigPanel <- function() {
                column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
              ),
              fluidRow(
-               #column(2, zigguratkcoremaxorder()),
                column(2, zigguratHeightExpandControl()),
                column(2, ziggurat1shellExpandControl()),
                column(2, zigguratCoreMaxHExp()),

@@ -97,9 +97,9 @@ bipartiteDiagramPanel <- function() {
 bipartiteConfigPanel <- function() {
   panel<-fluidRow(
     tabsetPanel(
-    # fluidRow(
-    #   uiOutput("networknamebip")
-    # ),
+    fluidRow(
+     uiOutput("networknamebipartite")
+    ),
     tabPanel(id="tab_vis_bip",
             title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
     fluidRow(

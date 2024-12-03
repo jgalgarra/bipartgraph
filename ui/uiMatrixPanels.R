@@ -64,18 +64,14 @@ matrixDiagramPanel <- function() {
 matrixConfigPanel <- function() {
   panel<-fluidRow(
             tabsetPanel(
-                # fluidRow(
-                #   uiOutput("networknamebip")
-                # ),
+                fluidRow(
+                 uiOutput("networknamematrix")
+                ),
                 tabPanel(id="tab_vis_bip",
                    title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
                    fluidRow(
                     column(12, groupHeader(text=strings$value("LABEL_POLAR_GENERAL_CONFIG_HEADER"), image="logos-flexline/configure.png"))
                     ),
-            # fluidRow(
-            #   column(1, matrixShowTitleControl()),
-            #   column(1, matrixShowLegendControl()),
-            # ),
                   fluidRow(
                     column(2, matrixColorControl("GuildA", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA2)),
                     column(2, matrixColorControl("GuildB", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB2)),

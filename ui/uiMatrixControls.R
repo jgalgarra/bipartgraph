@@ -121,7 +121,7 @@ matrixcodeDownloadControl <- function() {
   return(control)
 }
 
-# Save bipartite plot config parameters
+# Save matrix plot config parameters
 matrixsaveMatrixConfigFileControl <- function() {
   control<-downloadButton("matrixsaveMatrixConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
   return(control)

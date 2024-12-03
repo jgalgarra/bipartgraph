@@ -44,7 +44,7 @@ downloadLink <- function() {
 # Fill nodes
 polarFillNodesControl <- function() {
   control<-checkboxInput(
-    inputId = "polarFillNodesControl",
+    inputId = "polarFillNodes",
     label   = controlLabel(strings$value("LABEL_POLAR_FILL_NODES")),
     value   = FALSE
   )
@@ -54,7 +54,7 @@ polarFillNodesControl <- function() {
 # Show Title
 polarPrintTitleControl <- function() {
   control<-checkboxInput(
-    inputId = "polarPrintTitleControl",
+    inputId = "polarPrintTitle",
     label   = controlLabel(strings$value("LABEL_POLAR_SHOW_NAME")),
     value   = FALSE
   )
@@ -103,5 +103,31 @@ polarscreenwidthControl <- function() {
 
 polarcodeDownloadControl <- function() {
   control<-downloadButton("polarcodeDownload",label = strings$value("LABEL_POLAR_CODE_DOWNLOAD"))
+  return(control)
+}
+
+# Save matrix plot config parameters
+polarsavePolarConfigFileControl <- function() {
+  control<-downloadButton("polarsavePolarConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
+  return(control)
+}
+
+#Load matrix plot config parameters
+polarloadPolarConfigFileControl <- function() {
+  control<-fileInput(
+    inputId   = "polarloadPolarConfigFile",
+    accept    = c(".json"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCONFIG_CONTROL")),
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+polarshowPolarConfigFileControl <- function() {
+  control<-checkboxInput(
+    inputId = "polarshowPolarConfigFile",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
+    value   = FALSE
+  )
   return(control)
 }

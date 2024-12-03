@@ -319,6 +319,8 @@ validateconfigfile <- function(jsondata,network_name,plottype){
   else
     fileplottype <- jsondata$style
   configname <- get_network_name(jsondata$filename)
+  if (is.null(configname))
+    return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
   if (fileplottype!=plottype){
     return(static_error_msg("MESSAGE_ERROR_JSON_PLOTTYPE"))
   }
@@ -375,9 +377,11 @@ clean_species_names <- function(listspecies,nnetwork){
 }
 
 create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
+  
   fileplot <- gsub("_report.html",".svg",output_file)
   ggsave(filename = fileplot,width=w, height=h)
-  nname <- get_network_name(p$polar_argg$red)
+  
+  nname <- get_network_name(p$polar_argg$filename)
   # Read the contents of the input file
   text <- readLines(input_file, warn = FALSE)
   modified_text <- gsub("IMG_STR_NETWORK_FILE", paste0("polar_",nname), text)
@@ -458,6 +462,8 @@ parseJSONConfig <- function(controls_jsonfields,session,json_data,plottype){
     myplottype <- plottype
   controls_jsonfields <- controls_jsonfields[(grepl(myplottype,controls_jsonfields$ControlName)|grepl("DataLabel",controls_jsonfields$ControlName)),]
   for (i in 1:nrow(controls_jsonfields)){
+    print(paste(controls_jsonfields$ControlName[i],
+                json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]))
         if (controls_jsonfields$ControlType[i] == "slider")
           updateSliderInput(session, controls_jsonfields$ControlName[i],
                             value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
