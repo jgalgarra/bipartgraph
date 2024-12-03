@@ -120,3 +120,29 @@ matrixcodeDownloadControl <- function() {
   control<-downloadButton("matrixcodeDownload",label = strings$value("LABEL_ZIGGURAT_CODE_DOWNLOAD"))
   return(control)
 }
+
+# Save bipartite plot config parameters
+matrixsaveMatrixConfigFileControl <- function() {
+  control<-downloadButton("matrixsaveMatrixConfigFile",label = strings$value("LABEL_ZIGGURAT_SAVECONFIG_CONTROL"))
+  return(control)
+}
+
+#Load matrix plot config parameters
+matrixloadMatrixConfigFileControl <- function() {
+  control<-fileInput(
+    inputId   = "matrixloadMatrixConfigFile",
+    accept    = c(".json"),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCONFIG_CONTROL")),
+    multiple  = FALSE
+  )
+  return(control)
+}
+
+matrixshowMatrixConfigFileControl <- function() {
+  control<-checkboxInput(
+    inputId = "matrixshowMatrixConfigFile",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL")),
+    value   = FALSE
+  )
+  return(control)
+}

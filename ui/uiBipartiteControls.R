@@ -12,7 +12,7 @@ library(colourpicker)
 bipartiteSvgScaleFactorControl <- function() {
   control<-sliderInput(
     inputId = "bipartiteSvgScaleFactor",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_SVG_SCALE")),
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_TEXT_SCALE")),
     min     = 0.2,
     max     = 5,
     value   = 1,

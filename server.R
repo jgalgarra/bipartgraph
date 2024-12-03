@@ -686,7 +686,7 @@ shinyServer(function(input, output, session) {
   })
   
   # Network information
-  output$networkname<-renderUI({
+  output$networknamezigg<-renderUI({
     z <- ziggurat()
     if (exists("zgg") && !is.null(zgg))
       return(HTML( paste( "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",strings$value("LABEL_NETWORK"),": ",zgg$network_name,"</B>") ) )
@@ -1336,6 +1336,26 @@ shinyServer(function(input, output, session) {
     contentType="text/plain"
   )
   
+  #Downloads the matrix plot configuration parameters
+  output$matrixsaveMatrixConfigFile <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-matrix-plot-config.json")
+      return(file)
+    },
+    content <- function(file) {
+      dir.create("tmpcode/", showWarnings = FALSE)
+      myargg <- mat$mat_argg[1:(length(mat$mat_argg)-1)]
+      myargg$plotsdir <-""
+      argsfiltered <- myargg[!grepl("function",myargg)]
+      argsfiltered$network_name <- mat$network_name
+      print(argsfiltered)
+      jsonbpp <- jsonlite::toJSON(x = argsfiltered, pretty = TRUE, force = TRUE)
+      cat(paste(jsonbpp,"\n"), file = "tmpcode/mat.json")
+      file.copy("tmpcode/mat.json",file)
+    },
+    contentType="text/plain"
+  )
+  
   output$language <- reactive({
     updateSelectInput(session, selectLanguage,
                       choices = c("en", "es"),
@@ -1351,7 +1371,6 @@ shinyServer(function(input, output, session) {
 output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
       filePath <- input$zigguratloadZigConfigFile$datapath
-      print(filePath)
       contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
       contentsfileconfigzigplot <- paste("JSON CONTENTS","\n",contentsfileconfigzigplot)
       if (!grepl(".json",filePath))
@@ -1362,7 +1381,7 @@ output$contentsfileconfigzigplot <- reactive({
         result_validation <- validateconfigfile(json_data,zgg$network_name,'ziggurat')
       }
       if (result_validation=="OK"){
-        parseJSONConfig(controls_jsonfields,session,json_data)
+        parseJSONConfig(controls_jsonfields,session,json_data,'ziggurat')
         if (input$zigguratshowZigConfigFile){
           contentsfileconfigzigplot
         }
@@ -1385,7 +1404,7 @@ output$contentsfileconfigbipplot <- reactive({
       result_validation <- validateconfigfile(json_data,bpp$network_name,'bipartite')
     }
     if (result_validation=="OK"){
-      parseJSONConfig(controls_jsonfields,session,json_data)
+      parseJSONConfig(controls_jsonfields,session,json_data,'bipartite')
       if (input$bipartiteshowBipConfigFile){
         contentsfileconfigbipplot
       }
@@ -1395,5 +1414,30 @@ output$contentsfileconfigbipplot <- reactive({
   }
 })
 
-  
+
+output$contentsfileconfigmatrixplot <- reactive({
+  if (!is.null(input$matrixloadMatrixConfigFile)){
+    filePath <- input$matrixloadMatrixConfigFile$datapath
+    contentsfileconfigmatrixplot <- paste(readLines(filePath), collapse = "\n")
+    contentsfileconfigmatrixplot <- paste("JSON CONTENTS","\n",contentsfileconfigmatrixplot)
+    if (!grepl(".json",filePath))
+      result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+    else {
+      json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+      fields_json_data <- names(json_data)
+      result_validation <- validateconfigfile(json_data,mat$network_name,'matrix')
+    }
+    if (result_validation=="OK"){
+      parseJSONConfig(controls_jsonfields,session,json_data,'matrix')
+      if (input$matrixshowMatrixConfigFile){
+        print("parece ques só")
+        contentsfileconfigmatrixplot
+      }
+    }
+    else
+      contentsfileconfigmatrixplot <- paste(result_validation,"\n\n",contentsfileconfigmatrixplot)
+  }
+})
+
+
 })

@@ -168,7 +168,7 @@
 "LABEL_DOWNLOAD_SIZE_HEADER","Tamaño de los gráficos","Plot  size"
 "LABEL_ZIGGURAT_LOADSAVE_PANEL","Leer/Guardar configuration","Load/Save Config"
 "LABEL_ZIGGURAT_SAVECONFIG_CONTROL","Guardar configuración","Save plot configuration"
-"LABEL_ZIGGURAT_LOADCONFIG_CONTROL","Cargar configuración zigurat","Load ziggurat plot config"
+"LABEL_ZIGGURAT_LOADCONFIG_CONTROL","Cargar configuración","Load plot config"
 "LABEL_ZIGGURAT_SHOW_CONFIG_FILE_CONTROL","Mostrar contenidos","Show contents"
 "LABEL_ZIGGURAT_DOWNLOAD_CONTROL","Descargar gráfico zigurat","Download ziggurat plot"
 "LABEL_ZIGGURAT_DOWNLOAD_PLOT_FILE_FORMAT","Formato del fichero","File format"

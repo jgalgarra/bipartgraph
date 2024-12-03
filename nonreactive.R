@@ -314,13 +314,13 @@ static_error_msg <- function(mykey){
 
 # Check that configuration file contents are correct
 validateconfigfile <- function(jsondata,network_name,plottype){
+  if (jsondata$style %in% valPlottype)
+    fileplottype <- "bipartite"
+  else
+    fileplottype <- jsondata$style
   configname <- get_network_name(jsondata$filename)
-  if (jsondata$style=='ziggurat'){
-    if (plottype!='ziggurat')
-      return(static_error_msg("MESSAGE_ERROR_JSON_PLOTTYPE"))
-  } else {
-    if (plottype=='ziggurat')
-      return(static_error_msg("MESSAGE_ERROR_JSON_PLOTTYPE"))
+  if (fileplottype!=plottype){
+    return(static_error_msg("MESSAGE_ERROR_JSON_PLOTTYPE"))
   }
   if (configname!=network_name){
     return(static_error_msg("MESSAGE_ERROR_JSON_NNAME"))
@@ -451,7 +451,12 @@ updckbx <- function(idchkbx,jsonvalue,session){
     value = jsonvalue
   )
 }
-parseJSONConfig <- function(controls_jsonfields,session,json_data){
+parseJSONConfig <- function(controls_jsonfields,session,json_data,plottype){
+  if (plottype %in% valPlottype)
+    myplottype <- "bipartite"
+  else
+    myplottype <- plottype
+  controls_jsonfields <- controls_jsonfields[(grepl(myplottype,controls_jsonfields$ControlName)|grepl("DataLabel",controls_jsonfields$ControlName)),]
   for (i in 1:nrow(controls_jsonfields)){
         if (controls_jsonfields$ControlType[i] == "slider")
           updateSliderInput(session, controls_jsonfields$ControlName[i],

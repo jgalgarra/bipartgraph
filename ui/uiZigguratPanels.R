@@ -120,7 +120,7 @@ zigguratDiagramPanel <- function() {
 zigguratConfigPanel <- function() {
   panel<-tabsetPanel(
     fluidRow(
-      uiOutput("networkname")
+      uiOutput("networknamezigg")
     ),
     tabPanel(id="tab_vis",
              title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
