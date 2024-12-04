@@ -47,7 +47,7 @@ bipartiteDownloadPanel <- function() {
 # Ziggurat graph panel
 bipartiteDiagramPanel <- function() {
   control<- fluidRow(align="left",
-                     column(10,
+                     column(8,
                             fluidRow(
                               column(2, bipartiteSvgScaleFactorControl() ),
                               column(2, bipartiteNodeRescale()),
@@ -83,11 +83,19 @@ bipartiteDiagramPanel <- function() {
                             )
                      ),
                      
-                     column(2,
-                            fluidRow(align="left",
-                                     uiOutput("networkinfoDetailBip")
+
+                     column(4,
+                            fluidRow(
+                              uiOutput("networkinfoDetailbipartite")
                             ),
-                            
+                            fluidRow(
+                              column(5,tags$small(
+                                uiOutput("networkinfoDetailbipartiteA")
+                              )),
+                               column(5,tags$small(
+                                 uiOutput("networkinfoDetailbipartiteB")
+                               ))
+                             )
                      )
   )
   return(control)

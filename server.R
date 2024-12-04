@@ -26,8 +26,8 @@ source("nonreactive.R")
 
 shinyServer(function(input, output, session) {
   
-  # shinyjs::hide("polarDownload")
-  # shinyjs::hide("polarcodeDownload")
+  shinyjs::hide("polarDownload")
+  shinyjs::hide("polarcodeDownload")
   shinyjs::hide("networkAnalysis")
   
   
@@ -667,6 +667,30 @@ shinyServer(function(input, output, session) {
   output$networkGuildBLabelTail<-renderUI({
     return(buildcoloredguildlabels(zgg$color_guild_b[1],zgg$name_guild_b))
   })
+  # Matrix A labels
+  output$networkinfoDetailbipartiteA<-renderUI({
+    p <- bipartite()
+    mdetails <- buildMatrixGuildLabels(bpp$bipartite_argg$label_strguilda,
+                                       p$result_analysis$matrix[1,],bpp$bipartite_argg$filename,labelcol=bpp$bipartite_argg$color_guild_a)
+    return(HTML(mdetails))
+  })
+  
+  output$networkinfoDetailbipartiteB<-renderUI({
+    p <- bipartite()
+    mdetails <- buildMatrixGuildLabels(bpp$bipartite_argg$label_strguildb,
+                                       p$result_analysis$matrix[,1],bpp$bipartite_argg$filename,labelcol=bpp$bipartite_argg$color_guild_b)
+    return(HTML(mdetails))
+  })
+  # Network information
+  
+  output$networkinfoDetailbipartite<-renderUI({
+    p <- bipartite()
+    nname <- get_network_name(bpp$bipartite_argg$filename)
+    
+    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+    details <- paste0(details,"&nbsp;<a href='reports/bipartite_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
+    return(HTML(details))
+  })
   
   # Network information
   output$networkinfoDetailpolar<-renderUI({
@@ -794,7 +818,7 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id="histogramDegree", disable=TRUE))
     
     # Plots polar graph and histograms
-    p<-polar_graph(
+    pgraph<-polar_graph(
       "data/",input$selectedDataFile,
       fill_nodes          = input$polarFillNodes,
       print_title         = input$polarPrintTitle, 
@@ -819,14 +843,15 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id="histogramCore", disable=FALSE))
     session$sendCustomMessage(type="disableDivHandler", list(id="histogramDegree", disable=FALSE))
     
-    return(p)
+    return(pgraph)
   })
   
   # Plot the polar graph
   output$polar <- renderImage({
     p <- polar()
-    # shinyjs::show("polarDownload")
-    # shinyjs::show("polarcodeDownload")
+    shinyjs::enable("polarloadPolarConfigFile")
+    shinyjs::show("polarDownload")
+    shinyjs::show("polarcodeDownload")
     # Return a list containing the filename
     list(src = normalizePath(p["polar_file"][[1]]),
          contentType = 'image/png',
@@ -840,7 +865,7 @@ shinyServer(function(input, output, session) {
   buildPolarGuildLabels <- function(cabecera,mylabels,pfile,labelcol='grey9'){
     namesg <- cabecera
     nname <- get_network_name(pfile)
-    details <- paste("<br><span class='GuildTitle' valign='top'><h5 style='color:",labelcol,"'>",namesg,"</h5></span>")
+    details <- paste("<br><span class='GuildTitle' valign='top'><h5 style='color:",labelcol[1],"'>",namesg,"</h5></span>")
     labels <- clean_species_names(names(mylabels),nname)
     for (i in 1:length(labels))
       labels[i] <- paste0("<span class='GuildNamesList'>
@@ -854,7 +879,8 @@ shinyServer(function(input, output, session) {
   # Polar guild A labels
   output$networkinfoDetailpolarA<-renderUI({
     p <- polar()
-    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],p$result_analysis$matrix[1,],p$polar_argg$filename)
+    mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[1],
+                                      p$result_analysis$matrix[1,],p$polar_argg$filename)
     return(HTML(mdetails))
   })
   
@@ -916,11 +942,12 @@ shinyServer(function(input, output, session) {
   
   buildMatrixGuildLabels <- buildPolarGuildLabels
   
-  # Polar guild A labels
+  # Matrix A labels
   output$networkinfoDetailmatrixA<-renderUI({
     p <- matrix()
     mdetails <- buildMatrixGuildLabels(p$mat_argg$label_strguilda,
                                        p$result_analysis$matrix[1,],p$mat_argg$filename,labelcol=mat$mat_argg$color_guild_a)
+    
     return(HTML(mdetails))
   })
   
@@ -938,13 +965,6 @@ shinyServer(function(input, output, session) {
    
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
-    
-    # details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",nname,"&nbsp;",p$network_type,"&nbsp;",
-    #                  p$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
-    #                  "<br><h5>", 
-    #                  "<span  style='color:",p$mat_argg$color_guild_a,"'>","&nbsp;&nbsp;", p$result_analysis$num_guild_a, p$mat_argg$label_strguilda,"</span >","&nbsp;",
-    #                  "<span  style='color:",p$mat_argg$color_guild_b,"'>","&nbsp;&nbsp;", p$result_analysis$num_guild_b, p$mat_argg$label_strguildb,"</span >")
-    # details <- paste0(details,"&nbsp;&nbsp;<a href='reports/zigg_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5><hr>")
     return(HTML(details))
   })
   
@@ -1072,14 +1092,14 @@ shinyServer(function(input, output, session) {
     },
     content <- function(file) {
       myoptions<-polardiagramOptions()
-      myoptions$width     <- 14*as.numeric(input$polarppi) #options$width*ppi
-      myoptions$height    <- 14*as.numeric(input$polarppi) #options$height*ppi
+      myoptions$width     <- 14*as.numeric(input$polarppi)
+      myoptions$height    <- 14*as.numeric(input$polarppi)
       validateDiagramOptions(myoptions)
       myoptions$ppi <- input$polarppi
       myoptions$ext <- input$polarfileextension
       p <- polar()
       plot <- p$full_plot
-      plotStaticDiagram(file, plot,myoptions,"polar",myenv=p)
+      plotStaticDiagram(file, plot,myoptions,"polar",myenv=an)
     },
     contentType=paste0("image/", input$polarfileextension)
   )
@@ -1515,7 +1535,7 @@ output$contentsfileconfigmatrixplot <- reactive({
 
 output$contentsfileconfigpolarplot <- reactive({
   if (!is.null(input$polarloadPolarConfigFile)){
-    pol<-polar()
+    #shinyjs::disable("polarloadPolarConfigFile")
     filePath <- input$polarloadPolarConfigFile$datapath
     contentsfileconfigpolarplot <- paste(readLines(filePath), collapse = "\n")
     contentsfileconfigpolarplot <- paste("JSON CONTENTS","\n",contentsfileconfigpolarplot)
@@ -1527,7 +1547,7 @@ output$contentsfileconfigpolarplot <- reactive({
         {
           json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
           fields_json_data <- names(json_data)
-          result_validation <- validateconfigfile(json_data,pol$network_name,'polar')
+          result_validation <- validateconfigfile(json_data,an$network_name,'polar')
         },
         error = function(cond) {
           result_validation = "Invalid_JSON"
@@ -1548,6 +1568,7 @@ output$contentsfileconfigpolarplot <- reactive({
     else
       contentsfileconfigpolarplot <- paste(result_validation,"\n\n",contentsfileconfigpolarplot)
   }
+
 })
 
 

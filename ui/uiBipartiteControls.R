@@ -231,7 +231,7 @@ bipartiteloadBipConfigFileControl <- function() {
   control<-fileInput(
     inputId   = "bipartiteloadBipConfigFile",
     accept    = c(".json"),
-    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCONFIG_CONTROL")),
+    label     = controlLabel(strings$value("LABEL_ZIGGURAT_LOADCON")),
     multiple  = FALSE
   )
   return(control)

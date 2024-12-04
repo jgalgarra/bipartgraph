@@ -228,6 +228,10 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
       h = myenv$plot_width*mres
     }
   }
+  else if (plottype=="polar"){
+    w=14*mres
+    h=w
+  }
   else if (plottype =="ziggurat"){
     if(is.null(zgg$landscape_plot))
       myenv$landscape_plot <- TRUE
@@ -455,15 +459,14 @@ updckbx <- function(idchkbx,jsonvalue,session){
     value = jsonvalue
   )
 }
+
 parseJSONConfig <- function(controls_jsonfields,session,json_data,plottype){
   if (plottype %in% valPlottype)
     myplottype <- "bipartite"
   else
     myplottype <- plottype
-  controls_jsonfields <- controls_jsonfields[(grepl(myplottype,controls_jsonfields$ControlName)|grepl("DataLabel",controls_jsonfields$ControlName)),]
+  controls_jsonfields <- controls_jsonfields[grepl(myplottype,controls_jsonfields$ControlName),]#|grepl("DataLabel",controls_jsonfields$ControlName)),]
   for (i in 1:nrow(controls_jsonfields)){
-    print(paste(controls_jsonfields$ControlName[i],
-                json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]]))
         if (controls_jsonfields$ControlType[i] == "slider")
           updateSliderInput(session, controls_jsonfields$ControlName[i],
                             value = as.numeric(json_data[controls_jsonfields$JSONfield[i]][[1]][controls_jsonfields$ListElement[i]])/as.numeric(controls_jsonfields$Divideby[i]))
