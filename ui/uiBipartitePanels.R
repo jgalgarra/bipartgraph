@@ -47,7 +47,7 @@ bipartiteDownloadPanel <- function() {
 # Ziggurat graph panel
 bipartiteDiagramPanel <- function() {
   control<- fluidRow(align="left",
-                     column(8,
+                     column(12,
                             fluidRow(
                               column(2, bipartiteSvgScaleFactorControl() ),
                               column(2, bipartiteNodeRescale()),
@@ -73,29 +73,34 @@ bipartiteDiagramPanel <- function() {
                                           border-color: rgba(0,0,0,0);
                                           -webkit-box-shadow: 2px;
                                           box-shadow: 0px;}"))
-                                     )
-                                     
-                              ),
+                                     ),
+                            fluidRow(
+
+                                     fluidRow(
+                                       uiOutput("networkinfoDetailbipartite")
+                                     ),
+                              )  
                             ),
-                            
-                            fluidRow( tags$span(id="bipartiteplot",style="text-align:center",
-                                                uiOutput("bipartite"))
-                            )
+
+                            # column(4,
+                            #        fluidRow(
+                            #          uiOutput("networkinfoDetailbipartite")
+                            #        ),
+                                   # fluidRow(
+                                   #   column(5,tags$small(
+                                   #     uiOutput("networkinfoDetailbipartiteA")
+                                   #   )),
+                                   #   column(5,tags$small(
+                                   #     uiOutput("networkinfoDetailbipartiteB")
+                                   #   ))
+                                   # )
+                            #)       
+                     ),
+                     fluidRow(column(12, tags$span(id="bipartiteplot",style="text-align:center",
+                                         uiOutput("bipartite"))
+                      )
                      ),
                      
-
-                     column(4,
-                            fluidRow(
-                              uiOutput("networkinfoDetailbipartite")
-                            ),
-                            fluidRow(
-                              column(5,tags$small(
-                                uiOutput("networkinfoDetailbipartiteA")
-                              )),
-                               column(5,tags$small(
-                                 uiOutput("networkinfoDetailbipartiteB")
-                               ))
-                             )
                      )
   )
   return(control)
@@ -105,51 +110,51 @@ bipartiteDiagramPanel <- function() {
 bipartiteConfigPanel <- function() {
   panel<-fluidRow(
     tabsetPanel(
-    fluidRow(
-     uiOutput("networknamebipartite")
-    ),
-    tabPanel(id="tab_vis_bip",
-            title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
-    fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
-    ),
-    fluidRow(
-      column(2, bipartiteLabelsSizeControl("kCoreMax", strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3.5)),
-    ),
-    fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
-    ),
-    fluidRow(
-      column(2, bipartiteLinkSizeControl()),
-      column(2, bipartiteweighted_links()),
-      column(2, bipartiteColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
-      column(2, bipartiteAlphaLevelLinkControl())
-    ),
-    fluidRow(
-      column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
-    ),
-    fluidRow(
-      column(2, bipartiteColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
-      column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
-      column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
-      column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
-      column(2, bipartiteAlphaLevelControl()),
-      #column(2, restorebipartiteColorsControl())
-      )
-     ),
-    tabPanel(
-      strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
-      useShinyjs(),
       fluidRow(
-        column(4, bipartiteloadBipConfigFileControl()),
-        column(2, bipartiteshowBipConfigFileControl()),
-        column(4, tags$h2(" "),bipartitesaveBipConfigFileControl())
+        uiOutput("networknamebipartite")
       ),
-      # Show bipartite configuration file raw JSON contents
-      fluidRow(
-        column(10, verbatimTextOutput("contentsfileconfigbipplot"))
+      tabPanel(id="tab_vis_bip",
+               title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
+               fluidRow(
+                 column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
+               ),
+               fluidRow(
+                 column(2, bipartiteLabelsSizeControl("kCoreMax", strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3.5)),
+               ),
+               fluidRow(
+                 column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
+               ),
+               fluidRow(
+                 column(2, bipartiteLinkSizeControl()),
+                 column(2, bipartiteweighted_links()),
+                 column(2, bipartiteColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
+                 column(2, bipartiteAlphaLevelLinkControl())
+               ),
+               fluidRow(
+                 column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
+               ),
+               fluidRow(
+                 column(2, bipartiteColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
+                 column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
+                 column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
+                 column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
+                 column(2, bipartiteAlphaLevelControl()),
+                 #column(2, restorebipartiteColorsControl())
+               )
+      ),
+      tabPanel(
+        strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),
+        useShinyjs(),
+        fluidRow(
+          column(4, bipartiteloadBipConfigFileControl()),
+          column(2, bipartiteshowBipConfigFileControl()),
+          column(4, tags$h2(" "),bipartitesaveBipConfigFileControl())
+        ),
+        # Show bipartite configuration file raw JSON contents
+        fluidRow(
+          column(10, verbatimTextOutput("contentsfileconfigbipplot"))
+        )
       )
-    )
     )
   )
   return(panel)

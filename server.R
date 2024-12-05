@@ -363,7 +363,7 @@ shinyServer(function(input, output, session) {
                            lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
-                           show_legend = input$matrixShowLegend,
+                           show_legend = input$bipartiteShowLegend,
                            progress=progress)
     # ziggurat igraph object
     g<-bplot$result_analysis$graph
