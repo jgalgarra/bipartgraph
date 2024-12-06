@@ -104,7 +104,7 @@
 "bipartiteColorControl";"color_link";"colourinput";1;0;"none"
 "bipartiteGuildgapincrease";"guild_gap_increase";"slider";1;1;"none"
 "bipartiteNodeRescale";"square_nodes_size_scale";"slider";1;1;"none"
-"bipartiteSvgScaleFactor";"svg_scale_factor";"slider";1;1;"none"
+"bipartiteZoomSVG";"zoom_svgplot";"slider";1;1;"none"
 "bipartiteLabelsSize";"lsize_kcoremax";"slider";1;1;"none"
 "matrixOrderby";"orderby";"radiobuttons";1;1;"valordmatrix"
 "matrixColorGuildA";"color_guild_a";"colourinput";2;0;"none"

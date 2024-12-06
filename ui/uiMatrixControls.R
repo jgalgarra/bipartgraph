@@ -75,7 +75,7 @@ matrixTextresizeControl <- function() {
   control<- sliderInput(
     inputId = "matrixTextresize",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_TEXT_SCALE")),
-    min     = 0.5,
+    min     = 0.1,
     max     = 2,
     value   = 1,
     step    = 0.1

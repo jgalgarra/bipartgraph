@@ -9,17 +9,18 @@
 library(shinyjs)
 library(colourpicker)
 
-bipartiteSvgScaleFactorControl <- function() {
+bipartiteZoomSVGControl <- function() {
   control<-sliderInput(
-    inputId = "bipartiteSvgScaleFactor",
-    label   = controlLabel(strings$value("LABEL_ZIGGURAT_TEXT_SCALE")),
+    inputId = "bipartiteZoomSVG",
+    label   = controlLabel(strings$value("LABEL_BIPARTITE_ZOOM_SVGPLOT")),
     min     = 0.2,
-    max     = 5,
+    max     = 2,
     value   = 1,
-    step    = 0.2
+    step    = 0.1
   )
   return(control)
 }
+
 
 # Increase/reduce horizontal gap
 bipartiteGuildgapincreaseControl <- function() {
@@ -58,31 +59,6 @@ bipartitePlottype <- function(){
   return(control)
 }
 
-# Crop top SVG
-bipartiteSVGup <- function() {
-  control<-sliderInput(
-    inputId = "bipartiteSVGup",
-    label   = controlLabel(HTML(paste("&darr;",strings$value("LABEL_ZIGGURAT_SVG_UP"),"&uarr;"))),
-    min     = -50,
-    max     = 50,
-    value   = 0,
-    step    = 10
-  )
-  return(control)
-}
-
-# Crop right SVG
-bipartiteSVGright <- function() {
-  control<-sliderInput(
-    inputId = "bipartiteSVGright",
-    label   = controlLabel(HTML(paste("&larr;",strings$value("LABEL_ZIGGURAT_SVG_RIGHT"),"&rarr;"))),
-    min     = -50,
-    max     = 50,
-    value   = 0,
-    step    = 10
-  )
-  return(control)
-}
 
 # link width
 bipartiteLinkSizeControl <- function() {

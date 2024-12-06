@@ -350,7 +350,7 @@ shinyServer(function(input, output, session) {
                            weighted_links = input$bipartiteweighted_links,
                            color_link = input$bipartiteColorLink,
                            alpha_link = input$bipartiteAlphaLevelLink,
-                           alpha_level = input$bipartiteAlphaLevel,
+                           #alpha_level = input$bipartiteAlphaLevel,
                            color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
                            color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
                            hide_plot_border = TRUE,
@@ -364,6 +364,7 @@ shinyServer(function(input, output, session) {
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
+                           #zoom_svgplot = input$bipartiteZoomSVG,
                            progress=progress)
     # ziggurat igraph object
     g<-bplot$result_analysis$graph

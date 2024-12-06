@@ -49,7 +49,7 @@ bipartiteDiagramPanel <- function() {
   control<- fluidRow(align="left",
                      column(12,
                             fluidRow(
-                              column(2, bipartiteSvgScaleFactorControl() ),
+                              # column(2, bipartiteZoomSVGControl() ),
                               column(2, bipartiteLabelsSizeControl(strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3)),
                               column(2, bipartiteGuildgapincreaseControl()),
                               column(1, bipartiteVerticalLayoutControl()),
@@ -96,7 +96,7 @@ bipartiteDiagramPanel <- function() {
                                    # )
                             #)       
                      ),
-                     fluidRow(column(12, tags$span(id="bipartiteplot",style="text-align:center",
+                     fluidRow(column(12, tags$span(id="bipartiteplot",style="text-align:left",
                                          uiOutput("bipartite"))
                       )
                      ),
@@ -120,6 +120,12 @@ bipartiteConfigPanel <- function() {
                ),
                fluidRow(
                  column(2, bipartiteNodeRescale()),
+                 column(2, bipartiteColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
+                 column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
+                 column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
+                 column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
+                # column(2, bipartiteAlphaLevelControl()),
+                 
                  ),
                fluidRow(
                  column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
@@ -130,17 +136,12 @@ bipartiteConfigPanel <- function() {
                  column(2, bipartiteColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
                  column(2, bipartiteAlphaLevelLinkControl())
                ),
-               fluidRow(
-                 column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
-               ),
-               fluidRow(
-                 column(2, bipartiteColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
-                 column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
-                 column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
-                 column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
-                 column(2, bipartiteAlphaLevelControl()),
-                 #column(2, restorebipartiteColorsControl())
-               )
+               # fluidRow(
+               #   column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
+               # ),
+               # fluidRow(
+               #   column(2, restorebipartiteColorsControl())
+               # )
       ),
       tabPanel(
         strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),

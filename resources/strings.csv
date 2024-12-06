@@ -187,6 +187,7 @@
 "LABEL_BIPARTITE_GUILD_GAP_INCREASE", "Separación entre clases (%)", "Guild gap (%)"
 "LABEL_BIPARTITE_NODE_RESCALE", "Tamaño del nodo", "Node size"
 "LABEL_BIPARTITE_PLOTTYPE", "Estilo", "Style"
+"LABEL_BIPARTITE_ZOOM_SVGPLOT", "Zoom", "Zoom"
 "LABEL_BIPARTITE_VERTICAL_LAYOUT", "Vertical", "Vertical"
 "LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL","Etiquetas","Labels"
 "LABEL_BIPARTITE_SHOW_TITLE","Mostrar nombre","Show name"
