@@ -141,9 +141,9 @@ bipartiteAlphaLevelControl <- function() {
 }
 
 # label sizes
-bipartiteLabelsSizeControl <- function(name, description, default) {
+bipartiteLabelsSizeControl <- function(description, default) {
   control<-sliderInput(
-    inputId = paste0("bipartiteLabelsSize", name),
+    inputId = paste0("bipartiteLabelsSize"),
     label   = controlLabel(description),
     min     = 0,
     max     = 10.0,

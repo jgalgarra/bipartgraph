@@ -50,7 +50,7 @@ bipartiteDiagramPanel <- function() {
                      column(12,
                             fluidRow(
                               column(2, bipartiteSvgScaleFactorControl() ),
-                              column(2, bipartiteNodeRescale()),
+                              column(2, bipartiteLabelsSizeControl(strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3)),
                               column(2, bipartiteGuildgapincreaseControl()),
                               column(1, bipartiteVerticalLayoutControl()),
                               column(2, bipartitePlottype()),
@@ -116,11 +116,11 @@ bipartiteConfigPanel <- function() {
       tabPanel(id="tab_vis_bip",
                title=strings$value("LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL"),
                fluidRow(
-                 column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_LABELS_SIZE_HEADER"), image="logos-flexline/labels.png"))
+                 column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
                ),
                fluidRow(
-                 column(2, bipartiteLabelsSizeControl("kCoreMax", strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3.5)),
-               ),
+                 column(2, bipartiteNodeRescale()),
+                 ),
                fluidRow(
                  column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))
                ),

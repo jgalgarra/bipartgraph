@@ -360,7 +360,7 @@ shinyServer(function(input, output, session) {
                            label_strguilda = trim(input$DataLabelGuildAControl),
                            label_strguildb = trim(input$DataLabelGuildBControl),
                            svg_scale_factor = 1,
-                           lsize_kcoremax  = input$bipartiteSvgScaleFactor*input$bipartiteLabelsSizekCoreMax,
+                           lsize_kcoremax  = input$bipartiteLabelsSize,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
@@ -379,10 +379,9 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
     session$sendCustomMessage(type="bipartiteDataHandler", 
                               list(ids=c("a", "b"),
-                              names=c(bplot$name_guild_a, bplot$name_guild_b), 
-                              data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
-                              neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
-    
+                                   names=c(bplot$name_guild_a, bplot$name_guild_b), 
+                                   data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
+                                   neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
     return(bplot)
   })
   
@@ -860,7 +859,7 @@ shinyServer(function(input, output, session) {
          alt = "Polar graph")
   }, deleteFile = FALSE)
   
-
+  
   # Build polar guild labels
   buildPolarGuildLabels <- function(cabecera,mylabels,pfile,labelcol='grey9'){
     namesg <- cabecera
@@ -889,7 +888,7 @@ shinyServer(function(input, output, session) {
     mdetails <- buildPolarGuildLabels(p$polar_argg$glabels[2],p$result_analysis$matrix[,1],p$polar_argg$filename)
     return(HTML(mdetails))
   })
-
+  
   # Reactive function to plot the matrix graph
   matrix<-reactive({
     validate(
@@ -962,7 +961,7 @@ shinyServer(function(input, output, session) {
   output$networkinfoDetailmatrix<-renderUI({
     p <- matrix()
     nname <- get_network_name(p$mat_argg$filename)
-   
+    
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
@@ -978,7 +977,7 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
-    
+  
   zigguratdiagramOptions<-reactive({
     return(calculateDiagramOptions(#as.numeric(input$paperSize), 
       4,as.numeric(input$zigguratppi), 
@@ -1182,7 +1181,7 @@ shinyServer(function(input, output, session) {
       dir.create("tmpcode/", showWarnings = FALSE)
       sink("tmpcode/codematrix.txt")
       llamada <- mp$mat_argg
-
+      
       comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\",")
       comando <- paste0(comando, "orderby = \"",llamada$orderby,"\",")
       comando <- paste0(comando, "label_strguilda = \"",llamada$label_strguilda,"\",")
@@ -1423,7 +1422,7 @@ shinyServer(function(input, output, session) {
   })
   
   
-output$contentsfileconfigzigplot <- reactive({
+  output$contentsfileconfigzigplot <- reactive({
     if (!is.null(input$zigguratloadZigConfigFile)){
       filePath <- input$zigguratloadZigConfigFile$datapath
       contentsfileconfigzigplot <- paste(readLines(filePath), collapse = "\n")
@@ -1458,118 +1457,118 @@ output$contentsfileconfigzigplot <- reactive({
         contentsfileconfigzigplot <- paste(result_validation,"\n\n",contentsfileconfigzigplot)
     }
   })
-
-output$contentsfileconfigbipplot <- reactive({
-  if (!is.null(input$bipartiteloadBipConfigFile)){
-    filePath <- input$bipartiteloadBipConfigFile$datapath
-    contentsfileconfigbipplot <- paste(readLines(filePath), collapse = "\n")
-    contentsfileconfigbipplot <- paste("JSON CONTENTS","\n",contentsfileconfigbipplot)
-    result_validation ="FILE ERROR"
-    if (!grepl(".json",filePath))
-      result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
-    else {
-      tryCatch(
-        {
-          json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-          fields_json_data <- names(json_data)
-          result_validation <- validateconfigfile(json_data,bpp$network_name,'bipartite')
-        },
-        error = function(cond) {
-          result_validation = "Invalid_JSON"
-          message(paste("Invalid JSON",cond))
+  
+  output$contentsfileconfigbipplot <- reactive({
+    if (!is.null(input$bipartiteloadBipConfigFile)){
+      filePath <- input$bipartiteloadBipConfigFile$datapath
+      contentsfileconfigbipplot <- paste(readLines(filePath), collapse = "\n")
+      contentsfileconfigbipplot <- paste("JSON CONTENTS","\n",contentsfileconfigbipplot)
+      result_validation ="FILE ERROR"
+      if (!grepl(".json",filePath))
+        result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+      else {
+        tryCatch(
+          {
+            json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+            fields_json_data <- names(json_data)
+            result_validation <- validateconfigfile(json_data,bpp$network_name,'bipartite')
           },
-        warning = function(w) {
-          result_validation = "Invalid_JSON"
-          message(paste("Invalid JSON",w))
+          error = function(cond) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",cond))
+          },
+          warning = function(w) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",w))
+          }
+        )
+      }
+      
+      if (result_validation=="OK"){
+        parseJSONConfig(controls_jsonfields,session,json_data,'bipartite')
+        if (input$bipartiteshowBipConfigFile){
+          contentsfileconfigbipplot
         }
-      )
+      }
+      else
+        contentsfileconfigbipplot <- paste(result_validation,"\n\n",contentsfileconfigbipplot)
+    }
+  })
+  
+  
+  output$contentsfileconfigmatrixplot <- reactive({
+    if (!is.null(input$matrixloadMatrixConfigFile)){
+      filePath <- input$matrixloadMatrixConfigFile$datapath
+      contentsfileconfigmatrixplot <- paste(readLines(filePath), collapse = "\n")
+      contentsfileconfigmatrixplot <- paste("JSON CONTENTS","\n",contentsfileconfigmatrixplot)
+      result_validation ="FILE ERROR"
+      if (!grepl(".json",filePath))
+        result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+      else {
+        tryCatch(
+          {
+            json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+            fields_json_data <- names(json_data)
+            result_validation <- validateconfigfile(json_data,mat$network_name,'matrix')
+          },
+          error = function(cond) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",cond))
+          },
+          warning = function(w) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",w))
+          }
+        )
+      }
+      if (result_validation=="OK"){
+        parseJSONConfig(controls_jsonfields,session,json_data,'matrix')
+        if (input$matrixshowMatrixConfigFile){
+          contentsfileconfigmatrixplot
+        }
+      }
+      else
+        contentsfileconfigmatrixplot <- paste(result_validation,"\n\n",contentsfileconfigmatrixplot)
+    }
+  })
+  
+  output$contentsfileconfigpolarplot <- reactive({
+    if (!is.null(input$polarloadPolarConfigFile)){
+      #shinyjs::disable("polarloadPolarConfigFile")
+      filePath <- input$polarloadPolarConfigFile$datapath
+      contentsfileconfigpolarplot <- paste(readLines(filePath), collapse = "\n")
+      contentsfileconfigpolarplot <- paste("JSON CONTENTS","\n",contentsfileconfigpolarplot)
+      result_validation ="FILE ERROR"
+      if (!grepl(".json",filePath))
+        result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
+      else {
+        tryCatch(
+          {
+            json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
+            fields_json_data <- names(json_data)
+            result_validation <- validateconfigfile(json_data,an$network_name,'polar')
+          },
+          error = function(cond) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",cond))
+          },
+          warning = function(w) {
+            result_validation = "Invalid_JSON"
+            message(paste("Invalid JSON",w))
+          }
+        )
+      }
+      if (result_validation=="OK"){
+        parseJSONConfig(controls_jsonfields,session,json_data,'polar')
+        if (input$polarshowPolarConfigFile){
+          contentsfileconfigpolarplot
+        }
+      }
+      else
+        contentsfileconfigpolarplot <- paste(result_validation,"\n\n",contentsfileconfigpolarplot)
     }
     
-    if (result_validation=="OK"){
-      parseJSONConfig(controls_jsonfields,session,json_data,'bipartite')
-      if (input$bipartiteshowBipConfigFile){
-        contentsfileconfigbipplot
-      }
-    }
-    else
-      contentsfileconfigbipplot <- paste(result_validation,"\n\n",contentsfileconfigbipplot)
-  }
-})
-
-
-output$contentsfileconfigmatrixplot <- reactive({
-  if (!is.null(input$matrixloadMatrixConfigFile)){
-    filePath <- input$matrixloadMatrixConfigFile$datapath
-    contentsfileconfigmatrixplot <- paste(readLines(filePath), collapse = "\n")
-    contentsfileconfigmatrixplot <- paste("JSON CONTENTS","\n",contentsfileconfigmatrixplot)
-    result_validation ="FILE ERROR"
-    if (!grepl(".json",filePath))
-      result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
-    else {
-      tryCatch(
-        {
-          json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-          fields_json_data <- names(json_data)
-          result_validation <- validateconfigfile(json_data,mat$network_name,'matrix')
-        },
-        error = function(cond) {
-          result_validation = "Invalid_JSON"
-          message(paste("Invalid JSON",cond))
-          },
-        warning = function(w) {
-          result_validation = "Invalid_JSON"
-          message(paste("Invalid JSON",w))
-        }
-      )
-    }
-    if (result_validation=="OK"){
-      parseJSONConfig(controls_jsonfields,session,json_data,'matrix')
-      if (input$matrixshowMatrixConfigFile){
-        contentsfileconfigmatrixplot
-      }
-    }
-    else
-      contentsfileconfigmatrixplot <- paste(result_validation,"\n\n",contentsfileconfigmatrixplot)
-  }
-})
-
-output$contentsfileconfigpolarplot <- reactive({
-  if (!is.null(input$polarloadPolarConfigFile)){
-    #shinyjs::disable("polarloadPolarConfigFile")
-    filePath <- input$polarloadPolarConfigFile$datapath
-    contentsfileconfigpolarplot <- paste(readLines(filePath), collapse = "\n")
-    contentsfileconfigpolarplot <- paste("JSON CONTENTS","\n",contentsfileconfigpolarplot)
-    result_validation ="FILE ERROR"
-    if (!grepl(".json",filePath))
-      result_validation <- static_error_msg("MESSAGE_ERROR_JSON_WRONG_EXTENSION")
-    else {
-      tryCatch(
-        {
-          json_data <- jsonlite::fromJSON(filePath, simplifyVector = TRUE)
-          fields_json_data <- names(json_data)
-          result_validation <- validateconfigfile(json_data,an$network_name,'polar')
-        },
-        error = function(cond) {
-          result_validation = "Invalid_JSON"
-          message(paste("Invalid JSON",cond))
-        },
-        warning = function(w) {
-          result_validation = "Invalid_JSON"
-          message(paste("Invalid JSON",w))
-        }
-      )
-    }
-    if (result_validation=="OK"){
-      parseJSONConfig(controls_jsonfields,session,json_data,'polar')
-      if (input$polarshowPolarConfigFile){
-        contentsfileconfigpolarplot
-      }
-    }
-    else
-      contentsfileconfigpolarplot <- paste(result_validation,"\n\n",contentsfileconfigpolarplot)
-  }
-
-})
-
-
+  })
+  
+  
 })
