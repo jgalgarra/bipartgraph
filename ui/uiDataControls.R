@@ -50,7 +50,11 @@ restoreColorsControl <- function() {
 
 networkAnalysisControl <- function() {
   control<-downloadButton("networkAnalysis",label = strings$value("LABEL_NETORK_ANALYSIS"))
-  shinyjs::hidden(p(id = "networkAnalysis", "Processing..."))
+  return(control)
+}
+
+downloadLabelsControl <- function() {
+  control<-downloadButton("downloadLabels",label = strings$value("LABEL_MATRIX_SHOW_SPECIES_NAMES"))
   return(control)
 }
 

@@ -29,6 +29,7 @@ shinyServer(function(input, output, session) {
   shinyjs::hide("polarDownload")
   shinyjs::hide("polarcodeDownload")
   shinyjs::hide("networkAnalysis")
+  shinyjs::hide("downloadLabels")  
   
   
   observe( {
@@ -155,7 +156,7 @@ shinyServer(function(input, output, session) {
     }
     if (!is.null(file) && nchar(file)>0 && (max_core != 1)){
       shinyjs::show("networkAnalysis")
-      
+      shinyjs::show("downloadLabels")      
       output$NodesGuildA <- renderText({
         paste(ncol(content)-1,strings$value("LABEL_SPECIES"))
       })
@@ -798,6 +799,50 @@ shinyServer(function(input, output, session) {
     return(fsal)
   })
   
+  
+  # Analyzes the network
+  getspeciesnames <- reactive({
+    
+    createspecies_name <- function(GuildLabel,isA=TRUE){
+      if (isA)
+        nom_spe <- names(result_analysis$matrix[1,])[as.integer(strsplit(V(result_analysis$graph)$name[i],GuildLabel)[[1]][2])]
+      else
+        nom_spe <- names(result_analysis$matrix[,1])[as.integer(strsplit(V(result_analysis$graph)$name[i],GuildLabel)[[1]][2])]
+      nom_spe <- paste(gsub(GuildLabel,"",V(result_analysis$graph)$name[i]),nom_spe)
+      return(nom_spe)
+    }
+    
+    progress<-shiny::Progress$new()
+    progress$set(message=strings$value("MESSAGE_ANALYSIS_POGRESS"), value = 0)
+    on.exit(progress$close())
+    
+    # Get network name
+    red <- input$selectedDataFile
+    red_name <- strsplit(red,".csv")[[1]][1]
+    result_analysis <- analyze_network(red, directory = paste0(dataDir, "/"),
+                                       guild_a = input$DataLabelGuildAControl, only_NODF = TRUE,
+                                       guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE)
+    results_indiv <- data.frame(Name = c(), Species = c())
+    clase <- grepl(input$DataLabelGuildAControl,V(result_analysis$graph)$name)
+
+    for (i in V(result_analysis$graph)){
+      if (clase[i])
+        nom_spe <- createspecies_name(input$DataLabelGuildAControl,isA=TRUE)
+      else
+        nom_spe <- createspecies_name(input$DataLabelGuildBControl,isA=FALSE)
+      results_indiv <- rbind(results_indiv,data.frame(Name = gsub("\\."," ",nom_spe),
+                                                      Species =V(result_analysis$graph)$name[i]))
+    }
+    namesA = paste(results_indiv[grepl(input$DataLabelGuildAControl,results_indiv$Species),]$Name,collapse=", ")
+    namesB = paste(results_indiv[grepl(input$DataLabelGuildBControl,results_indiv$Species),]$Name,collapse=", ")
+    dir.create("analysis_indiv/", showWarnings = FALSE)
+    fsal <- paste0("analysis_indiv/",red_name,"_analysis.csv")
+    fileConn <- file(fsal)
+    writeLines(c(input$DataLabelGuildAControl, namesA, input$DataLabelGuildBControl, namesB), fileConn)
+    close(fileConn)
+    return(fsal)
+  })
+  
   # Reactive function to plot the polar graph
   polar<-reactive({
     validate(
@@ -1140,6 +1185,19 @@ shinyServer(function(input, output, session) {
       file.copy(fresults, file)    },
     contentType="text/csv"
   )
+  
+  # Download species names
+  output$downloadLabels <- downloadHandler(
+    filename=function() {
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-species-labels.txt")
+      return(file)
+    },
+    content <- function(file) {
+      fresults <- getspeciesnames()
+      file.copy(fresults, file)    },
+    contentType="text/csv"
+  )
+  
   
   # Downloads the polar generating code
   output$polarcodeDownload <- downloadHandler(

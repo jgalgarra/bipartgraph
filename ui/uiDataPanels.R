@@ -35,12 +35,12 @@ selectDataPanel<-function() {
 
     fluidRow(
       column(2, DataLabelGuildAControl()),
-      column(2, tags$h4(textOutput("NodesGuildA"))),
+      column(1, tags$h5(textOutput("NodesGuildA"))),
       
       column(2, DataLabelGuildBControl()),
-      column(2, tags$h4(textOutput("NodesGuildB"))),
-      
-      column(2, networkAnalysisControl())
+      column(1, tags$h5(textOutput("NodesGuildB"))),
+      column(2, networkAnalysisControl()),
+      column(2, downloadLabelsControl()),
     ),
 
     fluidRow(
