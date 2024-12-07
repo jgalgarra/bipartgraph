@@ -14,6 +14,16 @@
     margin-top: 0px;
 }
 
+/* panel del bipartite plot */
+#bipartiteplot {
+    position:   relative;
+    vertical-align: top;
+    width: 100%;
+    margin: 0 auto;
+    cursor:     pointer;
+    margin-top: 0px;
+}
+
 /* paneles de informacion del ziggurat */
 #zigguratNodesDetail, #zigguratWikiDetail {
     padding:    0px 0px 5px 10px;
