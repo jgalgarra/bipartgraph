@@ -365,7 +365,6 @@ shinyServer(function(input, output, session) {
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
-                           #zoom_svgplot = input$bipartiteZoomSVG,
                            progress=progress)
     # ziggurat igraph object
     g<-bplot$result_analysis$graph
