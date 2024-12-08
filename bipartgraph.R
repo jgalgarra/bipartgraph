@@ -51,6 +51,9 @@ if (file.exists(fconf)){
 tmpplots <<- "tmp"
 # Remove tmp files of last run
 unlink(tmpplots,recursive=TRUE)
+reportplots <<- "www/reports/*.png"
+# Remove tmp files of last run
+unlink(reportplots,recursive=FALSE)
 
 # Launch Application
 runApp(

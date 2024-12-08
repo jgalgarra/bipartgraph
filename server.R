@@ -692,16 +692,6 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
-  # Network information
-  output$networkinfoDetailpolar<-renderUI({
-    pol <- polar()
-    nname <- get_network_name(pol$polar_argg$red)
-    create_polar_report(pol,"www/reports/templates/index.html",
-                        paste0("www/reports/polar_",nname,"_report.html"))
-    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
-    return(HTML(details))
-  })
   
   output$polardetailsheader<-renderUI({
     p <- polar()
@@ -897,10 +887,11 @@ shinyServer(function(input, output, session) {
     shinyjs::show("polarDownload")
     shinyjs::show("polarcodeDownload")
     # Return a list containing the filename
+    pw = 600
     list(src = normalizePath(p["polar_file"][[1]]),
          contentType = 'image/png',
-         width = 600,#input$screenwidthControl,
-         height = 600,#input$screenwidthControl,
+         width = pw,#input$screenwidthControl,
+         height = 0.9*pw,#input$screenwidthControl,
          alt = "Polar graph")
   }, deleteFile = FALSE)
   
@@ -962,6 +953,7 @@ shinyServer(function(input, output, session) {
                       label_strguildb = input$DataLabelGuildBControl,
                       color_guild_a = input$matrixColorGuildA,
                       color_guild_b = input$matrixColorGuildB,
+                      plot_size = 10*input$matrixPlotresize/100,
                       progress            = progress)
     # Enables matrix container
     session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=FALSE))
@@ -1012,15 +1004,37 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
-  # Network information
+  # Polar report
   output$networkinfoDetailpolar<-renderUI({
     pol <- polar()
     nname <- get_network_name(pol$polar_argg$filename)
-    create_polar_report(pol,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
+    #create_polar_report(pol,"www/reports/templates/index.html",paste0("www/reports/polar_",nname,"_report.html"))
+    create_static_report(pol, "www/reports/templates/indexhoriz.html",
+                         paste0("www/reports/polar_",nname,"_report.html"), 
+                         pol$result_analysis, input$DataLabelGuildAControl,
+                         input$DataLabelGuildBControl, myenv = pll,
+                         myenv_argg = pol$polar_argg, plottype = "polar")
+     
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
   })
+  
+  # Matrix information
+  output$networkinfoDetailmatrix <- renderUI({
+    mymatrix <- matrix()
+    nname <- get_network_name(mymatrix$mat_argg$filename)
+    create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
+                         paste0("www/reports/matrix_",nname,"_report.html"), 
+                         mymatrix$result_analysis, input$DataLabelGuildAControl,
+                         input$DataLabelGuildBControl, w =10, h=10*ifelse(input$matrixRotate,mymatrix$plot_width/mymatrix$plot_height,1),
+                         printplot=FALSE,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
+    
+    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+    details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
+    return(HTML(details))
+  })
+  
   
   
   zigguratdiagramOptions<-reactive({
@@ -1158,7 +1172,10 @@ shinyServer(function(input, output, session) {
     content <- function(file) {
       myoptions<-matrixdiagramOptions()
       myoptions$width     <- 10*as.numeric(input$matrixppi) #options$width*ppi
-      myoptions$height    <- 10*as.numeric(input$matrixppi) #options$height*ppi
+      if (input$matrixRotate)
+        myoptions$height    <- myoptions$width*mat$plot_width/mat$plot_height
+      else
+        myoptions$height    <- myoptions$width*mat$plot_height/mat$plot_width #options$height*ppi
       validateDiagramOptions(myoptions)
       myoptions$ppi <- input$matrixppi
       myoptions$ext <- input$matrixfileextension

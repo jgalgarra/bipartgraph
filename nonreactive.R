@@ -380,6 +380,59 @@ clean_species_names <- function(listspecies,nnetwork){
   return <- splabels
 }
 
+
+create_static_report <- function(p, input_file, output_file, result_analysis, strGuildA,
+                                 strGuildB, w = 10, h = 10, pwidth = 600, printplot = TRUE,
+                                 myenv_argg = polar$polar_argg, myenv=polar, plottype = "polar"
+                                 ) 
+  {
+  #ggsave(filename = fileplot,width=w, height=h)
+  nname <- get_network_name(myenv_argg$filename)
+  fileplot <- paste0(nname,"_",toupper(plottype))
+  if (printplot){
+    myoptions <- data.frame("ppi"=300,"ext"="png","cairo"=FALSE)
+    if (plottype=="polar")
+      plot <- p$polar_plot
+    plotStaticDiagram(paste0("www/reports/",fileplot,".png"),plot,myoptions,plottype,myenv=myenv)
+  }  
+  # Read the contents of the input file
+  ftext <- readLines(input_file, warn = FALSE)
+  modified_text <-paste(ftext,collapse="")
+  modified_text <- gsub("IMG_STR_NETWORK_FILE", fileplot, modified_text)
+  modified_text <- gsub("STR_NETWORK_NAME", nname, modified_text)
+  modified_text <- gsub("STR_PLOT_TYPE", plottype, modified_text)
+  modified_text <- gsub("IMG_STR_WIDTH", pwidth, modified_text)
+  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle'>",strGuildA,"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",strGuildB,"</span >"), modified_text)
+  #pastechar ="<br style='display: block; margin: 1px;'>"
+  namesA <- ""
+  for (i in 1:(result_analysis$num_guild_a-1))
+    namesA <- paste0(namesA,i," ",
+                  names(result_analysis$matrix[1,])[i],
+                  ", ")
+  namesA <- paste0(namesA,result_analysis$num_guild_a,
+                   names(result_analysis$matrix[1,])[result_analysis$num_guild_a])
+  modified_text <- gsub("STR_SPECIES_A", namesA, modified_text)
+  namesB <- ""
+  for (i in 1:(result_analysis$num_guild_b-1))
+    namesB <- paste0(namesB,i," ",
+                     names(result_analysis$matrix[,1])[i],
+                     ", ")
+  namesB <- paste0(namesB,result_analysis$num_guild_b,
+                   names(result_analysis$matrix[,1])[result_analysis$num_guild_b])
+  modified_text <- gsub("STR_SPECIES_B", namesB, modified_text)
+  if (exists("network_references")){
+    if (sum(network_references$ID==nname)!=0)
+      modified_text <- gsub("STR_REFERENCE", paste(network_references[network_references$ID==nname,]$Reference,"&nbsp;",
+                                                   network_references[network_references$ID==nname,]$Locality_of_Study), modified_text)
+    else
+      modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+  }
+  else
+    modified_text <- gsub("STR_REFERENCE"," ",modified_text)
+  writeLines(modified_text, con = output_file)
+}
+
 create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
   
   fileplot <- gsub("_report.html",".svg",output_file)
