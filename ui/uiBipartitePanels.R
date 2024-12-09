@@ -124,8 +124,6 @@ bipartiteConfigPanel <- function() {
                  column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
                  column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
                  column(2, bipartiteColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
-                # column(2, bipartiteAlphaLevelControl()),
-                 
                  ),
                fluidRow(
                  column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"), image="logos-flexline/links.png"))

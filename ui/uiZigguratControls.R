@@ -572,7 +572,7 @@ zigguratShowTitleControl <- function() {
   control<-checkboxInput(
     inputId = "zigguratShowTitle",
     label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_TITLE")),
-    value   = TRUE
+    value   = FALSE
   )
   return(control)
 }

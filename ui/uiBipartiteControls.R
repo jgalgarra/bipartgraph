@@ -139,7 +139,7 @@ bipartiteShowTitleControl <- function() {
   control<-checkboxInput(
     inputId = "bipartiteShowTitle",
     label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_TITLE")),
-    value   = TRUE
+    value   = FALSE
   )
   return(control)
 }

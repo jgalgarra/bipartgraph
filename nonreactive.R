@@ -233,8 +233,10 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
     h=w
   }
   else if (plottype =="ziggurat"){
-    if(is.null(zgg$landscape_plot))
+    if(is.null(zgg$landscape_plot)){
       myenv$landscape_plot <- TRUE
+      options$height <- options$width
+    }
     if (myenv$landscape_plot){
       w <- options$height
       h <- options$width
@@ -382,19 +384,37 @@ clean_species_names <- function(listspecies,nnetwork){
 
 
 create_static_report <- function(p, input_file, output_file, result_analysis, strGuildA,
-                                 strGuildB, w = 10, h = 10, pwidth = 600, printplot = TRUE,
+                                 strGuildB, w = static_plot_width, h = static_plot_width, pwidth = 600, printplot = TRUE,
                                  myenv_argg = polar$polar_argg, myenv=polar, plottype = "polar"
                                  ) 
   {
-  #ggsave(filename = fileplot,width=w, height=h)
   nname <- get_network_name(myenv_argg$filename)
   fileplot <- paste0(nname,"_",toupper(plottype))
   if (printplot){
-    myoptions <- data.frame("ppi"=300,"ext"="png","cairo"=FALSE)
+    fileplot <- paste0(fileplot,".png")
+    myoptions <- data.frame("width"=static_plot_width,"ppi"=standard_ppi,"ext"="png","cairo"=FALSE)
     if (plottype=="polar")
       plot <- p$polar_plot
-    plotStaticDiagram(paste0("www/reports/",fileplot,".png"),plot,myoptions,plottype,myenv=myenv)
+    if (plottype=="ziggurat"){
+      myoptions$height <- myoptions$width 
+      plot <- zgg$plot
+    }
+    plotStaticDiagram(paste0("www/reports/",fileplot),plot,myoptions,plottype,myenv=myenv)
   }  
+  else{
+    if (plottype=="bipartite"){
+      h <- w 
+      plot <- bpp$plot
+      if (!bpp$flip_results)
+        h <- h/2
+      else{
+        w <- w/2
+      }
+    }
+    fileplot <- paste0(fileplot,".svg")
+    ggsave(filename = paste0("www/reports/",fileplot),width=w, height=h)
+  }
+    
   # Read the contents of the input file
   ftext <- readLines(input_file, warn = FALSE)
   modified_text <-paste(ftext,collapse="")
@@ -402,24 +422,24 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   modified_text <- gsub("STR_NETWORK_NAME", nname, modified_text)
   modified_text <- gsub("STR_PLOT_TYPE", plottype, modified_text)
   modified_text <- gsub("IMG_STR_WIDTH", pwidth, modified_text)
-  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle'>",strGuildA,"</span >"), modified_text)
-  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",strGuildB,"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",myenv$mat_argg$color_guild_a[1],"'>",strGuildA,"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",myenv$mat_argg$color_guild_b[1],"'>",strGuildB,"</span >"), modified_text)
   #pastechar ="<br style='display: block; margin: 1px;'>"
-  namesA <- ""
+  namesA <- paste0("<span style='color:",myenv$mat_argg$color_guild_a[1],"'>")
   for (i in 1:(result_analysis$num_guild_a-1))
     namesA <- paste0(namesA,i," ",
                   names(result_analysis$matrix[1,])[i],
                   ", ")
   namesA <- paste0(namesA,result_analysis$num_guild_a,
-                   names(result_analysis$matrix[1,])[result_analysis$num_guild_a])
+                   names(result_analysis$matrix[1,])[result_analysis$num_guild_a],"</span>")
   modified_text <- gsub("STR_SPECIES_A", namesA, modified_text)
-  namesB <- ""
+  namesB <- paste0("<span style='color:",myenv$mat_argg$color_guild_b[1],"'>")
   for (i in 1:(result_analysis$num_guild_b-1))
     namesB <- paste0(namesB,i," ",
                      names(result_analysis$matrix[,1])[i],
                      ", ")
   namesB <- paste0(namesB,result_analysis$num_guild_b,
-                   names(result_analysis$matrix[,1])[result_analysis$num_guild_b])
+                   names(result_analysis$matrix[,1])[result_analysis$num_guild_b],"</span>")
   modified_text <- gsub("STR_SPECIES_B", namesB, modified_text)
   if (exists("network_references")){
     if (sum(network_references$ID==nname)!=0)

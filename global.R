@@ -32,6 +32,10 @@ valPlottype <- c("chilopod","legacy","kcoreorder")
 valShowLegendValue <<- c("TOP","BOTTOM","HIDE")
 # Order matrix
 valordmatrix <- c("kradius","kdegree","degree")
+# Standard static plot width
+static_plot_width <- 8
+# Standard plot resolution
+standard_ppi <- 300
 
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")

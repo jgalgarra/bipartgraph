@@ -97,7 +97,7 @@ zigguratDiagramPanel <- function() {
                      
                      column(4,
                             fluidRow(
-                              uiOutput("networkinfoDetail")
+                              uiOutput("networkinfoDetailziggurat")
                             ),
                             fluidRow(
                               column(1, tags$small(strings$value("LABEL_ZIGGURAT_INFO_DETAILS_ID"))),
