@@ -693,8 +693,8 @@ shinyServer(function(input, output, session) {
     nname <- get_network_name(bpp$bipartite_argg$filename)
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
-                         bpp$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
-                         input$DataLabelGuildBControl, myenv = bpp,
+                         bpp$result_analysis, input$DataLabelGuildAControl,
+                         input$DataLabelGuildBControl, myenv = bpp,printplot = FALSE,
                          myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
     
     

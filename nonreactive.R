@@ -409,7 +409,12 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
         h <- h/2
       else{
         w <- w/2
+        pwidth <- (2/3)*pwidth
       }
+    }
+    if (plottype=="ziggurat"){
+      plot <- zgg$plot
+      h <- 0.9*w
     }
     fileplot <- paste0(fileplot,".svg")
     ggsave(filename = paste0("www/reports/",fileplot),width=w, height=h)
@@ -422,10 +427,10 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   modified_text <- gsub("STR_NETWORK_NAME", nname, modified_text)
   modified_text <- gsub("STR_PLOT_TYPE", plottype, modified_text)
   modified_text <- gsub("IMG_STR_WIDTH", pwidth, modified_text)
-  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",myenv$mat_argg$color_guild_a[1],"'>",strGuildA,"</span >"), modified_text)
-  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",myenv$mat_argg$color_guild_b[1],"'>",strGuildB,"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",myenv_argg$color_guild_a[1],"'>",strGuildA,"</span >"), modified_text)
+  modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",myenv_argg$color_guild_b[1],"'>",strGuildB,"</span >"), modified_text)
   #pastechar ="<br style='display: block; margin: 1px;'>"
-  namesA <- paste0("<span style='color:",myenv$mat_argg$color_guild_a[1],"'>")
+  namesA <- paste0("<span style='color:",myenv_argg$color_guild_a[1],"'>")
   for (i in 1:(result_analysis$num_guild_a-1))
     namesA <- paste0(namesA,i," ",
                   names(result_analysis$matrix[1,])[i],
@@ -433,7 +438,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   namesA <- paste0(namesA,result_analysis$num_guild_a,
                    names(result_analysis$matrix[1,])[result_analysis$num_guild_a],"</span>")
   modified_text <- gsub("STR_SPECIES_A", namesA, modified_text)
-  namesB <- paste0("<span style='color:",myenv$mat_argg$color_guild_b[1],"'>")
+  namesB <- paste0("<span style='color:",myenv_argg$color_guild_b[1],"'>")
   for (i in 1:(result_analysis$num_guild_b-1))
     namesB <- paste0(namesB,i," ",
                      names(result_analysis$matrix[,1])[i],
