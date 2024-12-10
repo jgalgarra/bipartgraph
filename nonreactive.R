@@ -236,6 +236,7 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
     if(is.null(zgg$landscape_plot)){
       myenv$landscape_plot <- TRUE
       options$height <- options$width
+      
     }
     if (myenv$landscape_plot){
       w <- options$height
@@ -244,6 +245,7 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
       h <- options$height
       w <- options$width
     }
+
   }
   if (options$ext=="png") {
     png(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
@@ -394,12 +396,19 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     fileplot <- paste0(fileplot,".png")
     myoptions <- data.frame("width"=static_plot_width,"ppi"=standard_ppi,"ext"="png","cairo"=FALSE)
     if (plottype=="polar")
-      plot <- p$polar_plot
-    if (plottype=="ziggurat"){
-      myoptions$height <- myoptions$width 
-      plot <- zgg$plot
+      mplot <- p$polar_plot
+    if (plottype=="matrix"){
+      mplot <- myenv$plot
+      pwidth <- round(0.9*pwidth)
     }
-    plotStaticDiagram(paste0("www/reports/",fileplot),plot,myoptions,plottype,myenv=myenv)
+    if (plottype=="ziggurat"){
+      myenv$landscape_pot <- TRUE
+      mplot <- myenv$plot
+      myoptions$height <- (16/9)*myoptions$width
+      myoptions$height <- myoptions$height*myoptions$ppi
+      myoptions$width <- myoptions$width*myoptions$ppi
+    }
+    plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
   }  
   else{
     if (plottype=="bipartite"){

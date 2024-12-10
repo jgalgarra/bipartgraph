@@ -639,7 +639,7 @@ shinyServer(function(input, output, session) {
     #create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
-                         zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
+                         zgg$result_analysis, input$DataLabelGuildAControl,printplot = TRUE,
                          input$DataLabelGuildBControl, myenv = zgg,
                          myenv_argg = zgg$ziggurat_argg, plottype = "ziggurat")
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",zgg$network_name,"&nbsp;",strw,"&nbsp;",
@@ -1028,7 +1028,7 @@ shinyServer(function(input, output, session) {
                          paste0("www/reports/matrix_",nname,"_report.html"), 
                          mymatrix$result_analysis, input$DataLabelGuildAControl,
                          input$DataLabelGuildBControl, pwidth = 600*input$matrixPlotresize/100,
-                         printplot=FALSE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
+                         printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
     
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
     details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
