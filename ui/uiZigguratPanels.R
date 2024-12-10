@@ -268,7 +268,7 @@ zigguratConfigPanel <- function() {
       ),
       fluidRow(
         column(2, zigguratCoreBoxSizeControl()),
-        column(2, zigguratLabelsSizeControl("CoreBox", strings$value("LABEL_ZIGGURAT_COREBOX_LABEL_SIZE_CONTROL"), 5))
+        column(2, zigguratLabelsSizeControl("CoreBox", strings$value("LABEL_ZIGGURAT_COREBOX_LABEL_SIZE_CONTROL"), 4))
       )
     ),
     

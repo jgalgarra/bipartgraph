@@ -576,16 +576,6 @@ zigguratShowTitleControl <- function() {
   )
   return(control)
 }
-# 
-# # Show legend in printed file
-# zigguratShowLegendControl <- function() {
-#   control<-checkboxInput(
-#     inputId = "zigguratShowLegend",
-#     label   = controlLabel(strings$value("LABEL_BIPARTITE_SHOW_LEGEND")),
-#     value   = TRUE
-#   )
-#   return(control)
-# }
 
 #Plot type
 zigguratShowLegendControl <- function(){

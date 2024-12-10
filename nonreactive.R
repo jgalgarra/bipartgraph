@@ -404,9 +404,9 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE
       mplot <- myenv$plot
-      myoptions$height <- (16/9)*myoptions$width
-      myoptions$height <- myoptions$height*myoptions$ppi
-      myoptions$width <- myoptions$width*myoptions$ppi
+      myoptions$height <- 0.9*(16/9)*myoptions$width
+      myoptions$height <- myoptions$height*myoptions$ppi/2
+      myoptions$width <- myoptions$width*myoptions$ppi/2
     }
     plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
   }  

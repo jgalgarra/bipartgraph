@@ -639,7 +639,7 @@ shinyServer(function(input, output, session) {
     #create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
-                         zgg$result_analysis, input$DataLabelGuildAControl,printplot = TRUE,
+                         zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
                          input$DataLabelGuildBControl, myenv = zgg,
                          myenv_argg = zgg$ziggurat_argg, plottype = "ziggurat")
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",zgg$network_name,"&nbsp;",strw,"&nbsp;",
