@@ -699,7 +699,7 @@ shinyServer(function(input, output, session) {
     
     
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste0(details,"&nbsp;<a href='reports/bipartite_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
+    details <- paste0(details,"&nbsp;<a href='reports/bipartite_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
   })
   
@@ -1016,7 +1016,7 @@ shinyServer(function(input, output, session) {
                          myenv_argg = pol$polar_argg, plottype = "polar")
      
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
+    details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
   })
 
@@ -1031,7 +1031,7 @@ shinyServer(function(input, output, session) {
                          printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
     
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_POLAR_SEE_DETAILS"),"</a></h5>")
+    details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
     return(HTML(details))
   })
   

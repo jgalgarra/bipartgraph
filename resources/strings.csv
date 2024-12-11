@@ -50,7 +50,7 @@
 "LABEL_ZIGGURAT_INFO_DETAILS_KCORE","k-core","k-shell"
 "LABEL_ZIGGURAT_INFO_DETAILS_ID","#","#"
 "LABEL_ZIGGURAT_INFO_DETAILS_NAME","Nombre","Name"
-"LABEL_ZIGGURAT_SEE_DETAILS","Ver informe","See report"
+"LABEL_ZIGGURAT_SEE_DETAILS","Informe imprimible","Printable report"
 "LABEL_ZIGGURAT_INFO_DETAILS_KRADIUS","k-radius","k-radius"
 "LABEL_ZIGGURAT_INFO_DETAILS_KDEGREE","k-degree","k-degree"
 "LABEL_ZIGGURAT_CONFIG_VISUALIZATION_PANEL","Nodos y enlaces","Nodes and links"
