@@ -50,11 +50,14 @@ bipartiteDiagramPanel <- function() {
                      column(12,
                             fluidRow(
                               # column(2, bipartiteZoomSVGControl() ),
-                              column(2, bipartiteLabelsSizeControl(strings$value("LABEL_BIPARTITE_KCOREMAX_LABEL_SIZE_CONTROL"), 3)),
+                              column(2, bipartiteTextRescaleControl()),
                               column(2, bipartiteGuildgapincreaseControl()),
                               column(1, bipartiteVerticalLayoutControl()),
                               column(2, bipartitePlottype()),
-                              column(2,
+                              column(4,
+                                     fluidRow(
+                                       uiOutput("networkinfoDetailbipartite")
+                                     ),
                                      fluidRow(align="center",
                                               tags$span(
                                                 tags$img(id="zoominbip",     
@@ -72,36 +75,17 @@ bipartiteDiagramPanel <- function() {
                                           font-size: 12px;
                                           border-color: rgba(0,0,0,0);
                                           -webkit-box-shadow: 2px;
-                                          box-shadow: 0px;}"))
+                                          box-shadow: 0px;}")),
                                      ),
-                            fluidRow(
-
-                                     fluidRow(
-                                       uiOutput("networkinfoDetailbipartite")
-                                     ),
-                              )  
-                            ),
-
-                            # column(4,
-                            #        fluidRow(
-                            #          uiOutput("networkinfoDetailbipartite")
-                            #        ),
-                                   # fluidRow(
-                                   #   column(5,tags$small(
-                                   #     uiOutput("networkinfoDetailbipartiteA")
-                                   #   )),
-                                   #   column(5,tags$small(
-                                   #     uiOutput("networkinfoDetailbipartiteB")
-                                   #   ))
-                                   # )
-                            #)       
+                              ),
                      ),
-                     fluidRow(column(12, tags$div(id="bipartiteplot",
-                                         uiOutput("bipartite"))
-                      )
+                     tags$span(id="bipartiteplot",class="svgcontainer",
+                               fluidRow(align="center",valign="top",
+                                        uiOutput("bipartite"))
+                     )
+                     
                      ),
                      
-                     )
   )
   return(control)
 }
@@ -119,7 +103,7 @@ bipartiteConfigPanel <- function() {
                  column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
                ),
                fluidRow(
-                 column(2, bipartiteNodeRescale()),
+                 #column(2, bipartiteNodeRescale()),
                  column(2, bipartiteColorControl("GuildA1", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_1_CONTROL"), czA1)),
                  column(2, bipartiteColorControl("GuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"), czA2)),
                  column(2, bipartiteColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
@@ -134,12 +118,6 @@ bipartiteConfigPanel <- function() {
                  column(2, bipartiteColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
                  column(2, bipartiteAlphaLevelLinkControl())
                ),
-               # fluidRow(
-               #   column(12, groupHeader(text=strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_NODES_HEADER"), image="logos-flexline/nodes.png"))
-               # ),
-               # fluidRow(
-               #   column(2, restorebipartiteColorsControl())
-               # )
       ),
       tabPanel(
         strings$value("LABEL_ZIGGURAT_LOADSAVE_PANEL"),

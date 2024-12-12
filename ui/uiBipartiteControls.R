@@ -129,6 +129,20 @@ bipartiteLabelsSizeControl <- function(description, default) {
   return(control)
 }
 
+
+bipartiteTextRescaleControl <- function() {
+  control<-sliderInput(
+    inputId = "bipartiteTextRescale",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_TEXT_SCALE")),
+    min     = 0.2,
+    max     = 5,
+    value   = 1,
+    step    = 0.2
+  )
+  return(control)
+}
+
+
 bipartitesaveSVGControl <- function() {
   control<-downloadButton("bipartitesaveSVG",label = strings$value("LABEL_PLOT_SVG_DOWNLOAD"))
   return(control)

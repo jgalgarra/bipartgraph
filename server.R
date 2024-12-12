@@ -356,12 +356,12 @@ shinyServer(function(input, output, session) {
                            color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
                            hide_plot_border = TRUE,
                            guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
-                           square_nodes_size_scale = input$bipartiteNodeRescale,
+                           square_nodes_size_scale = input,  #$bipartiteNodeRescale,
                            size_link = input$bipartiteLinkSize,
                            label_strguilda = trim(input$DataLabelGuildAControl),
                            label_strguildb = trim(input$DataLabelGuildBControl),
                            svg_scale_factor = 1,
-                           lsize_kcoremax  = input$bipartiteLabelsSize,
+                           lsize_kcoremax  = 3*input$bipartiteTextRescale,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
@@ -694,7 +694,7 @@ shinyServer(function(input, output, session) {
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
                          bpp$result_analysis, input$DataLabelGuildAControl,
-                         input$DataLabelGuildBControl, myenv = bpp,printplot = FALSE,
+                         input$DataLabelGuildBControl, myenv = bpp,printplot = TRUE,
                          myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
     
     

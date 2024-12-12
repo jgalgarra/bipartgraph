@@ -212,9 +212,10 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
   pointsize<-12
   mres = as.numeric(options$ppi)
   if (plottype=="bipartite"){
+    options$height <- options$width
     if (!myenv$flip_results){
-      w <- options$height * 0.85
-      h <- options$width * 0.5
+      w <- options$height * 0.9
+      h <- options$width * (2/3)
     } else {
       h <- options$height *0.85
       w <- options$width * myenv$tot_height/myenv$tot_width
@@ -401,12 +402,21 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       mplot <- myenv$plot
       pwidth <- round(0.9*pwidth)
     }
+    if (plottype=="bipartite"){
+      mplot <- myenv$plot
+      myoptions$width <- myoptions$width*standard_ppi
+      if (myenv$flip_results){
+        myoptions$width <- (2/3)*myoptions$width
+        pwidth=pwidth*0.5
+      }
+      myoptions$height <- myoptions$width
+    }
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE
       mplot <- myenv$plot
       myoptions$height <- 0.9*(16/9)*myoptions$width
-      myoptions$height <- myoptions$height*myoptions$ppi/2
-      myoptions$width <- myoptions$width*myoptions$ppi/2
+      myoptions$height <- myoptions$height*myoptions$ppi
+      myoptions$width <- myoptions$width*myoptions$ppi
     }
     plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
   }  
