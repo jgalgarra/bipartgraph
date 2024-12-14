@@ -32,6 +32,8 @@ valPlottype <- c("chilopod","legacy","kcoreorder")
 valShowLegendValue <<- c("TOP","BOTTOM","HIDE")
 # Order matrix
 valordmatrix <- c("kradius","kdegree","degree")
+# Data file field separator
+valorseparator <- c(",",";","\t")
 # Standard static plot width
 static_plot_width <- 8
 # Standard plot resolution

@@ -48,6 +48,29 @@ restoreColorsControl <- function() {
   return(control)
 }
 
+# Separator character
+selectDataSeparatorControl <- function(){
+  control <- radioButtons("selectDataSeparator", HTML(paste("<span class='controlLabel'>",
+                                                          strings$value("LABEL_DATA_SEPARATOR"),"</span>")),
+                          choiceNames =  c(strings$value("LABEL_DATA_SEP_COMMA"),strings$value("LABEL_DATA_SEP_SEMICOLON"),
+                                           strings$value("LABEL_DATA_SEP_TAB")),
+                          choiceValues = valorseparator,
+                          selected = ","
+  )
+  return(control)
+}
+
+#The data file contains the species names as row and col names
+selectDataSpeciesNamesControl <- function() {
+  control<-checkboxInput(
+    inputId = "selectDataSpeciesNames",
+    label   = controlLabel(strings$value("LABEL_SPECIES_HEADER")),
+    value   = TRUE
+  )
+  return(control)
+}
+
+
 networkAnalysisControl <- function() {
   control<-downloadButton("networkAnalysis",label = strings$value("LABEL_NETORK_ANALYSIS"))
   return(control)
@@ -88,3 +111,4 @@ selectLanguage <- function() {
   )
   return(control)
 }
+

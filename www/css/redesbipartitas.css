@@ -62,6 +62,11 @@
     height: 16px;
 }
 
+.errorMsg {
+    font-size:  16px;
+    color: red;
+}
+
 /* cabeceras de grupo */
 .groupHeader {
     padding:        2px;

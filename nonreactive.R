@@ -557,6 +557,10 @@ updckbx <- function(idchkbx,jsonvalue,session){
   )
 }
 
+errorMsg <- function(mytext){
+  return(HTML(paste("<span class='errorMsg'>",mytext,"</span>")))
+}
+
 parseJSONConfig <- function(controls_jsonfields,session,json_data,plottype){
   if (plottype %in% valPlottype)
     myplottype <- "bipartite"

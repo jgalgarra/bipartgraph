@@ -162,7 +162,6 @@ bipartiteShowTitleControl <- function() {
 valShowLegend <<- c(strings$value("LABEL_BIPARTITE_SHOW_LEGEND_TOP"),strings$value("LABEL_BIPARTITE_SHOW_LEGEND_BOTTOM"),
                     strings$value("LABEL_BIPARTITE_SHOW_LEGEND_HIDE"))
 
-#Plot type
 bipartiteShowLegendControl <- function(){
   control <- radioButtons("bipartiteShowLegend", HTML(paste("<span class='controlLabel'>",
                                                           strings$value("LABEL_BIPARTITE_SHOW_LEGEND"),"</span>")),

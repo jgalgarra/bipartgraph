@@ -106,7 +106,11 @@ shinyServer(function(input, output, session) {
     analyze_file <- FALSE
     file<-input$selectedDataFile
     if (!is.null(file) && nchar(file)>0) {
-      content<-read.csv(file=paste0(dataDir, "/", file), header=TRUE, stringsAsFactors = FALSE)
+      content<-read.csv(file=paste0(dataDir, "/", file), stringsAsFactors = FALSE, sep=input$selectDataSeparator,
+                        header=input$selectDataSpeciesNames)
+      an <<- new.env()
+      an$sep <- input$selectDataSeparator
+      an$speciesinheader <- input$selectDataSpeciesNames
       # Restore controls visibility
       visibilityZigDispControl("show",1,MAX_NUM_CORES)
       SwitchControls("enable",outsidercontrols)
@@ -130,7 +134,9 @@ shinyServer(function(input, output, session) {
       if (!searchsafefile(fred=file)){
         # Guild names by default for web of life files
         result_prim <- analyze_network(file, directory = paste0(dataDir, "/"),
-                                       guild_a = auxnguild_a, guild_b = auxnguild_b, only_NODF = TRUE)
+                                       guild_a = auxnguild_a, guild_b = auxnguild_b, 
+                                       only_NODF = TRUE, sep=input$selectDataSeparator,
+                                       speciesinheader=input$selectDataSpeciesNames)
         max_core <- result_prim$max_core
         analyze_file <- TRUE
       }
@@ -158,7 +164,7 @@ shinyServer(function(input, output, session) {
       shinyjs::show("networkAnalysis")
       shinyjs::show("downloadLabels")      
       output$NodesGuildA <- renderText({
-        paste(ncol(content)-1,strings$value("LABEL_SPECIES"))
+        paste(ncol(content)-(input$selectDataSpeciesNames),strings$value("LABEL_SPECIES"))
       })
       
       output$NodesGuildB <- renderText({
@@ -166,14 +172,24 @@ shinyServer(function(input, output, session) {
       })
       
       output$NetworkType <- renderText({
-        if (sum(content[1:nrow(content),2:ncol(content)] > 1)==0)
-          strings$value("LABEL_ZIGGURAT_INFO_BINARY")
-        else
-          strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
-      })
-      
-      output$NetworkLinks <- renderText({
-        paste(sum(content[1:nrow(content),2:ncol(content)]>0),strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"))
+        tryCatch({
+          strlinks <- paste(sum(content[1:nrow(content),2:ncol(content)]>0),strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"))
+          if (sum(content[1:nrow(content),2:ncol(content)] > 1)==0)
+            paste(strings$value("LABEL_ZIGGURAT_INFO_BINARY"),strlinks)
+          else
+            paste(strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED"),strlinks)
+          },
+          error = function(cond) {
+            result_validation = "File_Format_mismatch"
+            message(paste("File format mismatch:",cond))
+            errorMsg("File format mismatch")
+          },
+          warning = function(w) {
+            result_validation = "File_Format_mismatch"
+            message(paste("File format mismatch:",w))
+            errorMsg("File format mismatch")
+          }
+        )
       })
       
       dflabcols <- searchlabcols(fred = file)
@@ -261,6 +277,10 @@ shinyServer(function(input, output, session) {
   
   # list of selected nodes in the ziggurat
   markedNodes<-reactiveValues(data=data.frame())
+  
+  # observeEvent(input$selectDataSeparator, {
+  #   updateSelectInput(session, "selectedDataFile", choices=availableFiles$list)
+  # })
   
   # Reacts when the list of available files changes
   observeEvent(availableFiles$list, {
@@ -776,7 +796,9 @@ shinyServer(function(input, output, session) {
     red_name <- strsplit(red,".csv")[[1]][1]
     result_analysis <- analyze_network(red, directory = paste0(dataDir, "/"),
                                        guild_a = input$DataLabelGuildAControl, only_NODF = TRUE,
-                                       guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE)
+                                       guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE,
+                                       sep=input$selectDataSeparator,
+                                       speciesinheader=input$selectDataSpeciesNames)
     numlinks <- result_analysis$links
     results_indiv <- data.frame(Name = c(), Species = c(), kradius = c(), kdegree = c(), kshell = c(), krisk = c())
     clase <- grepl(input$DataLabelGuildAControl,V(result_analysis$graph)$name)
@@ -821,7 +843,9 @@ shinyServer(function(input, output, session) {
     red_name <- strsplit(red,".csv")[[1]][1]
     result_analysis <- analyze_network(red, directory = paste0(dataDir, "/"),
                                        guild_a = input$DataLabelGuildAControl, only_NODF = TRUE,
-                                       guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE)
+                                       guild_b = input$DataLabelGuildBControl, plot_graphs = FALSE,
+                                       sep=input$selectDataSeparator,
+                                       speciesinheader=input$selectDataSpeciesNames)
     results_indiv <- data.frame(Name = c(), Species = c())
     clase <- grepl(input$DataLabelGuildAControl,V(result_analysis$graph)$name)
 
@@ -1475,7 +1499,6 @@ shinyServer(function(input, output, session) {
       myargg$plotsdir <-""
       argsfiltered <- myargg[!grepl("function",myargg)]
       argsfiltered$network_name <- mat$network_name
-      print(argsfiltered)
       jsonbpp <- jsonlite::toJSON(x = argsfiltered, pretty = TRUE, force = TRUE)
       cat(paste(jsonbpp,"\n"), file = "tmpcode/mat.json")
       file.copy("tmpcode/mat.json",file)
