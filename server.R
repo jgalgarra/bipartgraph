@@ -897,6 +897,8 @@ shinyServer(function(input, output, session) {
     # Plots polar graph and histograms
     pgraph<-polar_graph(
       "data/",input$selectedDataFile,
+      sep = input$selectDataSeparator,
+      speciesinheader = input$selectDataSpeciesNames,
       fill_nodes          = input$polarFillNodes,
       print_title         = input$polarPrintTitle, 
       alpha_nodes         = input$polarAlphaLevel,
@@ -905,7 +907,6 @@ shinyServer(function(input, output, session) {
       printable_labels    = input$polarDisplayText,
       show_histograms     = FALSE,
       glabels             = c(input$DataLabelGuildAControl, input$DataLabelGuildBControl),
-      gshortened          = c(substr(input$DataLabelGuildAControl, 1, 4),substr(input$DataLabelGuildBControl, 1, 4)),
       lsize_title         = input$polarLabelsSizeTitle,
       lsize_axis          = input$polarLabelsSizeAxis,
       lsize_legend        = input$polarLabelsSizeLegend,
@@ -1259,9 +1260,10 @@ shinyServer(function(input, output, session) {
       sink("tmpcode/codepolar.txt")
       llamada <- p["polar_argg"]
       comando <- paste0("polg <- polar_graph(\"",llamada$polar_argg$datadir,"\",\"",llamada$polar_argg$filename)
-      comando <- paste0(comando,",plotsdir = \"plot_results/\",print_to_file = TRUE,")
-      comando <- paste0(comando,"glabels = c(\"",llamada$polar_argg$glabels[1],"\",\"",llamada$polar_argg$glabels[2],"\"),")
-      comando <- paste0(comando,"gshortened = c(\"",llamada$polar_argg$gshortened[1],"\",\"",llamada$polar_argg$gshortened[2],"\")")
+      comando <- paste0(comando,"\",plotsdir = \"plot_results/\",print_to_file = TRUE")
+      comando <- addCallParam(comando,llamada$polar_argg,"sep",quote=TRUE)
+      comando <- addCallParam(comando,llamada$polar_argg,"speciesinheader")
+      comando <- paste0(comando,",glabels = c(\"",llamada$polar_argg$glabels[1],"\",\"",llamada$polar_argg$glabels[2],"\")")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_title")
       comando <- addCallParam(comando,llamada$polar_argg,"lsize_legend")
       comando <- addCallParam(comando,llamada$polar_argg,"print_title")
