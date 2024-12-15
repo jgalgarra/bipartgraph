@@ -296,7 +296,8 @@ searchlabcols <- function(fred="")
 {
   datoslabcol <- data.frame("file" = c(), "LabelGuildA" = c(), "LabelGuildB" = c(),
                             "ColorZigGuildA1" = c(), "ColorZigGuildA2" = c(),
-                            "ColorZigGuildB1" = c(), "ColorZigGuildB2" = c())
+                            "ColorZigGuildB1" = c(), "ColorZigGuildB2" = c(),
+                            "sep" = c(), "speciesinheader" = c())
   if (file.exists("conf/labelcolors.csv")){
     labelcolors <<- read.table("conf/labelcolors.csv",sep=";",header = TRUE)
     if (nrow(labelcolors[toupper(labelcolors$file) == toupper(fred),])>0){

@@ -46,7 +46,9 @@ shinyServer(function(input, output, session) {
     
     datoslabcol <- data.frame("file" = input$selectedDataFile,
                               "LabelGuildA" = input$DataLabelGuildAControl,
-                              "LabelGuildB" = input$DataLabelGuildBControl)
+                              "LabelGuildB" = input$DataLabelGuildBControl,
+                              "sep" = input$selectDataSeparator,
+                              "speciesinheader" = input$selectDataSpeciesNames)
     if (exists("labelcolors")){
       labelcolors <<- labelcolors[toupper(labelcolors$file) != toupper(input$selectedDataFile),]
       labelcolors <<- rbind(tail(labelcolors, 199),datoslabcol)
@@ -194,6 +196,8 @@ shinyServer(function(input, output, session) {
       
       dflabcols <- searchlabcols(fred = file)
       if (ncol(dflabcols)>0){
+        updckbx("selectDataSeparator",dflabcols$sep,session)
+        updckbx("selectDataSpeciesNames",dflabcols$speciesinheader,session)
         updateTextInput(session, "DataLabelGuildAControl",
                         label = strings$value("LABEL_ZIGGURAT_LABEL_GUILDA"),
                         value = dflabcols$LabelGuildA
@@ -364,8 +368,8 @@ shinyServer(function(input, output, session) {
     
     # Disables bipartite container panel 
     session$sendCustomMessage(type="disableDivHandler", list(id=input$bipartitePlottype, disable=TRUE)) 
-    bplot<-bipartite_graph(datadir                                       = paste0(dataDir, "/"),
-                           filename                                      = input$selectedDataFile,
+    bplot<-bipartite_graph(datadir = paste0(dataDir, "/"),
+                           filename = input$selectedDataFile,
                            flip_results = input$bipartiteVerticalLayout,
                            style=input$bipartitePlottype,orderkcoremaxby = "kradius",
                            weighted_links = input$bipartiteweighted_links,
@@ -433,6 +437,8 @@ shinyServer(function(input, output, session) {
     z<-ziggurat_graph(
       datadir                                       = paste0(dataDir, "/"),
       filename                                      = input$selectedDataFile,
+      sep                                           = input$selectDataSeparator,
+      speciesinheader                               = input$selectDataSpeciesNames,
       paintlinks                                    = input$zigguratPaintLinks,
       print_to_file                                 = FALSE,
       plotsdir                                      = tempdir(),
@@ -1278,7 +1284,6 @@ shinyServer(function(input, output, session) {
       dir.create("tmpcode/", showWarnings = FALSE)
       sink("tmpcode/codematrix.txt")
       llamada <- mp$mat_argg
-      
       comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\",")
       comando <- paste0(comando, "orderby = \"",llamada$orderby,"\",")
       comando <- paste0(comando, "label_strguilda = \"",llamada$label_strguilda,"\",")
@@ -1316,6 +1321,8 @@ shinyServer(function(input, output, session) {
       sink("tmpcode/codeziggurat.txt")
       llamada <- zgg$ziggurat_argg
       comando <- paste0("ziggurat_graph(\"data/\"",",\"",llamada$filename,"\"")
+      comando <- addCallParam(comando,llamada,"sep",quote=TRUE)
+      comando <- addCallParam(comando,llamada,"speciesinheader")
       comando <- addCallParam(comando,llamada,"paintlinks")
       comando <- addCallParam(comando,llamada,"orderkcoremaxby",quote=TRUE)
       comando <- paste0(comando,",print_to_file = TRUE")
