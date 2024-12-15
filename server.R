@@ -984,6 +984,8 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=TRUE))
     # Plots matrix_graph
     p <- matrix_graph("data/",input$selectedDataFile,
+                      sep = input$selectDataSeparator,
+                      speciesinheader = input$selectDataSpeciesNames,
                       print_to_file = TRUE,
                       orderby = input$matrixOrderby,ppi=300,
                       flip_matrix = input$matrixRotate, 
@@ -1289,7 +1291,7 @@ shinyServer(function(input, output, session) {
       comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\",")
       comando <- addCallParam(comando,llamada,"sep",quote=TRUE)
       comando <- addCallParam(comando,llamada,"speciesinheader")
-      comando <- paste0(comando, "orderby = \"",llamada$orderby,"\",")
+      comando <- paste0(comando, ",orderby = \"",llamada$orderby,"\",")
       comando <- paste0(comando, "label_strguilda = \"",llamada$label_strguilda,"\",")
       comando <- paste0(comando, "label_strguildb = \"",llamada$label_strguildb,"\",")
       comando <- paste0(comando, "label_size = ",llamada$label_size,",")
