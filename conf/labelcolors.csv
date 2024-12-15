@@ -1,4 +1,5 @@
 "file";"LabelGuildA";"LabelGuildB";"sep";"speciesinheader"
 "CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "noheader_semicolon.csv";"guilda";"guilb";";";FALSE
 "noheader_tab.csv";"Pollinator";"Plant";"	";FALSE

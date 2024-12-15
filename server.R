@@ -370,6 +370,8 @@ shinyServer(function(input, output, session) {
     session$sendCustomMessage(type="disableDivHandler", list(id=input$bipartitePlottype, disable=TRUE)) 
     bplot<-bipartite_graph(datadir = paste0(dataDir, "/"),
                            filename = input$selectedDataFile,
+                           sep = input$selectDataSeparator,
+                           speciesinheader = input$selectDataSpeciesNames,
                            flip_results = input$bipartiteVerticalLayout,
                            style=input$bipartitePlottype,orderkcoremaxby = "kradius",
                            weighted_links = input$bipartiteweighted_links,
@@ -1285,6 +1287,8 @@ shinyServer(function(input, output, session) {
       sink("tmpcode/codematrix.txt")
       llamada <- mp$mat_argg
       comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\",")
+      comando <- addCallParam(comando,llamada,"sep",quote=TRUE)
+      comando <- addCallParam(comando,llamada,"speciesinheader")
       comando <- paste0(comando, "orderby = \"",llamada$orderby,"\",")
       comando <- paste0(comando, "label_strguilda = \"",llamada$label_strguilda,"\",")
       comando <- paste0(comando, "label_strguildb = \"",llamada$label_strguildb,"\",")
@@ -1402,6 +1406,8 @@ shinyServer(function(input, output, session) {
       sink("tmpcode/codebipartite.txt")
       llamada <- bpp$bipartite_argg
       comando <- paste0("bipartite_graph(\"data/\"",",\"",llamada$filename,"\"")
+      comando <- addCallParam(comando,llamada,"sep",quote=TRUE)
+      comando <- addCallParam(comando,llamada,"speciesinheader")
       comando <- addCallParam(comando,llamada,"paintlinks")
       comando <- addCallParam(comando,llamada,"orderkcoremaxby",quote=TRUE)
       comando <- addCallParam(comando,llamada,"print_to_file")
@@ -1428,7 +1434,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"show_legend", quote = TRUE)
       comando <- addCallParam(comando,llamada,"svg_scale_factor")
       comando <- addCallParam(comando,llamada,"weighted_links", quote =TRUE)
-      comando <- addCallParam(comando,llamada,"square_nodes_size_scale")
       comando <- paste0(comando,",progress = NULL")
       comando <- paste0(comando,")")
       cat(comando)
