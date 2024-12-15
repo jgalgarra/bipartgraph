@@ -727,7 +727,12 @@ shinyServer(function(input, output, session) {
     
     
     details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+    details <- paste(details,"<br><h5>", 
+    "<span  style='color:",bpp$color_guild_a[1],"'>",bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
+    "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
+  
     details <- paste0(details,"&nbsp;<a href='reports/bipartite_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
+    
     return(HTML(details))
   })
   

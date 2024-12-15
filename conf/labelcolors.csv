@@ -1,5 +1,8 @@
 "file";"LabelGuildA";"LabelGuildB";"sep";"speciesinheader"
-"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "noheader_tab.csv";"Pollinator";"Plant";"	";FALSE
+"RA_HP_042.csv";"Host";"Parasite";",";TRUE
+"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
+"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "noheader_semicolon.csv";"guilda";"guilb";";";FALSE
+"M_PL_059.csv";"Pollinator";"Plant";",";TRUE

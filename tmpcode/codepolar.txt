@@ -1,1 +1,0 @@
-polg <- polar_graph("data/","noheader_semicolon.csv",plotsdir = "plot_results/",print_to_file = TRUE ,sep = ";" ,speciesinheader = FALSE,glabels = c("guilda","guilb") ,lsize_title = 16 ,lsize_legend = 10 ,print_title = FALSE,progress = NULL ,fill_nodes = FALSE ,alpha_nodes = 0.5 ,printable_labels = 100)
