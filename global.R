@@ -42,6 +42,7 @@ standard_ppi <- 300
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")
   names(network_references) <- gsub("\\.","_",names(network_references))
+  network_references$Reference <- iconv(network_references$Reference, from = "ISO-8859-1", to = "UTF-8")
 }
 
 get.edges<-igraph::get.edges

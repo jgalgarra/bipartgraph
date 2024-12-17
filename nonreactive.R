@@ -458,6 +458,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
                   ", ")
   namesA <- paste0(namesA,result_analysis$num_guild_a,
                    names(result_analysis$matrix[1,])[result_analysis$num_guild_a],"</span>")
+  namesA <- iconv(namesA, from = "ISO-8859-1", to = "UTF-8")
   modified_text <- gsub("STR_SPECIES_A", namesA, modified_text)
   namesB <- paste0("<span style='color:",myenv_argg$color_guild_b[1],"'>")
   for (i in 1:(result_analysis$num_guild_b-1))
@@ -466,6 +467,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
                      ", ")
   namesB <- paste0(namesB,result_analysis$num_guild_b,
                    names(result_analysis$matrix[,1])[result_analysis$num_guild_b],"</span>")
+  namesB <- iconv(namesB, from = "ISO-8859-1", to = "UTF-8")
   modified_text <- gsub("STR_SPECIES_B", namesB, modified_text)
   if (exists("network_references")){
     if (sum(network_references$ID==nname)!=0)
