@@ -1176,7 +1176,7 @@ shinyServer(function(input, output, session) {
       }
       plotStaticDiagram(file, bplot,myoptions,"bipartite",myenv=bpp)
     },
-    contentType=paste0("image/", bipartitediagramOptions()$ext)
+    contentType=paste0("image/", bipartitediagramOptions()$bipartitefileextension)
   )
   
   # Download the polar plot
@@ -1197,7 +1197,7 @@ shinyServer(function(input, output, session) {
       plot <- p$full_plot
       plotStaticDiagram(file, plot,myoptions,"polar",myenv=an)
     },
-    contentType=paste0("image/", input$polarfileextension)
+    contentType=paste0("image/", polardiagramOptions()$polarfileextension)
   )
   
   # Download the matrix plot
@@ -1209,11 +1209,11 @@ shinyServer(function(input, output, session) {
     },
     content <- function(file) {
       myoptions<-matrixdiagramOptions()
-      myoptions$width     <- 10*as.numeric(input$matrixppi) #options$width*ppi
+      myoptions$width     <- 10*as.numeric(input$matrixppi) 
       if (input$matrixRotate)
         myoptions$height    <- myoptions$width*mat$plot_width/mat$plot_height
       else
-        myoptions$height    <- myoptions$width*mat$plot_height/mat$plot_width #options$height*ppi
+        myoptions$height    <- myoptions$width*mat$plot_height/mat$plot_width 
       validateDiagramOptions(myoptions)
       myoptions$ppi <- input$matrixppi
       myoptions$ext <- input$matrixfileextension
@@ -1221,7 +1221,7 @@ shinyServer(function(input, output, session) {
       plot <- p$plot
       plotStaticDiagram(file, plot,myoptions,"matrix",myenv=p)
     },
-    contentType=paste0("image/", input$polarfileextension)
+    contentType=paste0("image/", matrixdiagramOptions()$matrixfileextension)
   )
   
   session$onSessionEnded(function() { unlink("analysis_indiv", recursive = TRUE)

@@ -182,7 +182,7 @@ calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_le
   inchesmm  <- (1/25.4)
   inches    <- inchesmm*pdfSizes[paperSize,]
   # Type
-  type      <- capabilities(c("cairo"))
+  type      <- capabilities(c("cairo","Xlib", "quartz"))
   ext       <- capabilities(c("jpeg", "png", "eps", "tiff","svg"))
   # Update values
   options$paperSize <- paperSize
@@ -208,7 +208,8 @@ validateDiagramOptions<-function(options) {
 
 # Print static plot to file
 plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
-  type<-ifelse(options$cairo, "cairo", "windows")
+
+  type<-"cairo"
   pointsize<-12
   mres = as.numeric(options$ppi)
   if (plottype=="bipartite"){
@@ -251,7 +252,7 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
   if (options$ext=="png") {
     png(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="jpg") {
-    jpeg(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
+    grDevices::jpeg(filename=file, type= type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="tiff") {
     tiff(filename=file, type=type, width=w, height=h, units="px", res=mres, pointsize=pointsize)
   } else if (options$ext=="eps"){
