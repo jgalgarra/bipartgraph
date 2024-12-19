@@ -1,5 +1,4 @@
 "file";"LabelGuildA";"LabelGuildB";"sep";"speciesinheader"
-"noheader_tab.csv";"Pollinator";"Plant";"	";FALSE
 "RA_HP_048.csv";"Host";"Parasite";",";TRUE
 "santosetal2010.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_029.csv";"Pollinator";"Plant";",";TRUE
@@ -8,16 +7,32 @@
 "saunders2019.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_030.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_059.csv";"Pollinator";"Plant";",";TRUE
-"M_SD_011.csv";"Disperser";"Seed";",";TRUE
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_031_clean.csv";"Disperser";"Seed";",";TRUE
 "M_SD_034.csv";"Disperser";"Seed";",";TRUE
 "noheader_semicolon.csv";"guilda";"guilb";";";FALSE
 "Safariland.csv";"Pollinator";"Plant";",";TRUE
-"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
-"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
-"M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_039.csv";"Pollinator";"Plant";",";TRUE
-"RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "RA_HP_041.csv";"Host";"Parasite";",";TRUE
+"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
+"RA_HP_043.csv";"Host";"Parasite";",";TRUE
+"RA_HP_042.csv";"Host";"Parasite";",";TRUE
+"M_PL_032.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_033.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_034.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_031.csv";"Pollinator";"Plant";",";TRUE
+"RA_HP_040.csv";"Host";"Parasite";",";TRUE
+"RA_HP_030.csv";"Host";"Parasite";",";TRUE
+"RA_HP_039.csv";"Host";"Parasite";",";TRUE
+"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
+"M_SD_029.csv";"Disperser";"Seed";",";TRUE
+"M_SD_028.csv";"Disperser";"Seed";",";TRUE
+"M_SD_027.csv";"Disperser";"Seed";",";TRUE
+"M_SD_022.csv";"Disperser";"Seed";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
+"M_SD_013.csv";"Disperser";"Seed";",";TRUE
+"M_SD_014.csv";"Disperser";"Seed";",";TRUE
+"M_SD_011.csv";"Disperser";"Seed";",";TRUE
+"noheader_tab.csv";"Pollinator";"Plant";"	";FALSE
+"NOVELLA_2019_MAT.csv";"Pollinator";"Plant";",";TRUE
+"PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
