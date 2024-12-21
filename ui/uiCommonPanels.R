@@ -52,7 +52,7 @@ summaryPanel <- function() {
                 
   )
   author  <- "Javier Garcia-Algarra & Juan Manuel Garcia-Santi"
-  version <- "v2.0 - November 2023"
+  version <- "v2.0 - December 2024"
   panel<-tags$div(class="panelContent", fluidRow(
       column(12,
         fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_INFO_HEADER"), image="logos-flexline/information.png")),
