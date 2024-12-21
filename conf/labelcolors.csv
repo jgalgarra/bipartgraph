@@ -22,7 +22,6 @@
 "PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
 "santosetal2010.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_006.csv";"Host";"Parasite";",";TRUE
-"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
 "dattilo2014.csv";"Pollinator";"Plant";",";TRUE
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant";",";TRUE
 "kim_2016.csv";"Pollinator";"Plant";",";TRUE
@@ -70,3 +69,4 @@
 "M_SD_033.csv";"Disperser";"Seed";",";TRUE
 "M_SD_034.csv";"Disperser";"Seed";",";TRUE
 "RA_HP_001.csv";"Host";"Parasite";",";TRUE
+"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE

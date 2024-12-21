@@ -61,6 +61,7 @@ delfiles <- c(dir(path=dirreports ,pattern="*.html"),dir(path=dirreports ,patter
 file.remove(file.path(dirreports, delfiles))
 
 unlink("analysis_indiv", recursive = TRUE)
+unlink("plot_results", recursive = TRUE)
 unlink("tmpcode", recursive = TRUE)
 unlink("tmppolar", recursive = TRUE)
 
