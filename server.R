@@ -382,7 +382,6 @@ shinyServer(function(input, output, session) {
                            color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
                            hide_plot_border = TRUE,
                            guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
-                           square_nodes_size_scale = input,  #$bipartiteNodeRescale,
                            size_link = input$bipartiteLinkSize,
                            label_strguilda = trim(input$DataLabelGuildAControl),
                            label_strguildb = trim(input$DataLabelGuildBControl),
@@ -509,7 +508,6 @@ shinyServer(function(input, output, session) {
       show_legend                                   = input$zigguratShowLegend,
       use_spline                                    = input$zigguratUseSpline,
       spline_points                                 = input$zigguratSplinePoints,
-      square_nodes_size_scale                       = input$ziggurat1shellExpandControl,
       weighted_links                                = input$zigguratweighted_links,
       svg_scale_factor                              = 25*input$zigguratSvgScaleFactor,
       move_all_SVG_up                               = 0.01*input$zigguratSVGup,
@@ -1391,7 +1389,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"svg_scale_factor")
       comando <- addCallParam(comando,llamada,"aspect_ratio")
       comando <- addCallParam(comando,llamada,"weighted_links", quote =TRUE)
-      comando <- addCallParam(comando,llamada,"square_nodes_size_scale")
       comando <- addCallParam(comando,llamada,"move_all_SVG_up")
       comando <- addCallParam(comando,llamada,"move_all_SVG_right")
       comando <- paste0(comando,",progress = NULL")
