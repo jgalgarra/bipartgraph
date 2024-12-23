@@ -63,14 +63,14 @@ h4, .h4 {
 }
 
 .GuildTitle { 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size:14px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:13px;
   font-weight: bold;
 }
 
 .GuildNamesList { 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 11px;
   font-weight: normal;
   line-height: 1em;
   padding:0px;
