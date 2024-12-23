@@ -133,15 +133,12 @@ shinyServer(function(input, output, session) {
         auxnguild_a = "Host"
         auxnguild_b = "Parasite"
       }
-      if (!searchsafefile(fred=file)){
-        # Guild names by default for web of life files
-        result_prim <- analyze_network(file, directory = paste0(dataDir, "/"),
+      result_prim <- analyze_network(file, directory = paste0(dataDir, "/"),
                                        guild_a = auxnguild_a, guild_b = auxnguild_b, 
                                        only_NODF = TRUE, sep=input$selectDataSeparator,
                                        speciesinheader=input$selectDataSpeciesNames)
-        max_core <- result_prim$max_core
-        analyze_file <- TRUE
-      }
+      max_core <- result_prim$max_core
+      analyze_file <- TRUE
       if (max_core == 1){
         updateTextInput(session, "DataLabelGuildAControl",
                         label = strings$value("LABEL_ZIGGURAT_LABEL_GUILDA"),
@@ -152,13 +149,7 @@ shinyServer(function(input, output, session) {
                         value = "Choose a different file"
         )
         content<-data.frame()
-      } else if (analyze_file) {
-        if (exists("sfiles"))
-          sfiles <<- rbind(sfiles,data.frame("file"=file))
-        else
-          sfiles <<- data.frame("file"=file)
-        write.table(sfiles,file="conf/datossafefiles.csv",row.names=FALSE)
-      }
+      } 
     } else {
       content<-data.frame()
     }

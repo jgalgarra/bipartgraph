@@ -280,18 +280,6 @@ plotPDF<-function(file, ziggurat, polar, options) {
   dev.off()
 }
 
-# If the file has been analyzed and core max > 1 is stored in conf/safefiles.csv
-searchsafefile <- function(fred="")
-{
-  datossafefiles <- data.frame("file" = c())
-  if (file.exists("conf/datossafefiles.csv")){
-    sfiles <<- read.table("conf/datossafefiles.csv",sep=";",header = TRUE)
-    if (length(sfiles[toupper(sfiles$file) == toupper(fred),])>0)
-      return(TRUE)
-  }
-  return(FALSE)
-}
-
 # Search labels and colors
 searchlabcols <- function(fred="")
 {

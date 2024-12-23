@@ -12,9 +12,7 @@
 "M_PL_034.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_040.csv";"Host";"Parasite";",";TRUE
-"RA_HP_030.csv";"Host";"Parasite";",";TRUE
 "RA_HP_039.csv";"Host";"Parasite";",";TRUE
-"noheader_tab.csv";"Pollinator";"Plant";"	";FALSE
 "santosetal2010.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_006.csv";"Host";"Parasite";",";TRUE
 "kim_2016.csv";"Pollinator";"Plant";",";TRUE
@@ -61,16 +59,23 @@
 "M_SD_001.csv";"Disperser";"Seed";",";TRUE
 "M_SD_012.csv";"Disperser";"Seed";",";TRUE
 "M_SD_004.csv";"Disperser";"Seed";",";TRUE
-"RA_HP_048.csv";"Host";"Parasite";",";TRUE
 "RA_HP_002.csv";"Host";"Parasite";",";TRUE
 "M_PL_059.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_002.csv";"Disperser";"Seed";",";TRUE
-"RA_HP_042.csv";"Host";"Parasite";",";TRUE
-"M_PL_002.csv";"Pollinator";"Plant";",";TRUE
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
-"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
-"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
 "NOVELLA_2019_MAT.csv";"Pollinator";"Plant";",";TRUE
 "PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_001.csv";"Host";"Parasite";",";TRUE
+"noheader_tab.csv";"Pollinator";"Plant";"	";FALSE
+"RA_HP_025.csv";"Host";"Parasite";",";TRUE
+"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_072_06.csv";"Pollinator";"Plant";",";TRUE
+"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
+"RA_HP_030.csv";"Host";"Parasite";",";TRUE
+"RA_HP_048.csv";"Host";"Parasite";",";TRUE
+"RA_HP_049.csv";"Host";"Parasite";",";TRUE
+"RA_HP_050.csv";"Host";"Parasite";",";TRUE
+"M_PL_028.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_002.csv";"Pollinator";"Plant";",";TRUE
+"RA_HP_042.csv";"Host";"Parasite";",";TRUE
