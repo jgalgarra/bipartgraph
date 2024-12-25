@@ -30,8 +30,6 @@ polarDiagramPanel <- function() {
     column(8,
       fluidRow(plotOutput("polar",inline = FALSE))
       ),
-    
-    
     column(4,
       fluidRow(
                uiOutput("networkinfoDetailpolar")

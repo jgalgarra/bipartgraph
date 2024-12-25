@@ -215,7 +215,6 @@ shinyServer(function(input, output, session) {
         )
       }
       else {
-        
         updateTextInput(session, "DataLabelGuildAControl",
                         label <- strings$value("LABEL_ZIGGURAT_LABEL_GUILDA"),
                         value <- auxnguild_a
@@ -225,7 +224,6 @@ shinyServer(function(input, output, session) {
                         value <- auxnguild_b
         )
         restoredefaultzigcolors
-        #restoredefaultbipartitecolors
       }
     }
     else{
@@ -249,7 +247,6 @@ shinyServer(function(input, output, session) {
         to    <- paste0(dataDir, "/", files$name[i])
         file.copy(from, to)
       }
-      
       # Update file list
       availableFiles$list<-availableFilesList()
     }
@@ -272,10 +269,6 @@ shinyServer(function(input, output, session) {
   
   # list of selected nodes in the ziggurat
   markedNodes<-reactiveValues(data=data.frame())
-  
-  # observeEvent(input$selectDataSeparator, {
-  #   updateSelectInput(session, "selectedDataFile", choices=availableFiles$list)
-  # })
   
   # Reacts when the list of available files changes
   observeEvent(availableFiles$list, {
@@ -340,7 +333,6 @@ shinyServer(function(input, output, session) {
   
   # Reactive bipartite plotting
   bipartite<-reactive({
-    
     validate(
       need(nchar(input$selectedDataFile)>0, strings$value("MESSAGE_SELECT_DATE_FILE_ERROR"))
     )
@@ -424,7 +416,6 @@ shinyServer(function(input, output, session) {
     # Disables ziggurat container panel
     session$sendCustomMessage(type="disableDivHandler", list(id="ziggurat", disable=TRUE))
     
-    
     #Plot ziggurat
     z<-ziggurat_graph(
       datadir                                       = paste0(dataDir, "/"),
@@ -503,7 +494,7 @@ shinyServer(function(input, output, session) {
       svg_scale_factor                              = 25*input$zigguratSvgScaleFactor,
       move_all_SVG_up                               = 0.01*input$zigguratSVGup,
       move_all_SVG_right                            = 0.01*input$zigguratSVGright,
-      aspect_ratio                                  = 1,#input$zigguratAspectRatio,
+      aspect_ratio                                  = 1,
       progress                                      = progress
     )
     
@@ -628,7 +619,6 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
   })
   
-  
   # Network information for bipartite plot
   output$networkinfoDetailBip<-renderUI({
     bplot <- bipartite()
@@ -653,7 +643,6 @@ shinyServer(function(input, output, session) {
       strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
-    #create_zigg_report(z,"www/reports/templates/index.html",paste0("www/reports/zigg_",zgg$network_name,"_report.html"))
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
                          zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
@@ -724,7 +713,6 @@ shinyServer(function(input, output, session) {
     
     return(HTML(details))
   })
-  
   
   output$polardetailsheader<-renderUI({
     p <- polar()
@@ -826,7 +814,6 @@ shinyServer(function(input, output, session) {
   
   # Analyzes the network
   getspeciesnames <- reactive({
-    
     createspecies_name <- function(GuildLabel,isA=TRUE){
       if (isA)
         nom_spe <- names(result_analysis$matrix[1,])[as.integer(strsplit(V(result_analysis$graph)$name[i],GuildLabel)[[1]][2])]
@@ -874,10 +861,8 @@ shinyServer(function(input, output, session) {
     validate(
       need(nchar(input$selectedDataFile)>0, strings$value("MESSAGE_SELECT_DATE_FILE_ERROR"))
     )
-    
     swidth = input$screenwidthControl
     sheight = input$screenwidthControl
-    
     progress<-shiny::Progress$new()
     progress$set(message="", value = 0)
     on.exit(progress$close())
@@ -968,10 +953,6 @@ shinyServer(function(input, output, session) {
     validate(
       need(nchar(input$selectedDataFile)>0, strings$value("MESSAGE_SELECT_DATE_FILE_ERROR"))
     )
-    
-    #swidth = input$screenwidthControl
-    #sheight = input$screenwidthControl
-    
     progress<-shiny::Progress$new()
     progress$set(message="Matrix...", value = 0)
     on.exit(progress$close())
@@ -1087,8 +1068,6 @@ shinyServer(function(input, output, session) {
                                    input$matrixfileextension, TRUE, TRUE))
   })
   
-  
-  
   output$zigguratsaveSVG<-downloadHandler(
     filename=function() {
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-ziggurat.svg")
@@ -1120,7 +1099,6 @@ shinyServer(function(input, output, session) {
     },
     contentType=paste0("text/svg+xml")
   )
-  
   
   # Ziggurat plot download button
   output$zigguratDownload<-downloadHandler(
@@ -1241,7 +1219,6 @@ shinyServer(function(input, output, session) {
     contentType="text/csv"
   )
   
-  
   # Downloads the polar generating code
   output$polarcodeDownload <- downloadHandler(
     filename=function() {
@@ -1309,8 +1286,6 @@ shinyServer(function(input, output, session) {
     },
     contentType="text/plain"
   )
-  
-  
   #Downloads the ziggurat generating code
   output$zigguratcodeDownload <- downloadHandler(
     filename=function() {
@@ -1440,8 +1415,6 @@ shinyServer(function(input, output, session) {
     contentType="text/plain"
   )
   
-  
-  
   #Downloads the ziggurat plot configuration parameters
   output$zigguratsaveZigConfigFile <- downloadHandler(
     filename=function() {
@@ -1477,8 +1450,6 @@ shinyServer(function(input, output, session) {
     },
     contentType="text/plain"
   )
-  
-  
   
   #Downloads the bipartite plot configuration parameters
   output$bipartitesaveBipConfigFile <- downloadHandler(
@@ -1600,7 +1571,6 @@ shinyServer(function(input, output, session) {
     }
   })
   
-  
   output$contentsfileconfigmatrixplot <- reactive({
     if (!is.null(input$matrixloadMatrixConfigFile)){
       filePath <- input$matrixloadMatrixConfigFile$datapath
@@ -1672,8 +1642,5 @@ shinyServer(function(input, output, session) {
       else
         contentsfileconfigpolarplot <- paste(result_validation,"\n\n",contentsfileconfigpolarplot)
     }
-    
   })
-  
-  
 })

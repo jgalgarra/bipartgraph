@@ -49,7 +49,6 @@ bipartiteDiagramPanel <- function() {
   control<- fluidRow(align="left",
                      column(12,
                             fluidRow(
-                              # column(2, bipartiteZoomSVGControl() ),
                               column(2, bipartiteTextRescaleControl()),
                               column(2, bipartiteGuildgapincreaseControl()),
                               column(1, bipartiteVerticalLayoutControl()),

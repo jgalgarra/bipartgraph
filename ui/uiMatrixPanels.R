@@ -22,10 +22,6 @@ matrixPanel<-function() {
 
 # Matrix graph
 matrixDiagramPanel <- function() {
-  # if (exists("mat"))
-  #   nfic <- mat$
-  # else
-  #   nfic <- ""
   control<-fluidRow(valign="top",
                     column(8,
                            fluidRow(
@@ -36,10 +32,7 @@ matrixDiagramPanel <- function() {
                              column(1, matrixShowNamesControl()),
                              column(1, matrixShowTitleControl()),
                              column(1, matrixShowLegendControl()),
-                             
                              column(1, matrixWeightsControl()),
-                             
-                             
                            ),
                            fluidRow(align="center",plotOutput("matrix",inline = FALSE))
                     ),

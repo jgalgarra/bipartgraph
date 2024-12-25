@@ -105,10 +105,7 @@
 "RA_HP_051.csv";"Host";"Parasite";",";TRUE
 "RA_HP_012.csv";"Host";"Parasite";",";TRUE
 "RA_HP_019.csv";"Host";"Parasite";",";TRUE
-"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_040.csv";"Host";"Parasite";",";TRUE
-"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_019.csv";"Disperser";"Seed";",";TRUE
 "RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "RA_HP_043.csv";"Host";"Parasite";",";TRUE
@@ -116,3 +113,11 @@
 "RA_HP_045.csv";"Host";"Parasite";",";TRUE
 "RA_HP_046.csv";"Host";"Parasite";",";TRUE
 "M_PL_039.csv";"Pollinator";"Plant";",";TRUE
+"dattilo2014.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_003.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_004.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_005.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_027.csv";"Pollinator";"Plant";",";TRUE
+"CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_072_07.csv";"Pollinator";"Plant";",";TRUE
