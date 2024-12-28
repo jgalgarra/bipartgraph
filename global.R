@@ -64,6 +64,7 @@ unlink("analysis_indiv", recursive = TRUE)
 unlink("plot_results", recursive = TRUE)
 unlink("tmpcode", recursive = TRUE)
 unlink("tmppolar", recursive = TRUE)
+unlink("www/reports/*.*", recursive = FALSE)
 
 # New group header
 groupHeader<-function(text, image) {
