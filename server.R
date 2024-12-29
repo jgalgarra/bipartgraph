@@ -1261,7 +1261,7 @@ shinyServer(function(input, output, session) {
       dir.create("tmpcode/", showWarnings = FALSE)
       sink("tmpcode/codematrix.txt")
       llamada <- mp$mat_argg
-      comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\",")
+      comando <- paste0("matg <- matrix_graph(\"",llamada$datadir,"\"," ,"\"",llamada$filename,"\"")
       comando <- addCallParam(comando,llamada,"sep",quote=TRUE)
       comando <- addCallParam(comando,llamada,"speciesinheader")
       comando <- paste0(comando, ",orderby = \"",llamada$orderby,"\",")

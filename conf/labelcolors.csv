@@ -109,7 +109,6 @@
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant";",";TRUE
 "kim_2016.csv";"Pollinator";"Plant";",";TRUE
 "dattilo2014.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_013.csv";"Host";"Parasite";",";TRUE
 "RA_HP_043.csv";"Host";"Parasite";",";TRUE
 "RA_HP_038.csv";"Host";"Parasite";",";TRUE
@@ -122,3 +121,4 @@
 "M_SD_031_clean.csv";"Disperser";"Seed";",";TRUE
 "M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_042.csv";"Host";"Parasite";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
