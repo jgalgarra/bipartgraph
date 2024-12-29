@@ -33,13 +33,11 @@
 "M_SD_021.csv";"Disperser";"Seed";",";TRUE
 "M_SD_022.csv";"Disperser";"Seed";",";TRUE
 "M_SD_023.csv";"Disperser";"Seed";",";TRUE
-"M_SD_025.csv";"Disperser";"Seed";",";TRUE
 "M_SD_026.csv";"Disperser";"Seed";",";TRUE
 "M_SD_027.csv";"Disperser";"Seed";",";TRUE
 "M_SD_028.csv";"Disperser";"Seed";",";TRUE
 "M_SD_029.csv";"Disperser";"Seed";",";TRUE
 "M_PL_001.csv";"Pollinator";"Plant";",";TRUE
-"M_SD_001.csv";"Disperser";"Seed";",";TRUE
 "M_SD_012.csv";"Disperser";"Seed";",";TRUE
 "M_PL_059.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_002.csv";"Disperser";"Seed";",";TRUE
@@ -54,7 +52,6 @@
 "noheader_tab.csv";"Pollinator";"Plant";"	";FALSE
 "NOVELLA_2019_MAT.csv";"Pollinator";"Plant";",";TRUE
 "PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
-"RA_HP_001.csv";"Host";"Parasite";",";TRUE
 "RA_HP_002.csv";"Host";"Parasite";",";TRUE
 "RA_HP_003.csv";"Host";"Parasite";",";TRUE
 "RA_HP_004.csv";"Host";"Parasite";",";TRUE
@@ -108,16 +105,20 @@
 "M_PL_005.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_027.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_072_07.csv";"Pollinator";"Plant";",";TRUE
-"M_SD_004.csv";"Disperser";"Seed";",";TRUE
-"RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "CANGREJOS.csv";"Pollinator";"Plant";",";TRUE
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant";",";TRUE
 "kim_2016.csv";"Pollinator";"Plant";",";TRUE
-"M_SD_031_clean.csv";"Disperser";"Seed";",";TRUE
 "dattilo2014.csv";"Pollinator";"Plant";",";TRUE
 "example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_013.csv";"Host";"Parasite";",";TRUE
 "RA_HP_043.csv";"Host";"Parasite";",";TRUE
 "RA_HP_038.csv";"Host";"Parasite";",";TRUE
-"M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_032.csv";"Pollinator";"Plant";",";TRUE
+"M_PL_012.csv";"Pollinator";"Plant";",";TRUE
+"M_SD_025.csv";"Disperser";"Seed";",";TRUE
+"RA_HP_001.csv";"Host";"Parasite";",";TRUE
+"M_SD_001.csv";"Disperser";"Seed";",";TRUE
+"M_SD_004.csv";"Disperser";"Seed";",";TRUE
+"M_SD_031_clean.csv";"Disperser";"Seed";",";TRUE
+"M_PL_031.csv";"Pollinator";"Plant";",";TRUE
+"RA_HP_042.csv";"Host";"Parasite";",";TRUE
