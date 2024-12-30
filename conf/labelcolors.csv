@@ -113,7 +113,6 @@
 "M_PL_032.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_025.csv";"Disperser";"Seed";",";TRUE
 "M_SD_001.csv";"Disperser";"Seed";",";TRUE
-"M_SD_004.csv";"Disperser";"Seed";",";TRUE
 "M_SD_031_clean.csv";"Disperser";"Seed";",";TRUE
 "RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
@@ -126,3 +125,4 @@
 "M_PL_041.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_012.csv";"Pollinator";"Plant";",";TRUE
+"M_SD_004.csv";"Disperser";"Seed";",";TRUE
