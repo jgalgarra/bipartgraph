@@ -84,9 +84,7 @@ zigguratDiagramPanel <- function() {
                                         border-color: rgba(0,0,0,0);
                                         -webkit-box-shadow: 2px;
                                         box-shadow: 0px;}"))
-                                              
                                      )
-                                     
                               ),
                             ),
                             tags$span(id="ziggplot",
@@ -94,7 +92,6 @@ zigguratDiagramPanel <- function() {
                                                uiOutput("ziggurat"))
                             )
                      ),
-                     
                      column(4,
                             fluidRow(
                               uiOutput("networkinfoDetailziggurat")

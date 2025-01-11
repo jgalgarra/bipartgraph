@@ -646,7 +646,7 @@ shinyServer(function(input, output, session) {
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
                          zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
-                         input$DataLabelGuildBControl, myenv = zgg,
+                         input$DataLabelGuildBControl, myenv = zgg, h=1.5*static_plot_width,
                          myenv_argg = zgg$ziggurat_argg, plottype = "ziggurat")
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",zgg$network_name,"&nbsp;",strw,"&nbsp;",
                      zgg$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
@@ -700,6 +700,7 @@ shinyServer(function(input, output, session) {
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
                          bpp$result_analysis, input$DataLabelGuildAControl,
+                         h=ifelse(length(bpp$rg)>50,1.5*static_plot_width,static_plot_width),
                          input$DataLabelGuildBControl, myenv = bpp,printplot = TRUE,
                          myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
     

@@ -213,10 +213,9 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
   pointsize<-12
   mres = as.numeric(options$ppi)
   if (plottype=="bipartite"){
-    options$height <- options$width
     if (!myenv$flip_results){
-      w <- options$height * 0.9
-      h <- options$width * (2/3)
+      w <- options$width
+      h <- options$height
     } else {
       h <- options$height *0.85
       w <- options$width * myenv$tot_height/myenv$tot_width
@@ -385,7 +384,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   fileplot <- paste0(nname,"_",toupper(plottype))
   if (printplot){
     fileplot <- paste0(fileplot,".png")
-    myoptions <- data.frame("width"=static_plot_width,"ppi"=standard_ppi,"ext"="png","cairo"=FALSE)
+    myoptions <- data.frame("width"=h,"ppi"=standard_ppi,"ext"="png","cairo"=FALSE)
     if (plottype=="polar")
       mplot <- p$polar_plot
     if (plottype=="matrix"){
@@ -398,14 +397,14 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       if (myenv$flip_results){
         myoptions$width <- (2/3)*myoptions$width
         pwidth=pwidth*0.5
-      }
-      myoptions$height <- myoptions$width
+        myoptions$height <- myoptions$width
+      } else 
+        myoptions$height <- 0.5*myoptions$width
     }
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE
       mplot <- myenv$plot
-      myoptions$height <- 0.9*(16/9)*myoptions$width
-      myoptions$height <- myoptions$height*myoptions$ppi
+      myoptions$height <- 0.9*(16/9)*myoptions$width*myoptions$ppi
       myoptions$width <- myoptions$width*myoptions$ppi
     }
     plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
@@ -415,7 +414,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       h <- w 
       plot <- bpp$plot
       if (!bpp$flip_results)
-        h <- h/2
+        h <- h/4
       else{
         w <- w/2
         pwidth <- (2/3)*pwidth
