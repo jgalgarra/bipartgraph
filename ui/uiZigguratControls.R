@@ -199,7 +199,7 @@ zigguratHeightExpandControl <- function() {
 # 1-shell nodes area expand
 ziggurat1shellExpandControl <- function() {
   control<-sliderInput(
-    inputId = "ziggurat1shellExpandControl",
+    inputId = "ziggurat1shellExpand",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_1SHELL_EXPAND_CONTROL")),
     min     = 0.5,
     max     = 5.0,

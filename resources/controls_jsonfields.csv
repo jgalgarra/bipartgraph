@@ -81,6 +81,7 @@
 "zigguratPaintLinks";"paintlinks";"checkbox";1;0;"none"
 "zigguratPaintOutsiders";"paint_outsiders";"checkbox";1;0;"none"
 "zigguratweighted_links";"weighted_links";"selectinput";1;0;"none"
+"ziggurat1shellExpand";"square_nodes_size_scale";"selectinput";1;0;"none"
 "zigguratColorGuildA1";"color_guild_a";"colourinput";1;0;"none"
 "zigguratColorGuildA2";"color_guild_a";"colourinput";2;0;"none"
 "zigguratColorGuildB1";"color_guild_b";"colourinput";1;0;"none"

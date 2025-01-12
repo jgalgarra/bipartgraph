@@ -491,6 +491,7 @@ shinyServer(function(input, output, session) {
       use_spline                                    = input$zigguratUseSpline,
       spline_points                                 = input$zigguratSplinePoints,
       weighted_links                                = input$zigguratweighted_links,
+      square_nodes_size_scale                       = input$ziggurat1shellExpand,
       svg_scale_factor                              = 25*input$zigguratSvgScaleFactor,
       move_all_SVG_up                               = 0.01*input$zigguratSVGup,
       move_all_SVG_right                            = 0.01*input$zigguratSVGright,
@@ -1356,6 +1357,7 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"svg_scale_factor")
       comando <- addCallParam(comando,llamada,"aspect_ratio")
       comando <- addCallParam(comando,llamada,"weighted_links", quote =TRUE)
+      comando <- addCallParam(comando,llamada,"square_nodes_size_scale")
       comando <- addCallParam(comando,llamada,"move_all_SVG_up")
       comando <- addCallParam(comando,llamada,"move_all_SVG_right")
       comando <- paste0(comando,",progress = NULL")
