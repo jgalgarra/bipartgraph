@@ -173,7 +173,7 @@ saveSVGControl <- function(plotlabel) {
 #   paperSize: 0-DINA0, 1-DINA1, ...
 #   ppi: pixels per inch
 
-calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_legend) {
+calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_legend, landscape = FALSE) {
   options<-list(paperSize=1, width=480, height=480, ppi=300, cairo=FALSE, ext=extension)
   # Dimensions in DIN and inches
   widths    <- c(t(sapply(c(841, 841), function(x) {x*(1/2)^(0:3)})))
@@ -189,8 +189,13 @@ calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_le
   options$ppi       <- ppi
   options$show_title <- show_title
   options$show_legend  <- show_legend
-  options$width     <- inches$width*ppi
-  options$height    <- inches$height*ppi
+  if (!landscape){
+    options$width     <- inches$width*ppi
+    options$height    <- inches$height*ppi
+  } else {
+    options$height     <- inches$width*ppi
+    options$width    <- inches$height*ppi
+  }
   options$cairo     <- type[c("cairo")]
   options$ext       <- ifelse(ext[c("png")], "png", ifelse(ext[c("jpeg")], "jpeg", ifelse(ext[c("tiff")], "tiff", ifelse(ext[c("svg")], "svg", ""))))
   return(options)
@@ -399,7 +404,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
         pwidth=pwidth*0.5
         myoptions$height <- myoptions$width
       } else 
-        myoptions$height <- 0.5*myoptions$width
+        myoptions$height <- 0.33*myoptions$width
     }
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE

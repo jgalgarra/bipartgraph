@@ -360,7 +360,6 @@ shinyServer(function(input, output, session) {
                            weighted_links = input$bipartiteweighted_links,
                            color_link = input$bipartiteColorLink,
                            alpha_link = input$bipartiteAlphaLevelLink,
-                           #alpha_level = input$bipartiteAlphaLevel,
                            color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
                            color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
                            hide_plot_border = TRUE,
@@ -370,6 +369,7 @@ shinyServer(function(input, output, session) {
                            label_strguildb = trim(input$DataLabelGuildBControl),
                            svg_scale_factor = 1,
                            lsize_kcoremax  = 3*input$bipartiteTextRescale,
+                           lsize_legend = 5*input$bipartiteTextRescale,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
@@ -1057,7 +1057,8 @@ shinyServer(function(input, output, session) {
     return(calculateDiagramOptions(4, as.numeric(input$bipartiteppi), 
                                    input$bipartitefileextension, 
                                    input$bipartiteShowTitle, 
-                                   input$bipartiteShowLegend))
+                                   input$bipartiteShowLegend,
+                                   landscape = !input$bipartiteVerticalLayout))
   })
   
   polardiagramOptions<-reactive({
@@ -1127,7 +1128,7 @@ shinyServer(function(input, output, session) {
   # Bipartite plot download button
   output$bipartiteDownload<-downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(4, as.numeric(input$bipatiteppi), input$bipartitefileextension, input$bipartiteShowTitle, input$bipartiteShowLegend)
+      opt <- calculateDiagramOptions(4, as.numeric(input$bipartiteppi), input$bipartitefileextension, input$bipartiteShowTitle, input$bipartiteShowLegend, landscape=!bpp$flip_results)
       file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-",input$bipartitePlottype,"." , input$bipartitefileextension)
       return(file)
     },
