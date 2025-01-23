@@ -409,8 +409,9 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE
       mplot <- myenv$plot
-      myoptions$height <- 0.9*(16/9)*myoptions$width*myoptions$ppi
+      myoptions$height <- (16/9)*myoptions$width*myoptions$ppi
       myoptions$width <- myoptions$width*myoptions$ppi
+
     }
     plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
   }  
@@ -427,7 +428,8 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     }
     if (plottype=="ziggurat"){
       plot <- zgg$plot
-      h <- 0.9*w
+      w <- 1.5*w
+      h <- 0.9*(9/16)*w
     }
     fileplot <- paste0(fileplot,".svg")
     ggsave(filename = paste0("www/reports/",fileplot),width=w, height=h)
