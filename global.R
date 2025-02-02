@@ -38,6 +38,8 @@ valorseparator <- c(",",";","\t")
 static_plot_width <- 8
 # Standard plot resolution
 standard_ppi <- 300
+# Printer formats
+printer_formats <<- c("png","jpg","eps","tiff","svg","pdf")
 
 if (file.exists("data/refs/references.csv")){
   network_references <- read.csv("data/refs/references.csv")
@@ -103,7 +105,7 @@ linkLabel <- function(text, img) {
 
 # Print file format
 PrintFileFormat <- function(plotlabel) {
-  values<-c("png","jpg","eps","tiff","svg")
+  values <- printer_formats
   names(values)<-values
   control<-selectInput(
     inputId   = paste0(plotlabel,"fileextension"),

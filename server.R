@@ -224,25 +224,13 @@ shinyServer(function(input, output, session) {
                           label = strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"),
                           value = as.character(dflabcols$ColorZigGuildB2)
         )
-        # names_A <- ""
-        # labelsA <- clean_species_names(names(result_prim$matrix[1,]),result_prim$network_name)
-        # for (i in 1:length(labelsA))
-        #   names_A <- paste(names_A,sprintf("<p class=\"\" style=\"margin: 6px;\"> %2d",i),labelsA[i],"</p>")
         names_A <- headslider("titleguildA",czA1,dflabcols$LabelGuildA,
                               result_prim$matrix[1,],result_prim$network_name)
-        print(names_A)
-        # names_B <- ""
-        # labelsB <- clean_species_names(names(result_prim$matrix[,1]),result_prim$network_name)
-        # for (i in 1:length(labelsB))
-        #   names_B <- paste(names_B,sprintf("%2d",i)," ",labelsB[i],"<br>")
         names_B <- headslider("titleguildB",czB1,dflabcols$LabelGuildB,result_prim$matrix[,1],result_prim$network_name)
         textinSlider <- paste("<span valign=\"top\"><div class=\"containerslider\">","<div class=\"columnslider\">",names_A,"</div>",
                               "<div class=\"columnslider\">",names_B,"</div>","</div>","</span>")
         jscode <- paste("document.getElementById('slideTextId').innerHTML='",textinSlider,"';")
         runjs(jscode)
-        # Hide species button
-        # jscode <- paste("document.getElementById('toggleButtonSliderId').style.display = 'none';")
-        # runjs(jscode)
       }
       else {
         updateTextInput(session, "DataLabelGuildAControl",

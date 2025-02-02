@@ -107,7 +107,7 @@ availableFilesDetails<-function(filesList) {
 
 # Print file format
 PrintFileFormat <- function(plotlabel) {
-  values<-c("png","jpg","eps","tiff","svg")
+  values <- printer_formats
   names(values)<-values
   control<-selectInput(
     inputId   = paste0(plotlabel,"fileextension"),
@@ -183,7 +183,7 @@ calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_le
   inches    <- inchesmm*pdfSizes[paperSize,]
   # Type
   type      <- capabilities(c("cairo","Xlib", "quartz"))
-  ext       <- capabilities(c("jpeg", "png", "eps", "tiff","svg"))
+  ext       <- capabilities(printer_formats)
   # Update values
   options$paperSize <- paperSize
   options$ppi       <- ppi
@@ -263,9 +263,9 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/mres, fallback_resolution=options$ppi,
            plot = print(plot),
            device = cairo_ps)
-  }else if (options$ext=="svg"){
+  }else if ((options$ext=="svg") ||(options$ext=="pdf"))
     ggsave(filename = file,width=w/as.numeric(options$ppi), height=h/as.numeric(options$ppi))
-  }
+  
   
   plot(plot)
   dev.off()
@@ -452,6 +452,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   namesA <- paste0(namesA,result_analysis$num_guild_a,
                    names(result_analysis$matrix[1,])[result_analysis$num_guild_a],"</span>")
   namesA <- iconv(namesA, from = "ISO-8859-1", to = "UTF-8")
+  namesA <- gsub("\\."," ",namesA)
   modified_text <- gsub("STR_SPECIES_A", namesA, modified_text)
   namesB <- paste0("<span style='color:",myenv_argg$color_guild_b[1],"'>")
   for (i in 1:(result_analysis$num_guild_b-1))
@@ -461,6 +462,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   namesB <- paste0(namesB,result_analysis$num_guild_b,
                    names(result_analysis$matrix[,1])[result_analysis$num_guild_b],"</span>")
   namesB <- iconv(namesB, from = "ISO-8859-1", to = "UTF-8")
+  namesB <- gsub("\\."," ",namesB)
   modified_text <- gsub("STR_SPECIES_B", namesB, modified_text)
   if (exists("network_references")){
     if (sum(network_references$ID==nname)!=0)
