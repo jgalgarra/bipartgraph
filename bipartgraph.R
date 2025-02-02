@@ -42,10 +42,6 @@ if (file.exists(fconf)){
   czA2 <<- "#00008B"
   czB1 <<- "#F08080"
   czB2 <<- "#FF0000"
-  labelA <<- strings$value("LABEL_ZIGGURAT_LABEL_GUILDA_DEFAULT")
-  labelB <<- strings$value("LABEL_ZIGGURAT_LABEL_GUILDB_DEFAULT")
-  shinyport <<- 8080
-  
   dir.create("plot_results/", showWarnings = FALSE)
 }
 tmpplots <<- "tmp"

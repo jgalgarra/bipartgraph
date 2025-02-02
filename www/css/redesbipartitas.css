@@ -62,6 +62,14 @@
     height: 16px;
 }
 
+/* Button style */
+.butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+    color: black;
+    font-size: 12px;
+    border-color: rgba(0,0,0,0);
+    -webkit-box-shadow: 2px;
+    box-shadow: 0px;}
+
 .errorMsg {
     font-size:  16px;
     color: red;
@@ -168,7 +176,7 @@
 }
 
 .rbtooltiptableinfo1 th {
-    font-weigth:bold;
+    font-weight:bold;
     width:      50px;
     padding:    0px;
 }
@@ -182,7 +190,7 @@
 }
 
 .rbtooltiptableinfo2 th {
-    font-weigth:    bold;
+    font-weight:    bold;
     border-bottom:  1px solid lightgray;
     padding:        0px;
 }
@@ -191,3 +199,31 @@
     padding: 0px;
 }
 
+.containerslider {
+    display: flex; /* Enables flexbox for layout */
+    gap: 10px;      /* Adds some space between the columns */
+    padding: 5px;   /* Adds padding around the container */
+    text-align: left;
+    justify-content: flex-start,
+}
+
+.columnslider {
+    flex: 1;       /* Makes each column take up equal space */
+    padding: 5p;  /* Adds padding within each column */
+}
+
+.sliderGuildTitle { 
+    font-size:11px;
+    font-weight: bold;
+  }
+  
+.sliderGuildNamesList { 
+    font-size: 9px;
+    font-weight: normal;
+    line-height: 0em;
+    padding:0px;
+    margin:0px;
+    line-height: 50%;
+    text-align: left;
+  }
+  

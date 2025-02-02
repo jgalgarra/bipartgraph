@@ -187,6 +187,7 @@
 "LABEL_ABOUT_AUTHOR_HEADER","Equipo de desarrollo","Dev Team"
 "LABEL_ABOUT_VERSION_HEADER","Versión","Version"
 "LABEL_SPECIES","especies","species"
+"LABEL_BUTTON_SPECIES","Especies","Species"
 "LABEL_FOOTER_CONTENT_LEFT","PFC Representación gráfica de redes bipartitas basada en descomposición k-core","PFC Graphical representation of bipartite networks based on k-shell decomposition"
 "LABEL_MENU_BIPARTITE_PANEL","Bipartito","Bipartite"
 "LABEL_BIPARTITE_GUILD_GAP_INCREASE", "Separación entre clases (%)", "Guild gap (%)"

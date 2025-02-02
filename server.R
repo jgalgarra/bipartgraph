@@ -101,6 +101,16 @@ shinyServer(function(input, output, session) {
     )
   }
   
+  headslider <- function(guildid,colorg,labelg,matrixspec,nname){
+    namesg <- ""
+    labelsguild <- clean_species_names(names(matrixspec),nname)
+    for (i in 1:length(labelsguild))
+      #namesg <- paste(namesg,sprintf("<p class=\"\" style=\"margin: 12px;\"> %2d",i),labelsguild[i],"</p>")
+      namesg <- paste(namesg,sprintf("%2d",i),labelsguild[i],"<br>")
+    return <- paste0("<span class=\"sliderGuildTitle\" id=\"",guildid,"\"  style=\"color:",colorg,"\">",labelg,
+                    "</span><span class=\"sliderGuildNamesList\"  style=\"color:",colorg,"\"><br>",namesg)
+  }
+  
   # Reads the network data file
   selectedDataFileContent<-reactive({
     shinyjs::hideElement(id= "panelB")
@@ -138,6 +148,7 @@ shinyServer(function(input, output, session) {
                                        only_NODF = TRUE, sep=input$selectDataSeparator,
                                        speciesinheader=input$selectDataSpeciesNames)
       max_core <- result_prim$max_core
+      result_prim$network_name <- strsplit(file,split='\\.')[[1]][1]
       analyze_file <- TRUE
       if (max_core == 1){
         updateTextInput(session, "DataLabelGuildAControl",
@@ -213,6 +224,25 @@ shinyServer(function(input, output, session) {
                           label = strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"),
                           value = as.character(dflabcols$ColorZigGuildB2)
         )
+        # names_A <- ""
+        # labelsA <- clean_species_names(names(result_prim$matrix[1,]),result_prim$network_name)
+        # for (i in 1:length(labelsA))
+        #   names_A <- paste(names_A,sprintf("<p class=\"\" style=\"margin: 6px;\"> %2d",i),labelsA[i],"</p>")
+        names_A <- headslider("titleguildA",czA1,dflabcols$LabelGuildA,
+                              result_prim$matrix[1,],result_prim$network_name)
+        print(names_A)
+        # names_B <- ""
+        # labelsB <- clean_species_names(names(result_prim$matrix[,1]),result_prim$network_name)
+        # for (i in 1:length(labelsB))
+        #   names_B <- paste(names_B,sprintf("%2d",i)," ",labelsB[i],"<br>")
+        names_B <- headslider("titleguildB",czB1,dflabcols$LabelGuildB,result_prim$matrix[,1],result_prim$network_name)
+        textinSlider <- paste("<span valign=\"top\"><div class=\"containerslider\">","<div class=\"columnslider\">",names_A,"</div>",
+                              "<div class=\"columnslider\">",names_B,"</div>","</div>","</span>")
+        jscode <- paste("document.getElementById('slideTextId').innerHTML='",textinSlider,"';")
+        runjs(jscode)
+        # Hide species button
+        # jscode <- paste("document.getElementById('toggleButtonSliderId').style.display = 'none';")
+        # runjs(jscode)
       }
       else {
         updateTextInput(session, "DataLabelGuildAControl",
@@ -531,6 +561,13 @@ shinyServer(function(input, output, session) {
     # Binary network
     if(sum(zgg$result_analysis$matrix > 1)==0)
       SwitchControls("disable",weightcontrols)
+    jscode <- paste("document.getElementById('titleguildA').innerHTML='",z$name_guild_a,"';")
+    runjs(jscode)
+    jscode <- paste("document.getElementById('titleguildB').innerHTML='",z$name_guild_b,"';")
+    runjs(jscode)
+    # Show species button
+    # jscode <- paste("document.getElementById('toggleButtonSliderId').style.display = 'block';")
+    # runjs(jscode)
     return(z)
   })
   

@@ -69,7 +69,7 @@ bipartiteDiagramPanel <- function() {
                                                          src="images/logos-flexline/zoom-out.png")
                                               ),
                                               downloadButton("bipartitesaveSVG", label="SVG", class = "butt1"),
-                                              tags$head(tags$style(".butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+                                              tags$head(tags$style("butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
                                           color: black;
                                           font-size: 12px;
                                           border-color: rgba(0,0,0,0);

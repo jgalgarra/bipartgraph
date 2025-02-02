@@ -444,7 +444,6 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   modified_text <- gsub("IMG_STR_WIDTH", pwidth, modified_text)
   modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",myenv_argg$color_guild_a[1],"'>",strGuildA,"</span >"), modified_text)
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",myenv_argg$color_guild_b[1],"'>",strGuildB,"</span >"), modified_text)
-  #pastechar ="<br style='display: block; margin: 1px;'>"
   namesA <- paste0("<span style='color:",myenv_argg$color_guild_a[1],"'>")
   for (i in 1:(result_analysis$num_guild_a-1))
     namesA <- paste0(namesA,i," ",
