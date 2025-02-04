@@ -382,7 +382,7 @@ clean_species_names <- function(listspecies,nnetwork){
 
 create_static_report <- function(p, input_file, output_file, result_analysis, strGuildA,
                                  strGuildB, w = static_plot_width, h = static_plot_width, pwidth = 600, printplot = TRUE,
-                                 myenv_argg = polar$polar_argg, myenv=polar, plottype = "polar"
+                                 myenv_argg = polar$polar_argg, myenv=polar, plottype = "polar", print_report = "no"
                                  ) 
   {
   nname <- get_network_name(myenv_argg$filename)
@@ -398,13 +398,16 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     }
     if (plottype=="bipartite"){
       mplot <- myenv$plot
-      myoptions$width <- myoptions$width*standard_ppi
-      if (myenv$flip_results){
-        myoptions$width <- (2/3)*myoptions$width
-        pwidth=pwidth*0.5
-        myoptions$height <- myoptions$width
-      } else 
-        myoptions$height <- 0.33*myoptions$width
+      myoptions$ppi <- 600
+      myoptions$width <- w*myoptions$ppi
+      myoptions$height <- h*myoptions$ppi
+      #myoptions$width <- myoptions$width*myoptions$ppi
+      # if (myenv$flip_results){
+      #   myoptions$width <- (2/3)*myoptions$width
+      #   pwidth=pwidth*0.5
+      #   myoptions$height <- myoptions$width
+      # } else 
+      #   myoptions$height <- (2/3)*myoptions$width
     }
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE

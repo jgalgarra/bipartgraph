@@ -10,7 +10,6 @@ let showButton = true;
             // Styling the panel based on mode
             if (sliderMode === "bottom") {
                 Object.assign(slidePanel.style,{ 
-                //overflowY: sliderMode === "bottom" ? "auto" : "hidden",
                     position: "fixed",
                     bottom: "-" + sliderSize + "vh",
                     left: "0",
@@ -18,12 +17,10 @@ let showButton = true;
                     height: sliderSize + "vh",
                     overflowY: "auto",
                     boxShadow : "-2px 0 5px rgba(0,0,0,0.5)",
-        
                     transition: "bottom 0.5s ease-in-out",
                 });
             } else if (sliderMode === "right") {
                 Object.assign(slidePanel.style, {
-                //overflowY: sliderMode === "right" ? "auto" : "hidden",
                     zIndex: "1000",
                     position: "fixed",
                     top: "30%",
@@ -53,7 +50,7 @@ let showButton = true;
                 marginTop:"0%"
             }); 
             slideText.id = "slideTextId";
-            slideText.innerHTML = "";
+            slideText.innerHTML = "<br><br>No file selected!";
             slidePanel.appendChild(slideText);
             document.body.appendChild(slidePanel);
             // Styling the button

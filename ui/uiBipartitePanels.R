@@ -52,30 +52,32 @@ bipartiteDiagramPanel <- function() {
                               column(2, bipartiteTextRescaleControl()),
                               column(2, bipartiteGuildgapincreaseControl()),
                               column(1, bipartiteVerticalLayoutControl()),
-                              column(2, bipartitePlottype()),
-                              column(4,
-                                     fluidRow(
-                                       uiOutput("networkinfoDetailbipartite")
-                                     ),
-                                     fluidRow(align="center",
-                                              tags$span(
-                                                tags$img(id="zoominbip",     
-                                                         onclick="svgZoomIn('bipartite')",   
-                                                         src="images/logos-flexline/zoom-in.png")
-                                              ),
-                                              tags$span(
-                                                tags$img(id="zoomoutbip",    
-                                                         onclick="svgZoomOut('bipartite')",   
-                                                         src="images/logos-flexline/zoom-out.png")
-                                              ),
-                                              downloadButton("bipartitesaveSVG", label="SVG", class = "butt1"),
-                                              tags$head(tags$style("butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
+                              column(1, bipartitePlottype()),
+                              column(2, fluidRow(align="center",
+                                                 tags$span(
+                                                   tags$img(id="zoominbip",     
+                                                            onclick="svgZoomIn('bipartite')",   
+                                                            src="images/logos-flexline/zoom-in.png")
+                                                 ),
+                                                 tags$span(
+                                                   tags$img(id="zoomoutbip",    
+                                                            onclick="svgZoomOut('bipartite')",   
+                                                            src="images/logos-flexline/zoom-out.png")
+                                                 ),
+                                                 downloadButton("bipartitesaveSVG", label="SVG", class = "butt1"),
+                                                 tags$head(tags$style("butt1, .butt1:active , .butt1:visited, .butt1:hover {background-color:rgba(0,0,0,0);
                                           color: black;
                                           font-size: 12px;
                                           border-color: rgba(0,0,0,0);
                                           -webkit-box-shadow: 2px;
                                           box-shadow: 0px;}")),
+                              )
+                              ),
+                              column(4,
+                                     fluidRow(
+                                       uiOutput("networkinfoDetailbipartite")
                                      ),
+                                     
                               ),
                      ),
                      tags$span(id="bipartiteplot",class="svgcontainer",

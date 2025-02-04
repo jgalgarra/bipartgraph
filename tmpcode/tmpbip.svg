@@ -1,0 +1,955 @@
+<svg transform='rotate(90)' xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="-98480 -74184.7872340426 116724 136178">
+<rect id="chilopodkcore3-a-1-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-91927.13" y="-7297.87" width="1843.09000000001" height="2047.87" />
+<rect id="chilopodkcore3-a-2-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-89879.26" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-3-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-87831.38" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-4-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-85783.51" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-5-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-83735.64" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-6-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-81687.77" y="-7297.87" width="1843.09000000001" height="2047.87" />
+<rect id="chilopodkcore3-a-7-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-79639.89" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-8-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-77592.02" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-9-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-75544.15" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-10-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-73496.28" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-11-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-71448.4" y="-7297.87" width="1843.07999999999" height="2047.87" />
+<rect id="chilopodkcore3-a-12-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-69400.53" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-13-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-67352.66" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-14-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-65304.79" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-15-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-63256.91" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-16-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-61209.04" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-17-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-59161.17" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-18-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-57113.3" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-19-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-55065.43" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-20-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-53017.55" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-21-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-50969.68" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-22-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-48921.81" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-23-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-46873.94" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-24-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-42778.19" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-25-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-40730.32" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-26-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-38682.45" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-27-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-36634.57" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-28-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-34586.7" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-29-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-32538.83" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-30-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-30490.96" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-31-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-28443.09" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-32-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-26395.21" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-33-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-24347.34" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-34-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-22299.47" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-35-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-20251.6" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-36-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-18203.72" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-37-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-16155.85" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-38-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-14107.98" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-39-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-12060.11" y="-7297.87" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-a-40-rect" style="fill:#4169E1;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-1820.74" y="-7297.87" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-a-41-rect" style="fill:#00008B;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="227.13" y="-7297.87" width="1843.08" height="2047.87" />
+<text id="chilopodkcore3-a-1-text" y="-6273.94" transform="rotate(-90 -91005.59 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-91005.59" dy="0">43</tspan>
+</text>
+<text id="chilopodkcore3-a-2-text" y="-6273.94" transform="rotate(-90 -88957.71 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-88957.71" dy="0">18</tspan>
+</text>
+<text id="chilopodkcore3-a-3-text" y="-6273.94" transform="rotate(-90 -86909.84 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-86909.84" dy="0">51</tspan>
+</text>
+<text id="chilopodkcore3-a-4-text" y="-6273.94" transform="rotate(-90 -84861.97 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-84861.97" dy="0">8</tspan>
+</text>
+<text id="chilopodkcore3-a-5-text" y="-6273.94" transform="rotate(-90 -82814.1 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-82814.1" dy="0">39</tspan>
+</text>
+<text id="chilopodkcore3-a-6-text" y="-6273.94" transform="rotate(-90 -80766.22 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-80766.22" dy="0">9</tspan>
+</text>
+<text id="chilopodkcore3-a-7-text" y="-6273.94" transform="rotate(-90 -78718.35 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-78718.35" dy="0">22</tspan>
+</text>
+<text id="chilopodkcore3-a-8-text" y="-6273.94" transform="rotate(-90 -76670.48 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-76670.48" dy="0">24</tspan>
+</text>
+<text id="chilopodkcore3-a-9-text" y="-6273.94" transform="rotate(-90 -74622.61 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-74622.61" dy="0">7</tspan>
+</text>
+<text id="chilopodkcore3-a-10-text" y="-6273.94" transform="rotate(-90 -72574.73 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-72574.73" dy="0">53</tspan>
+</text>
+<text id="chilopodkcore3-a-11-text" y="-6273.94" transform="rotate(-90 -70526.86 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-70526.86" dy="0">52</tspan>
+</text>
+<text id="chilopodkcore3-a-12-text" y="-6273.94" transform="rotate(-90 -68478.99 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-68478.99" dy="0">62</tspan>
+</text>
+<text id="chilopodkcore3-a-13-text" y="-6273.94" transform="rotate(-90 -66431.12 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-66431.12" dy="0">64</tspan>
+</text>
+<text id="chilopodkcore3-a-14-text" y="-6273.94" transform="rotate(-90 -64383.24 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-64383.24" dy="0">3</tspan>
+</text>
+<text id="chilopodkcore3-a-15-text" y="-6273.94" transform="rotate(-90 -62335.37 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-62335.37" dy="0">61</tspan>
+</text>
+<text id="chilopodkcore3-a-16-text" y="-6273.94" transform="rotate(-90 -60287.5 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-60287.5" dy="0">19</tspan>
+</text>
+<text id="chilopodkcore3-a-17-text" y="-6273.94" transform="rotate(-90 -58239.63 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-58239.63" dy="0">4</tspan>
+</text>
+<text id="chilopodkcore3-a-18-text" y="-6273.94" transform="rotate(-90 -56191.76 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-56191.76" dy="0">20</tspan>
+</text>
+<text id="chilopodkcore3-a-19-text" y="-6273.94" transform="rotate(-90 -54143.88 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-54143.88" dy="0">36</tspan>
+</text>
+<text id="chilopodkcore3-a-20-text" y="-6273.94" transform="rotate(-90 -52096.01 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-52096.01" dy="0">37</tspan>
+</text>
+<text id="chilopodkcore3-a-21-text" y="-6273.94" transform="rotate(-90 -50048.14 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-50048.14" dy="0">29</tspan>
+</text>
+<text id="chilopodkcore3-a-22-text" y="-6273.94" transform="rotate(-90 -48000.27 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-48000.27" dy="0">30</tspan>
+</text>
+<text id="chilopodkcore3-a-23-text" y="-6273.94" transform="rotate(-90 -45952.39 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-45952.39" dy="0">28</tspan>
+</text>
+<text id="chilopodkcore3-a-24-text" y="-6273.94" transform="rotate(-90 -41856.65 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-41856.65" dy="0">38</tspan>
+</text>
+<text id="chilopodkcore3-a-25-text" y="-6273.94" transform="rotate(-90 -39808.78 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-39808.78" dy="0">55</tspan>
+</text>
+<text id="chilopodkcore3-a-26-text" y="-6273.94" transform="rotate(-90 -37760.9 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-37760.9" dy="0">27</tspan>
+</text>
+<text id="chilopodkcore3-a-27-text" y="-6273.94" transform="rotate(-90 -35713.03 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-35713.03" dy="0">58</tspan>
+</text>
+<text id="chilopodkcore3-a-28-text" y="-6273.94" transform="rotate(-90 -33665.16 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-33665.16" dy="0">59</tspan>
+</text>
+<text id="chilopodkcore3-a-29-text" y="-6273.94" transform="rotate(-90 -31617.29 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-31617.29" dy="0">35</tspan>
+</text>
+<text id="chilopodkcore3-a-30-text" y="-6273.94" transform="rotate(-90 -29569.41 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-29569.41" dy="0">54</tspan>
+</text>
+<text id="chilopodkcore3-a-31-text" y="-6273.94" transform="rotate(-90 -27521.54 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-27521.54" dy="0">23</tspan>
+</text>
+<text id="chilopodkcore3-a-32-text" y="-6273.94" transform="rotate(-90 -25473.67 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-25473.67" dy="0">31</tspan>
+</text>
+<text id="chilopodkcore3-a-33-text" y="-6273.94" transform="rotate(-90 -23425.8 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-23425.8" dy="0">44</tspan>
+</text>
+<text id="chilopodkcore3-a-34-text" y="-6273.94" transform="rotate(-90 -21377.93 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-21377.93" dy="0">25</tspan>
+</text>
+<text id="chilopodkcore3-a-35-text" y="-6273.94" transform="rotate(-90 -19330.05 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-19330.05" dy="0">11</tspan>
+</text>
+<text id="chilopodkcore3-a-36-text" y="-6273.94" transform="rotate(-90 -17282.18 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-17282.18" dy="0">2</tspan>
+</text>
+<text id="chilopodkcore3-a-37-text" y="-6273.94" transform="rotate(-90 -15234.31 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-15234.31" dy="0">21</tspan>
+</text>
+<text id="chilopodkcore3-a-38-text" y="-6273.94" transform="rotate(-90 -13186.44 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-13186.44" dy="0">5</tspan>
+</text>
+<text id="chilopodkcore3-a-39-text" y="-6273.94" transform="rotate(-90 -11138.56 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-11138.56" dy="0">14</tspan>
+</text>
+<text id="chilopodkcore3-a-40-text" y="-6273.94" transform="rotate(-90 -899.2 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="-899.2" dy="0">10</tspan>
+</text>
+<text id="chilopodkcore3-a-41-text" y="-6273.94" transform="rotate(-90 1148.67 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#4169E1">
+<tspan x="1148.67" dy="0">12</tspan>
+</text>
+<rect id="chilopodkcore3-b-1-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-91927.13" y="5250" width="1843.09000000001" height="2047.87" />
+<rect id="chilopodkcore3-b-2-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-89879.26" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-3-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-87831.38" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-4-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-85783.51" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-5-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-83735.64" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-6-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-81687.77" y="5250" width="1843.09000000001" height="2047.87" />
+<rect id="chilopodkcore3-b-7-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-79639.89" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-8-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-77592.02" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-9-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-75544.15" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-10-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-73496.28" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-11-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-71448.4" y="5250" width="1843.07999999999" height="2047.87" />
+<rect id="chilopodkcore3-b-12-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-69400.53" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-13-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-67352.66" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-14-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-65304.79" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-15-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-63256.91" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-16-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-61209.04" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-17-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-59161.17" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-18-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-57113.3" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-19-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-55065.43" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-20-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-42778.19" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-21-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-40730.32" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-22-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-38682.45" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-23-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-36634.57" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-24-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-34586.7" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-25-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-32538.83" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-26-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-30490.96" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-27-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-28443.09" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-28-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-26395.21" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-29-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-24347.34" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-30-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-22299.47" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-31-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-7964.36" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-32-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-5916.49" y="5250" width="1843.09" height="2047.87" />
+<rect id="chilopodkcore3-b-33-rect" style="fill:#F08080;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-1820.74" y="5250" width="1843.08" height="2047.87" />
+<rect id="chilopodkcore3-b-34-rect" style="fill:#FF0000;fill-opacity:0.2" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="227.13" y="5250" width="1843.08" height="2047.87" />
+<text id="chilopodkcore3-b-1-text" y="6273.94" transform="rotate(-90 -91005.59 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-91005.59" dy="0">36</tspan>
+</text>
+<text id="chilopodkcore3-b-2-text" y="6273.94" transform="rotate(-90 -88957.71 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-88957.71" dy="0">35</tspan>
+</text>
+<text id="chilopodkcore3-b-3-text" y="6273.94" transform="rotate(-90 -86909.84 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-86909.84" dy="0">38</tspan>
+</text>
+<text id="chilopodkcore3-b-4-text" y="6273.94" transform="rotate(-90 -84861.97 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-84861.97" dy="0">14</tspan>
+</text>
+<text id="chilopodkcore3-b-5-text" y="6273.94" transform="rotate(-90 -82814.1 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-82814.1" dy="0">31</tspan>
+</text>
+<text id="chilopodkcore3-b-6-text" y="6273.94" transform="rotate(-90 -80766.22 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-80766.22" dy="0">8</tspan>
+</text>
+<text id="chilopodkcore3-b-7-text" y="6273.94" transform="rotate(-90 -78718.35 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-78718.35" dy="0">23</tspan>
+</text>
+<text id="chilopodkcore3-b-8-text" y="6273.94" transform="rotate(-90 -76670.48 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-76670.48" dy="0">19</tspan>
+</text>
+<text id="chilopodkcore3-b-9-text" y="6273.94" transform="rotate(-90 -74622.61 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-74622.61" dy="0">37</tspan>
+</text>
+<text id="chilopodkcore3-b-10-text" y="6273.94" transform="rotate(-90 -72574.73 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-72574.73" dy="0">4</tspan>
+</text>
+<text id="chilopodkcore3-b-11-text" y="6273.94" transform="rotate(-90 -70526.86 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-70526.86" dy="0">6</tspan>
+</text>
+<text id="chilopodkcore3-b-12-text" y="6273.94" transform="rotate(-90 -68478.99 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-68478.99" dy="0">17</tspan>
+</text>
+<text id="chilopodkcore3-b-13-text" y="6273.94" transform="rotate(-90 -66431.12 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-66431.12" dy="0">20</tspan>
+</text>
+<text id="chilopodkcore3-b-14-text" y="6273.94" transform="rotate(-90 -64383.24 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-64383.24" dy="0">22</tspan>
+</text>
+<text id="chilopodkcore3-b-15-text" y="6273.94" transform="rotate(-90 -62335.37 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-62335.37" dy="0">7</tspan>
+</text>
+<text id="chilopodkcore3-b-16-text" y="6273.94" transform="rotate(-90 -60287.5 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-60287.5" dy="0">26</tspan>
+</text>
+<text id="chilopodkcore3-b-17-text" y="6273.94" transform="rotate(-90 -58239.63 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-58239.63" dy="0">5</tspan>
+</text>
+<text id="chilopodkcore3-b-18-text" y="6273.94" transform="rotate(-90 -56191.76 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-56191.76" dy="0">34</tspan>
+</text>
+<text id="chilopodkcore3-b-19-text" y="6273.94" transform="rotate(-90 -54143.88 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-54143.88" dy="0">27</tspan>
+</text>
+<text id="chilopodkcore3-b-20-text" y="6273.94" transform="rotate(-90 -41856.65 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-41856.65" dy="0">43</tspan>
+</text>
+<text id="chilopodkcore3-b-21-text" y="6273.94" transform="rotate(-90 -39808.78 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-39808.78" dy="0">10</tspan>
+</text>
+<text id="chilopodkcore3-b-22-text" y="6273.94" transform="rotate(-90 -37760.9 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-37760.9" dy="0">33</tspan>
+</text>
+<text id="chilopodkcore3-b-23-text" y="6273.94" transform="rotate(-90 -35713.03 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-35713.03" dy="0">25</tspan>
+</text>
+<text id="chilopodkcore3-b-24-text" y="6273.94" transform="rotate(-90 -33665.16 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-33665.16" dy="0">3</tspan>
+</text>
+<text id="chilopodkcore3-b-25-text" y="6273.94" transform="rotate(-90 -31617.29 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-31617.29" dy="0">24</tspan>
+</text>
+<text id="chilopodkcore3-b-26-text" y="6273.94" transform="rotate(-90 -29569.41 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-29569.41" dy="0">41</tspan>
+</text>
+<text id="chilopodkcore3-b-27-text" y="6273.94" transform="rotate(-90 -27521.54 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-27521.54" dy="0">32</tspan>
+</text>
+<text id="chilopodkcore3-b-28-text" y="6273.94" transform="rotate(-90 -25473.67 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-25473.67" dy="0">15</tspan>
+</text>
+<text id="chilopodkcore3-b-29-text" y="6273.94" transform="rotate(-90 -23425.8 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-23425.8" dy="0">2</tspan>
+</text>
+<text id="chilopodkcore3-b-30-text" y="6273.94" transform="rotate(-90 -21377.93 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-21377.93" dy="0">30</tspan>
+</text>
+<text id="chilopodkcore3-b-31-text" y="6273.94" transform="rotate(-90 -7042.82 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-7042.82" dy="0">39</tspan>
+</text>
+<text id="chilopodkcore3-b-32-text" y="6273.94" transform="rotate(-90 -4994.95 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-4994.95" dy="0">18</tspan>
+</text>
+<text id="chilopodkcore3-b-33-text" y="6273.94" transform="rotate(-90 -899.2 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="-899.2" dy="0">11</tspan>
+</text>
+<text id="chilopodkcore3-b-34-text" y="6273.94" transform="rotate(-90 1148.67 6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:810.220212765958px;fill:#F08080">
+<tspan x="1148.67" dy="0">12</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-fat-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-98472.87" y="5250" width="2047.87" height="2047.87" />
+<text id="chilopodedge-kcore1-a-fat-1-text" y="6273.94" transform="rotate(-90 -97448.94 6273.94)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-97448.94" dy="0"> 13 26 </tspan>
+<tspan x="-97448.94" dy="907.446638297872"> 45</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-fat-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-98472.87" y="-7297.87" width="2047.87" height="2047.87" />
+<text id="chilopodedge-kcore1-b-fat-1-text" y="-6273.94" transform="rotate(-90 -97448.94 -6273.94)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-97448.94" dy="0"> 40</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-18-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-5916.49" y="11393.62" width="1843.09" height="1843.08" />
+<text id="chilopodedge-kcore1-a-18-1-text" y="12315.16" transform="rotate(-90 -4994.95 12315.16)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-4994.95" dy="0">40 42</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-39-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-7964.36" y="9345.74" width="1843.08" height="1843.09" />
+<text id="chilopodedge-kcore1-a-39-1-text" y="10267.29" transform="rotate(-90 -7042.82 10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-7042.82" dy="0">49</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-2-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-24347.34" y="11393.62" width="1843.08" height="1843.08" />
+<text id="chilopodedge-kcore1-a-2-1-text" y="12315.16" transform="rotate(-90 -23425.8 12315.16)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-23425.8" dy="0">1 32</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-41-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-30490.96" y="9345.74" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-a-41-1-text" y="10267.29" transform="rotate(-90 -29569.41 10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-29569.41" dy="0">47</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-24-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-32538.83" y="11393.62" width="1843.09" height="1843.08" />
+<text id="chilopodedge-kcore1-a-24-1-text" y="12315.16" transform="rotate(-90 -31617.29 12315.16)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-31617.29" dy="0">33 34</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-27-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-55065.43" y="9345.74" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-a-27-1-text" y="10267.29" transform="rotate(-90 -54143.88 10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-54143.88" dy="0">60</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-22-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-65304.79" y="9345.74" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-a-22-1-text" y="10267.29" transform="rotate(-90 -64383.24 10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-64383.24" dy="0">46</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-20-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-67352.66" y="9345.74" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-a-20-1-text" y="10267.29" transform="rotate(-90 -66431.12 10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-66431.12" dy="0">6</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-17-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-69400.53" y="13441.49" width="1843.08" height="1843.08" />
+<text id="chilopodedge-kcore1-a-17-1-text" y="14363.03" transform="rotate(-90 -68478.99 14363.03)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-68478.99" dy="0">17 56</tspan>
+<tspan x="-68478.99" dy="907.446638297872">57</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-4-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-73496.28" y="11393.62" width="1843.09" height="1843.08" />
+<text id="chilopodedge-kcore1-a-4-1-text" y="12315.16" transform="rotate(-90 -72574.73 12315.16)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-72574.73" dy="0">15 16</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-8-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-81687.77" y="11393.62" width="1843.09000000001" height="1843.08" />
+<text id="chilopodedge-kcore1-a-8-1-text" y="12315.16" transform="rotate(-90 -80766.22 12315.16)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-80766.22" dy="0">48 50</tspan>
+</text>
+<rect id="chilopodedge-kcore1-a-31-1-rect" style="fill:#00008B;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-83735.64" y="13441.49" width="1843.09" height="1843.08" />
+<text id="chilopodedge-kcore1-a-31-1-text" y="14363.03" transform="rotate(-90 -82814.1 14363.03)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#00008B">
+<tspan x="-82814.1" dy="0">41 63</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-14-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-12060.11" y="-11188.83" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-b-14-1-text" y="-10267.29" transform="rotate(-90 -11138.56 -10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-11138.56" dy="0">28</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-27-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-38682.45" y="-11188.83" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-b-27-1-text" y="-10267.29" transform="rotate(-90 -37760.9 -10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-37760.9" dy="0">16</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-61-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-63256.91" y="-11188.83" width="1843.08" height="1843.09" />
+<text id="chilopodedge-kcore1-b-61-1-text" y="-10267.29" transform="rotate(-90 -62335.37 -10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-62335.37" dy="0">21</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-64-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-67352.66" y="-11188.83" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-b-64-1-text" y="-10267.29" transform="rotate(-90 -66431.12 -10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-66431.12" dy="0">42</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-24-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-77592.02" y="-11188.83" width="1843.08" height="1843.09" />
+<text id="chilopodedge-kcore1-b-24-1-text" y="-10267.29" transform="rotate(-90 -76670.48 -10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-76670.48" dy="0">29</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-39-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-83735.64" y="-11188.83" width="1843.09" height="1843.09" />
+<text id="chilopodedge-kcore1-b-39-1-text" y="-10267.29" transform="rotate(-90 -82814.1 -10267.29)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-82814.1" dy="0">1</tspan>
+</text>
+<rect id="chilopodedge-kcore1-b-18-1-rect" style="fill:#FF0000;fill-opacity:0.11" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-89879.26" y="-13236.7" width="1843.09" height="1843.08" />
+<text id="chilopodedge-kcore1-b-18-1-text" y="-12315.16" transform="rotate(-90 -88957.71 -12315.16)" style="text-anchor:start;dominant-baseline:middle;font-family:Arial;font-size:648.176170212766px;fill:#FF0000">
+<tspan x="-88957.71" dy="0">9 13</tspan>
+</text>
+<rect id="chilopodannotation-1-rect" style="fill:none;fill-opacity:0.5" stroke="transparent" stroke-dasharray="0" stroke-width="0.5" x="-3049.47" y="-1" width="1" height="1" />
+<text id="chilopodannotation-1-text" y="-0.5" transform="rotate(-90 -3048.97 -0.5)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:235.5px;fill:transparent">
+</text>
+<text id="chilopodannotation-1-text" y="0" transform="rotate(-90 -3049.47 0)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:47.1px;fill:red">
+<tspan x="-3049.47" dy="0">.</tspan>
+</text>
+<text id="chilopodannotation-1-text" y="-13441.49" transform="rotate(-90 -84759.57 -13441.49)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:47.1px;fill:red">
+<tspan x="-84759.57" dy="0">.</tspan>
+</text>
+<text id="chilopodannotation-1-text" y="13441.49" transform="rotate(-90 -84759.57 13441.49)" style="text-anchor:middle;dominant-baseline:middle;font-family:Arial;font-size:47.1px;fill:red">
+<tspan x="-84759.57" dy="0">.</tspan>
+</text>
+<g id="chilopodlink-1-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-2-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-3-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-4-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-78718.35 5250"/>
+</g>
+<g id="chilopodlink-5-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-76670.48 5250"/>
+</g>
+<g id="chilopodlink-6-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-74622.61 5250"/>
+</g>
+<g id="chilopodlink-7-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-8-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-70526.86 5250"/>
+</g>
+<g id="chilopodlink-9-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-10-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-66431.12 5250"/>
+</g>
+<g id="chilopodlink-11-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-62335.37 5250"/>
+</g>
+<g id="chilopodlink-12-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-60287.5 5250"/>
+</g>
+<g id="chilopodlink-13-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-58239.63 5250"/>
+</g>
+<g id="chilopodlink-14-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-41856.65 5250"/>
+</g>
+<g id="chilopodlink-15-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-91005.59 -5250 L-39808.78 5250"/>
+</g>
+<g id="chilopodlink-16-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-17-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-18-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-19-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-78718.35 5250"/>
+</g>
+<g id="chilopodlink-20-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-76670.48 5250"/>
+</g>
+<g id="chilopodlink-21-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-70526.86 5250"/>
+</g>
+<g id="chilopodlink-22-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-64383.24 5250"/>
+</g>
+<g id="chilopodlink-23-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-58239.63 5250"/>
+</g>
+<g id="chilopodlink-24-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-56191.76 5250"/>
+</g>
+<g id="chilopodlink-25-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-41856.65 5250"/>
+</g>
+<g id="chilopodlink-26-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-37760.9 5250"/>
+</g>
+<g id="chilopodlink-27-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-27521.54 5250"/>
+</g>
+<g id="chilopodlink-28-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -5250 L-7042.82 5250"/>
+</g>
+<g id="chilopodlink-29-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-30-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-78718.35 5250"/>
+</g>
+<g id="chilopodlink-31-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-74622.61 5250"/>
+</g>
+<g id="chilopodlink-32-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-70526.86 5250"/>
+</g>
+<g id="chilopodlink-33-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-66431.12 5250"/>
+</g>
+<g id="chilopodlink-34-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-64383.24 5250"/>
+</g>
+<g id="chilopodlink-35-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-58239.63 5250"/>
+</g>
+<g id="chilopodlink-36-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-86909.84 -5250 L-54143.88 5250"/>
+</g>
+<g id="chilopodlink-37-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-38-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-39-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-40-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-41-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-42-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-76670.48 5250"/>
+</g>
+<g id="chilopodlink-43-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-35713.03 5250"/>
+</g>
+<g id="chilopodlink-44-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-84861.97 -5250 L-31617.29 5250"/>
+</g>
+<g id="chilopodlink-45-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-46-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-47-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-78718.35 5250"/>
+</g>
+<g id="chilopodlink-48-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-49-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-64383.24 5250"/>
+</g>
+<g id="chilopodlink-50-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-56191.76 5250"/>
+</g>
+<g id="chilopodlink-51-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-39808.78 5250"/>
+</g>
+<g id="chilopodlink-52-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -5250 L-29569.41 5250"/>
+</g>
+<g id="chilopodlink-53-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-54-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-55-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-56-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-57-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-58-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-62335.37 5250"/>
+</g>
+<g id="chilopodlink-59-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 -5250 L-37760.9 5250"/>
+</g>
+<g id="chilopodlink-60-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-78718.35 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-61-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-78718.35 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-62-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-78718.35 -5250 L-78718.35 5250"/>
+</g>
+<g id="chilopodlink-63-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-78718.35 -5250 L-70526.86 5250"/>
+</g>
+<g id="chilopodlink-64-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-78718.35 -5250 L-66431.12 5250"/>
+</g>
+<g id="chilopodlink-65-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-76670.48 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-66-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-76670.48 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-67-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-76670.48 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-68-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-76670.48 -5250 L-60287.5 5250"/>
+</g>
+<g id="chilopodlink-69-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-76670.48 -5250 L-33665.16 5250"/>
+</g>
+<g id="chilopodlink-70-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-74622.61 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-71-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-74622.61 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-72-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-74622.61 -5250 L-76670.48 5250"/>
+</g>
+<g id="chilopodlink-73-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-74622.61 -5250 L-74622.61 5250"/>
+</g>
+<g id="chilopodlink-74-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-74622.61 -5250 L-35713.03 5250"/>
+</g>
+<g id="chilopodlink-75-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-72574.73 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-76-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-72574.73 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-77-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-72574.73 -5250 L-64383.24 5250"/>
+</g>
+<g id="chilopodlink-78-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-72574.73 -5250 L-62335.37 5250"/>
+</g>
+<g id="chilopodlink-79-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-70526.86 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-80-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-70526.86 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-81-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-70526.86 -5250 L-60287.5 5250"/>
+</g>
+<g id="chilopodlink-82-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-70526.86 -5250 L-54143.88 5250"/>
+</g>
+<g id="chilopodlink-83-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-68478.99 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-84-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-68478.99 -5250 L-74622.61 5250"/>
+</g>
+<g id="chilopodlink-85-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-68478.99 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-86-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-68478.99 -5250 L-54143.88 5250"/>
+</g>
+<g id="chilopodlink-87-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-88-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-89-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 -5250 L-74622.61 5250"/>
+</g>
+<g id="chilopodlink-90-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 -5250 L-29569.41 5250"/>
+</g>
+<g id="chilopodlink-91-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 -5250 L-25473.67 5250"/>
+</g>
+<g id="chilopodlink-92-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-64383.24 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-93-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-64383.24 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-94-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-64383.24 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-95-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-64383.24 -5250 L-76670.48 5250"/>
+</g>
+<g id="chilopodlink-96-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-62335.37 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-97-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-62335.37 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-98-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-62335.37 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-99-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-60287.5 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-100-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-60287.5 -5250 L-76670.48 5250"/>
+</g>
+<g id="chilopodlink-101-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-60287.5 -5250 L-74622.61 5250"/>
+</g>
+<g id="chilopodlink-102-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-60287.5 -5250 L-4994.95 5250"/>
+</g>
+<g id="chilopodlink-103-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-58239.63 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-104-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-58239.63 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-105-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-58239.63 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-106-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-56191.76 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-107-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-56191.76 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-108-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-56191.76 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-109-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-54143.88 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-110-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-54143.88 -5250 L-78718.35 5250"/>
+</g>
+<g id="chilopodlink-111-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-54143.88 -5250 L-56191.76 5250"/>
+</g>
+<g id="chilopodlink-112-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-52096.01 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-113-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-52096.01 -5250 L-70526.86 5250"/>
+</g>
+<g id="chilopodlink-114-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-52096.01 -5250 L-66431.12 5250"/>
+</g>
+<g id="chilopodlink-115-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-50048.14 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-116-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-50048.14 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-117-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-50048.14 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-118-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-48000.27 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-119-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-48000.27 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-120-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-48000.27 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-121-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-45952.39 -5250 L-88957.71 5250"/>
+</g>
+<g id="chilopodlink-122-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-45952.39 -5250 L-62335.37 5250"/>
+</g>
+<g id="chilopodlink-123-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-45952.39 -5250 L-60287.5 5250"/>
+</g>
+<g id="chilopodlink-124-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-41856.65 -5250 L-91005.59 5250"/>
+</g>
+<g id="chilopodlink-125-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-41856.65 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-126-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-41856.65 -5250 L-33665.16 5250"/>
+</g>
+<g id="chilopodlink-127-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-39808.78 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-128-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-39808.78 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-129-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-39808.78 -5250 L-25473.67 5250"/>
+</g>
+<g id="chilopodlink-130-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-37760.9 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-131-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-37760.9 -5250 L-66431.12 5250"/>
+</g>
+<g id="chilopodlink-132-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-35713.03 -5250 L-84861.97 5250"/>
+</g>
+<g id="chilopodlink-133-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-35713.03 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-134-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-33665.16 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-135-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-33665.16 -5250 L-68478.99 5250"/>
+</g>
+<g id="chilopodlink-136-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-31617.29 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-137-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-31617.29 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-138-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-29569.41 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-139-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-29569.41 -5250 L-56191.76 5250"/>
+</g>
+<g id="chilopodlink-140-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-27521.54 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-141-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-27521.54 -5250 L-33665.16 5250"/>
+</g>
+<g id="chilopodlink-142-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-27521.54 -5250 L-27521.54 5250"/>
+</g>
+<g id="chilopodlink-143-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-27521.54 -5250 L-21377.93 5250"/>
+</g>
+<g id="chilopodlink-144-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-25473.67 -5250 L-82814.1 5250"/>
+</g>
+<g id="chilopodlink-145-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-25473.67 -5250 L-31617.29 5250"/>
+</g>
+<g id="chilopodlink-146-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-25473.67 -5250 L-29569.41 5250"/>
+</g>
+<g id="chilopodlink-147-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-23425.8 -5250 L-86909.84 5250"/>
+</g>
+<g id="chilopodlink-148-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-23425.8 -5250 L-54143.88 5250"/>
+</g>
+<g id="chilopodlink-149-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-21377.93 -5250 L-80766.22 5250"/>
+</g>
+<g id="chilopodlink-150-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-21377.93 -5250 L-23425.8 5250"/>
+</g>
+<g id="chilopodlink-151-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-19330.05 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-152-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-19330.05 -5250 L-33665.16 5250"/>
+</g>
+<g id="chilopodlink-153-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-19330.05 -5250 L-23425.8 5250"/>
+</g>
+<g id="chilopodlink-154-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-17282.18 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-155-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-17282.18 -5250 L-33665.16 5250"/>
+</g>
+<g id="chilopodlink-156-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-15234.31 -5250 L-72574.73 5250"/>
+</g>
+<g id="chilopodlink-157-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-15234.31 -5250 L-23425.8 5250"/>
+</g>
+<g id="chilopodlink-158-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-13186.44 -5250 L-31617.29 5250"/>
+</g>
+<g id="chilopodlink-159-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-13186.44 -5250 L-29569.41 5250"/>
+</g>
+<g id="chilopodlink-160-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-11138.56 -5250 L-27521.54 5250"/>
+</g>
+<g id="chilopodlink-161-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-11138.56 -5250 L-21377.93 5250"/>
+</g>
+<g id="chilopodlink-162-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-899.2 -5250 L1148.67 5250"/>
+</g>
+<g id="chilopodlink-163-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M1148.67 -5250 L-899.2 5250"/>
+</g>
+<g id="chilopodlink-164-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M1148.67 -5250 L1148.67 5250"/>
+</g>
+<g id="chilopodlink-165-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-96425 6273.94 L-91927.13 6273.94"/>
+</g>
+<g id="chilopodlink-166-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-96425 -6273.94 L-91927.13 -6273.94"/>
+</g>
+<g id="chilopodlink-167-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-4994.95 11393.62 L-4994.95 7297.87"/>
+</g>
+<g id="chilopodlink-168-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-7042.82 9345.74 L-7042.82 7297.87"/>
+</g>
+<g id="chilopodlink-169-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-23425.8 11393.62 L-23425.8 7297.87"/>
+</g>
+<g id="chilopodlink-170-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-29569.41 9345.74 L-29569.41 7297.87"/>
+</g>
+<g id="chilopodlink-171-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-31617.29 11393.62 L-31617.29 7297.87"/>
+</g>
+<g id="chilopodlink-172-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-54143.88 9345.74 L-54143.88 7297.87"/>
+</g>
+<g id="chilopodlink-173-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-64383.24 9345.74 L-64383.24 7297.87"/>
+</g>
+<g id="chilopodlink-174-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 9345.74 L-66431.12 7297.87"/>
+</g>
+<g id="chilopodlink-175-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-68478.99 13441.49 L-68478.99 7297.87"/>
+</g>
+<g id="chilopodlink-176-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-72574.73 11393.62 L-72574.73 7297.87"/>
+</g>
+<g id="chilopodlink-177-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-80766.22 11393.62 L-80766.22 7297.87"/>
+</g>
+<g id="chilopodlink-178-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 13441.49 L-82814.1 7297.87"/>
+</g>
+<g id="chilopodlink-179-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-11138.56 -9345.74 L-11138.56 -7297.87"/>
+</g>
+<g id="chilopodlink-180-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-37760.9 -9345.74 L-37760.9 -7297.87"/>
+</g>
+<g id="chilopodlink-181-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-62335.37 -9345.74 L-62335.37 -7297.87"/>
+</g>
+<g id="chilopodlink-182-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-66431.12 -9345.74 L-66431.12 -7297.87"/>
+</g>
+<g id="chilopodlink-183-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-76670.48 -9345.74 L-76670.48 -7297.87"/>
+</g>
+<g id="chilopodlink-184-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-82814.1 -9345.74 L-82814.1 -7297.87"/>
+</g>
+<g id="chilopodlink-185-segment" fill="none" stroke="#888888" stroke-dasharray="0" stroke-width="30" stroke-opacity="0.3">
+<path d="M-88957.71 -11393.62 L-88957.71 -7297.87"/>
+</g>
+</svg>

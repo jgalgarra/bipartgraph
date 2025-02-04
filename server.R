@@ -672,7 +672,7 @@ shinyServer(function(input, output, session) {
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
                          zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
-                         input$DataLabelGuildBControl, myenv = zgg, h=1.5*static_plot_width, pwidth=900,
+                         input$DataLabelGuildBControl, myenv = zgg, h=1.5*static_plot_width, pwidth=1000,
                          myenv_argg = zgg$ziggurat_argg, plottype = "ziggurat")
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",zgg$network_name,"&nbsp;",strw,"&nbsp;",
                      zgg$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
@@ -723,22 +723,26 @@ shinyServer(function(input, output, session) {
   output$networkinfoDetailbipartite<-renderUI({
     p <- bipartite()
     nname <- get_network_name(bpp$bipartite_argg$filename)
+    if (sum(bpp$result_analysis$matrix > 1)==0)
+      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+    else
+      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
-                         paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
-                         bpp$result_analysis, input$DataLabelGuildAControl,
-                         h=ifelse(length(bpp$rg)>50,1.5*static_plot_width,static_plot_width),
-                         input$DataLabelGuildBControl, myenv = bpp,printplot = TRUE,
-                         myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
-    
-    
-    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste(details,"<br><h5>", 
-    "<span  style='color:",bpp$color_guild_a[1],"'>",bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
-    "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
-  
-    details <- paste0(details,"&nbsp;<a href='reports/bipartite_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
-    
+                        paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
+                        bpp$result_analysis, input$DataLabelGuildAControl,
+                        input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,400, 800),
+                        w=static_plot_width,
+                        h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
+                        myenv = bpp,printplot = TRUE,
+                        myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",bpp$network_name,"&nbsp;",strw,"&nbsp;",
+                     bpp$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><h5>", 
+                     "<span  style='color:",bpp$color_guild_a[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
+                     "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
+    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/bipartite_",bpp$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
     return(HTML(details))
+    
   })
   
   output$polardetailsheader<-renderUI({
