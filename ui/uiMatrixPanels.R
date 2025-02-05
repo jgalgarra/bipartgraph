@@ -40,14 +40,14 @@ matrixDiagramPanel <- function() {
                            fluidRow(
                              uiOutput("networkinfoDetailmatrix")
                            ),
-                           fluidRow(
-                             column(5,tags$small(
-                               uiOutput("networkinfoDetailmatrixA")
-                             )),
-                             column(5,tags$small(
-                               uiOutput("networkinfoDetailmatrixB")
-                             ))
-                           )
+                           # fluidRow(
+                           #   column(5,tags$small(
+                           #     uiOutput("networkinfoDetailmatrixA")
+                           #   )),
+                           #   column(5,tags$small(
+                           #     uiOutput("networkinfoDetailmatrixB")
+                           #   ))
+                           # )
                     )
   )
   return(control)

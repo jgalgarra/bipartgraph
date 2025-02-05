@@ -34,14 +34,14 @@ polarDiagramPanel <- function() {
       fluidRow(
                uiOutput("networkinfoDetailpolar")
       ),
-      fluidRow(
-          column(5,tags$small(
-               uiOutput("networkinfoDetailpolarA")
-            )),
-          column(5,tags$small(
-               uiOutput("networkinfoDetailpolarB")
-            ))
-    )
+    #   fluidRow(
+    #       column(5,tags$small(
+    #            uiOutput("networkinfoDetailpolarA")
+    #         )),
+    #       column(5,tags$small(
+    #            uiOutput("networkinfoDetailpolarB")
+    #         ))
+    # )
     )
   )
   return(control)

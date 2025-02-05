@@ -1045,36 +1045,111 @@ shinyServer(function(input, output, session) {
                                        p$result_analysis$matrix[,1],p$mat_argg$filename,labelcol=mat$mat_argg$color_guild_b)
     return(HTML(mdetails))
   })
+  
+  output$networkinfoDetailbipartite<-renderUI({
+    p <- bipartite()
+    nname <- get_network_name(bpp$bipartite_argg$filename)
+    if (sum(bpp$result_analysis$matrix > 1)==0)
+      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+    else
+      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+    create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
+                        paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
+                        bpp$result_analysis, input$DataLabelGuildAControl,
+                        input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,400, 800),
+                        w=static_plot_width,
+                        h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
+                        myenv = bpp,printplot = TRUE,
+                        myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",bpp$network_name,"&nbsp;",strw,"&nbsp;",
+                     bpp$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><h5>", 
+                     "<span  style='color:",bpp$color_guild_a[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
+                     "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
+    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/bipartite_",bpp$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+    return(HTML(details))
+    
+  })
+  
+  # Matrix information
+  output$networkinfoDetailmatrix<-renderUI({
+    mymatrix <- matrix()
+    nname <- get_network_name(mat$matrix_argg$filename)
+    if (sum(mat$result_analysis$matrix > 1)==0)
+      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+    else
+      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+    nname <- get_network_name(mymatrix$mat_argg$filename)
+    create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
+                          paste0("www/reports/matrix_",nname,"_report.html"), 
+                          mymatrix$result_analysis, input$DataLabelGuildAControl,
+                          input$DataLabelGuildBControl, pwidth = 600*input$matrixPlotresize/100,
+                          printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
+    
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",mat$network_name,"&nbsp;",strw,"&nbsp;",
+                     mat$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><h5>", 
+                     "<span  style='color:",mymatrix$mat_argg$color_guild_a[1],"'>","&nbsp;&nbsp;", mat$result_analysis$num_guild_a, mat$name_guild_a,"</span >","&nbsp;",
+                     "<span  style='color:",mymatrix$mat_argg$color_guild_b[1],"'>","&nbsp;&nbsp;", mat$result_analysis$num_guild_b, mat$name_guild_b,"</span >")
+    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/matrix_",mat$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+    return(HTML(details))
+    
+  })
 
-  # Polar report
+  
+  # Polar information
   output$networkinfoDetailpolar<-renderUI({
     pol <- polar()
+    if (sum(pol$result_analysis$matrix > 1)==0)
+      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+    else
+      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+    
     nname <- get_network_name(pol$polar_argg$filename)
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/polar_",nname,"_report.html"), 
                          pol$result_analysis, input$DataLabelGuildAControl,
                          input$DataLabelGuildBControl, myenv = pll,
                          myenv_argg = pol$polar_argg, plottype = "polar")
-     
-    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
+    
+    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",pol$network_name,"&nbsp;",strw,"&nbsp;",
+                     pol$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+                     "<br><h5>", 
+                     "<span>","&nbsp;&nbsp;", pol$result_analysis$num_guild_a, input$DataLabelGuildAControl,"</span >","&nbsp;",
+                     "<span>","&nbsp;&nbsp;", pol$result_analysis$num_guild_b, input$DataLabelGuildBControl,"</span >")
+    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/polar_",pol$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
     return(HTML(details))
+    
   })
+  # Polar report
+  # output$networkinfoDetailpolar<-renderUI({
+  #   pol <- polar()
+  #   nname <- get_network_name(pol$polar_argg$filename)
+  #   create_static_report(pol, "www/reports/templates/indexhoriz.html",
+  #                        paste0("www/reports/polar_",nname,"_report.html"), 
+  #                        pol$result_analysis, input$DataLabelGuildAControl,
+  #                        input$DataLabelGuildBControl, myenv = pll,
+  #                        myenv_argg = pol$polar_argg, plottype = "polar")
+  #    
+  #   details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+  #   details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
+  #   return(HTML(details))
+  # })
 
   # Matrix information
-  output$networkinfoDetailmatrix <- renderUI({
-    mymatrix <- matrix()
-    nname <- get_network_name(mymatrix$mat_argg$filename)
-    create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
-                         paste0("www/reports/matrix_",nname,"_report.html"), 
-                         mymatrix$result_analysis, input$DataLabelGuildAControl,
-                         input$DataLabelGuildBControl, pwidth = 600*input$matrixPlotresize/100,
-                         printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
-    
-    details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-    details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
-    return(HTML(details))
-  })
+  # output$networkinfoDetailmatrix <- renderUI({
+  #   mymatrix <- matrix()
+  #   nname <- get_network_name(mymatrix$mat_argg$filename)
+  #   create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
+  #                        paste0("www/reports/matrix_",nname,"_report.html"), 
+  #                        mymatrix$result_analysis, input$DataLabelGuildAControl,
+  #                        input$DataLabelGuildBControl, pwidth = 600*input$matrixPlotresize/100,
+  #                        printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
+  #   
+  #   details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
+  #   details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
+  #   return(HTML(details))
+  # })
   
   zigguratdiagramOptions<-reactive({
     return(calculateDiagramOptions(#as.numeric(input$paperSize), 
