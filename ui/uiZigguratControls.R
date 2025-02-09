@@ -65,7 +65,7 @@ zigguratSplinePointsControl <- function() {
     inputId = "zigguratSplinePoints",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_SPLINE_POINTS_CONTROL")),
     min     = 5,
-    max     = 50,
+    max     = 25,
     value   = 10,
     step    = 5
   )

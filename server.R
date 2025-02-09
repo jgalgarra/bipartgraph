@@ -730,7 +730,7 @@ shinyServer(function(input, output, session) {
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
                         paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
                         bpp$result_analysis, input$DataLabelGuildAControl,
-                        input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,400, 800),
+                        input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,750, 1500),
                         w=static_plot_width,
                         h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
                         myenv = bpp,printplot = TRUE,
