@@ -58,6 +58,7 @@ shinyServer(function(input, output, session) {
     write.table(labelcolors,file=paste0("conf/labelcolors.csv"),sep=";",row.names = FALSE)
   }
   
+  
   #Restore the default ziggurat colors
   restoredefaultzigcolors <- function()
   {
@@ -99,16 +100,6 @@ shinyServer(function(input, output, session) {
                       label = strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"),
                       value = czB2
     )
-  }
-  
-  headslider <- function(guildid,colorg,labelg,matrixspec,nname){
-    namesg <- ""
-    labelsguild <- clean_species_names(names(matrixspec),nname)
-    for (i in 1:length(labelsguild))
-      #namesg <- paste(namesg,sprintf("<p class=\"\" style=\"margin: 12px;\"> %2d",i),labelsguild[i],"</p>")
-      namesg <- paste(namesg,sprintf("%2d",i),labelsguild[i],"<br>")
-    return <- paste0("<span class=\"sliderGuildTitle\" id=\"",guildid,"\"  style=\"color:",colorg,"\">",labelg,
-                    "</span><span class=\"sliderGuildNamesList\"  style=\"color:",colorg,"\"><br>",namesg)
   }
   
   # Reads the network data file
@@ -348,6 +339,63 @@ shinyServer(function(input, output, session) {
     session = getDefaultReactiveDomain()
     session$reload()
   })
+  
+  observeEvent(input$zigguratOneColor, {
+    if (input$zigguratOneColor){
+      manageColorControl(session,input$zigguratColorGuildA1, input$zigguratColorGuildA2, "zigguratColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
+      manageColorControl(session,input$zigguratColorGuildB1, input$zigguratColorGuildB2, "zigguratColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
+      shinyjs::disable("zigguratColorGuildA2")
+      shinyjs::disable("zigguratColorGuildB2")
+    } else {
+      shinyjs::enable("zigguratColorGuildA2")
+      shinyjs::enable("zigguratColorGuildB2")
+    }
+    
+  })
+  
+  observeEvent(input$zigguratColorGuildA1,{
+    if (exists("zgg"))
+      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1)
+    if (input$zigguratOneColor)
+      manageColorControl(session,input$zigguratColorGuildA1, input$zigguratColorGuildA2, "zigguratColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
+  })
+  
+  observeEvent(input$zigguratColorGuildB1,{
+    if (exists("zgg"))
+      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1)
+    if (input$zigguratOneColor)
+      manageColorControl(session,input$zigguratColorGuildB1, input$zigguratColorGuildB2, "zigguratColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
+  })
+  
+  
+  observeEvent(input$bipartiteOneColor, {
+    if (input$bipartiteOneColor){
+      manageColorControl(session,input$bipartiteColorGuildA1, input$bipartiteColorGuildA2, "bipartiteColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
+      manageColorControl(session,input$bipartiteColorGuildB1, input$bipartiteColorGuildB2, "bipartiteColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
+      shinyjs::disable("bipartiteColorGuildA2")
+      shinyjs::disable("bipartiteColorGuildB2")
+    } else {
+      shinyjs::enable("bipartiteColorGuildA2")
+      shinyjs::enable("bipartiteColorGuildB2")
+    }
+  })
+  
+  observeEvent(input$bipartiteColorGuildA1,{
+    if (exists("bpp"))
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1)
+    if (input$bipartiteOneColor)
+      manageColorControl(session,input$bipartiteColorGuildA1, input$bipartiteColorGuildA2, "bipartiteColorGuildA2", strings$value("LABEL_bipartite_GUILD_A_COLOR_2_CONTROL"))
+  })
+  
+  observeEvent(input$bipartiteColorGuildB1,{
+    if (exists("bpp"))
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1)
+    if (input$bipartiteOneColor)
+      manageColorControl(session,input$bipartiteColorGuildB1, input$bipartiteColorGuildB2, "bipartiteColorGuildB2", strings$value("LABEL_bipartite_GUILD_B_COLOR_2_CONTROL"))
+  })
+  
+  
+  
   
   # Reactive bipartite plotting
   bipartite<-reactive({
@@ -672,8 +720,10 @@ shinyServer(function(input, output, session) {
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
                          zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
-                         input$DataLabelGuildBControl, myenv = zgg, h=1.5*static_plot_width, pwidth=1000,
+                         input$DataLabelGuildBControl, myenv = zgg, h=1.5*static_plot_width, 
+                         pwidth=1000,
                          myenv_argg = zgg$ziggurat_argg, plottype = "ziggurat")
+    
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",zgg$network_name,"&nbsp;",strw,"&nbsp;",
                      zgg$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
                      "<br><h5>", 
@@ -730,11 +780,13 @@ shinyServer(function(input, output, session) {
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
                         paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
                         bpp$result_analysis, input$DataLabelGuildAControl,
-                        input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,750, 1500),
+                        input$DataLabelGuildBControl, 
+                        pwidth = ifelse(bpp$flip_results,300,800),
                         w=static_plot_width,
                         h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
                         myenv = bpp,printplot = TRUE,
-                        myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
+                        myenv_argg = bpp$bipartite_argg, 
+                        plottype = "bipartite")
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",bpp$network_name,"&nbsp;",strw,"&nbsp;",
                      bpp$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
                      "<br><h5>", 
@@ -1046,30 +1098,30 @@ shinyServer(function(input, output, session) {
     return(HTML(mdetails))
   })
   
-  output$networkinfoDetailbipartite<-renderUI({
-    p <- bipartite()
-    nname <- get_network_name(bpp$bipartite_argg$filename)
-    if (sum(bpp$result_analysis$matrix > 1)==0)
-      strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
-    else
-      strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
-    create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
-                        paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
-                        bpp$result_analysis, input$DataLabelGuildAControl,
-                        input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,400, 800),
-                        w=static_plot_width,
-                        h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
-                        myenv = bpp,printplot = TRUE,
-                        myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
-    details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",bpp$network_name,"&nbsp;",strw,"&nbsp;",
-                     bpp$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
-                     "<br><h5>", 
-                     "<span  style='color:",bpp$color_guild_a[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
-                     "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
-    details <- paste0(details,"&nbsp;&nbsp;<a href='reports/bipartite_",bpp$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
-    return(HTML(details))
-    
-  })
+  # output$networkinfoDetailbipartite<-renderUI({
+  #   p <- bipartite()
+  #   nname <- get_network_name(bpp$bipartite_argg$filename)
+  #   if (sum(bpp$result_analysis$matrix > 1)==0)
+  #     strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
+  #   else
+  #     strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+  #   create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
+  #                       paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
+  #                       bpp$result_analysis, input$DataLabelGuildAControl,
+  #                       input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,400, 800),
+  #                       w=static_plot_width,
+  #                       h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
+  #                       myenv = bpp,printplot = TRUE,
+  #                       myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
+  #   details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",bpp$network_name,"&nbsp;",strw,"&nbsp;",
+  #                    bpp$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
+  #                    "<br><h5>", 
+  #                    "<span  style='color:",bpp$color_guild_a[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
+  #                    "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
+  #   details <- paste0(details,"&nbsp;&nbsp;<a href='reports/bipartite_",bpp$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
+  #   return(HTML(details))
+  #   
+  # })
   
   # Matrix information
   output$networkinfoDetailmatrix<-renderUI({
@@ -1121,35 +1173,6 @@ shinyServer(function(input, output, session) {
     return(HTML(details))
     
   })
-  # Polar report
-  # output$networkinfoDetailpolar<-renderUI({
-  #   pol <- polar()
-  #   nname <- get_network_name(pol$polar_argg$filename)
-  #   create_static_report(pol, "www/reports/templates/indexhoriz.html",
-  #                        paste0("www/reports/polar_",nname,"_report.html"), 
-  #                        pol$result_analysis, input$DataLabelGuildAControl,
-  #                        input$DataLabelGuildBControl, myenv = pll,
-  #                        myenv_argg = pol$polar_argg, plottype = "polar")
-  #    
-  #   details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-  #   details <- paste0(details,"&nbsp;<a href='reports/polar_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
-  #   return(HTML(details))
-  # })
-
-  # Matrix information
-  # output$networkinfoDetailmatrix <- renderUI({
-  #   mymatrix <- matrix()
-  #   nname <- get_network_name(mymatrix$mat_argg$filename)
-  #   create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
-  #                        paste0("www/reports/matrix_",nname,"_report.html"), 
-  #                        mymatrix$result_analysis, input$DataLabelGuildAControl,
-  #                        input$DataLabelGuildBControl, pwidth = 600*input$matrixPlotresize/100,
-  #                        printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
-  #   
-  #   details <- paste("<h5>",strings$value("LABEL_NETWORK"),"&nbsp;",nname)
-  #   details <- paste0(details,"&nbsp;<a href='reports/matrix_",nname,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5>")
-  #   return(HTML(details))
-  # })
   
   zigguratdiagramOptions<-reactive({
     return(calculateDiagramOptions(#as.numeric(input$paperSize), 
@@ -1162,7 +1185,8 @@ shinyServer(function(input, output, session) {
                                    input$bipartitefileextension, 
                                    input$bipartiteShowTitle, 
                                    input$bipartiteShowLegend,
-                                   landscape = !input$bipartiteVerticalLayout))
+                                   landscape = !input$bipartiteVerticalLayout,
+                                   plottype = "bipartite"))
   })
   
   polardiagramOptions<-reactive({
@@ -1232,19 +1256,21 @@ shinyServer(function(input, output, session) {
   # Bipartite plot download button
   output$bipartiteDownload<-downloadHandler(
     filename=function() {
-      opt <- calculateDiagramOptions(4, as.numeric(input$bipartiteppi), input$bipartitefileextension, input$bipartiteShowTitle, input$bipartiteShowLegend, landscape=!bpp$flip_results)
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-",input$bipartitePlottype,"." , input$bipartitefileextension)
+      opt <- calculateDiagramOptions(4, as.numeric(input$bipartiteppi), input$bipartitefileextension, 
+                                     input$bipartiteShowTitle, input$bipartiteShowLegend, 
+                                     landscape=!bpp$flip_results, plottype="bipartite")
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-",
+                        input$bipartitePlottype,"." , input$bipartitefileextension)
       return(file)
     },
     content=function(file) {
       myoptions<-bipartitediagramOptions()
-      #validateDiagramOptions(myoptions)
       myoptions$ppi <- input$bipartiteppi
       myoptions$ext <- input$bipartitefileextension
       # Gets the diagram
       g<-bipartite()
       bplot<-g$plot
-      myfratio <- (g$tot_height/g$tot_width)
+      #myfratio <- (g$tot_height/g$tot_width)
       if (input$bipartiteVerticalLayout){
         bplot <- bplot + coord_fixed() + scale_x_reverse() + coord_flip()
       }
@@ -1717,7 +1743,6 @@ shinyServer(function(input, output, session) {
   
   output$contentsfileconfigpolarplot <- reactive({
     if (!is.null(input$polarloadPolarConfigFile)){
-      #shinyjs::disable("polarloadPolarConfigFile")
       filePath <- input$polarloadPolarConfigFile$datapath
       contentsfileconfigpolarplot <- paste(readLines(filePath), collapse = "\n")
       contentsfileconfigpolarplot <- paste("JSON CONTENTS","\n",contentsfileconfigpolarplot)

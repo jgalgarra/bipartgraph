@@ -40,6 +40,7 @@
 "LABEL_UPLOADED_FILES_DETAILS_SIZE","Tamaño","Size"
 "LABEL_UPLOADED_FILES_DETAILS_TYPE","Tipo","Type"
 "LABEL_ZIGGURAT_RESTORE_COLORS","Colores por defecto","Default colors"
+"LABEL_ZIGGURAT_ONE_COLOR","Un color por clase","One color per guild"
 "LABEL_ZIGGURAT_DIAGRAM_PANEL","Gráfico","Plot"
 "LABEL_ZIGGURAT_CONFIG_PANEL","Configuración","Configuration"
 "LABEL_ZIGGURAT_CONFIG_INTERACTIVE_HEADER","Gráfico  interactivo","Interactive plot"

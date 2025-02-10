@@ -134,6 +134,16 @@ zigguratAlphaLevelLinkControl <- function() {
   return(control)
 }
 
+zigguratOneColorControl <- function() {
+  control<-checkboxInput(
+    inputId = "zigguratOneColor",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_ONE_COLOR")),
+    value   = FALSE
+  )
+  return(control)
+}
+
+
 # link width
 zigguratLinkSizeControl <- function() {
   control<-sliderInput(

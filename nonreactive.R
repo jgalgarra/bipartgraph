@@ -173,7 +173,7 @@ saveSVGControl <- function(plotlabel) {
 #   paperSize: 0-DINA0, 1-DINA1, ...
 #   ppi: pixels per inch
 
-calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_legend, landscape = FALSE) {
+calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_legend, landscape = FALSE, plottype="") {
   options<-list(paperSize=1, width=480, height=480, ppi=300, cairo=FALSE, ext=extension)
   # Dimensions in DIN and inches
   widths    <- c(t(sapply(c(841, 841), function(x) {x*(1/2)^(0:3)})))
@@ -196,6 +196,10 @@ calculateDiagramOptions<-function(paperSize, ppi, extension, show_title, show_le
     options$height     <- inches$width*ppi
     options$width    <- inches$height*ppi
   }
+  if ((plottype=="bipartite") && (landscape)){
+    options$height=0.75*options$height
+  }
+    
   options$cairo     <- type[c("cairo")]
   options$ext       <- ifelse(ext[c("png")], "png", ifelse(ext[c("jpeg")], "jpeg", ifelse(ext[c("tiff")], "tiff", ifelse(ext[c("svg")], "svg", ""))))
   return(options)
@@ -372,6 +376,33 @@ get_network_name <- function(namefile){
   return(gsub(".CSV","",gsub(".csv","",namefile)))
 }
 
+manageColorControl <- function(mysession,inputcontrol1, inputcontrol2, namecontrol2,labelcontrol2)
+if (inputcontrol1 != inputcontrol2){
+  updateColourInput(mysession, namecontrol2,
+                    label = labelcontrol2,
+                    value = inputcontrol1)
+}
+
+headslider <- function(guildid,colorg,labelg,matrixspec,nname){
+  namesg <- ""
+  labelsguild <- clean_species_names(names(matrixspec),nname)
+  for (i in 1:length(labelsguild))
+    namesg <- paste(namesg,sprintf("%2d",i),labelsguild[i],"<br>")
+  return <- paste0("<span class=\"sliderGuildTitle\" id=\"",guildid,"\"  style=\"color:",colorg,"\">",labelg,
+                   "</span><span class=\"sliderGuildNamesList\"  style=\"color:",colorg,"\"><br>",namesg)
+}
+
+updateSliderContents <- function(myenv,labelA,labelB,colorA1,colorB1){
+  names_A <- headslider(labelA,colorA1,myenv$name_guild_a,
+                        myenv$result_analysis$matrix[1,],myenv$network_name)
+  names_B <- headslider(labelB,colorB1,myenv$name_guild_b,
+                        myenv$result_analysis$matrix[,1],myenv$network_name)
+  textinSlider <- paste("<span valign=\"top\"><div class=\"containerslider\">","<div class=\"columnslider\">",names_A,"</div>",
+                        "<div class=\"columnslider\">",names_B,"</div>","</div>","</span>")
+  jscode <- paste("document.getElementById('slideTextId').innerHTML='",textinSlider,"';")
+  runjs(jscode)
+}
+
 clean_species_names <- function(listspecies,nnetwork){
   splabels <- gsub("\\."," ",listspecies)
   splabels <- gsub(nnetwork,"",splabels)
@@ -401,20 +432,12 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       myoptions$ppi <- 600
       myoptions$width <- w*myoptions$ppi
       myoptions$height <- h*myoptions$ppi
-      #myoptions$width <- myoptions$width*myoptions$ppi
-      # if (myenv$flip_results){
-      #   myoptions$width <- (2/3)*myoptions$width
-      #   pwidth=pwidth*0.5
-      #   myoptions$height <- myoptions$width
-      # } else 
-      #   myoptions$height <- (2/3)*myoptions$width
     }
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE
       mplot <- myenv$plot
       myoptions$height <- (16/9)*myoptions$width*myoptions$ppi
       myoptions$width <- myoptions$width*myoptions$ppi
-
     }
     plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
   }  

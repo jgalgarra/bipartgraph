@@ -143,6 +143,8 @@ zigguratConfigPanel <- function() {
                column(2, zigguratColorControl("GuildB1", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_1_CONTROL"), czB1)),
                column(2, zigguratColorControl("GuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"), czB2)),
                column(2, zigguratAlphaLevelControl()),
+               column(2, zigguratOneColorControl())
+               
                #column(2, restoreColorsControl())
              ),
              fluidRow(

@@ -234,3 +234,12 @@ bipartiteshowBipConfigFileControl <- function() {
   )
   return(control)
 }
+
+bipartiteOneColorControl <- function() {
+  control<-checkboxInput(
+    inputId = "bipartiteOneColor",
+    label   = controlLabel(strings$value("LABEL_ZIGGURAT_ONE_COLOR")),
+    value   = FALSE
+  )
+  return(control)
+}
