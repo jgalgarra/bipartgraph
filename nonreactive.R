@@ -445,11 +445,13 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     if (plottype=="bipartite"){
       h <- w 
       plot <- bpp$plot
-      if (!bpp$flip_results)
-        h <- h/4
-      else{
-        w <- w/2
-        pwidth <- (2/3)*pwidth
+      
+      w <- 1.5*w
+      h <- (9/16)*w
+      if (bpp$flip_results){
+        fh <- h
+        h <- w
+        w <- fh
       }
     }
     if (plottype=="ziggurat"){

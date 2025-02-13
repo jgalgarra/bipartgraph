@@ -24,11 +24,11 @@
 "RA_HP_032.csv";"Host";"Parasite";",";TRUE
 "M_PL_004.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_006.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_002.csv";"Pollinator";"Plant";",";TRUE
-"dattilo2014.csv";"Ant";"Plant";",";TRUE
-"RA_HP_042.csv";"Host";"Parasite";",";TRUE
-"CANGREJOS.csv";"Crab";"Algae";",";TRUE
 "saunders2019.csv";"Pollinator";"Plant";",";TRUE
 "Safariland.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_049.csv";"Host";"Parasite";",";TRUE
+"RA_HP_042.csv";"Host";"Parasite";",";TRUE
+"dattilo2014.csv";"Ant";"Plant";",";TRUE
+"CANGREJOS.csv";"Crab";"Algae";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
