@@ -429,9 +429,18 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     }
     if (plottype=="bipartite"){
       mplot <- myenv$plot
-      myoptions$ppi <- 600
-      myoptions$width <- w*myoptions$ppi
-      myoptions$height <- h*myoptions$ppi
+        h <- w 
+        plot <- bpp$plot
+        w <- 1.5*w
+        h <- (9/16)*w
+        if (bpp$flip_results){
+          fh <- h
+          h <- w
+          w <- fh
+        }
+        myoptions$ppi <- 600
+        myoptions$width <- w*myoptions$ppi
+        myoptions$height <- h*myoptions$ppi
     }
     if (plottype=="ziggurat"){
       myenv$landscape_pot <- TRUE
@@ -445,7 +454,6 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     if (plottype=="bipartite"){
       h <- w 
       plot <- bpp$plot
-      
       w <- 1.5*w
       h <- (9/16)*w
       if (bpp$flip_results){

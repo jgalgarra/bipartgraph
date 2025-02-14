@@ -225,12 +225,13 @@ function markLink(linkId,plottype) {
         plottype === 'ziggurat' ? fp = 1 : fp = 50;
         // incrementa el ancho del enlace
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth+2*fp);
+        $(this).css("stroke-width", strokeWidth);//+2*fp);
 
         // indica que el enlace esta marcado
         $(this).data("marked", true);
+        $(this).data("fill", "purple");
 
-        $(this).css("stroke-dasharray",`${5*fp},${5*fp}`);
+        $(this).css("stroke-dasharray",`${3*fp},${1*fp}`);
     });
 }
 
