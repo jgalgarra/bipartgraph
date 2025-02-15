@@ -80,9 +80,11 @@ bipartiteDiagramPanel <- function() {
                                      
                               ),
                      ),
-                     tags$span(id="bipartiteplot",class="svgcontainer",
+                     tags$span(id="bipartiteplot",
+                               class="svgcontainer",
                                fluidRow(align="center",valign="top",
                                         uiOutput("bipartite"))
+
                      )
                      
                      ),
