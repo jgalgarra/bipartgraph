@@ -384,14 +384,14 @@ shinyServer(function(input, output, session) {
     if (exists("bpp"))
       updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1)
     if (input$bipartiteOneColor)
-      manageColorControl(session,input$bipartiteColorGuildA1, input$bipartiteColorGuildA2, "bipartiteColorGuildA2", strings$value("LABEL_bipartite_GUILD_A_COLOR_2_CONTROL"))
+      manageColorControl(session,input$bipartiteColorGuildA1, input$bipartiteColorGuildA2, "bipartiteColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
   })
   
   observeEvent(input$bipartiteColorGuildB1,{
     if (exists("bpp"))
       updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1)
     if (input$bipartiteOneColor)
-      manageColorControl(session,input$bipartiteColorGuildB1, input$bipartiteColorGuildB2, "bipartiteColorGuildB2", strings$value("LABEL_bipartite_GUILD_B_COLOR_2_CONTROL"))
+      manageColorControl(session,input$bipartiteColorGuildB1, input$bipartiteColorGuildB2, "bipartiteColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
   })
   
   
