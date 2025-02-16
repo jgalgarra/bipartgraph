@@ -438,7 +438,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
           h <- w
           w <- fh
         }
-        myoptions$ppi <- 600
+        myoptions$ppi <- 300
         myoptions$width <- w*myoptions$ppi
         myoptions$height <- h*myoptions$ppi
     }

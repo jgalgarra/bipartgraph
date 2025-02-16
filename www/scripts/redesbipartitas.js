@@ -124,11 +124,12 @@ function updateLinkEvents() {
     // eventos
     $("g[id*=" + pattern + "]").mouseover(function() {
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth+2);
+        $(this).css("stroke-width", strokeWidth*2);
+
     });
     $("g[id*=" + pattern + "]").mouseout(function() {
         var strokeWidth=parseFloat($(this).css("stroke-width"));
-        $(this).css("stroke-width", strokeWidth-2);
+        $(this).css("stroke-width", strokeWidth/2);
     });
 }
 
@@ -229,8 +230,6 @@ function markLink(linkId,plottype) {
 
         // indica que el enlace esta marcado
         $(this).data("marked", true);
-        $(this).data("fill", "purple");
-
         $(this).css("stroke-dasharray",`${3*fp},${1*fp}`);
     });
 }
