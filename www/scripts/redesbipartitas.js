@@ -19,8 +19,8 @@ function windowLoad() {
     // actualiza los tooltips de ayuda
     updateHelpTooltips();
 
-    // // indica al servidor que el cliente esta listo
-    // Shiny.onInputChange("windowLoad", new Date());
+    // indica al servidor que el cliente esta listo
+    Shiny.onInputChange("windowLoad", new Date());
 }
 
 var plotData;
@@ -74,7 +74,49 @@ function updateSVGEvents(plottype) {
 
     // establece el SVG a su tamaño real
     //svgZoomFit(idsvg);
+    let lstyle;
+    if (plottype==='ziggurat')
+        lstyle = 'ziggurat'
+    else
+        lstyle = 'bipartite'
+    // Get the SVG element
+    console.log('svgplot'+lstyle)
+    const svgplot = document.getElementById('svgplot'+lstyle);
+    
+    // Get the current transform attribute value (if any)
+    let transform = svgplot.getAttribute('transform');
+    console.log("Current transform:", transform);
+    let trv = getTranslateValues(transform);
+    console.log("Translate values",trv.x,trv.y,trv.vert)
+    if (trv.vert)
+        setTranslateValues(0,trv.y,svgplot,lstyle);
+    transform = svgplot.getAttribute('transform');
+    trv = getTranslateValues(transform);
+    console.log("Translate values",trv.x,trv.y,trv.vert)
 }
+
+function svgMoveHoriz(jump,style) {
+    let lstyle;
+    if (style==='ziggurat')
+        lstyle = 'ziggurat'
+    else
+        lstyle = 'bipartite'
+    svgplot = document.getElementById('svgplot'+lstyle);
+    transform = svgplot.getAttribute('transform');
+    trv = getTranslateValues(transform);
+    console.log("Translate values",trv.x,trv.y,trv.vert)
+    if (!trv.vert)
+        trv.x = trv.x + jump;
+    else{
+        trv.y = trv.y - jump;
+        trv.x = 0;
+    }
+    setTranslateValues(trv.x,trv.y,svgplot,lstyle);
+    transform = svgplot.getAttribute('transform');
+    trv = getTranslateValues(transform);
+    console.log("Translate values",trv.x,trv.y)
+}
+
 
 // actualiza el scroll de los detalles de los nodos del ziggurat
 function updateZigguratNodesDetailScroll() {
@@ -98,12 +140,9 @@ function updateNodeEvents(plottype,plotData) {
             $("[id*=" + pattern + "]").click(function() {
                 markRelatedNodes($(this).attr("id").replace("-text", "").replace("-rect",""),plottype,plotData);
             });
-            
-
             // datos asociados al nodo
             $("rect[id*=" + pattern + "]").each(function() {
                 var id=$(this).attr("id").replace("-rect", "");
-
                 $(this).data("guild", guild);
                 $(this).data("kcore", kcore);  
                 $(this).data("nodeIds", getNodeIds($("#" + id + "-text").find("tspan").toArray()));
@@ -135,8 +174,6 @@ function updateLinkEvents() {
 
 // actualiza los tooltips de los nodos
 function updateNodeTooltips(plottype, plotData) {
-    // console.log("plotdata");
-    // console.log(plotData)
     function textToolTipkcore1() {
         var nodeIds=$(this).data("nodeIds");
         var id=$(this).attr("id").replace("-rect", "");
@@ -372,12 +409,7 @@ function getTooltipContent(guildName, kcore, guildCoreData, nodeIds) {
     content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_TYPE") + "</th>";
     content+="<td>" + guildName + "</td>";
     content+="</tr>";
-    // content+="<tr>";
-    // content+="<th>" + getMessage("LABEL_ZIGGURAT_INFO_DETAILS_KCORE") + "</th>";
-    // content+="<td>" + kcore + "</td>";
-    // content+="</tr>";
     content+="</table>";
-
     // datos de cada elemento
     content+="<table class='rbtooltiptableinfo2'>";
     content+="<tr>";
@@ -441,7 +473,6 @@ function getNodeTooltipContent(guildCoreData, id) {
 function linktoWiki(type, id, name,wsubdomain) {
   window.open('https://'+wsubdomain+'.wikipedia.org/wiki/'+name, "wikipedia", "directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes");
 }
-
 
 // muestra la informacion obtenida de la wikipedia para un nodo concreto
 function showWiki(type, id, name) {
@@ -526,6 +557,37 @@ function showWiki(type, id, name) {
         });
     }
 }
+
+// Function to extract translate values from the transform attribute
+function getTranslateValues(transform) {
+    console.log("translatevalues");
+    let regex = /translate\((-?\d+\.?\d*),?\s*(-?\d+\.?\d*)\)/;
+    let matches = transform.match(regex);
+    regex = /rotate/;
+    let matchesv = transform.match(regex);
+    let vertical = matchesv;
+    console.log("vertical"+vertical);
+    if (matches) {
+        return {
+          x: parseFloat(matches[1]),
+          y: matches[2] ? parseFloat(matches[2]) : 0, 
+          vert : vertical!=null,// Default to 0 if no y value is found
+        };
+      }
+    return { x: 0, y: 0, vert:false }; // Return default values if no translate found
+  }
+
+  // Function to set new translate values
+  function setTranslateValues(x, y, svgplot, lstyle) {
+    const currentTransform = svgplot.getAttribute('transform') || '';
+    const newTransform = `translate(${x}, ${y})`;
+    // If there's already a translate, replace it; otherwise, just set the new one
+    if (currentTransform.includes('translate')) {
+        svgplot.setAttribute('transform', currentTransform.replace(/translate\([-?\d\.]+\s*,?\s*-?\d*\.?\d*\)/, newTransform));
+    } else {
+        svgplot.setAttribute('transform', currentTransform + ' ' + newTransform);
+    }
+  }
 
 
 // amplia el SVG

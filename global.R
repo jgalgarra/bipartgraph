@@ -38,6 +38,10 @@ valorseparator <- c(",",";","\t")
 static_plot_width <- 8
 # Standard plot resolution
 standard_ppi <- 300
+# SVG jump size in pixels
+svg_jump_size <<- 50
+# SVG displacement orientation for bipartite plot
+svg_disp_orientation <<- 'h'
 # Printer formats
 printer_formats <<- c("png","jpg","eps","tiff","svg","pdf")
 

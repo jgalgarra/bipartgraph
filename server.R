@@ -138,6 +138,8 @@ shinyServer(function(input, output, session) {
                                        guild_a = auxnguild_a, guild_b = auxnguild_b, 
                                        only_NODF = TRUE, sep=input$selectDataSeparator,
                                        speciesinheader=input$selectDataSpeciesNames)
+      jscode <- paste("localStorage.clear();")
+      runjs(jscode)
       max_core <- result_prim$max_core
       result_prim$network_name <- strsplit(file,split='\\.')[[1]][1]
       analyze_file <- TRUE

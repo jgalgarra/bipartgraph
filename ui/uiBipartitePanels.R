@@ -55,8 +55,18 @@ bipartiteDiagramPanel <- function() {
                               column(1, bipartitePlottype()),
                               column(2, fluidRow(align="center",
                                                  tags$span(
+                                                   tags$img(id="svgleft",     
+                                                            onclick=paste("svgMoveHoriz(",-svg_jump_size,",'bipartite')"),   
+                                                            src="images/logos-flexline/arrow-left.png", width="14")
+                                                 ),
+                                                 tags$span(
+                                                   tags$img(id="svgright",     
+                                                            onclick=paste("svgMoveHoriz(",svg_jump_size,",'bipartite')"),   
+                                                            src="images/logos-flexline/arrow-right.png", width="14")
+                                                 ),
+                                                 tags$span(
                                                    tags$img(id="zoominbip",     
-                                                            onclick="svgZoomIn('bipartite')",   
+                                                            onclick="svgZoomIn('bipartite')",
                                                             src="images/logos-flexline/zoom-in.png")
                                                  ),
                                                  tags$span(
