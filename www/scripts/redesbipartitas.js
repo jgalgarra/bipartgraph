@@ -1,19 +1,13 @@
 //-----------------------------------------------------------------------------
-//  Desarrollo Original
-//  PFC Universidad Politecnica de Madrid - EUITT
-//  Representacion grafica de redes bipartitas basadas en descomposicion k-core
-//
-// Autor         : Juan Manuel Garcia Santi
-//                 Ampliado en el marco de BipartGraph por Javer Garcia Algarra
-// Módulo        : redesbipartitas.js
-// Descricpción  : Funciones javascript que permiten la interaccion del usuario
-//                 con el diagrama ziggurat y la presentacion de la informacion
-//                 relativa a nodos y elementos
-//                 Ampliado para trabajar con diagrama bipartito
+// 
+// Module       : redesbipartitas.js
+// Authors      : Juan Manuel Garcia Santi
+//                Javer Garcia Algarra
+// Description  : User interaction with ziggurat and bipartite plots
 //
 //-----------------------------------------------------------------------------
 
-// funcion que se llama cuando la pagina esta cargada
+// Function called on window load
 function windowLoad() {
    
     // actualiza los tooltips de ayuda
@@ -29,7 +23,6 @@ var incfont = 1.3;      // Increase font size of marked nodes
 // establece los tooltips de ayuda de todos los elementos
 var helpTooltips=[
     {id: "zoomin",      value: "Ziggurat zoom in"},
-    
     {id: "zoomout",     value: "Ziggurat zoom out"},
     {id: "zoomfit",     value: "Ajustar el ziggurat a la ventana de visualización"},
     {id: "zoomreset",   value: "Visualizar el ziggurat en su tamaño real"}
@@ -474,89 +467,7 @@ function linktoWiki(type, id, name,wsubdomain) {
   window.open('https://'+wsubdomain+'.wikipedia.org/wiki/'+name, "wikipedia", "directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes");
 }
 
-// muestra la informacion obtenida de la wikipedia para un nodo concreto
-function showWiki(type, id, name) {
-    //alert("showWiki(id=" + id + ", name=" + name + ")");
-    var wikiPanelId     = "wikiDetail-" + type + "-" + id;
-    var wikiPanelName   = type + " [#" + id + "]";
-    var wikiPanel       = $("#" + wikiPanelId);
-    var wikiLoaded      = wikiPanel.data("loaded");
 
-    // selecciona el tab concreto
-    Shiny.onInputChange("wikiPanelName", wikiPanelName);
-
-    // muestra el "tab" y el contenido
-    $("#zigguratWikiDetail ul.nav-pills a").each(function() {
-        if ($(this).html()==wikiPanelName) {
-            $(this).css("display", "block");
-        }
-    });
-    $("#" + wikiPanelId).css("display", "block");
-
-    // carga los datos si no estan cargados
-    if (typeof wikiLoaded=="undefined" || !wikiLoaded) {
-        // http://en.wikipedia.org/w/api.php?action=query&prop=revisions&format=json&rvprop=content&rvparse=&titles=Bombus%20dahlbomii
-        // solo funciona si se usa jquery.getJSON y "callback=?" como parametro
-        // si no da error de CORS 'Access-Control-Allow-Origin
-        var wikiBase        = "https://en.wikipedia.org";
-        var wikiApi         = "/w/api.php";
-        var wikiParameters  = {
-             cache:         false,
-             format:        "json",
-             action:        "query",
-             prop:          "revisions",
-             rvprop:        "content",
-             rvparse:       "",
-             titles:        name
-        }
-        var wikiUrl         = wikiBase + wikiApi + "?" + $.param(wikiParameters) + "&callback=?";
-        //alert("Consultando wikipedia: " + wikiUrl);
-        var jqXHR=$.getJSON(wikiUrl);
-        jqXHR.done(function(data) {
-            //alert("data=" + JSON.stringify(data));
-            var pages=data.query.pages;
-            for (var property in pages) {
-                // establece el contenido a partir de la primera revision
-                //alert("name=" + property  + ", value=" + pages[property]);
-                var page=pages[property];
-                if (typeof page.revisions=="undefined") {
-                    wikiPanel.html(getMessage("MESSAGE_WIKIPEDIA_NO_INFO_ERROR") + " " + name);
-                } else {
-                    var revision=page.revisions[0];
-                    var content=revision["*"];
-                    wikiPanel.html(content);
-
-                    // modifica todos los enlaces para que se abran en una nueva ventana
-                    // y los relativos para que apunten a wikipedia
-                    $("#" + wikiPanelId + " a").each(function() {
-                        var _href=$(this).attr("href");
-                        // nueva ventana
-                        if (_href.substring(0,1)!="#") {
-                            $(this).attr("target", "_blank");
-
-                            // completa los enlaces relativos
-                            if (_href.substring(0,1)=="/") {
-                                $(this).attr("href", wikiBase + _href);
-                            }
-                        }
-                    });
-
-                    // inicializa el scroll
-                    wikiPanel.perfectScrollbar({scrollXMarginOffset:10, scrollYMarginOffset:4});
-                    wikiPanel.perfectScrollbar("update");
-                }
-
-                // marca el panel como cargado
-                wikiPanel.data("loaded", true);
-            }
-        });
-
-        // no funciona el "fail" con callback, pero lo dejo por si acaso algún día....
-        jqXHR.fail(function(jqXHR, textStatus, errorThrown) {
-            alert(getMessage("MESSAGE_WIKIPEDIA_DOWNLOAD_ERROR") + " [status=" + textStatus+ ", error=" + errorThrown + "]");
-        });
-    }
-}
 
 // Function to extract translate values from the transform attribute
 function getTranslateValues(transform) {

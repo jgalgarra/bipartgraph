@@ -5,8 +5,8 @@ let showButton = true;
         document.addEventListener("DOMContentLoaded", function () {
             const slidePanel = document.createElement("div");
             const toggleButton = document.createElement("button");
-            const sliderSize = 35; // Percentage of viewport
-            
+            const sliderSize = 30; // Percentage of viewport
+            console.log("sliderMode",sliderMode);
             // Styling the panel based on mode
             if (sliderMode === "bottom") {
                 Object.assign(slidePanel.style,{ 

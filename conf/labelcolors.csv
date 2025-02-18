@@ -13,7 +13,6 @@
 "M_PL_006.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_037.csv";"Host";"Parasite";",";TRUE
 "NOVELLA_2019_MAT.csv";"Pollinator";"Plant";",";TRUE
-"PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
 "RA_HP_005.csv";"Host";"Parasite";",";TRUE
 "RA_HP_039.csv";"Host";"Parasite";",";TRUE
 "M_PL_032.csv";"Pollinator";"Plant";",";TRUE
@@ -58,7 +57,9 @@
 "RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "gonzalez_loiselle_2016.csv";"Pollinator";"Plant";",";TRUE
 "kim_2016.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
-"dattilo2014.csv";"Ant";"Plant";",";TRUE
 "M_PL_002.csv";"Pollinator";"Plant";",";TRUE
+"PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
+"Polidori_2025.csv";"Plant";"Pollinator";",";TRUE
+"example-try-this-first.csv";"Pollinator";"Plant";",";TRUE
 "CANGREJOS.csv";"Crab";"Algae";",";TRUE
+"dattilo2014.csv";"Ant";"Plant";",";TRUE

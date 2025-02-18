@@ -226,4 +226,8 @@
     line-height: 50%;
     text-align: left;
   }
-  
+
+.sliderGuildNamesList p {
+    margin: 0 0 50px;
+  }
+
