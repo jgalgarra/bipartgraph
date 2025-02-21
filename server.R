@@ -105,6 +105,11 @@ shinyServer(function(input, output, session) {
   # Reads the network data file
   selectedDataFileContent<-reactive({
     shinyjs::hideElement(id= "panelB")
+    # jscode <- paste0("document.getElementById('toggleButtonSliderIdright').style.visibility='hidden'; ")
+    # runjs(jscode)
+    # jscode <- paste0("document.getElementById('toggleButtonSliderIdbottom').style.visibility='hidden'; ")
+    # runjs(jscode)
+    
     max_core <- 0
     analyze_file <- FALSE
     file<-input$selectedDataFile
@@ -220,8 +225,11 @@ shinyServer(function(input, output, session) {
         names_A <- headslider("titleguildA",czA1,dflabcols$LabelGuildA,
                               result_prim$matrix[1,],result_prim$network_name)
         names_B <- headslider("titleguildB",czB1,dflabcols$LabelGuildB,result_prim$matrix[,1],result_prim$network_name)
+        
         textinSlider <- paste("<span valign=\"top\"><div class=\"containerslider\">","<div class=\"columnslider\">",names_A,"</div>",
                               "<div class=\"columnslider\">",names_B,"</div>","</div>","</span>")
+
+
         jscode <- paste("document.getElementById('slideTextId').innerHTML='",textinSlider,"';")
         runjs(jscode)
       }
@@ -338,6 +346,10 @@ shinyServer(function(input, output, session) {
   # Restart session, set all values to default
   observeEvent(input$ResetAll, {
     zgg<-NULL
+    bpp<-NULL
+    bpot<-NULL
+    mat<-NULL
+    pol<-NULL
     session = getDefaultReactiveDomain()
     session$reload()
   })
@@ -356,15 +368,19 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$zigguratColorGuildA1,{
-    if (exists("zgg"))
-      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1)
+    if (exists("zgg")){
+      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1,TRUE)
+      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1,FALSE)
+    }
     if (input$zigguratOneColor)
       manageColorControl(session,input$zigguratColorGuildA1, input$zigguratColorGuildA2, "zigguratColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
   })
   
   observeEvent(input$zigguratColorGuildB1,{
-    if (exists("zgg"))
-      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1)
+    if (exists("zgg")){
+      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1,TRUE)
+      updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1,FALSE)
+    }
     if (input$zigguratOneColor)
       manageColorControl(session,input$zigguratColorGuildB1, input$zigguratColorGuildB2, "zigguratColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
   })
@@ -382,16 +398,30 @@ shinyServer(function(input, output, session) {
     }
   })
   
+  observeEvent(input$bipartiteVerticalLayout,{
+    if (exists("bpp")){
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,
+                           t_vertical = TRUE)
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,
+                           t_vertical = FALSE)
+    }
+  
+  })
+  
   observeEvent(input$bipartiteColorGuildA1,{
-    if (exists("bpp"))
-      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1)
+    if (exists("bpp")){
+      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
+      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
+    }
     if (input$bipartiteOneColor)
       manageColorControl(session,input$bipartiteColorGuildA1, input$bipartiteColorGuildA2, "bipartiteColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
   })
   
   observeEvent(input$bipartiteColorGuildB1,{
-    if (exists("bpp"))
-      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1)
+    if (exists("bpp")){
+      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
+      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
+    }
     if (input$bipartiteOneColor)
       manageColorControl(session,input$bipartiteColorGuildB1, input$bipartiteColorGuildB2, "bipartiteColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
   })
@@ -453,6 +483,8 @@ shinyServer(function(input, output, session) {
     guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
     # store labels and colors
     writelabcols()
+    updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
+    updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
     session$sendCustomMessage(type="bipartiteDataHandler", 
                               list(ids=c("a", "b"),
@@ -603,9 +635,14 @@ shinyServer(function(input, output, session) {
     runjs(jscode)
     jscode <- paste("document.getElementById('titleguildB').innerHTML='",z$name_guild_b,"';")
     runjs(jscode)
+    updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1,TRUE)
+    updateSliderContents(zgg,"titleguildA","titleguildB",input$zigguratColorGuildA1,input$zigguratColorGuildB1,FALSE)
+    
     # Show species button
-    # jscode <- paste("document.getElementById('toggleButtonSliderId').style.display = 'block';")
-    # runjs(jscode)
+    jscode <- paste0("document.getElementById('toggleButtonSliderIdright').style.visibility='visible'; ")
+    runjs(jscode)
+    jscode <- paste0("document.getElementById('toggleButtonSliderIdbottom').style.visibility='visible'; ")
+    runjs(jscode)
     return(z)
   })
   
@@ -1100,30 +1137,6 @@ shinyServer(function(input, output, session) {
     return(HTML(mdetails))
   })
   
-  # output$networkinfoDetailbipartite<-renderUI({
-  #   p <- bipartite()
-  #   nname <- get_network_name(bpp$bipartite_argg$filename)
-  #   if (sum(bpp$result_analysis$matrix > 1)==0)
-  #     strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
-  #   else
-  #     strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
-  #   create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
-  #                       paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
-  #                       bpp$result_analysis, input$DataLabelGuildAControl,
-  #                       input$DataLabelGuildBControl, pwidth = ifelse(bpp$flip_results,400, 800),
-  #                       w=static_plot_width,
-  #                       h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
-  #                       myenv = bpp,printplot = TRUE,
-  #                       myenv_argg = bpp$bipartite_argg, plottype = "bipartite")
-  #   details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",bpp$network_name,"&nbsp;",strw,"&nbsp;",
-  #                    bpp$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),
-  #                    "<br><h5>", 
-  #                    "<span  style='color:",bpp$color_guild_a[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_a, bpp$name_guild_a,"</span >","&nbsp;",
-  #                    "<span  style='color:",bpp$color_guild_b[1],"'>","&nbsp;&nbsp;", bpp$result_analysis$num_guild_b, bpp$name_guild_b,"</span >")
-  #   details <- paste0(details,"&nbsp;&nbsp;<a href='reports/bipartite_",bpp$network_name,"_report.html' target='report' style='font-size:12px;' >&nbsp;&nbsp;&nbsp;",strings$value("LABEL_ZIGGURAT_SEE_DETAILS"),"</a></h5><hr>")
-  #   return(HTML(details))
-  #   
-  # })
   
   # Matrix information
   output$networkinfoDetailmatrix<-renderUI({

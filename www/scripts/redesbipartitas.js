@@ -624,7 +624,6 @@ Shiny.addCustomMessageHandler(
     "zigguratDataHandler",
     function(data) {
         zigguratData=data;
-        //alert("zigguratData=" + JSON.stringify(zigguratData));
     }
 );
 var bipartiteData=null;
@@ -632,7 +631,6 @@ Shiny.addCustomMessageHandler(
     "bipartiteDataHandler",
     function(data) {
         bipartiteData=data;
-        //alert("bipartiteData=" + JSON.stringify(bipartiteData));
     }
 );
 

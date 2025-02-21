@@ -383,23 +383,31 @@ if (inputcontrol1 != inputcontrol2){
                     value = inputcontrol1)
 }
 
-headslider <- function(guildid,colorg,labelg,matrixspec,nname){
+headslider <- function(guildid,colorg,labelg,matrixspec,nname,text_vertical=TRUE){
+  separator <- ifelse(text_vertical,"<br>","&nbsp;&nbsp;")
   namesg <- ""
   labelsguild <- clean_species_names(names(matrixspec),nname)
   for (i in 1:length(labelsguild))
-    namesg <- paste(namesg,sprintf("%2d",i),labelsguild[i],"<br>")
+    namesg <- paste(namesg,sprintf("%2d",i),labelsguild[i],separator)
   return <- paste0("<span class=\"sliderGuildTitle\" id=\"",guildid,"\"  style=\"color:",colorg,"\">",labelg,
                    "</span><span class=\"sliderGuildNamesList\"  style=\"color:",colorg,"\"><br>",namesg)
 }
 
-updateSliderContents <- function(myenv,labelA,labelB,colorA1,colorB1){
+updateSliderContents <- function(myenv,labelA,labelB,colorA1,colorB1,t_vertical=TRUE){
+  idext <- ifelse(t_vertical,'right','bottom')
+  jscode <- paste0("document.getElementById('toggleButtonSliderId",idext,"').style.visibility='visible'; ")
+  runjs(jscode)
+  
   names_A <- headslider(labelA,colorA1,myenv$name_guild_a,
-                        myenv$result_analysis$matrix[1,],myenv$network_name)
+                        myenv$result_analysis$matrix[1,],myenv$network_name,text_vertical = t_vertical)
   names_B <- headslider(labelB,colorB1,myenv$name_guild_b,
-                        myenv$result_analysis$matrix[,1],myenv$network_name)
-  textinSlider <- paste("<span valign=\"top\"><div class=\"containerslider\">","<div class=\"columnslider\">",names_A,"</div>",
+                        myenv$result_analysis$matrix[,1],myenv$network_name,text_vertical = t_vertical)
+  if(t_vertical)
+    textinSlider <- paste("<span valign=\"top\" ><div class=\"containerslider\">","<div class=\"columnslider\">",names_A,"</div>",
                         "<div class=\"columnslider\">",names_B,"</div>","</div>","</span>")
-  jscode <- paste("document.getElementById('slideTextId').innerHTML='",textinSlider,"';")
+  else
+    textinSlider <- paste("<span valign=\"top\" align=\"left\">",names_A,"<br>",names_B,"</span>")
+  jscode <- paste0("document.getElementById('slideTextId",idext,"').innerHTML='",textinSlider,"';")
   runjs(jscode)
 }
 
