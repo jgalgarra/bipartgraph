@@ -6,7 +6,7 @@ function manageSlider(sliderMode) {
 
     // Styling the panel based on mode
     if (sliderMode === "bottom") {
-        sliderSize = 20;
+        sliderSize = 25;
         Object.assign(slidePanel.style, {
             id: "slidePanelId" + sliderMode,
             position: "fixed",

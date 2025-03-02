@@ -58,8 +58,9 @@ zigguratDiagramPanel <- function() {
                      column(8,
                             fluidRow(
                               column(2,zigguratSvgScaleFactorControl() ),
-                              column(2, zigguratSVGup()),
-                              column(2, zigguratSVGright()),
+                              # column(2, zigguratSVGup()),
+                              # column(2, zigguratSVGright()),
+                              column(2, zigguratweighted_links()),
                               column(2, zigguratkcoremaxorder()),
                               
                               column(4,
@@ -123,7 +124,7 @@ zigguratConfigPanel <- function() {
                column(1, zigguratUseSplineControl()),
                column(2, zigguratSplinePointsControl()),
                column(2, zigguratLinkSizeControl()),
-               column(2, zigguratweighted_links()),
+               #column(2, zigguratweighted_links()),
                column(2, zigguratColorControl("Link", strings$value("LABEL_ZIGGURAT_LINKS_COLOR_CONTROL"), "#888888")),
                column(2, zigguratAlphaLevelLinkControl())
              ),

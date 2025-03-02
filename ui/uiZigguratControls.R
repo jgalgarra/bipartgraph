@@ -542,14 +542,6 @@ zigguratkcoremaxorder <- function(){
   return(control)
 }
 
-# zigguratkcoremaxorder <- function(){
-#   control<- checkboxInput(
-#     inputId = "orderkcoremaxby",
-#     label   = controlLabel(strings$value("LABEL_ZIGGURAT_MAXCORE_ORDER")),
-#     value   = FALSE
-#   )
-#   return(control)
-# }
 
 # Crop top SVG
 zigguratSVGup <- function() {
