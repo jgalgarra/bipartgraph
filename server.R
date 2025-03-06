@@ -820,7 +820,7 @@ shinyServer(function(input, output, session) {
                         paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
                         bpp$result_analysis, input$DataLabelGuildAControl,
                         input$DataLabelGuildBControl, 
-                        pwidth = ifelse(bpp$flip_results,300,800),
+                        pwidth = ifelse(bpp$flip_results,800,800),
                         w=static_plot_width,
                         h=ifelse(bpp$flip_results,1,0.5)*static_plot_width,
                         myenv = bpp,printplot = TRUE,

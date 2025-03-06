@@ -485,7 +485,13 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
   modified_text <- gsub("IMG_STR_NETWORK_FILE", fileplot, modified_text)
   modified_text <- gsub("STR_NETWORK_NAME", nname, modified_text)
   modified_text <- gsub("STR_PLOT_TYPE", plottype, modified_text)
-  modified_text <- gsub("IMG_STR_WIDTH", pwidth, modified_text)
+  if ((plottype=="bipartite") && (bpp$flip_results)){
+      modified_text <- gsub("width=IMG_STR_WIDTH", paste0("width=",round(pwidth/2)), modified_text)
+      modified_text <- gsub("height=IMG_STR_HEIGHT", paste0("height=",pwidth), modified_text)
+  } else {
+    modified_text <- gsub("width=IMG_STR_WIDTH", paste0("width=",pwidth), modified_text)
+    modified_text <- gsub("height=IMG_STR_HEIGHT", "", modified_text)
+  }
   modified_text <- gsub("STR_GUILD_A", paste0("<span class='GuildTitle' style='color:",myenv_argg$color_guild_a[1],"'>",strGuildA,"</span >"), modified_text)
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",myenv_argg$color_guild_b[1],"'>",strGuildB,"</span >"), modified_text)
   namesA <- paste0("<span style='color:",myenv_argg$color_guild_a[1],"'>")

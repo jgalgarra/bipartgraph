@@ -67,12 +67,12 @@ function manageSlider(sliderMode) {
     const shinyButtonStyle = {
         position: "fixed",
         transform: "translateX(-50%)",
-        padding: "2px 2px",
-        fontSize: "9px",
+        padding: "1px 1px",
+        fontSize: "8px",
         cursor: "pointer",
-        backgroundColor: "#C6C5D9",
+        backgroundColor: "#E3E3E3",
         border: "none",
-        borderRadius: "3px",
+        borderRadius: "2px",
         boxShadow: "0 2px 3px rgba(0, 0, 0, 0.2)",
         transition: "background-color 0.3s, box-shadow 0.3s"
     };
