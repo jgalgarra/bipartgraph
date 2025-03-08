@@ -347,7 +347,6 @@ shinyServer(function(input, output, session) {
   observeEvent(input$ResetAll, {
     zgg<-NULL
     bpp<-NULL
-    bpot<-NULL
     mat<-NULL
     pol<-NULL
     session = getDefaultReactiveDomain()
@@ -410,8 +409,8 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$bipartiteColorGuildA1,{
     if (exists("bpp")){
-      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
-      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
     }
     if (input$bipartiteOneColor)
       manageColorControl(session,input$bipartiteColorGuildA1, input$bipartiteColorGuildA2, "bipartiteColorGuildA2", strings$value("LABEL_ZIGGURAT_GUILD_A_COLOR_2_CONTROL"))
@@ -419,8 +418,8 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$bipartiteColorGuildB1,{
     if (exists("bpp")){
-      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
-      updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
+      updateSliderContents(bpp,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
     }
     if (input$bipartiteOneColor)
       manageColorControl(session,input$bipartiteColorGuildB1, input$bipartiteColorGuildB2, "bipartiteColorGuildB2", strings$value("LABEL_ZIGGURAT_GUILD_B_COLOR_2_CONTROL"))
@@ -491,6 +490,13 @@ shinyServer(function(input, output, session) {
                                    names=c(bplot$name_guild_a, bplot$name_guild_b), 
                                    data=list(a=bplot$list_dfs_a, b=bplot$list_dfs_b), 
                                    neighbors=list(a=guildANeighbors, b=guildBNeighbors)))
+    if (bpp$flip_results)
+      jscode <- paste0("document.getElementById('zoominbip').style.visibility ='hidden';
+                        document.getElementById('zoomoutbip').style.visibility ='hidden';")
+    else
+      jscode <- paste0("document.getElementById('zoominbip').style.visibility ='visible';
+                        document.getElementById('zoomoutbip').style.visibility ='visible';")
+    runjs(jscode)
     return(bplot)
   })
   
