@@ -17,7 +17,7 @@ function windowLoad() {
     enableZoomButtons();
 
     // actualiza los tooltips de ayuda
-    updateHelpTooltips();
+    //updateHelpTooltips();
 }
 
 var plotData;
