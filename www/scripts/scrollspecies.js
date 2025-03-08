@@ -70,11 +70,11 @@ function manageSlider(sliderMode) {
         padding: "1px 1px",
         fontSize: "8px",
         cursor: "pointer",
-        backgroundColor: "#E3E3E3",
-        border: "none",
-        borderRadius: "2px",
-        boxShadow: "0 2px 3px rgba(0, 0, 0, 0.2)",
-        transition: "background-color 0.3s, box-shadow 0.3s"
+        backgroundColor: "transparent",
+        border: "none"
+/*         borderRadius: "2px",
+        boxShadow: "0 1px 1px rgba(203, 200, 251, 0.8)",
+        transition: "background-color 0.3s, box-shadow 0.3s" */
     };
 
     if (sliderMode == "right") {
@@ -86,7 +86,7 @@ function manageSlider(sliderMode) {
     } else {
         Object.assign(toggleButton.style, {
             ...shinyButtonStyle,
-            bottom: "30%",
+            bottom: "2%",
             left: "98%"
         });
     }
@@ -94,14 +94,19 @@ function manageSlider(sliderMode) {
     let opensign;
     let closesign;
     toggleButton.id = "toggleButtonSliderId" + sliderMode;
+    toggleButton.title = "Species"; // Add tooltip here
+    
     if (sliderMode === "bottom") {
-        opensign = "⇑";
-        closesign = "⇓";
+        // opensign = "⇑";
+        // closesign = "⇓";
+        opensign = '<img src="../images/logos-flexline/arrow-up-tailless.png" width="25px"/>';
+        closesign = '<img src="../images/logos-flexline/arrow-down-tailless.png" width="25px"/>';
     } else {
-        opensign = "⇐";
-        closesign = "⇒";
+        opensign = '<img src="../images/logos-flexline/arrow-left-tailless.png" height="25px"/>';
+        closesign = '<img src="../images/logos-flexline/arrow-right-tailless.png" height="25px"/>';
     }
-    toggleButton.textContent = opensign + " Species";
+    //toggleButton.textContent = opensign + " Species";
+    toggleButton.innerHTML = opensign;
     document.body.appendChild(toggleButton);
 
     let isOpen = false;
@@ -109,7 +114,7 @@ function manageSlider(sliderMode) {
     // Function to handle toggle button click
     function togglePanel() {
         if (isOpen) {
-            toggleButton.textContent = opensign + " Species";
+            toggleButton.innerHTML = opensign;
             if (sliderMode === "bottom") {
                 slidePanel.style.bottom = "-" + sliderSize + "vh";
                 document.getElementById('toggleButtonSliderIdright').style.visibility = 'visible';
@@ -119,7 +124,7 @@ function manageSlider(sliderMode) {
             }
             slideText.style.display = "none";
         } else {
-            toggleButton.textContent = closesign + " Species";
+            toggleButton.innerHTML = closesign;
             if (sliderMode === "bottom") {
                 slidePanel.style.bottom = "0";
                 document.getElementById('toggleButtonSliderIdright').style.visibility = 'hidden';

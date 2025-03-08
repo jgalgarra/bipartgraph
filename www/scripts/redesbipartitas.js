@@ -10,14 +10,14 @@
 // Function called on window load
 function windowLoad() {
     
-    // actualiza los tooltips de ayuda
-    updateHelpTooltips();
-
     // indica al servidor que el cliente esta listo
     Shiny.onInputChange("windowLoad", new Date());
        
     // Enable zoom buttons on load
     enableZoomButtons();
+
+    // actualiza los tooltips de ayuda
+    updateHelpTooltips();
 }
 
 var plotData;
@@ -518,16 +518,6 @@ function svgZoomIn(plottype) {
     // Check if the SVG is rotated by 90 degrees
     var transform = svg.getAttribute("transform") || "";
     var isRotated90 = transform.includes("rotate(90");
-
-    if (isRotated90) {
-        console.log("The SVG is rotated by 90 degrees.");
-/*         document.getElementById("zoominbip").style.visibility = "hidden";
-        document.getElementById("zoomoutbip").style.visibility ="hidden"; */
-        return;
-    }/*  else {
-        document.getElementById("zoomInButton").disabled = false;
-        document.getElementById("zoomOutButton").disabled = false;
-    } */
 
     // Scale the viewBox dimensions
     var newWidth = width / (1 + zoomStep);

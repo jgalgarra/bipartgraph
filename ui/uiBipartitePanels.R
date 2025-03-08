@@ -56,21 +56,25 @@ bipartiteDiagramPanel <- function() {
                               column(2, fluidRow(align="center",
                                                  tags$span(
                                                    tags$img(id="svgleft",     
+                                                            title = strings$value("LABEL_SVG_MOVE"),
                                                             onclick=paste("svgMoveHoriz(",-svg_jump_size,",'bipartite')"),   
                                                             src="images/logos-flexline/arrow-left.png", width="14")
                                                  ),
                                                  tags$span(
-                                                   tags$img(id="svgright",     
+                                                   tags$img(id="svgright", 
+                                                            title = strings$value("LABEL_SVG_MOVE"),
                                                             onclick=paste("svgMoveHoriz(",svg_jump_size,",'bipartite')"),   
                                                             src="images/logos-flexline/arrow-right.png", width="14")
                                                  ),
                                                  tags$span(
                                                    tags$img(id="zoominbip",     
+                                                            title= strings$value("LABEL_SVG_ZOOMIN"),
                                                             onclick="svgZoomIn('bipartite')",
                                                             src="images/logos-flexline/zoom-in.png")
                                                  ),
                                                  tags$span(
-                                                   tags$img(id="zoomoutbip",    
+                                                   tags$img(id="zoomoutbip",
+                                                            title = strings$value("LABEL_SVG_ZOOMOUT"),
                                                             onclick="svgZoomOut('bipartite')",   
                                                             src="images/logos-flexline/zoom-out.png")
                                                  ),

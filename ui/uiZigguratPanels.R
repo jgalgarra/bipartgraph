@@ -66,10 +66,10 @@ zigguratDiagramPanel <- function() {
                               column(4,
                                      fluidRow(align="center",
                                               tags$span(
-                                                tags$img(id="zoomin",     onclick="svgZoomIn('ziggurat')",    src="images/logos-flexline/zoom-in.png")
+                                                tags$img(id="zoomin",  title = strings$value("LABEL_SVG_ZOOMIN"),   onclick="svgZoomIn('ziggurat')",    src="images/logos-flexline/zoom-in.png")
                                               ),
                                               tags$span(
-                                                tags$img(id="zoomout",    onclick="svgZoomOut('ziggurat')",   src="images/logos-flexline/zoom-out.png")
+                                                tags$img(id="zoomout", title = strings$value("LABEL_SVG_ZOOMOUT"),    onclick="svgZoomOut('ziggurat')",   src="images/logos-flexline/zoom-out.png")
                                               ),
                                               downloadButton("zigguratsaveSVG", label="SVG", class = "butt1"),
                                               tags$script(src="scripts/scrollspecies.js"),
