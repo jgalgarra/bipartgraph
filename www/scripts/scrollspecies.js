@@ -99,11 +99,11 @@ function manageSlider(sliderMode) {
     if (sliderMode === "bottom") {
         // opensign = "⇑";
         // closesign = "⇓";
-        opensign = '<img src="../images/logos-flexline/arrow-up-tailless.png" width="25px"/>';
-        closesign = '<img src="../images/logos-flexline/arrow-down-tailless.png" width="25px"/>';
+        opensign = '<img src="../images/logos-flexline/arrow-up-tailless.png" width="24px"/>';
+        closesign = '<img src="../images/logos-flexline/arrow-down-tailless.png" width="24px"/>';
     } else {
-        opensign = '<img src="../images/logos-flexline/arrow-left-tailless.png" height="25px"/>';
-        closesign = '<img src="../images/logos-flexline/arrow-right-tailless.png" height="25px"/>';
+        opensign = '<img src="../images/logos-flexline/arrow-left-tailless.png" height="24px"/>';
+        closesign = '<img src="../images/logos-flexline/arrow-right-tailless.png" height="24px"/>';
     }
     //toggleButton.textContent = opensign + " Species";
     toggleButton.innerHTML = opensign;
