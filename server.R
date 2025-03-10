@@ -599,8 +599,6 @@ shinyServer(function(input, output, session) {
       weighted_links                                = input$zigguratweighted_links,
       square_nodes_size_scale                       = input$ziggurat1shellExpand,
       svg_scale_factor                              = 25*input$zigguratSvgScaleFactor,
-      # move_all_SVG_up                               = 0.01*input$zigguratSVGup,
-      # move_all_SVG_right                            = 0.01*input$zigguratSVGright,
       aspect_ratio                                  = 1,
       progress                                      = progress
     )
@@ -1112,20 +1110,34 @@ shinyServer(function(input, output, session) {
                       show_species_names = input$matrixShowNames,
                       show_title = input$matrixShowTitle,
                       show_legend = input$matrixShowLegend,
-                      label_size = 18 * input$matrixTextresize,
+                      label_size = 15 * input$matrixTextresize * input$matrixPlotresize/100,
                       label_strguilda = input$DataLabelGuildAControl,
                       label_strguildb = input$DataLabelGuildBControl,
                       color_guild_a = input$matrixColorGuildA,
                       color_guild_b = input$matrixColorGuildB,
-                      plot_size = 10*input$matrixPlotresize/100,
+                      plot_size = 6*input$matrixPlotresize/100,
                       progress            = progress)
     # Enables matrix container
     session$sendCustomMessage(type="disableDivHandler", list(id="matrix", disable=FALSE))
+    
+    jscode <- paste("document.getElementById('titleguildA').innerHTML='",mat$name_guild_a,"';")
+    runjs(jscode)
+    jscode <- paste("document.getElementById('titleguildB').innerHTML='",mat$name_guild_a,"';")
+    runjs(jscode)
+    updateSliderContents(mat,"titleguildA","titleguildB",mat$mat_argg$color_guild_a,mat$mat_argg$color_guild_b,TRUE)
+    updateSliderContents(mat,"titleguildA","titleguildB",mat$mat_argg$color_guild_a,mat$mat_argg$color_guild_b,FALSE)
+    
+    # Show species button
+    jscode <- paste0("document.getElementById('toggleButtonSliderIdright').style.visibility='visible'; ")
+    runjs(jscode)
+    jscode <- paste0("document.getElementById('toggleButtonSliderIdbottom').style.visibility='visible'; ")
+    runjs(jscode)
     shinyjs::enable("matrixDownload")
     if (p$binary_network)
       shinyjs::hide("matrixWeights")
     else
       shinyjs::show("matrixWeights")
+
     return(p)
   })
   
@@ -1136,7 +1148,6 @@ shinyServer(function(input, output, session) {
     list(src = normalizePath(p[["matrix_file"]]),
          contentType = 'image/png',
          width = paste0(0.01*input$matrixPlotresize*min(100,1.1*round(100*ifelse(mat$mat_argg$flip_matrix,1/p$aspect,p$aspect))),"%"),
-         # input$screenwidthControl,
          alt = "Matrix graph")
   }, deleteFile = FALSE)
   
@@ -1525,8 +1536,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"aspect_ratio")
       comando <- addCallParam(comando,llamada,"weighted_links", quote =TRUE)
       comando <- addCallParam(comando,llamada,"square_nodes_size_scale")
-      comando <- addCallParam(comando,llamada,"move_all_SVG_up")
-      comando <- addCallParam(comando,llamada,"move_all_SVG_right")
       comando <- paste0(comando,",progress = NULL")
       comando <- paste0(comando,")")
       cat(comando)

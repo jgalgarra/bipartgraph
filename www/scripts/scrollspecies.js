@@ -53,8 +53,8 @@ function manageSlider(sliderMode) {
         verticalAlign: "top",
         marginTop: "0%",
         lineHeight: "1.2", // Adjust line height to reduce white space
-        paddingLeft: "10px", // Add padding to the left
-        paddingRight: "10px" // Add padding to the right
+        paddingLeft: "3px", // Add padding to the left
+        paddingRight: "3px" // Add padding to the right
     });
 
     slideText.id = "slideTextId" + sliderMode;

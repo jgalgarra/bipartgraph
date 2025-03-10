@@ -34,7 +34,7 @@ matrixDiagramPanel <- function() {
                              column(1, matrixShowLegendControl()),
                              column(1, matrixWeightsControl()),
                            ),
-                           fluidRow(align="center",plotOutput("matrix",inline = FALSE))
+                           fluidRow(align="center",plotOutput("matrix", width = "80%"))
                     ),
                     column(4,
                            fluidRow(

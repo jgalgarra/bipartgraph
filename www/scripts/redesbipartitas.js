@@ -76,19 +76,16 @@ function updateSVGEvents(plottype) {
     else
         lstyle = 'bipartite'
     // Get the SVG element
-    console.log('svgplot'+lstyle)
+
     const svgplot = document.getElementById('svgplot'+lstyle);
     
     // Get the current transform attribute value (if any)
     let transform = svgplot.getAttribute('transform');
-    console.log("Current transform:", transform);
     let trv = getTranslateValues(transform);
-    console.log("Translate values",trv.x,trv.y,trv.vert)
     if (trv.vert)
         setTranslateValues(0,trv.y,svgplot,lstyle);
     transform = svgplot.getAttribute('transform');
     trv = getTranslateValues(transform);
-    console.log("Translate values",trv.x,trv.y,trv.vert)
 }
 
 function svgMoveHoriz(jump,style) {
@@ -110,7 +107,6 @@ function svgMoveHoriz(jump,style) {
     setTranslateValues(trv.x,trv.y,svgplot,lstyle);
     transform = svgplot.getAttribute('transform');
     trv = getTranslateValues(transform);
-    console.log("Translate values",trv.x,trv.y)
 }
 
 
@@ -474,13 +470,11 @@ function linktoWiki(type, id, name,wsubdomain) {
 
 // Function to extract translate values from the transform attribute
 function getTranslateValues(transform) {
-    console.log("translatevalues");
     let regex = /translate\((-?\d+\.?\d*),?\s*(-?\d+\.?\d*)\)/;
     let matches = transform.match(regex);
     regex = /rotate/;
     let matchesv = transform.match(regex);
     let vertical = matchesv;
-    console.log("vertical"+vertical);
     if (matches) {
         return {
           x: parseFloat(matches[1]),
@@ -547,13 +541,6 @@ function svgZoomOut(plottype) {
     var transform = svg.getAttribute("transform") || "";
     var isRotated90 = transform.includes("rotate(90)") || transform.includes("rotate(-90)");
 
-/*     if (isRotated90) {
-        console.log("The SVG is rotated by 90 degrees.");
-        disableZoomButtons();
-        return;
-    } else {
-        enableZoomButtons();
-    } */
 
     // Scale the viewBox dimensions
     var newWidth = width / (1 - zoomStep);
