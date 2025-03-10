@@ -2,7 +2,6 @@ function manageSlider(sliderMode) {
     const slidePanel = document.createElement("div");
     const toggleButton = document.createElement("button");
     let sliderSize = 30; // Percentage of viewport
-    console.log("sliderMode", sliderMode);
 
     // Styling the panel based on mode
     if (sliderMode === "bottom") {
@@ -72,9 +71,6 @@ function manageSlider(sliderMode) {
         cursor: "pointer",
         backgroundColor: "transparent",
         border: "none"
-/*         borderRadius: "2px",
-        boxShadow: "0 1px 1px rgba(203, 200, 251, 0.8)",
-        transition: "background-color 0.3s, box-shadow 0.3s" */
     };
 
     if (sliderMode == "right") {
@@ -97,15 +93,12 @@ function manageSlider(sliderMode) {
     toggleButton.title = "Species"; // Add tooltip here
     
     if (sliderMode === "bottom") {
-        // opensign = "⇑";
-        // closesign = "⇓";
         opensign = '<img src="../images/logos-flexline/arrow-up-tailless.png" width="24px"/>';
         closesign = '<img src="../images/logos-flexline/arrow-down-tailless.png" width="24px"/>';
     } else {
         opensign = '<img src="../images/logos-flexline/arrow-left-tailless.png" height="24px"/>';
         closesign = '<img src="../images/logos-flexline/arrow-right-tailless.png" height="24px"/>';
     }
-    //toggleButton.textContent = opensign + " Species";
     toggleButton.innerHTML = opensign;
     document.body.appendChild(toggleButton);
 
@@ -146,6 +139,3 @@ document.addEventListener("DOMContentLoaded", manageSlider("right"));
 document.addEventListener("DOMContentLoaded", manageSlider("bottom"));
 document.getElementById('toggleButtonSliderIdright').style.visibility = 'hidden';
 document.getElementById('toggleButtonSliderIdbottom').style.visibility = 'hidden';
-
-//sliderMode = "right"; // Change to "bottom / right" for side panel
-//document.addEventListener("DOMContentLoaded", manageSlider);

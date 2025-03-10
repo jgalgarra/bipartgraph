@@ -604,6 +604,7 @@ shinyServer(function(input, output, session) {
       aspect_ratio                                  = 1,
       progress                                      = progress
     )
+
     
     # ziggurat igraph object
     g<-z$result_analysis$graph
@@ -762,6 +763,13 @@ shinyServer(function(input, output, session) {
       strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+    # Progress bar
+    progress<-shiny::Progress$new()
+    progress$set(message="", value = 0)
+    
+    # Close progress bar
+    on.exit(progress$close())
+    progress$inc(1, detail=strings$value("LABEL_SVG_PLOTTING"))
     create_static_report(pol, "www/reports/templates/indexhoriz.html",
                          paste0("www/reports/zigg_",zgg$network_name,"_report.html"), 
                          zgg$result_analysis, input$DataLabelGuildAControl,printplot = FALSE,
@@ -822,6 +830,13 @@ shinyServer(function(input, output, session) {
       strw = strings$value("LABEL_ZIGGURAT_INFO_BINARY")
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
+    # Progress bar
+    progress<-shiny::Progress$new()
+    progress$set(message="", value = 0)
+    
+    # Close progress bar
+    on.exit(progress$close())
+    progress$inc(1, detail=strings$value("LABEL_SVG_PLOTTING"))
     create_static_report(bplot$plot, "www/reports/templates/indexhoriz.html",
                         paste0("www/reports/bipartite_",bpp$network_name,"_report.html"), 
                         bpp$result_analysis, input$DataLabelGuildAControl,
