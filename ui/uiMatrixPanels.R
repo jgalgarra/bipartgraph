@@ -34,12 +34,12 @@ matrixDiagramPanel <- function() {
                              column(1, matrixShowLegendControl()),
                              column(1, matrixWeightsControl()),
                            ),
-                           fluidRow(align="center",plotOutput("matrix", width = "90%"))
+                           fluidRow(align="center",plotOutput("matrix", width = "85%"))
                     ),
                     column(4,
-                           fluidRow(
+#                           fluidRow(
                              uiOutput("networkinfoDetailmatrix")
-                           ),
+ #                          ),
                            # fluidRow(
                            #   column(5,tags$small(
                            #     uiOutput("networkinfoDetailmatrixA")

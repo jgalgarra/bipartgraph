@@ -1144,11 +1144,18 @@ shinyServer(function(input, output, session) {
   # Plot the matrix graph
   output$matrix <- renderImage({
     p <- matrix()
+    zoomvalue <- 9*input$matrixPlotresize
     # Return a list containing the filename
-    list(src = normalizePath(p[["matrix_file"]]),
-         contentType = 'image/png',
-         width = paste0(0.01*input$matrixPlotresize*min(100,1.1*round(100*ifelse(mat$mat_argg$flip_matrix,1/p$aspect,p$aspect))),"%"),
-         alt = "Matrix graph")
+    if (mat$landscape)
+      list(src = normalizePath(p[["matrix_file"]]),
+             contentType = 'image/png',
+             width = paste0(zoomvalue,"px"),
+             alt = "Matrix graph")
+    else
+      list(src = normalizePath(p[["matrix_file"]]),
+            contentType = 'image/png',
+            width = paste0(round(zoomvalue*min(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)/max(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)),"px"),
+            alt = "Matrix graph")
   }, deleteFile = FALSE)
   
   buildMatrixGuildLabels <- buildPolarGuildLabels
