@@ -37,9 +37,9 @@ matrixDiagramPanel <- function() {
                            fluidRow(align="center",plotOutput("matrix", width = "85%"))
                     ),
                     column(4,
-#                           fluidRow(
+                           tags$span(id="matrixplot",align="center",valign="top",
                              uiOutput("networkinfoDetailmatrix")
- #                          ),
+                         ),
                            # fluidRow(
                            #   column(5,tags$small(
                            #     uiOutput("networkinfoDetailmatrixA")

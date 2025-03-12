@@ -433,7 +433,10 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       mplot <- p$polar_plot
     if (plottype=="matrix"){
       mplot <- myenv$plot
-      pwidth <- round(0.9*pwidth)
+      if (mat$landscape)
+        pwidth <- round(0.9*pwidth)
+      else
+        pwidth <- round(0.5*pwidth)
     }
     if (plottype=="bipartite"){
       mplot <- myenv$plot

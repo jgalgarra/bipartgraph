@@ -1144,17 +1144,17 @@ shinyServer(function(input, output, session) {
   # Plot the matrix graph
   output$matrix <- renderImage({
     p <- matrix()
-    zoomvalue <- 9*input$matrixPlotresize
+    zoomvalue <- input$matrixPlotresize
     # Return a list containing the filename
     if (mat$landscape)
       list(src = normalizePath(p[["matrix_file"]]),
              contentType = 'image/png',
-             width = paste0(zoomvalue,"px"),
+             width = paste0(zoomvalue,"%"),
              alt = "Matrix graph")
     else
       list(src = normalizePath(p[["matrix_file"]]),
             contentType = 'image/png',
-            width = paste0(round(zoomvalue*min(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)/max(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)),"px"),
+            width = paste0(round(zoomvalue*min(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)/max(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)),"%"),
             alt = "Matrix graph")
   }, deleteFile = FALSE)
   
