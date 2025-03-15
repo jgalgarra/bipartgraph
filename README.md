@@ -2,7 +2,7 @@
 
 This application provides an interactive environment to visualize bipartite ecological networks using the k-core decomposition. The User Guide provides a full description:
 
-https://github.com/jgalgarra/bipartgraph/raw/master/www/user_guide/BipartGraph%20Guide.pdf
+https://github.com/jgalgarra/bipartgraph/raw/master/www/user_guide/BipartGraph_Guide.pdf
 
 If you find it useful for your research and please include the following citation:
 
