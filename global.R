@@ -45,8 +45,18 @@ svg_disp_orientation <<- 'h'
 # Printer formats
 printer_formats <<- c("png","jpg","eps","tiff","svg","pdf")
 
-if (file.exists("data/refs/references.csv")){
-  network_references <- read.csv("data/refs/references.csv")
+
+# Copy the default colors file if the personal file does not exist
+if (!file.exists("conf/labelcolors.csv")){
+  file.copy("conf/default_labelcolors.csv", "conf/labelcolors.csv")
+}
+# Copy the default references file if the personal file does not exist
+if (!file.exists("data/refs/my_references.csv")){
+  file.copy("data/refs/references.csv", "data/refs/my_references.csv")
+}
+
+if (file.exists("data/refs/my_references.csv")){
+  network_references <- read.csv("data/refs/my_references.csv")
   names(network_references) <- gsub("\\.","_",names(network_references))
   network_references$Reference <- iconv(network_references$Reference, from = "ISO-8859-1", to = "UTF-8")
 }

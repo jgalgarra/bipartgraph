@@ -89,10 +89,20 @@ ul.task-list li input[type="checkbox"] {
 <div style="font-size:10px">
 <p>Mutualistic community in Tenerife, Canary Islands (Spain), with 68 species and 129 links [ L. Stald, A. Valido, and J. Olesen, Struktur og dynamik i rum og tid at et bestøvningsnetværk pA tenerife, de kanariske øer, Master, thesis, University of Aarhus, Denmark, 2003]. In mutualism, species fall into two disjoint guilds, such as plants and pollinators or plants and seed dispersers. Ties amongst species of the same guild are forbidden. (a) Bipartite plot of this community. (b) Interaction matrix.</p>
 </div>
-<p>BipartGraph works with two type of plots: ziggurat and polar. The ziggurat plot works by splitting both guilds in groups of k-shells, and distributes them in an almond-like shape to improve readability. This diagram makes easier to spot central and peripheral nodes.</p>
+<p><strong>BipartGraph</strong> works with four type of plots: bipartite, matrix, ziggurat and polar. The bipartite plot offers three variants. <em>Legacy</em> is the classical depiction of a bipartite network, with nodes of both guilds ordered by descending degree.</p>
+<p><img src="images/M_PL_039-legacy.png" class="img-fluid"></p>
+<div data-align="center" style="font-size:10px">
+<p>Legacy bipartite plot of the same mutualistic community.</p>
+</div>
+<p>Using the k-core decomposition properties, <strong>BipartGraph</strong> offers two original kinds of bipartite plot, <em>kcore ordered</em> and <em>chilopod</em> plots. This second one, provides a more compact and insightful graph by information reduction where specialist nodes are packed together.</p>
+<p><img src="images/M_PL_039-chilopod.png" class="img-fluid"></p>
+<div data-align="center" style="font-size:10px">
+<p>Chilopod bipartite plot of the example community.</p>
+</div>
+<p>The ziggurat plot works by splitting both guilds in groups of k-shells, and distributes them in an almond-like shape to improve readability. This diagram makes easier to spot central and peripheral nodes.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/M_PL_039-ziggurat.png" class="img-fluid figure-img" width="700"></p>
+<p><img src="images/M_PL_039-ziggurat.png" class="img-fluid figure-img" width="800"></p>
 </figure>
 </div>
 <div data-align="center" style="font-size:10px">
