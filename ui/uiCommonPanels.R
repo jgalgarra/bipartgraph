@@ -41,7 +41,7 @@ summaryPanel <- function() {
                 tags$p(tags$a(href="http://jgalgarra.github.io/bipartgraph", target="_BLANK", "Web site")),
                 
                 tags$p(
-                tags$a(href="https://github.com/jgalgarra/bipartgraph/blob/master/user_guide/BipartGraph%20Guide.pdf", target="_BLANK", "User Guide")),
+                tags$a(href="user_guide/BipartGraph%20Guide.pdf", target="_BLANK", "User Guide")),
                 tags$p("Garcia-Algarra, J., Pastor, J. M., Mouronte, M. L., & Galeano, J. (2018). A structural approach to disentangle the visualization of bipartite biological networks. Complexity, 2018, 1-11."),
                 tags$a(href="https://onlinelibrary.wiley.com/doi/10.1155/2018/6204947", target="_BLANK", "https://onlinelibrary.wiley.com/doi/10.1155/2018/6204947"),
                 tags$p("  "),

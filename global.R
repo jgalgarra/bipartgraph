@@ -48,7 +48,7 @@ printer_formats <<- c("png","jpg","eps","tiff","svg","pdf")
 
 # Copy the default colors file if the personal file does not exist
 if (!file.exists("conf/labelcolors.csv")){
-  file.copy("conf/default_labelcolors.csv", "conf/labelcolors.csv")
+  file.copy("conf/default/labelcolors.csv", "conf/labelcolors.csv")
 }
 # Copy the default references file if the personal file does not exist
 if (!file.exists("data/refs/my_references.csv")){

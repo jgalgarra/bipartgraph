@@ -67,7 +67,6 @@
 "RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "CANGREJOS.csv";"Crab";"Algae";",";TRUE
 "M_PL_072_10.csv";"Pollinator";"Plant";",";TRUE
-"example-try-this-first.csv";"Seed";"Disperser";",";TRUE
 "Polidori_2025.csv";"Plant";"Pollinator";",";TRUE
 "M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_033.csv";"Pollinator";"Plant";",";TRUE
@@ -77,3 +76,4 @@
 "M_PL_035.csv";"Pollinator";"Plant";",";TRUE
 "dattilo2014.csv";"Ant";"Plant";",";TRUE
 "M_PL_003.csv";"Pollinator";"Plant";",";TRUE
+"example-try-this-first.csv";"Seed";"Disperser";",";TRUE
