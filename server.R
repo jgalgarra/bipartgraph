@@ -1186,11 +1186,13 @@ shinyServer(function(input, output, session) {
     else
       strw = strings$value("LABEL_ZIGGURAT_INFO_WEIGHTED")
     nname <- get_network_name(mymatrix$mat_argg$filename)
+    mypwidth = 600*input$matrixPlotresize/100
     create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
                           paste0("www/reports/matrix_",nname,"_report.html"), 
                           mymatrix$result_analysis, input$DataLabelGuildAControl,
-                          input$DataLabelGuildBControl, pwidth = 600*input$matrixPlotresize/100,
-                          printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, plottype = "matrix")
+                          input$DataLabelGuildBControl, w=6,h=4,pwidth = mypwidth,
+                          printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, 
+                          plottype = "matrix")
     
     details <- paste("&nbsp;&nbsp;&nbsp; ",strings$value("LABEL_NETWORK"),":&nbsp;",mat$network_name,"&nbsp;",strw,"&nbsp;",
                      mat$result_analysis$links,"&nbsp;",strings$value("LABEL_ZIGGURAT_CONFIG_COLOURS_LINKS_HEADER"),

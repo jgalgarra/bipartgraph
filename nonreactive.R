@@ -231,11 +231,14 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
     }
   }
   else if (plottype=="matrix"){
-    w=myenv$plot_width*mres
-    h=myenv$plot_height*mres
-    if (myenv$flip_results){
-      w = h
-      h = myenv$plot_width*mres
+    wo=options$width
+    ho=options$height
+    if (myenv$landscape){
+      w = ho
+      h = options$width
+    } else {
+      h = max(ho,wo)
+      w = min(ho,wo)
     }
   }
   else if (plottype=="polar"){
@@ -246,7 +249,6 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
     if(is.null(zgg$landscape_plot)){
       myenv$landscape_plot <- TRUE
       options$height <- options$width
-      
     }
     if (myenv$landscape_plot){
       w <- options$height
@@ -433,10 +435,15 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       mplot <- p$polar_plot
     if (plottype=="matrix"){
       mplot <- myenv$plot
-      if (mat$landscape)
+
+      myoptions$height <- (16/9)*myoptions$width*myoptions$ppi
+      myoptions$width <- myoptions$width*myoptions$ppi
+      if (mat$landscape){
         pwidth <- round(0.9*pwidth)
-      else
+        myoptions$height <- myoptions$width
+      } else{
         pwidth <- round(0.5*pwidth)
+      }
     }
     if (plottype=="bipartite"){
       mplot <- myenv$plot
@@ -462,6 +469,7 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
     plotStaticDiagram(paste0("www/reports/",fileplot),mplot,myoptions,plottype,myenv=myenv)
   }  
   else{
+    
     if (plottype=="bipartite"){
       h <- w 
       plot <- bpp$plot
@@ -478,6 +486,17 @@ create_static_report <- function(p, input_file, output_file, result_analysis, st
       w <- 1.5*w
       h <- 0.9*(9/16)*w
     }
+    if (plottype=="matrix"){
+      mplot <- myenv$plot
+      if (mat$landscape){
+        h <- myoptions$height*myoptions$ppi
+        w <- myoptions$width*myoptions$ppi
+      } else {
+        w <- myoptions$height*myoptions$ppi
+        h <- myoptions$width*myoptions$ppi
+      }
+    }
+    
     fileplot <- paste0(fileplot,".svg")
     ggsave(filename = paste0("www/reports/",fileplot),width=w, height=h)
   }
