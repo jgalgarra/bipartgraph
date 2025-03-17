@@ -1154,7 +1154,7 @@ shinyServer(function(input, output, session) {
     else
       list(src = normalizePath(p[["matrix_file"]]),
             contentType = 'image/png',
-            width = paste0(round(zoomvalue*min(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)/max(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)),"%"),
+            width = paste0(max(50,round(zoomvalue*min(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b)/max(mat$result_analysis$num_guild_a,mat$result_analysis$num_guild_b))),"%"),
             alt = "Matrix graph")
   }, deleteFile = FALSE)
   
@@ -1164,7 +1164,8 @@ shinyServer(function(input, output, session) {
   output$networkinfoDetailmatrixA<-renderUI({
     p <- matrix()
     mdetails <- buildMatrixGuildLabels(p$mat_argg$label_strguilda,
-                                       p$result_analysis$matrix[1,],p$mat_argg$filename,labelcol=mat$mat_argg$color_guild_a)
+                                       p$result_analysis$matrix[1,],
+                                       p$mat_argg$filename,labelcol=mat$mat_argg$color_guild_a)
     
     return(HTML(mdetails))
   })

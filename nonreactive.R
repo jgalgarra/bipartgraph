@@ -234,8 +234,8 @@ plotStaticDiagram<-function(file, plot, options, plottype, myenv=zgg) {
     wo=options$width
     ho=options$height
     if (myenv$landscape){
-      w = ho
-      h = options$width
+      w = max(ho,wo)
+      h = min(ho,wo)
     } else {
       h = max(ho,wo)
       w = min(ho,wo)
