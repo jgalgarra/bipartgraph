@@ -422,22 +422,24 @@ clean_species_names <- function(listspecies,nnetwork){
 
 
 create_static_report <- function(p, input_file, output_file, result_analysis, strGuildA,
-                                 strGuildB, w = static_plot_width, h = static_plot_width, pwidth = 600, printplot = TRUE,
+                                 strGuildB, w = static_plot_width, h = static_plot_width, 
+                                 pwidth = 600, printplot = TRUE,
                                  myenv_argg = polar$polar_argg, myenv=polar, plottype = "polar", print_report = "no"
                                  ) 
   {
   nname <- get_network_name(myenv_argg$filename)
   fileplot <- paste0(nname,"_",toupper(plottype))
+  myoptions <- data.frame("width"=h,"ppi"=standard_ppi,"ext"="png","cairo"=FALSE)
+  
+  myoptions$height <- (16/9)*myoptions$width*myoptions$ppi
+  myoptions$width <- myoptions$width*myoptions$ppi
   if (printplot){
     fileplot <- paste0(fileplot,".png")
-    myoptions <- data.frame("width"=h,"ppi"=standard_ppi,"ext"="png","cairo"=FALSE)
+    
     if (plottype=="polar")
       mplot <- p$polar_plot
     if (plottype=="matrix"){
       mplot <- myenv$plot
-
-      myoptions$height <- (16/9)*myoptions$width*myoptions$ppi
-      myoptions$width <- myoptions$width*myoptions$ppi
       if (mat$landscape){
         pwidth <- round(0.9*pwidth)
         myoptions$height <- myoptions$width

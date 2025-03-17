@@ -1191,7 +1191,7 @@ shinyServer(function(input, output, session) {
     create_static_report(mymatrix$plot, "www/reports/templates/indexhoriz.html",
                           paste0("www/reports/matrix_",nname,"_report.html"), 
                           mymatrix$result_analysis, input$DataLabelGuildAControl,
-                          input$DataLabelGuildBControl, w=6,h=4,pwidth = mypwidth,
+                          input$DataLabelGuildBControl,pwidth = mypwidth,
                           printplot=TRUE,myenv=mat,myenv_argg = mymatrix$mat_argg, 
                           plottype = "matrix")
     

@@ -73,9 +73,11 @@
 "M_SD_034.csv";"Disperser";"Seed";",";TRUE
 "Polidori_2025.csv";"Plant";"Pollinator";",";TRUE
 "Safariland.csv";"Pollinator";"Plant";",";TRUE
-"CANGREJOS.csv";"Crab";"Algae";",";TRUE
 "NOVELLA_2019_MAT.csv";"Pollinator";"Plant";",";TRUE
 "PINEDA_2020_MAT.csv";"Pollinator";"Plant";",";TRUE
 "example-try-this-first.csv";"Seed";"Disperser";",";TRUE
-"dattilo2014.csv";"Ant";"Plant";",";TRUE
 "RA_HP_042.csv";"Host";"Parasite";",";TRUE
+"RA_HP_009.csv";"Host";"Parasite";",";TRUE
+"RA_HP_018.csv";"Host";"Parasite";",";TRUE
+"CANGREJOS.csv";"Crab";"Algae";",";TRUE
+"dattilo2014.csv";"Ant";"Plant";",";TRUE
