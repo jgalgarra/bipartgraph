@@ -8,4 +8,6 @@ tmp/*
 exjs/*
 data/refs/my_references.csv
 conf/label_colors.csv
+www/reports/*.htm?
+www/reports/*.svg
 
