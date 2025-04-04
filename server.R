@@ -482,6 +482,10 @@ shinyServer(function(input, output, session) {
     guildBNeighbors<-sapply(guildBVertex, function(x) {neighbors(g, x)$id})
     # store labels and colors
     writelabcols()
+    if(sum(bplot$result_analysis$matrix > 1)==0)
+      shinyjs::disable("bipartiteweighted_links")
+    else
+      shinyjs::enable("bipartiteweighted_links")
     updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
     updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
