@@ -57,9 +57,6 @@ showWiki <- function(types, nodesData) {
       tab<-paste0(tab, "\"")
       tab<-paste0(tab, ", class=\"wikiDetail\"")
       tab<-paste0(tab, ", \"", strings$value("MESSAGE_WIKI_LOADING"), "\"")
-      #tab<-paste0(tab, "tags$h6(\"(información descargada de Wikipedia para el elemento ")
-      #tab<-paste0(tab, nodeData$name)
-      #tab<-paste0(tab, "...)\"")
       tab<-paste0(tab, "))))")
     }
     tab<-paste0(tab, ", id=\"wikiTabsetPanel\", type=\"pills\")")
@@ -93,10 +90,12 @@ availableFilesDetails<-function(filesList) {
     # Get file sizes and adds a column with the file name
     filesDetails  <- file.info(paste0(dataDir, "/", filesList), extra_cols=FALSE)
     filesDetails  <- cbind(gsub(paste0(dataDir, "/"), "", rownames(filesDetails)), filesDetails)
+    
   } else {
     # Creates a void data frame
     filesDetails<-data.frame(name=character(), size=integer(), isdir=logical(), mode=integer(), mtime=character(), ctime=character(), atime=character())
   }
+
   # Rename columns
   colnames(filesDetails)<-filesDetailsColumns
   # Drop unnamed columns

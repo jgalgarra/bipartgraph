@@ -303,7 +303,7 @@ shinyServer(function(input, output, session) {
   
   # Refresh file list button
   observeEvent(input$refreshFiles, {
-    # refresca la lista de ficheros
+    # refresca la lista de ficheros 
     availableFiles$list<-availableFilesList()
     output$availableFilesTable = DT::renderDataTable(availableFiles$details,
                                                      options = list(pageLength = 5),
@@ -312,7 +312,7 @@ shinyServer(function(input, output, session) {
   
   # Display the list of available files
   output$availableFilesTable <-DT::renderDataTable(
-    availableFiles$details,
+    availableFiles$details,escape = FALSE, 
     options = list(pageLength = 5)
   )
   

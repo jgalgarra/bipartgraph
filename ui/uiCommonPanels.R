@@ -51,8 +51,8 @@ summaryPanel <- function() {
                 tags$p(HTML("Example networks downloaded from <a href='https://www.web-of-life.es/', target='_BLANK' >Web of Life database</a>. &nbsp; Core Line - Free icons by <a href='https://www.streamlinehq.com/icons?tab=free'>Streamlinehq.com</a> under CC BY 4.0 License"))
                 
   )
-  author  <- "Javier Garcia-Algarra & Juan Manuel Garcia-Santi"
-  version <- "v2.0 - December 2024"
+  author  <- "Javier Garcia-Algarra, Juan Manuel Garcia-Santi, Marcos Novalbos"
+  version <- "v2.0 - April 2025"
   panel<-tags$div(class="panelContent", fluidRow(
       column(12,
         fluidRow(groupHeader(text=strings$value("LABEL_ABOUT_INFO_HEADER"), image="logos-flexline/information.png")),
