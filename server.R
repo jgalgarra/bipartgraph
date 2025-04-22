@@ -105,11 +105,6 @@ shinyServer(function(input, output, session) {
   # Reads the network data file
   selectedDataFileContent<-reactive({
     shinyjs::hideElement(id= "panelB")
-    # jscode <- paste0("document.getElementById('toggleButtonSliderIdright').style.visibility='hidden'; ")
-    # runjs(jscode)
-    # jscode <- paste0("document.getElementById('toggleButtonSliderIdbottom').style.visibility='hidden'; ")
-    # runjs(jscode)
-    
     max_core <- 0
     analyze_file <- FALSE
     file<-input$selectedDataFile
@@ -1562,7 +1557,7 @@ shinyServer(function(input, output, session) {
   #Downloads the bipartite generating code
   output$bipartitecodeDownload <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-bipartite-code.txt")
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile),"-bipartite-",input$bipartitePlottype,"-code.txt")
       return(file)
     },
     content <- function(file) {
@@ -1617,7 +1612,8 @@ shinyServer(function(input, output, session) {
     content <- function(file) {
       dir.create("tmpcode/", showWarnings = FALSE)
       zgg$ziggurat_argg$plotsdir <-""
-      jsonzgg <- jsonlite::toJSON(x = zgg$ziggurat_argg[1:length(zgg$ziggurat_argg)-1], pretty = TRUE, force = TRUE)
+      zgg$ziggurat_argg$text_rescale <- input$zigguratTextRescale
+      jsonzgg <- jsonlite::toJSON(x = zgg$ziggurat_argg[!(names(zgg$ziggurat_argg) %in% c("progress"))], pretty = TRUE, force = TRUE)
       cat(paste(jsonzgg,"\n"), file = "tmpcode/zgg.json")
       file.copy("tmpcode/zgg.json",file)
     },
@@ -1647,13 +1643,14 @@ shinyServer(function(input, output, session) {
   #Downloads the bipartite plot configuration parameters
   output$bipartitesaveBipConfigFile <- downloadHandler(
     filename=function() {
-      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-bipartite-plot-config.json")
+      file<-paste0(gsub(fileExtension, "", input$selectedDataFile), "-bipartite-",input$bipartitePlottype,"-plot-config.json")
       return(file)
     },
     content <- function(file) {
       dir.create("tmpcode/", showWarnings = FALSE)
       bpp$bipartite_argg$plotsdir <-""
-      jsonbpp <- jsonlite::toJSON(x = bpp$bipartite_argg[1:length(bpp$bipartite_argg)-1], pretty = TRUE, force = TRUE)
+      bpp$bipartite_argg$text_rescale <- input$bipartiteTextRescale
+      jsonbpp <- jsonlite::toJSON(x = bpp$bipartite_argg[!(names(bpp$bipartite_argg) %in% c("progress"))], pretty = TRUE, force = TRUE)
       cat(paste(jsonbpp,"\n"), file = "tmpcode/bpp.json")
       file.copy("tmpcode/bpp.json",file)
     },
