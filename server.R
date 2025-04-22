@@ -455,7 +455,7 @@ shinyServer(function(input, output, session) {
                            color_guild_a = c(input$bipartiteColorGuildA1, input$bipartiteColorGuildA2),
                            color_guild_b = c(input$bipartiteColorGuildB1, input$bipartiteColorGuildB2),
                            hide_plot_border = TRUE,
-                           guild_gap_increase = (100+input$bipartiteGuildgapincrease)/100,
+                           guild_gap_increase = input$bipartiteGuildgapincrease,
                            size_link = input$bipartiteLinkSize,
                            label_strguilda = trim(input$DataLabelGuildAControl),
                            label_strguildb = trim(input$DataLabelGuildBControl),
@@ -1583,7 +1583,6 @@ shinyServer(function(input, output, session) {
       comando <- addCallParam(comando,llamada,"size_link")
       comando <- addCallParam(comando,llamada,"color_link", quote = TRUE)
       comando <- addCallParam(comando,llamada,"lsize_kcoremax")
-      comando <- addCallParam(comando,llamada,"lsize_kcore1")
       comando <- addCallParam(comando,llamada,"lsize_legend")
       comando <- addCallParam(comando,llamada,"lsize_core_box")
       comando <- addCallParam(comando,llamada,"hide_plot_border")

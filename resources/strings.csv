@@ -191,7 +191,7 @@
 "LABEL_BUTTON_SPECIES","Especies","Species"
 "LABEL_FOOTER_CONTENT_LEFT","PFC Representación gráfica de redes bipartitas basada en descomposición k-core","PFC Graphical representation of bipartite networks based on k-shell decomposition"
 "LABEL_MENU_BIPARTITE_PANEL","Bipartito","Bipartite"
-"LABEL_BIPARTITE_GUILD_GAP_INCREASE", "Separación entre clases (%)", "Guild gap (%)"
+"LABEL_BIPARTITE_GUILD_GAP_INCREASE", "Expandir separación de clases", "Guild gap expansion"
 "LABEL_BIPARTITE_NODE_RESCALE", "Tamaño del nodo", "Node size"
 "LABEL_BIPARTITE_PLOTTYPE", "Estilo", "Style"
 "LABEL_BIPARTITE_ZOOM_SVGPLOT", "Zoom", "Zoom"

@@ -29,10 +29,10 @@ bipartiteGuildgapincreaseControl <- function() {
     #label   = controlLabel(HTML(paste("&larr;",strings$value("LABEL_BIPARTITE_GUILD_GAP_INCREASE"),"&rarr;"))),
     label   = controlLabel(HTML(strings$value("LABEL_BIPARTITE_GUILD_GAP_INCREASE"))),
     
-    min     = -80,
-    max     = 200,
-    value   = 0,
-    step    = 20
+    min     = 0.5,
+    max     = 3,
+    value   = 1,
+    step    = 0.2
   )
   return(control)
 }
