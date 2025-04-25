@@ -461,7 +461,7 @@ shinyServer(function(input, output, session) {
                            label_strguildb = trim(input$DataLabelGuildBControl),
                            svg_scale_factor = 1,
                            lsize_kcoremax  = 4.5*input$bipartiteTextRescale,
-                           lsize_legend = 5*input$bipartiteTextRescale,
+                           lsize_legend = 4.5*input$bipartiteTextRescale,
                            landscape_plot  = input$paperLandscape,
                            show_title = input$bipartiteShowTitle,
                            show_legend = input$bipartiteShowLegend,
