@@ -1360,7 +1360,7 @@ shinyServer(function(input, output, session) {
   output$matrixDownload <- downloadHandler(
     filename=function() {
       opt <- calculateDiagramOptions(4, as.numeric(input$matrixppi), input$matrixfileextension, input$show_title, input$show_legend)
-      file<-paste0(get_network_name(input$selectedDataFile), "MATRIX_orderby_",input$matrixOrderby,".",input$matrixfileextension)
+      file<-paste0(get_network_name(input$selectedDataFile), "_MATRIX_orderby_",input$matrixOrderby,".",input$matrixfileextension)
       return(file)
     },
     content <- function(file) {
