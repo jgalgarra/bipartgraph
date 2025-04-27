@@ -39,7 +39,6 @@
 "M_PL_072_10.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_031.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_033.csv";"Pollinator";"Plant";",";TRUE
-"M_PL_039.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_036.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_001.csv";"Disperser";"Seed";",";TRUE
 "M_SD_004.csv";"Disperser";"Seed";",";TRUE
@@ -64,7 +63,6 @@
 "M_SD_031_clean.csv";"Disperser";"Seed";",";TRUE
 "M_SD_014.csv";"Disperser";"Seed";",";TRUE
 "M_SD_013.csv";"Disperser";"Seed";",";TRUE
-"M_SD_012.csv";"Disperser";"Seed";",";TRUE
 "RA_HP_007.csv";"Host";"Parasite";",";TRUE
 "RA_HP_047.csv";"Host";"Parasite";",";TRUE
 "RA_HP_051.csv";"Host";"Parasite";",";TRUE
@@ -82,7 +80,6 @@
 "RA_HP_048.csv";"Host";"Parasite";",";TRUE
 "RA_HP_049.csv";"Host";"Parasite";",";TRUE
 "RA_HP_050.csv";"Host";"Parasite";",";TRUE
-"RA_HP_042.csv";"Host";"Parasite";",";TRUE
 "RA_HP_002.csv";"Host";"Parasite";",";TRUE
 "M_PL_043.csv";"Pollinator";"Plant";",";TRUE
 "M_PL_045.csv";"Pollinator";"Plant";",";TRUE
@@ -95,9 +92,13 @@
 "RA_HP_017.csv";"Host";"Parasite";",";TRUE
 "M_SD_026.csv";"Disperser";"Seed";",";TRUE
 "M_SD_026copia.csv";"Disperser";"Seed";",";TRUE
-"Polidori_2025.csv";"Plant";"Pollinator";",";TRUE
 "M_PL_006.csv";"Pollinator";"Plant";",";TRUE
 "M_SD_003.csv";"Disperser";"Seed";",";TRUE
 "example-try-this-first.csv";"Seed";"Disperser";",";TRUE
 "Safariland.csv";"Pollinator";"Plant";",";TRUE
 "dattilo2014.csv";"Ant";"Plant";",";TRUE
+"M_PL_039.csv";"Pollinator";"Plant";",";TRUE
+"RA_HP_042.csv";"Host";"Parasite";",";TRUE
+"M_SD_012.csv";"Disperser";"Seed";",";TRUE
+"M_PL_041.csv";"Pollinator";"Plant";",";TRUE
+"Polidori_2025.csv";"Plant";"Pollinator";",";TRUE
