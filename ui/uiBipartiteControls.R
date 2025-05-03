@@ -32,7 +32,7 @@ bipartiteGuildgapincreaseControl <- function() {
     min     = 0.5,
     max     = 3,
     value   = 1,
-    step    = 0.2
+    step    = 0.1
   )
   return(control)
 }
@@ -134,7 +134,7 @@ bipartiteTextRescaleControl <- function() {
   control<-sliderInput(
     inputId = "bipartiteTextRescale",
     label   = controlLabel(strings$value("LABEL_ZIGGURAT_TEXT_SCALE")),
-    min     = 0.2,
+    min     = 0.1,
     max     = 5,
     value   = 1,
     step    = 0.2
