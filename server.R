@@ -481,6 +481,7 @@ shinyServer(function(input, output, session) {
       shinyjs::disable("bipartiteweighted_links")
     else
       shinyjs::enable("bipartiteweighted_links")
+    
     updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,TRUE)
     updateSliderContents(bplot,"titleguildA","titleguildB",input$bipartiteColorGuildA1,input$bipartiteColorGuildB1,FALSE)
     session$sendCustomMessage(type="disableDivHandler", list(id="bipartite", disable=FALSE))
@@ -1064,7 +1065,6 @@ shinyServer(function(input, output, session) {
     namesg <- cabecera
     nname <- get_network_name(pfile)
     details <- paste("<br><span class='GuildTitle' valign='top'><h5 style='color:",labelcol[1],"'>",namesg,"</h5></span>")
-    labels <- clean_species_names(names(mylabels),nname)
     for (i in 1:length(labels))
       labels[i] <- paste0("<span class='GuildNamesList'>
                           <a href='https://",

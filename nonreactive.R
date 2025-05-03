@@ -14,7 +14,6 @@ showNodeDetails <- function(type, kcore, nodeDf,network) {
   
   # Create rows
   name    <- nodeDf[1, c("name_species")]
-  name    <- clean_species_names(name,network)
   label   <- nodeDf[1, c("label")]
   label   <- paste0("tags$a(\"", label, "\", href=\"", paste0("javascript:linktoWiki('", type, "',", label, ", '", name , "', '", WikipediaSubdomain , "')"), "\")")
   kcore   <- paste0("\"", kcore, "\"")
@@ -351,11 +350,11 @@ create_zigg_report <- function(z,input_file, output_file) {
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle' style='color:",zgg$color_guild_b[2],"'>",zgg$name_guild_b,"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
-  labelsA <- clean_species_names(names(zgg$result_analysis$matrix[1,]),zgg$network_name)
+  labelsA <- names(zgg$result_analysis$matrix[1,])
   for (i in 1:length(labelsA))
     names_A <- paste(names_A,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_a[1],"'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
   names_B <- ""
-  labelsB <- clean_species_names(names(zgg$result_analysis$matrix[,1]),zgg$network_name)
+  labelsB <- names(zgg$result_analysis$matrix[,1])
   for (i in 1:length(labelsB))
     names_B <- paste(names_B,"<tr><td class='GuildNamesList'style='color:",zgg$color_guild_b[1],"'>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'  style='color:",zgg$color_guild_a[1],"'>",names_A,"</span>"), modified_text)
@@ -387,7 +386,7 @@ if (inputcontrol1 != inputcontrol2){
 headslider <- function(guildid,colorg,labelg,matrixspec,nname,text_vertical=TRUE){
   separator <- ifelse(text_vertical,"<br>","&nbsp;&nbsp;")
   namesg <- ""
-  labelsguild <- clean_species_names(names(matrixspec),nname)
+  labelsguild <- names(matrixspec)
   for (i in 1:length(labelsguild))
     namesg <- paste(namesg,sprintf("%2d",i),labelsguild[i],separator)
   return <- paste0("<span class=\"sliderGuildTitle\" id=\"",guildid,"\"  style=\"color:",colorg,"\">",labelg,
@@ -411,14 +410,6 @@ updateSliderContents <- function(myenv,labelA,labelB,colorA1,colorB1,t_vertical=
   jscode <- paste0("document.getElementById('slideTextId",idext,"').innerHTML='",textinSlider,"';")
   runjs(jscode)
 }
-
-clean_species_names <- function(listspecies,nnetwork){
-  splabels <- gsub("\\."," ",listspecies)
-  splabels <- gsub(nnetwork,"",splabels)
-  splabels <- trimws(splabels)
-  return <- splabels
-}
-
 
 create_static_report <- function(p, input_file, output_file, result_analysis, strGuildA,
                                  strGuildB, w = static_plot_width, h = static_plot_width, 
@@ -564,11 +555,11 @@ create_polar_report <- function(p, input_file, output_file, w = 10, h = 10) {
   modified_text <- gsub("STR_GUILD_B", paste0("<span class='GuildTitle'>",p$polar_argg$glabels[2],"</span >"), modified_text)
   pastechar ="<br style='display: block; margin: 1px;'>"
   names_A <- ""
-  labelsA <- clean_species_names(names(p$result_analysis$matrix[1,]),nname)
+  labelsA <- names(p$result_analysis$matrix[1,])
   for (i in 1:length(labelsA))
     names_A <- paste(names_A,"<tr><td class='GuildNamesList'>",sprintf("%2d",i)," ",labelsA[i],"</td><tr>")
   names_B <- ""
-  labelsB <- clean_species_names(names(p$result_analysis$matrix[,1]),nname)
+  labelsB <- names(p$result_analysis$matrix[,1])
   for (i in 1:length(labelsB))
     names_B <- paste(names_B,"<tr><td class='GuildNamesList''>",sprintf("%2d",i)," ",labelsB[i],"</td><tr>")
   modified_text <- gsub("STR_SPECIES_A", paste0("<span class='GuildNamesList'>",names_A,"</span>"), modified_text)
