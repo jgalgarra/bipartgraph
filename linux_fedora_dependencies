@@ -1,0 +1,9 @@
+# First step, update your distro
+sudo dnf update
+# Install R. 
+sudo dnf install -y R-core R-core-devel R-java R-java-devel libRmath libRmath-devel
+# Development tools. For Fedora 40+
+sudo dnf group install c-development development-tools
+# Fedora library dependencies to compile R packages
+sudo dnf install libcurl-devel openssl-devel libxml2-devel fontconfig-devel harfbuzz-devel fribidi-devel freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel
+
